@@ -40,10 +40,10 @@ public class Example {
     public static void main(String[] args) {
         try {
             platformConfig = new PlatformConfig(
-                    "e53a8067-aac2-46b7-9b95-84ddf035a374",
-                    "e53a8067-aac2-46b7-9b95-84ddf035a374",
-                    "e91d0f4d4238b2e01c008c214997df0aec117b2d",
-                    "e80b403b7d69f00c82093d347182b87dda666a02",
+                    "COMPANY_ID",
+                    "API_KEY",
+                    "API_SECRET",
+                    "API_TOKEN",
                     "https://api.potleez5.de",
                     false
             );
