@@ -49,7 +49,14 @@ public class Example {
             );
 
             List<PlatformModels.Items> items = new ArrayList<>();
-            items.add(new PlatformModels.Items("1", "1", 0.0, 0.0));
+            PlatformModels.Items item = PlatformModels.Items
+                    .builder()
+                    .category("1")
+                    .sku("1")
+                    .rate(0.0)
+                    .quantity(0.0)
+                    .build();
+            items.add(item);
             PlatformModels.Location geoLocation = new PlatformModels.Location(111.0, 111.0);
 
             PlatformModels.OrderAddress shippingAddress = new PlatformModels.OrderAddress("123 Shipping Street", "Apt 1", "Shipping City",
