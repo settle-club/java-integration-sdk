@@ -96,7 +96,8 @@ public class Example {
         }
     }
 }
-```java 
+```
+java
 
 ### Documentation
 * [Platform](documentation/platform/README.md)
