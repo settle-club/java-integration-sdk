@@ -48,52 +48,28 @@ public class Example {
                     false
             );
 
-            List<PlatformModels.Items> items = new ArrayList<>();
-            PlatformModels.Items item = PlatformModels.Items
-                    .builder()
-                    .category("1")
-                    .sku("1")
-                    .rate(0.0)
-                    .quantity(0.0)
-                    .build();
-            items.add(item);
-            PlatformModels.Location geoLocation = new PlatformModels.Location(111.0, 111.0);
+            platformClient = new PlatformClient(platformConfig);
 
-            PlatformModels.OrderAddress shippingAddress = new PlatformModels.OrderAddress("123 Shipping Street", "Apt 1", "Shipping City",
-                    "Shipping State", "Shipping Country", "400076", "Home", geoLocation);
-
-
-            PlatformModels.CustomerObject customer = PlatformModels.CustomerObject.builder().countryCode("91")
-                    .mobile("8898518242")
-                    .uid("1").build();
+            PlatformModels.CustomerObject customer = PlatformModels.CustomerObject.builder().countryCode("91").mobile("8898518242").uid("1").build();
 
             PlatformModels.Device device = PlatformModels.Device.builder().ipAddress("127.0.0.1").userAgent("moz").build();
 
-           PlatformModels.Order order = new PlatformModels.Order(
-                    10000,
-                    "1",
-                    3.0,
-                    items,
-                    shippingAddress,
-                    shippingAddress);
+            PlatformModels.Order order =  PlatformModels.Order.builder().valueInPaise(100000).uid("123").build();
 
+            PlatformModels.VerifyCustomer verifyCustomer = PlatformModels.VerifyCustomer.builder().customer(customer).order(order).device(device).build();
 
-                    PlatformModels.VerifyCustomerSuccess verifyCustomerSuccess = platformClient.customer.verify(
-                   platformConfig.getOrganizationId(),
-                   new PlatformModels.VerifyCustomer(
-                           customer,
-                           order,
-                           device,
-                           new PlatformModels.MetaSchema(),
-                           true,
-                           true
-                   )
-           );
-          PlatformModels.CreateTransactionSuccess createTransactionSuccess = platformClient.customer.createOrder(
-                   platformConfig.getOrganizationId(),
-                   PlatformModels.CreateTransaction.builder().redirectUrl("https://www.google.com").customer(customer).order(order).build()
-           );
+            PlatformModels.VerifyCustomerSuccess verifyCustomerSuccess = platformClient.customer.verify(
+                    platformConfig.getOrganizationId(),
+                    verifyCustomer
+            );
 
+            PlatformModels.CreateTransaction createTransaction = PlatformModels.CreateTransaction.builder().customer(customer).order(order).redirectUrl("https://www.google.com").build();
+
+            PlatformModels.CreateTransactionSuccess createTransactionSuccess = platformClient.customer.createOrder(
+                    platformConfig.getOrganizationId(),
+                    createTransaction
+            );
+   
         } catch (Exception e) {
             System.out.println(e);
         }
