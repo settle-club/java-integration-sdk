@@ -15,7 +15,7 @@ Get started with the Java Development SDK for Potlee
 <dependency>
     <groupId>com.github.gofynd</groupId>
     <artifactId>settle-client-java</artifactId>
-    <version>v1.0.0</version>
+    <version>1.0.0</version>
 </dependency>
 ```
 
