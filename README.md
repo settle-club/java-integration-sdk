@@ -58,6 +58,7 @@ public class Example {
 
             PlatformModels.VerifyCustomer verifyCustomer = PlatformModels.VerifyCustomer.builder().customer(customer).order(order).device(device).build();
 
+            // Use this API to verify the customer.
             PlatformModels.VerifyCustomerSuccess verifyCustomerSuccess = platformClient.customer.verify(
                     platformConfig.getOrganizationId(),
                     verifyCustomer
@@ -65,6 +66,7 @@ public class Example {
 
             PlatformModels.CreateTransaction createTransaction = PlatformModels.CreateTransaction.builder().customer(customer).order(order).redirectUrl("https://www.google.com").build();
 
+            // Use this API to create transaction for user.
             PlatformModels.CreateTransactionSuccess createTransactionSuccess = platformClient.customer.createOrder(
                     platformConfig.getOrganizationId(),
                     createTransaction
@@ -76,6 +78,8 @@ public class Example {
     }
 }
 ```
+
+### Compatible with 21 Language
 
 ### Documentation
 * [Platform](documentation/platform/README.md)
