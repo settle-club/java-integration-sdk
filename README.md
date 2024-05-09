@@ -5,7 +5,7 @@ Settle client for Java language
 
 
 ## Getting Started
-Get started with the Java Development SDK for Potlee
+Get started with the Java Development SDK for Potlee, Compatible with Java 21.
 
 
 # Usage
@@ -78,8 +78,6 @@ public class Example {
     }
 }
 ```
-
-### Compatible with 21 Language
 
 ### Documentation
 * [Platform](documentation/platform/README.md)
