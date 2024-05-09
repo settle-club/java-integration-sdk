@@ -48,16 +48,12 @@ public static class CustomerService {
     
     
     public PlatformModels.VerifyCustomerSuccess verify(String organizationId ,PlatformModels.VerifyCustomer body) throws IOException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.VerifyCustomerSuccess> response = customerApiList.verify(organizationId  , body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
                 }
             return response.body();
-        } else {
-            return null;
-        }    
     }
     
     
@@ -73,16 +69,12 @@ public static class CustomerService {
     
     
     public PlatformModels.CreateTransactionSuccess resendPaymentRequest(String organizationId ,PlatformModels.ResendPaymentRequest body) throws IOException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CreateTransactionSuccess> response = customerApiList.resendPaymentRequest(organizationId  , body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
                 }
             return response.body();
-        } else {
-            return null;
-        }    
     }
     
     
@@ -98,16 +90,12 @@ public static class CustomerService {
     
     
     public PlatformModels.CreateTransactionSuccess createOrder(String organizationId ,PlatformModels.CreateTransaction body) throws IOException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CreateTransactionSuccess> response = customerApiList.createOrder(organizationId  , body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
                 }
             return response.body();
-        } else {
-            return null;
-        }    
     }
     
     
@@ -123,16 +111,12 @@ public static class CustomerService {
     
     
     public PlatformModels.LinkAccountSuccess link(String organizationId ,PlatformModels.LinkAccount body) throws IOException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.LinkAccountSuccess> response = customerApiList.link(organizationId  , body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
                 }
             return response.body();
-        } else {
-            return null;
-        }    
     }
     
     
@@ -148,16 +132,12 @@ public static class CustomerService {
     
     
     public PlatformModels.UnlinkAccountSuccess unlink(String organizationId ,PlatformModels.UnlinkAccount body) throws IOException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.UnlinkAccountSuccess> response = customerApiList.unlink(organizationId  , body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
                 }
             return response.body();
-        } else {
-            return null;
-        }    
     }
     
     
@@ -173,16 +153,12 @@ public static class CustomerService {
     
     
     public PlatformModels.GetAccessTokenResponse getAccessToken(String organizationId ) throws IOException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GetAccessTokenResponse> response = customerApiList.getAccessToken(organizationId  ).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
                 }
             return response.body();
-        } else {
-            return null;
-        }    
     }
     
     
@@ -198,16 +174,12 @@ public static class CustomerService {
     
     
     public PlatformModels.RefreshTokenResponse renewAccessToken(String organizationId ,PlatformModels.RefreshTokenRequest body) throws IOException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.RefreshTokenResponse> response = customerApiList.renewAccessToken(organizationId  , body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
                 }
             return response.body();
-        } else {
-            return null;
-        }    
     }
     
     
@@ -223,16 +195,12 @@ public static class CustomerService {
     
     
     public PlatformModels.VerifyCustomerSuccess refund(String organizationId ,PlatformModels.Refund body) throws IOException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.VerifyCustomerSuccess> response = customerApiList.refund(organizationId  , body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
                 }
             return response.body();
-        } else {
-            return null;
-        }    
     }
     
     
@@ -256,16 +224,12 @@ public static class CustomerService {
     
     
     public PlatformModels.RefundStatus refundStatus(String organizationId , String refundId , String orderId ) throws IOException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.RefundStatus> response = customerApiList.refundStatus(organizationId  ,refundId , orderId ).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
                 }
             return response.body();
-        } else {
-            return null;
-        }    
     }
     
     
@@ -281,16 +245,12 @@ public static class CustomerService {
     
     
     public PlatformModels.GetSchemesSuccess getSchemes(String organizationId ,PlatformModels.VerifyCustomer body) throws IOException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GetSchemesSuccess> response = customerApiList.getSchemes(organizationId  , body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
                 }
             return response.body();
-        } else {
-            return null;
-        }    
     }
     
     
@@ -371,16 +331,12 @@ public static class CreditService {
     
     
     public PlatformModels.DisbursalResponse disburse(String organizationId ,PlatformModels.DisbursalRequest body) throws IOException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.DisbursalResponse> response = creditApiList.disburse(organizationId  , body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
                 }
             return response.body();
-        } else {
-            return null;
-        }    
     }
     
     
@@ -400,16 +356,12 @@ public static class CreditService {
     
     
     public PlatformModels.OrderStatus getOrderStatus(String organizationId , String orderId ) throws IOException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.OrderStatus> response = creditApiList.getOrderStatus(organizationId  , orderId  ).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
                 }
             return response.body();
-        } else {
-            return null;
-        }    
     }
     
     
@@ -429,16 +381,12 @@ public static class CreditService {
     
     
     public PlatformModels.EligiblePlansResponse getEligiblePlans(String organizationId , String lenderSlug ,PlatformModels.EligiblePlansRequest body) throws IOException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.EligiblePlansResponse> response = creditApiList.getEligiblePlans(organizationId  , lenderSlug  , body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
                 }
             return response.body();
-        } else {
-            return null;
-        }    
     }
     
     
@@ -505,16 +453,12 @@ public static class MultiKycService {
     
     
     public PlatformModels.ApprovedLendersTransaction approvedLenders(Object organizationId ) throws IOException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ApprovedLendersTransaction> response = multikycApiList.approvedLenders(organizationId  ).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
                 }
             return response.body();
-        } else {
-            return null;
-        }    
     }
     
     
@@ -530,16 +474,12 @@ public static class MultiKycService {
     
     
     public PlatformModels.IntgrCreditLimit getLimit(String organizationId ,PlatformModels.GetLimitRequest body) throws IOException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.IntgrCreditLimit> response = multikycApiList.getLimit(organizationId  , body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
                 }
             return response.body();
-        } else {
-            return null;
-        }    
     }
     
     
