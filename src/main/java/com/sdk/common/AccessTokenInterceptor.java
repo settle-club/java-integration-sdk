@@ -19,6 +19,8 @@ public class AccessTokenInterceptor implements Interceptor {
 
     @Override
     public Response intercept(Chain chain) throws IOException {
+        AccessTokenDto token = platformConfig.getPlatformOauthClient().getAccessTokenObj("authorization_code");
+        platformConfig.getPlatformOauthClient().setToken(token);
         okhttp3.Request original = chain.request();
         okhttp3.Request.Builder builder = original.newBuilder()
                 .addHeader("Authorization", "Bearer "+ platformConfig.getPlatformOauthClient().getToken())
