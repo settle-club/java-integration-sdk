@@ -48,10 +48,6 @@ public class Example {
                     false
             );
 
-            AccessTokenDto token = platformConfig.getPlatformOauthClient().getAccessTokenObj("authorization_code");
-            platformConfig.getPlatformOauthClient().setToken(token);
-            platformClient = new PlatformClient(platformConfig);
-
             List<PlatformModels.Items> items = new ArrayList<>();
             items.add(new PlatformModels.Items("1", "1", 0.0, 0.0));
             PlatformModels.Location geoLocation = new PlatformModels.Location(111.0, 111.0);
