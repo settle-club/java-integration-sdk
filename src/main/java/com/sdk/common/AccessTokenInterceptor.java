@@ -20,7 +20,6 @@ public class AccessTokenInterceptor implements Interceptor {
     @Override
     public Response intercept(Chain chain) throws IOException {
         okhttp3.Request original = chain.request();
-         String bearerToken = Base64.getEncoder().encodeToString((platformConfig.getApiKey()+":"+ platformConfig.getApiSecret()).getBytes());
         okhttp3.Request.Builder builder = original.newBuilder()
                 .addHeader("Authorization", "Bearer "+ platformConfig.getPlatformOauthClient().getToken())
                 .addHeader("Content-Type", "application/json")
