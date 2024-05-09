@@ -11,7 +11,7 @@ Get started with the Java Development SDK for Potlee
 # Usage
 
 1. Create Maven project and add the dependency in the pom.xml 
-```
+```xml
 <dependency>
     <groupId>com.github.gofynd</groupId>
     <artifactId>settle-client-java</artifactId>
@@ -20,7 +20,7 @@ Get started with the Java Development SDK for Potlee
 ```
 
 2. Add it in your root pom.xml at the end of repositories:
-```
+```xml
 <repositories>
     <repository>
         <id>jitpack.io</id>
@@ -32,7 +32,7 @@ Get started with the Java Development SDK for Potlee
 3. Start integrating
 
 ### Exampe Usage 
-```
+```java
 public class Example {
     static PlatformConfig platformConfig;
     static PlatformClient platformClient;
@@ -97,7 +97,6 @@ public class Example {
     }
 }
 ```
-java
 
 ### Documentation
 * [Platform](documentation/platform/README.md)
