@@ -15,7 +15,7 @@ jobs:
 
       - name: Set up Git credentials
         run: |
-          git config --local user.email "sharnsalian.dev@gmail.com"
+          git config --local user.email "sharansalian.dev@gmail.com"
           git config --local user.name "sharansalian"
 
       - name: Get commit SHA
