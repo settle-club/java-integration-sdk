@@ -13,24 +13,27 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Create Tag
+      - name: Get latest tag (if available)
+        id: get-tag
         run: |
-          # Get the latest tag from the main branch
-          latest_tag=$(git describe --tags --abbrev=0)
+          if latest_tag=$(git describe --tags --abbrev=0 2>/dev/null); then
+            echo "::set-output name=tag::$latest_tag"
+          else
+            echo "::set-output name=tag::"
+          fi
 
-          # Extract the tag version number
-          tag_version=$(echo "$latest_tag" | grep -oP '\d+\.\d+\.\d+')
-
-          # Increment the minor version number
+      - name: Create Tag
+        if: steps.get-tag.outputs.tag != ''
+        run: |
+          tag_version=$(echo "${{ steps.get-tag.outputs.tag }}" | grep -oP '\d+\.\d+\.\d+')
           IFS='.' read -r major minor patch <<< "$tag_version"
           new_minor=$((minor + 1))
           new_tag_version="$major.$new_minor.$patch"
-
-          # Create the new tag and push it
           git tag -a "$new_tag_version" -m "Automated tag creation on branch merge"
           git push origin "$new_tag_version"
 
       - name: Clean up
+        if: steps.get-tag.outputs.tag != ''
         run: |
           git fetch --tags
           git tag -d "$new_tag_version"
