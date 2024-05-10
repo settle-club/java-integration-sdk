@@ -1,28 +1,37 @@
-name: 'Merge `release/x.x.x` to main & create x.x.x tag'
+name: Create Tag on Merge
+
 on:
-  pull_request:
-    types:
-      - opened
+  push:
+    branches:
+      - main
+
 jobs:
   create-tag:
     runs-on: ubuntu-latest
-    if: startsWith(github.event.pull_request.head.ref, 'release/')
+
     steps:
-      - name: Create tag
-        id: create_tag
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Create Tag
         run: |
-          tag=$(echo ${{ github.event.pull_request.head.ref }} | sed 's/release\///')
-          echo ::set-output name=tag::$tag
-      - uses: actions/checkout@v2
-      - run: |
-          git tag ${{ steps.create_tag.outputs.tag }}
-          git push origin ${{ steps.create_tag.outputs.tag }}
-  merge-to-main:
-    runs-on: ubuntu-latest
-    if: startsWith(github.event.pull_request.head.ref, 'release/')
-    steps:
-      - uses: mtanzi/action-automerge@v1
-        with:
-          github_token: ${{ github.token }}
-          source: ${{ github.event.pull_request.head.ref }}
-          target: 'main'
+          # Get the latest tag from the main branch
+          latest_tag=$(git describe --tags --abbrev=0)
+
+          # Extract the tag version number
+          tag_version=$(echo "$latest_tag" | grep -oP '\d+\.\d+\.\d+')
+
+          # Increment the minor version number
+          IFS='.' read -r major minor patch <<< "$tag_version"
+          new_minor=$((minor + 1))
+          new_tag_version="$major.$new_minor.$patch"
+
+          # Create the new tag and push it
+          git tag -a "$new_tag_version" -m "Automated tag creation on branch merge"
+          git push origin "$new_tag_version"
+
+      - name: Clean up
+        run: |
+          git fetch --tags
+          git tag -d "$new_tag_version"
+          git push origin ":refs/tags/$new_tag_version"
