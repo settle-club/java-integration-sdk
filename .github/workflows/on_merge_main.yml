@@ -1,40 +1,25 @@
-name: Create Tag on Merge
-
+name: "Tag on Pull Request merge"
 on:
-  push:
+  # Should trigger only when a Pull Request is Closed
+  # (the action will not create the Tag if the Pull Request is discarded - closed without merge)
+  pull_request:
+    types:
+      - closed
     branches:
       - main
 
 jobs:
-  create-tag:
+  TagOnPR:
+    name: Tag on Pull Request merge
     runs-on: ubuntu-latest
-
+    # This 'if' condition is important for ensuring the workflow only runs for merged PRs
+    #  (avoid running when a PR is discarded - closed without merging)
+    if: github.event.pull_request.merged == true
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Get latest tag (if available)
-        id: get-tag
-        run: |
-          if latest_tag=$(git describe --tags --abbrev=0 2>/dev/null); then
-            echo "::set-output name=tag::$latest_tag"
-          else
-            echo "::set-output name=tag::"
-          fi
-
-      - name: Create Tag
-        if: steps.get-tag.outputs.tag != ''
-        run: |
-          tag_version=$(echo "${{ steps.get-tag.outputs.tag }}" | grep -oP '\d+\.\d+\.\d+')
-          IFS='.' read -r major minor patch <<< "$tag_version"
-          new_minor=$((minor + 1))
-          new_tag_version="$major.$new_minor.$patch"
-          git tag -a "$new_tag_version" -m "Automated tag creation on branch merge"
-          git push origin "$new_tag_version"
-
-      - name: Clean up
-        if: steps.get-tag.outputs.tag != ''
-        run: |
-          git fetch --tags
-          git tag -d "$new_tag_version"
-          git push origin ":refs/tags/$new_tag_version"
+      - name: Tag on PR merge
+        id: tag-on-pr-merge
+        uses: David-Lor/action-tag-on-pr-merge@main
+        with:
+          push-tag: true
+      - name: Print fetched tag
+        run: echo "${{ steps.tag-on-pr-merge.outputs.tag }}"
