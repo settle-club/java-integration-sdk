@@ -1,25 +1,31 @@
-name: "Tag on Pull Request merge"
+name: Tag and Release on Main Push
+
 on:
-  # Should trigger only when a Pull Request is Closed
-  # (the action will not create the Tag if the Pull Request is discarded - closed without merge)
-  pull_request:
-    types:
-      - closed
+  push:
     branches:
       - main
 
 jobs:
-  TagOnPR:
-    name: Tag on Pull Request merge
+  tag-and-release:
     runs-on: ubuntu-latest
-    # This 'if' condition is important for ensuring the workflow only runs for merged PRs
-    #  (avoid running when a PR is discarded - closed without merging)
-    if: github.event.pull_request.merged == true
+
     steps:
-      - name: Tag on PR merge
-        id: tag-on-pr-merge
-        uses: David-Lor/action-tag-on-pr-merge@main
-        with:
-          push-tag: true
-      - name: Print fetched tag
-        run: echo "${{ steps.tag-on-pr-merge.outputs.tag }}"
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Git credentials
+        run: |
+          git config --local user.email "sharnsalian.business@gmail.com"
+          git config --local user.name "GitHub Actions"
+
+      - name: Get commit SHA
+        id: commit_sha
+        run: echo "${GITHUB_SHA::8}" # Extracts the first 8 characters of the commit SHA
+
+      - name: Create Tag and Release
+        run: |
+          git tag -a "v${{ steps.commit_sha.outputs.stdout }}" -m "Automated tag creation on main push"
+          git push origin "v${{ steps.commit_sha.outputs.stdout }}"
+          hub release create -m "Release v${{ steps.commit_sha.outputs.stdout }}" "v${{ steps.commit_sha.outputs.stdout }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
