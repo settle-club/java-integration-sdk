@@ -2,6 +2,8 @@
 
 
 Settle client for Java language
+[![](https://jitpack.io/v/settle-finance/java-integration-sdk.svg)](https://jitpack.io/#settle-finance/java-integration-sdk)
+
 
 
 ## Getting Started
