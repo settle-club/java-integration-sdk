@@ -1,0 +1,28 @@
+name: 'Merge `release/x.x.x` to main & create x.x.x tag'
+on:
+  pull_request:
+    types:
+      - opened
+jobs:
+  create-tag:
+    runs-on: ubuntu-latest
+    if: startsWith(github.event.pull_request.head.ref, 'release/')
+    steps:
+      - name: Create tag
+        id: create_tag
+        run: |
+          tag=$(echo ${{ github.event.pull_request.head.ref }} | sed 's/release\///')
+          echo ::set-output name=tag::$tag
+      - uses: actions/checkout@v2
+      - run: |
+          git tag ${{ steps.create_tag.outputs.tag }}
+          git push origin ${{ steps.create_tag.outputs.tag }}
+  merge-to-main:
+    runs-on: ubuntu-latest
+    if: startsWith(github.event.pull_request.head.ref, 'release/')
+    steps:
+      - uses: mtanzi/action-automerge@v1
+        with:
+          github_token: ${{ github.token }}
+          source: ${{ github.event.pull_request.head.ref }}
+          target: 'main
