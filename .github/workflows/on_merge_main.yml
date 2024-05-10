@@ -1,31 +1,16 @@
-name: Tag and Release on Main Push
-
 on:
-  push:
-    branches:
-      - main
+  release:
+    types: [created]
 
 jobs:
-  tag-and-release:
+
+  trigger-jitpack-build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+      - name: checkout repository
+        uses: actions/checkout@v3
 
-      - name: Set up Git credentials
+      - name: trigger build on jitpack
         run: |
-          git config --local user.email "sharansalian.dev@gmail.com"
-          git config --local user.name "sharansalian"
-
-      - name: Get commit SHA
-        id: commit_sha
-        run: echo "${GITHUB_SHA::8}" # Extracts the first 8 characters of the commit SHA
-
-      - name: Create Tag and Release
-        run: |
-          git tag -a "v${{ steps.commit_sha.outputs.stdout }}" -m "Automated tag creation on main push"
-          git push origin "v${{ steps.commit_sha.outputs.stdout }}"
-          hub release create -m "Release v${{ steps.commit_sha.outputs.stdout }}" "v${{ steps.commit_sha.outputs.stdout }}"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          curl --request GET "https://jitpack.io/api/builds/settle-finance/java-integration-sdk/${{ github.event.release.tag_name }}"
