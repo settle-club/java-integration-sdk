@@ -1447,12 +1447,6 @@ public static class Order {
     
     
     
-    @JsonProperty("emiTenure")
-    private Double emiTenure;
-    
-    
-    
-    
     @JsonProperty("items")
     private List<Items> items;
     
@@ -1653,6 +1647,12 @@ public static class VerifyCustomer {
     
     
     
+    @JsonProperty("fetchPlans")
+    private Boolean fetchPlans;
+    
+    
+    
+    
 }
 
 /*
@@ -1702,6 +1702,18 @@ public static class CreateTransaction {
     
     @JsonProperty("meta")
     private Object meta;
+    
+    
+    
+    
+    @JsonProperty("emiTenure")
+    private Integer emiTenure;
+    
+    
+    
+    
+    @JsonProperty("lenderId")
+    private String lenderId;
     
     
     
@@ -1778,6 +1790,18 @@ public static class VerifyCustomerSuccess {
     
     @JsonProperty("message")
     private String message;
+    
+    
+    
+    
+    @JsonProperty("schemes")
+    private List<SchemeResponse> schemes;
+    
+    
+    
+    
+    @JsonProperty("limit")
+    private LimitResponse limit;
     
     
     
@@ -5116,6 +5140,41 @@ public static class RefundStatus {
 }
 
 /*
+    Model: GetSchemesSuccess
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GetSchemesSuccess {
+    
+    
+    
+    
+    @JsonProperty("userId")
+    private String userId;
+    
+    
+    
+    
+    @JsonProperty("lenders")
+    private List<SchemeResponse> lenders;
+    
+    
+    
+    
+    @JsonProperty("__headers")
+    private Object headers;
+    
+    
+    
+    
+}
+
+/*
     Model: CustomerMetricsPivots
 */
 @AllArgsConstructor
@@ -5302,6 +5361,400 @@ public static class CustomerMetrics {
     
     @JsonProperty("sort")
     private List<CustomerMetricsFilters> sort;
+    
+    
+    
+    
+}
+
+/*
+    Model: SchemeResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SchemeResponse {
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("isDefault")
+    private Boolean isDefault;
+    
+    
+    
+    
+    @JsonProperty("logoUrl")
+    private String logoUrl;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("title")
+    private String title;
+    
+    
+    
+    
+    @JsonProperty("subtitle")
+    private String subtitle;
+    
+    
+    
+    
+    @JsonProperty("amount")
+    private Double amount;
+    
+    
+    
+    
+    @JsonProperty("paymentOptions")
+    private SchemePaymentOptionsResponse paymentOptions;
+    
+    
+    
+    
+}
+
+/*
+    Model: SchemePaymentOptionsResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SchemePaymentOptionsResponse {
+    
+    
+    
+    
+    @JsonProperty("emis")
+    private List<SchemeEmiPaymentOptionResponse> emis;
+    
+    
+    
+    
+    @JsonProperty("payLater")
+    private SchemePayLaterPaymentOptionResponse payLater;
+    
+    
+    
+    
+}
+
+/*
+    Model: SchemeEmiPaymentOptionResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SchemeEmiPaymentOptionResponse {
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("isDefault")
+    private Boolean isDefault;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("title")
+    private String title;
+    
+    
+    
+    
+    @JsonProperty("subtitle")
+    private String subtitle;
+    
+    
+    
+    
+    @JsonProperty("amount")
+    private Double amount;
+    
+    
+    
+    
+    @JsonProperty("interest")
+    private Double interest;
+    
+    
+    
+    
+    @JsonProperty("processingFee")
+    private Double processingFee;
+    
+    
+    
+    
+    @JsonProperty("tenure")
+    private Double tenure;
+    
+    
+    
+    
+    @JsonProperty("emiSchedule")
+    private List<SchemeEmiScheduleResponse> emiSchedule;
+    
+    
+    
+    
+}
+
+/*
+    Model: SchemeEmiScheduleResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SchemeEmiScheduleResponse {
+    
+    
+    
+    
+    @JsonProperty("installmentNo")
+    private Integer installmentNo;
+    
+    
+    
+    
+    @JsonProperty("installmentAmount")
+    private Double installmentAmount;
+    
+    
+    
+    
+    @JsonProperty("dueDate")
+    private String dueDate;
+    
+    
+    
+    
+}
+
+/*
+    Model: SchemePayLaterPaymentOptionResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SchemePayLaterPaymentOptionResponse {
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("title")
+    private String title;
+    
+    
+    
+    
+    @JsonProperty("subtitle")
+    private String subtitle;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("tenure")
+    private Integer tenure;
+    
+    
+    
+    
+    @JsonProperty("interest")
+    private Integer interest;
+    
+    
+    
+    
+    @JsonProperty("processingFee")
+    private Integer processingFee;
+    
+    
+    
+    
+    @JsonProperty("amount")
+    private Integer amount;
+    
+    
+    
+    
+    @JsonProperty("isDefault")
+    private Boolean isDefault;
+    
+    
+    
+    
+}
+
+/*
+    Model: LimitResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class LimitResponse {
+    
+    
+    
+    
+    @JsonProperty("available")
+    private List<AvailableOrPossibleLender> available;
+    
+    
+    
+    
+    @JsonProperty("possible")
+    private List<AvailableOrPossibleLender> possible;
+    
+    
+    
+    
+}
+
+/*
+    Model: AvailableOrPossibleLender
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AvailableOrPossibleLender {
+    
+    
+    
+    
+    @JsonProperty("limit")
+    private Double limit;
+    
+    
+    
+    
+    @JsonProperty("lenderName")
+    private String lenderName;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("isDefault")
+    private Boolean isDefault;
+    
+    
+    
+    
+    @JsonProperty("logo")
+    private String logo;
+    
+    
+    
+    
+}
+
+/*
+    Model: GetSchemesRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GetSchemesRequest {
+    
+    
+    
+    
+    @JsonProperty("customer")
+    private CustomerObject customer;
+    
+    
+    
+    
+    @JsonProperty("order")
+    private Order order;
+    
+    
+    
+    
+    @JsonProperty("device")
+    private Device device;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private Object meta;
     
     
     
@@ -5949,7 +6402,7 @@ public static class LenderAndPaymentOption {
 }
 
 /*
-    Model: GetSchemesSuccess
+    Model: GetSchemesSuccessOld
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -5958,7 +6411,7 @@ public static class LenderAndPaymentOption {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetSchemesSuccess {
+public static class GetSchemesSuccessOld {
     
     
     
@@ -5971,12 +6424,6 @@ public static class GetSchemesSuccess {
     
     @JsonProperty("lenders")
     private List<LenderAndPaymentOption> lenders;
-    
-    
-    
-    
-    @JsonProperty("__headers")
-    private Object headers;
     
     
     
@@ -6116,6 +6563,18 @@ public static class DisbursalRequest {
     
     @JsonProperty("loanAmount")
     private Double loanAmount;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private Object data;
+    
+    
+    
+    
+    @JsonProperty("transactionId")
+    private String transactionId;
     
     
     

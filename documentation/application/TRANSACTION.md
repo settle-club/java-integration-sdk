@@ -2,13 +2,16 @@
 
 
 
-##### [Back to Platform docs](./README.md)
+##### [Back to Application docs](./README.md)
 
-## Credit Methods
+## Transaction Methods
 Transaction Service
 * [disburse](#disburse)
-* [getOrderStatus](#getorderstatus)
-* [getEligiblePlans](#geteligibleplans)
+* [plans](#plans)
+* [kfs](#kfs)
+* [listOfTransactions](#listoftransactions)
+* [loadTransactionById](#loadtransactionbyid)
+* [getMerchantSummary](#getmerchantsummary)
 
 
 
@@ -22,7 +25,7 @@ Disburse the credit
 
 
 ```java
-credit.disburse(body body) {
+transaction.disburse( lenderSlug, body body) {
   //use response
 }
 ```
@@ -31,7 +34,7 @@ credit.disburse(body body) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| organizationId | String | yes | This is organization id |  
+| lenderSlug | String | yes | This is lender slug |  
 | body | [DisbursalRequest](#DisbursalRequest) | yes | Request body |
 
 
@@ -74,14 +77,14 @@ true
 ---
 
 
-### getOrderStatus
-check status of the order
+### plans
+Disburse the credit
 
 
 
 
 ```java
-credit.getOrderStatus( orderId) {
+transaction.plans( lenderSlug, body body) {
   //use response
 }
 ```
@@ -90,96 +93,11 @@ credit.getOrderStatus( orderId) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| organizationId | String | yes | This is organization ID |   
-| orderId | String | yes | This is order ID |  
-
-
-
-Use this API to check status the order.
-
-*Returned Response:*
-
-
-
-
-[OrderStatus](#OrderStatus)
-
-Success. Returns a JSON object as shown below. Refer `OrderStatus` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; orderId</i></summary>
-
-```json
-"FY12345"
-```
-</details>
-
-<details>
-<summary><i>&nbsp; transactionId</i></summary>
-
-```json
-"TXN123567890"
-```
-</details>
-
-<details>
-<summary><i>&nbsp; status</i></summary>
-
-```json
-"PAYMENT_CAPTURED"
-```
-</details>
-
-<details>
-<summary><i>&nbsp; message</i></summary>
-
-```json
-"Payment Accepted"
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### getEligiblePlans
-Get eligible plans
-
-
-
-
-```java
-credit.getEligiblePlans( lenderSlug, body body) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| organizationId | String | yes | This is organization id |   
 | lenderSlug | String | yes | This is lender slug |  
 | body | [EligiblePlansRequest](#EligiblePlansRequest) | yes | Request body |
 
 
-Use this API to Get eligible plans.
+Use this API to disburse the credit.
 
 *Returned Response:*
 
@@ -205,6 +123,245 @@ true
 ```
 </details>
 
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### kfs
+Fetch KFS
+
+
+
+
+```java
+transaction.kfs( lenderSlug, body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| lenderSlug | String | yes | This is lender slug |  
+| body | [KfsRequest](#KfsRequest) | yes | Request body |
+
+
+Use this API to get kfs.
+
+*Returned Response:*
+
+
+
+
+[KfsResponse](#KfsResponse)
+
+Success. Returns a JSON object as shown below. Refer `Kfs` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; success</i></summary>
+
+```json
+true
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### listOfTransactions
+Get List of transactions
+
+
+
+
+```java
+transaction.listOfTransactions( page,  type,  lender,  startDate,  endDate,  loanType,  limit,  partnerId) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| page | Integer | yes | This is page number |   
+| type | List<String>? | no | This is transaction type |   
+| lender | String? | no | This is lenderSlug |   
+| startDate | String? | no | This is date range start date |   
+| endDate | String? | no | This is date range end date |   
+| loanType | String? | no | This is loanType EMI/BNPL |   
+| limit | Integer | yes | This is no of transaction |   
+| partnerId | String? | no | This is partner id |  
+
+
+
+Use this API to get list of user's transaction.
+
+*Returned Response:*
+
+
+
+
+[TransactionResponse](#TransactionResponse)
+
+Success. Returns a JSON object as shown below. Refer `TransactionResponse` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+[
+  {
+    "id": 1,
+    "type": "credit",
+    "amount": "10000",
+    "remark": "Potlee credit"
+  }
+]
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### loadTransactionById
+Get List of transactions
+
+
+
+
+```java
+transaction.loadTransactionById( transactionId) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| transactionId | String | yes | This is transaction id |  
+
+
+
+Use this API to get list of user's transaction.
+
+*Returned Response:*
+
+
+
+
+[Transactions](#Transactions)
+
+Success. Returns a JSON object as shown below. Refer `Transactions` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+[
+  {
+    "id": 1,
+    "userId": "123 \"type\":\"credit\"",
+    "amount": "10000",
+    "remark": "Potlee credit"
+  }
+]
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getMerchantSummary
+Get sum of list of transactions of merchant
+
+
+
+
+```java
+transaction.getMerchantSummary( partnerId) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| partnerId | String | yes | This is partner id |  
+
+
+
+Use this API to get sum of list of transactions of merchan.
+
+*Returned Response:*
+
+
+
+
+[MerchantTransactionSummary](#MerchantTransactionSummary)
+
+Success. Returns a JSON object as shown below. Refer `MerchantTransactionSummary` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
 </details>
 
 
@@ -331,7 +488,6 @@ true
  | transactionId | String? |  yes  |  |
  | status | String |  no  |  |
  | message | String |  no  |  |
- | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -379,6 +535,7 @@ true
  | paidPercent | Double? |  yes  |  |
  | lenderDetail | [LenderDetail](#LenderDetail)? |  yes  |  |
  | emis | ArrayList<[Emi](#Emi)>? |  yes  |  |
+ | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -479,6 +636,7 @@ true
  | filters | ArrayList<[Filters](#Filters)> |  no  |  |
  | page | [PageResponse](#PageResponse) |  no  |  |
  | transactions | ArrayList<[Transactions](#Transactions)> |  no  |  |
+ | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -501,6 +659,7 @@ true
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | merchantOutstandingSummary | [MerchantTransactions](#MerchantTransactions)? |  yes  |  |
+ | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -830,6 +989,7 @@ true
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | kfsTable | String? |  yes  |  |
+ | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 

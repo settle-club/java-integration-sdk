@@ -2,27 +2,33 @@
 
 
 
-##### [Back to Platform docs](./README.md)
+##### [Back to Public docs](./README.md)
 
-## Credit Methods
+## Transaction Methods
 Transaction Service
-* [disburse](#disburse)
-* [getOrderStatus](#getorderstatus)
-* [getEligiblePlans](#geteligibleplans)
+* [getTransactions](#gettransactions)
+* [getAllTransactionsCSV](#getalltransactionscsv)
+* [getTransactionDetails](#gettransactiondetails)
+* [getTransactionCount](#gettransactioncount)
+* [getRefundCount](#getrefundcount)
+* [getSumOfTransactions](#getsumoftransactions)
+* [getCustomerCount](#getcustomercount)
+* [getDayTotal](#getdaytotal)
+* [getTransactionUtrCount](#gettransactionutrcount)
 
 
 
 ## Methods with example and description
 
 
-### disburse
-Disburse the credit
+### getTransactions
+Get List of transactions
 
 
 
 
 ```java
-credit.disburse(body body) {
+transaction.getTransactions( page,  type,  limit,  id,  orderId,  name,  mobile,  entityId,  utr,  startDate,  endDate) {
   //use response
 }
 ```
@@ -31,36 +37,48 @@ credit.disburse(body body) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| organizationId | String | yes | This is organization id |  
-| body | [DisbursalRequest](#DisbursalRequest) | yes | Request body |
+| page | Double | yes | This is page number |   
+| type | List<String>? | no | This is transaction type |   
+| limit | Double | yes | This is no of transaction |   
+| organizationId | String | yes | This is the organization ID |   
+| id | String? | no | This is the search term |   
+| orderId | String? | no | This is the search term |   
+| name | String? | no | This is the search term |   
+| mobile | String? | no | This is the search term |   
+| entityId | String? | no | This is the entity id |   
+| utr | String? | no | This is the UTR number |   
+| startDate | String? | no | This is used to filter from date |   
+| endDate | String? | no | This is used to filter till date |  
 
 
-Use this API to disburse the credit.
+
+Use this API to get list of user's transaction.
 
 *Returned Response:*
 
 
 
 
-[DisbursalResponse](#DisbursalResponse)
+[OrganizationTransactionResponse](#OrganizationTransactionResponse)
 
-Success. Returns a JSON object as shown below. Refer `DisbursalResponse` for more details.
-
-
+Success. Returns a JSON object as shown below. Refer `OrganizationTransactionResponse` for more details.
 
 
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
 
 
 <details>
-<summary><i>&nbsp; success</i></summary>
+<summary><i>&nbsp; Example:</i></summary>
 
 ```json
-true
+[
+  {
+    "id": 1,
+    "type": "credit",
+    "amount": "10000",
+    "remark": "Potlee credit"
+  }
+]
 ```
-</details>
-
 </details>
 
 
@@ -74,14 +92,14 @@ true
 ---
 
 
-### getOrderStatus
-check status of the order
+### getAllTransactionsCSV
+Get List of transactions
 
 
 
 
 ```java
-credit.getOrderStatus( orderId) {
+transaction.getAllTransactionsCSV( page,  type,  limit,  id,  orderId,  name,  mobile,  userId) {
   //use response
 }
 ```
@@ -90,61 +108,45 @@ credit.getOrderStatus( orderId) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| organizationId | String | yes | This is organization ID |   
-| orderId | String | yes | This is order ID |  
+| page | Double | yes | This is page number |   
+| type | List<String>? | no | This is transaction type |   
+| limit | Double | yes | This is no of transaction |   
+| organizationId | String | yes | This is the organization ID |   
+| id | String? | no | This is the search term |   
+| orderId | String? | no | This is the search term |   
+| name | String? | no | This is the search term |   
+| mobile | String? | no | This is the search term |   
+| userId | String? | no | This is the user id |  
 
 
 
-Use this API to check status the order.
+Use this API to get list of user's transaction.
 
 *Returned Response:*
 
 
 
 
-[OrderStatus](#OrderStatus)
+[OrganizationTransactionResponse](#OrganizationTransactionResponse)
 
-Success. Returns a JSON object as shown below. Refer `OrderStatus` for more details.
-
-
+Success. Returns a JSON object as shown below. Refer `OrganizationTransactionResponse` for more details.
 
 
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
 
 
 <details>
-<summary><i>&nbsp; orderId</i></summary>
+<summary><i>&nbsp; Example:</i></summary>
 
 ```json
-"FY12345"
+[
+  {
+    "id": 1,
+    "type": "credit",
+    "amount": "10000",
+    "remark": "Potlee credit"
+  }
+]
 ```
-</details>
-
-<details>
-<summary><i>&nbsp; transactionId</i></summary>
-
-```json
-"TXN123567890"
-```
-</details>
-
-<details>
-<summary><i>&nbsp; status</i></summary>
-
-```json
-"PAYMENT_CAPTURED"
-```
-</details>
-
-<details>
-<summary><i>&nbsp; message</i></summary>
-
-```json
-"Payment Accepted"
-```
-</details>
-
 </details>
 
 
@@ -158,14 +160,14 @@ Success. Returns a JSON object as shown below. Refer `OrderStatus` for more deta
 ---
 
 
-### getEligiblePlans
-Get eligible plans
+### getTransactionDetails
+Get List of transactions
 
 
 
 
 ```java
-credit.getEligiblePlans( lenderSlug, body body) {
+transaction.getTransactionDetails( transactionId,  userId) {
   //use response
 }
 ```
@@ -174,37 +176,388 @@ credit.getEligiblePlans( lenderSlug, body body) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| organizationId | String | yes | This is organization id |   
-| lenderSlug | String | yes | This is lender slug |  
-| body | [EligiblePlansRequest](#EligiblePlansRequest) | yes | Request body |
+| organizationId | String | yes | This is the organization ID |   
+| transactionId | String | yes | This is the transactionId |   
+| userId | String? | no | This is the user id |  
 
 
-Use this API to Get eligible plans.
+
+Use this API to get list of user's transaction.
 
 *Returned Response:*
 
 
 
 
-[EligiblePlansResponse](#EligiblePlansResponse)
+[OrgTransactions](#OrgTransactions)
 
-Success. Returns a JSON object as shown below. Refer `EligiblePlansResponse` for more details.
-
-
+Success. Returns a JSON object as shown below. Refer `OrgTransactions` for more details.
 
 
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
 
 
 <details>
-<summary><i>&nbsp; success</i></summary>
+<summary><i>&nbsp; Example:</i></summary>
 
 ```json
-true
+[
+  {
+    "id": 1,
+    "type": "credit",
+    "amount": "10000",
+    "remark": "Potlee credit"
+  }
+]
 ```
 </details>
 
+
+
+
+
+
+
+
+
+---
+
+
+### getTransactionCount
+Get Count of transactions
+
+
+
+
+```java
+transaction.getTransactionCount( startDate,  endDate) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| organizationId | String | yes | This is Organization id |   
+| startDate | String? | no | startDate of filter |   
+| endDate | String? | no | endDate of filter |  
+
+
+
+Use this API to get count of user's transaction.
+
+*Returned Response:*
+
+
+
+
+[OrganizationTransactionsCount](#OrganizationTransactionsCount)
+
+Success. Returns a JSON object as shown below. Refer `OrganizationTransactionsCount` for more details..
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
+  "count": 1
+}
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getRefundCount
+Get Count of refunds
+
+
+
+
+```java
+transaction.getRefundCount( startDate,  endDate) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| organizationId | String | yes | This is Organization id |   
+| startDate | String? | no | startDate of filter |   
+| endDate | String? | no | endDate of filter |  
+
+
+
+Use this API to get count of user's refunds.
+
+*Returned Response:*
+
+
+
+
+[RefundCount](#RefundCount)
+
+Success. Returns a JSON object as shown below. Refer `RefundCount` for more details..
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
+  "count": 1
+}
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getSumOfTransactions
+Get Sum of transactions
+
+
+
+
+```java
+transaction.getSumOfTransactions( startDate,  endDate) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| organizationId | String | yes | This is Organization id |   
+| startDate | String? | no | startDate of filter |   
+| endDate | String? | no | endDate of filter |  
+
+
+
+Use this API to get Sum of all credited user's transaction.
+
+*Returned Response:*
+
+
+
+
+[OrganizationTransactionsSum](#OrganizationTransactionsSum)
+
+Success. Returns a JSON object as shown below. Refer `OrganizationTransactionsSum` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
+  "sum": 1
+}
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getCustomerCount
+Get Total Unique Count of Customers
+
+
+
+
+```java
+transaction.getCustomerCount( startDate,  endDate) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| organizationId | String | yes | This is Organization id |   
+| startDate | String? | no | startDate of filter |   
+| endDate | String? | no | endDate of filter |  
+
+
+
+Use this API to get Count of all Customers.
+
+*Returned Response:*
+
+
+
+
+[UniqueCustomersInOrg](#UniqueCustomersInOrg)
+
+Success. Returns a JSON object as shown below. Refer `UniqueCustomersInOrg` for more details..
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
+  "count": 1
+}
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getDayTotal
+Get sum of day total
+
+
+
+
+```java
+transaction.getDayTotal( startDate,  endDate) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| organizationId | String | yes | This is Organization id |   
+| startDate | String | yes | startDate of filter |   
+| endDate | String? | no | endDate of filter |  
+
+
+
+Use this API to get total amoun of all transaction in a day
+
+*Returned Response:*
+
+
+
+
+[SumofOneDayTransactions](#SumofOneDayTransactions)
+
+Success. Returns a JSON object as shown below. Refer `SumofOneDayTransactions` for more details..
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+[
+  {
+    "orgId:\"efbf45ac-f015-48e5-a11f-1053922876b7\" createdAt:\"2020-01-01\" count:\"1\" sum:500": null,
+    "refund:500": null,
+    "difference:500": null
+  }
+]
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getTransactionUtrCount
+Get Total amount acc to a day
+
+
+
+
+```java
+transaction.getTransactionUtrCount( startDate,  endDate) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| organizationId | String | yes | This is Organization id |   
+| startDate | String | yes | startDate of filter |   
+| endDate | String? | no | endDate of filter |  
+
+
+
+Use this API to get total amoun of all transaction in a day
+
+*Returned Response:*
+
+
+
+
+[UniqueCustomersInOrg](#UniqueCustomersInOrg)
+
+Success. Returns a JSON object as shown below. Refer `UniqueCustomersInOrg` for more details..
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+[
+  {
+    "orgId:\"efbf45ac-f015-48e5-a11f-1053922876b7\" createdAt:\"2020-01-01\" sum:500": null,
+    "count:\"1\"": null
+  }
+]
+```
 </details>
 
 
@@ -302,7 +655,6 @@ true
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | eligiblePlans | ArrayList<[EligiblePlans](#EligiblePlans)>? |  yes  |  |
- | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -316,7 +668,6 @@ true
  | transactionId | String? |  yes  |  |
  | status | String? |  yes  |  |
  | message | String? |  yes  |  |
- | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -331,7 +682,6 @@ true
  | transactionId | String? |  yes  |  |
  | status | String |  no  |  |
  | message | String |  no  |  |
- | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -570,6 +920,7 @@ true
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | refundTransactions | String? |  yes  |  |
+ | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -581,6 +932,7 @@ true
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | count | Double? |  yes  |  |
+ | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -592,6 +944,7 @@ true
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | sum | Double? |  yes  |  |
+ | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -603,6 +956,7 @@ true
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | count | Double? |  yes  |  |
+ | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -641,6 +995,7 @@ true
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | dayTotal | ArrayList<[SchemaForOneDayTotal](#SchemaForOneDayTotal)>? |  yes  |  |
+ | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -728,6 +1083,7 @@ true
  | filters | ArrayList<[TrFilters](#TrFilters)> |  no  |  |
  | page | [TrPageResponse](#TrPageResponse) |  no  |  |
  | transactions | ArrayList<[OrgTransactions](#OrgTransactions)> |  no  |  |
+ | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -781,6 +1137,7 @@ true
  | kfs | String? |  yes  |  |
  | sanctionLetter | String? |  yes  |  |
  | createdAt | String |  no  |  |
+ | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 

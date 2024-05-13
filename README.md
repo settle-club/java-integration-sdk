@@ -1,28 +1,26 @@
-# Settle Java
+# FDK Java
 
 
-Settle client for Java language
-[![](https://jitpack.io/v/settle-finance/java-integration-sdk.svg)](https://jitpack.io/#settle-finance/java-integration-sdk)
-
+FDK client for Java language
 
 
 ## Getting Started
-Get started with the Java Development SDK for Potlee, Compatible with Java 21
+Get started with the Java Development SDK for Potlee
 
 
 # Usage
 
 1. Create Maven project and add the dependency in the pom.xml 
-```xml
-    <dependency>
-        <groupId>com.github.settle-finance</groupId>
-        <artifactId>java-integration-sdk</artifactId>
-        <version>1.0.0</version>
-    </dependency>
+```
+<dependency>
+    <groupId>com.github.gofynd</groupId>
+    <artifactId>fynd-client-java</artifactId>
+    <version>v0.0.1-RELEASE</version>
+</dependency>
 ```
 
 2. Add it in your root pom.xml at the end of repositories:
-```xml
+```
 <repositories>
     <repository>
         <id>jitpack.io</id>
@@ -33,53 +31,55 @@ Get started with the Java Development SDK for Potlee, Compatible with Java 21
 
 3. Start integrating
 
-### Exampe Usage 
+### Sample Usage - ApplicationClient
+
 ```java
-public class Example {
-    static PlatformConfig platformConfig;
-    static PlatformClient platformClient;
-
-    public static void main(String[] args) {
-        try {
-            platformConfig = new PlatformConfig(
-                    "COMPANY_ID",
-                    "API_KEY",
-                    "API_SECRET",
-                    "API_TOKEN",
-                    "https://api.potleez5.de",
-                    false
-            );
-
-            platformClient = new PlatformClient(platformConfig);
-
-            PlatformModels.CustomerObject customer = PlatformModels.CustomerObject.builder().countryCode("91").mobile("8898518242").uid("1").build();
-
-            PlatformModels.Device device = PlatformModels.Device.builder().ipAddress("127.0.0.1").userAgent("moz").build();
-
-            PlatformModels.Order order =  PlatformModels.Order.builder().valueInPaise(100000).uid("123").build();
-
-            PlatformModels.VerifyCustomer verifyCustomer = PlatformModels.VerifyCustomer.builder().customer(customer).order(order).device(device).build();
-
-            // Use this API to verify the customer.
-            PlatformModels.VerifyCustomerSuccess verifyCustomerSuccess = platformClient.customer.verify(
-                    platformConfig.getOrganizationId(),
-                    verifyCustomer
-            );
-
-            PlatformModels.CreateTransaction createTransaction = PlatformModels.CreateTransaction.builder().customer(customer).order(order).redirectUrl("https://www.google.com").build();
-
-            // Use this API to create transaction for user.
-            PlatformModels.CreateTransactionSuccess createTransactionSuccess = platformClient.customer.createOrder(
-                    platformConfig.getOrganizationId(),
-                    createTransaction
-            );
-   
-        } catch (Exception e) {
-            System.out.println(e);
+    ApplicationConfig applicationConfig = null;
+    try {
+          applicationConfig = new ApplicationConfig(
+              "YOUR_APPLICATION_ID",
+              "YOUR_APPLICATION_TOKEN"
+              );
+        if(Objects.nonNull(applicationConfig)) {
+            ApplicationClient applicationClient = new ApplicationClient(applicationConfig);
+            return applicationClient.catalog.getProductDetailBySlug("product-slug");
         }
+    } catch (Exception e) {
+        System.out.println(e.getMessage());
     }
-}
 ```
 
+### Sample Usage - PlatformClient
+
+```java
+    PlatformConfig platformConfig = null;
+    try {
+          platformConfig = new PlatformConfig(
+          "COMPANY_ID",
+          "API_KEY",
+          "API_SECRET",
+          "DOMAIN"
+          );
+        
+        if(Objects.nonNull(platformConfig)) {
+            PlatformClient platformClient = new PlatformClient(platformConfig); 
+            
+            // API's without application_id
+            PlatformModels.OptinCompanyDetail companyDetail = platformClient.catalog.getCompanyDetail();
+            System.out.println("Company Name : " + companyDetail.getName() );
+
+            // API's with application_id
+            PlatformClient.ApplicationClient applicationClient = platformClient.application("APPLICATION_ID");
+            PlatformModels.GetCatalogConfigurationMetaData configurationData =  applicationClient.catalog.getCatalogConfiguration();
+            return configurationData.getListing();
+        }
+    } catch (Exception e) {
+        System.out.println(e.getMessage());
+    }
+```
+
+
 ### Documentation
-* [Platform](documentation/platform/README.md)
+
+* [Application Front](documentation/application/README.md)
+* [Platform Front](documentation/platform/README.md)

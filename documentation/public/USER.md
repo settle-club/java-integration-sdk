@@ -2,56 +2,44 @@
 
 
 
-##### [Back to Platform docs](./README.md)
+##### [Back to Public docs](./README.md)
 
-## Customer Methods
+## User Methods
 Authentication Service
-* [verify](#verify)
-* [resendPaymentRequest](#resendpaymentrequest)
-* [createOrder](#createorder)
-* [link](#link)
-* [unlink](#unlink)
-* [getAccessToken](#getaccesstoken)
-* [renewAccessToken](#renewaccesstoken)
-* [refund](#refund)
-* [refundStatus](#refundstatus)
-* [getSchemes](#getschemes)
+* [getTips](#gettips)
+* [getCustomerDetails](#getcustomerdetails)
+* [getAllUsersPaginated](#getalluserspaginated)
 
 
 
 ## Methods with example and description
 
 
-### verify
-Verify Customer
+### getTips
+Get Tips section
 
 
 
 
 ```java
-customer.verify(body body) {
+user.getTips() {
   //use response
 }
 ```
 
 
 
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| organizationId | String | yes | This is organizationId |  
-| body | [VerifyCustomer](#VerifyCustomer) | yes | Request body |
 
-
-Use this API to verify the customer based on  mobile number and countryCode.
+Use this API to get tips section
 
 *Returned Response:*
 
 
 
 
-[VerifyCustomerSuccess](#VerifyCustomerSuccess)
+[TipsSection](#TipsSection)
 
-Success. Returns a JSON object as shown below. Refer `VerifyCustomerSuccess` for more details.
+Success. Check the example shown below or refer `TipsSection` for more details.
 
 
 
@@ -61,35 +49,83 @@ Success. Returns a JSON object as shown below. Refer `VerifyCustomerSuccess` for
 
 
 <details>
-<summary><i>&nbsp; VerifyCustomerEnabledResponseExample</i></summary>
+<summary><i>&nbsp; $ref</i></summary>
+
+```json
+"#/components/examples/TipsResponseExample"
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getCustomerDetails
+User detail
+
+
+
+
+```java
+user.getCustomerDetails( userId) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| organizationId | String | yes | This is customer id |   
+| userId | String | yes | This is customer id |  
+
+
+
+Use this API to get User Detail
+
+*Returned Response:*
+
+
+
+
+[UserSchema](#UserSchema)
+
+Success. Check the example shown below or refer `UserSchema` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
 
 ```json
 {
   "value": {
-    "status": "ENABLED",
-    "userStatus": "USER_AUTHORISED",
-    "message": "Kindly proceed to complete your order"
+    "gender": "male",
+    "active": true,
+    "profilePicUrl": "https://d2co8r51m5ca2d.cloudfront.net/inapp_banners/default_profile_img.png",
+    "id": "5e68af49cfa09bf7233022f1",
+    "firstName": "Akash",
+    "lastName": "Mane",
+    "mobile": "8652523958",
+    "countryCode": 91,
+    "email": "akashmane@gofynd.com",
+    "createdAt": "2020-03-11T09:28:41.982Z",
+    "updatedAt": "2021-02-04T10:10:44.981Z"
   }
 }
 ```
 </details>
 
-<details>
-<summary><i>&nbsp; VerifyCustomerDisabledResponseExample</i></summary>
-
-```json
-{
-  "value": {
-    "status": "DISABLED",
-    "userStatus": "CREDIT_EXAHUSTED",
-    "message": "Order value exceeds the available limit of ₹36,452"
-  }
-}
-```
-</details>
-
-</details>
-
 
 
 
@@ -101,555 +137,14 @@ Success. Returns a JSON object as shown below. Refer `VerifyCustomerSuccess` for
 ---
 
 
-### resendPaymentRequest
-Resend Payment Request
+### getAllUsersPaginated
+Get List of Users
 
 
 
 
 ```java
-customer.resendPaymentRequest(body body) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| organizationId | String | yes | This is organizationId |  
-| body | [ResendPaymentRequest](#ResendPaymentRequest) | yes | Request body |
-
-
-Use this API to resend payment request to user
-
-*Returned Response:*
-
-
-
-
-[CreateTransactionSuccess](#CreateTransactionSuccess)
-
-Success. Returns a JSON object as shown below. Refer `CreateTransactionSuccess` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; redirectUrl</i></summary>
-
-```json
-"https://account.potleex0.de/auth/login?onboardingToken=e738521b-a763-460d-a440-d9570e79be47&redirectUrl=https://local.potleex0.de:3003/callback?apiKey=0c8e7bbf-6c0c-41b1-8a37-7e066e8fbd4a&apiSecret=48a7d96f46868f78297be845b6afb5da50893d0b&domain=https://api.potleex0.de"
-```
-</details>
-
-<details>
-<summary><i>&nbsp; message</i></summary>
-
-```json
-"Payment Authorised"
-```
-</details>
-
-<details>
-<summary><i>&nbsp; userStatus</i></summary>
-
-```json
-"PAYMENT_AUTHORISED"
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### createOrder
-Create Order
-
-
-
-
-```java
-customer.createOrder(body body) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| organizationId | String | yes | This is organizationId |  
-| body | [CreateTransaction](#CreateTransaction) | yes | Request body |
-
-
-Use this API to create transaction for user
-
-*Returned Response:*
-
-
-
-
-[CreateTransactionSuccess](#CreateTransactionSuccess)
-
-Success. Returns a JSON object as shown below. Refer `CreateTransactionSuccess` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; CreateTransactionResponseExample</i></summary>
-
-```json
-{
-  "value": {
-    "redirectUrl": "https://account.potlee.co.in/auth/login?onboardingToken=e738521b-a763-460d-a440-d9570e79be47&redirectUrl=https://url.merchant.com/callback",
-    "message": "Payment Authorised",
-    "userStatus": "PAYMENT_AUTHORISED"
-  }
-}
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### link
-Link account
-
-
-
-
-```java
-customer.link(body body) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| organizationId | String | yes | This is organizationId |  
-| body | [LinkAccount](#LinkAccount) | yes | Request body |
-
-
-Use this API to link account with merchant
-
-*Returned Response:*
-
-
-
-
-[LinkAccountSuccess](#LinkAccountSuccess)
-
-Success. Returns a JSON object as shown below. Refer `LinkAccountSuccess` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; redirectUrl</i></summary>
-
-```json
-"https://account.potlee.co.in/auth/login?linkingToken=1245rtfyg765"
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### unlink
-Unlink account
-
-
-
-
-```java
-customer.unlink(body body) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| organizationId | String | yes | This is organizationId |  
-| body | [UnlinkAccount](#UnlinkAccount) | yes | Request body |
-
-
-Use this API to unlink account from merchant
-
-*Returned Response:*
-
-
-
-
-[UnlinkAccountSuccess](#UnlinkAccountSuccess)
-
-Success. Returns a JSON object as shown below. Refer `UnlinkAccountSuccess` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; success</i></summary>
-
-```json
-true
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### getAccessToken
-Get Access Token
-
-
-
-
-```java
-customer.getAccessToken() {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| organizationId | String | yes | This is organizationId |  
-
-
-
-Use this API to get access token
-
-*Returned Response:*
-
-
-
-
-[GetAccessTokenResponse](#GetAccessTokenResponse)
-
-Success. Returns a JSON object as shown below. Refer `GetAccessTokenResponse` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; success</i></summary>
-
-```json
-true
-```
-</details>
-
-<details>
-<summary><i>&nbsp; accessToken</i></summary>
-
-```json
-"oa-0a7a064dd15ef22fe002946f90c1e7b22eea47de"
-```
-</details>
-
-<details>
-<summary><i>&nbsp; refreshToken</i></summary>
-
-```json
-"oa-d2f33b6be9957050386be051501b84b008f5ef6f"
-```
-</details>
-
-<details>
-<summary><i>&nbsp; tokenExpireAt</i></summary>
-
-```json
-"2023-06-27T09:43:07.818Z"
-```
-</details>
-
-<details>
-<summary><i>&nbsp; tokenExpiryIn</i></summary>
-
-```json
-"600"
-```
-</details>
-
-<details>
-<summary><i>&nbsp; refreshTokenExpiryAt</i></summary>
-
-```json
-"2023-06-27T10:33:07.822Z"
-```
-</details>
-
-<details>
-<summary><i>&nbsp; refreshTokenExpiryIn</i></summary>
-
-```json
-"3600"
-```
-</details>
-
-<details>
-<summary><i>&nbsp; scope</i></summary>
-
-```json
-[
-  "transaction"
-]
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### renewAccessToken
-Renew Access Token
-
-
-
-
-```java
-customer.renewAccessToken(body body) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| organizationId | String | yes | This is organizationId |  
-| body | [RefreshTokenRequest](#RefreshTokenRequest) | yes | Request body |
-
-
-Use this API to renew access token
-
-*Returned Response:*
-
-
-
-
-[RefreshTokenResponse](#RefreshTokenResponse)
-
-Success. Returns a JSON object as shown below. Refer `RefreshTokenResponse` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; success</i></summary>
-
-```json
-true
-```
-</details>
-
-<details>
-<summary><i>&nbsp; accessToken</i></summary>
-
-```json
-"oa-de1496c16c91c45396ba87a888eed20fb223995d"
-```
-</details>
-
-<details>
-<summary><i>&nbsp; tokenExpireAt</i></summary>
-
-```json
-"2023-06-26T19:23:46.977Z"
-```
-</details>
-
-<details>
-<summary><i>&nbsp; tokenExpiryIn</i></summary>
-
-```json
-"600"
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### refund
-Refund customer order amount
-
-
-
-
-```java
-customer.refund(body body) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| organizationId | String | yes | This is organizationId |  
-| body | [Refund](#Refund) | yes | Request body |
-
-
-Use this API to verify the refund customer order amount
-
-*Returned Response:*
-
-
-
-
-[VerifyCustomerSuccess](#VerifyCustomerSuccess)
-
-Success. Returns a JSON object as shown below. Refer `RefundSuccess` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; status</i></summary>
-
-```json
-"SUCCESS"
-```
-</details>
-
-<details>
-<summary><i>&nbsp; message</i></summary>
-
-```json
-"Refund request has been successfully recorded."
-```
-</details>
-
-<details>
-<summary><i>&nbsp; refundId</i></summary>
-
-```json
-"R123"
-```
-</details>
-
-<details>
-<summary><i>&nbsp; transactionId</i></summary>
-
-```json
-"TXN1234567dsfg"
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### refundStatus
-Refund status
-
-
-
-
-```java
-customer.refundStatus( refundId,  orderId) {
+user.getAllUsersPaginated( page,  limit,  name,  id,  mobile) {
   //use response
 }
 ```
@@ -659,21 +154,24 @@ customer.refundStatus( refundId,  orderId) {
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
 | organizationId | String | yes | This is organizationId |   
-| refundId | String? | no | This is the refund ID |   
-| orderId | String? | no | This is the order ID |  
+| page | Integer | yes | This is page number |   
+| limit | Integer | yes | This is no of transaction |   
+| name | String? | no | This is name for filter |   
+| id | String? | no | This is uuid for filter |   
+| mobile | String? | no | This is Mobile Number for filter |  
 
 
 
-Use this API to fetch the refund status
+Use this API to get list of user.
 
 *Returned Response:*
 
 
 
 
-[RefundStatus](#RefundStatus)
+[UserResponse](#UserResponse)
 
-Success. Returns a JSON object as shown below. Refer `RefundStatus` for more details.
+Success. Returns a JSON object as shown below. Refer `UserResponse` for more details.
 
 
 
@@ -683,185 +181,10 @@ Success. Returns a JSON object as shown below. Refer `RefundStatus` for more det
 
 
 <details>
-<summary><i>&nbsp; orderId</i></summary>
+<summary><i>&nbsp; $ref</i></summary>
 
 ```json
-"PM-28"
-```
-</details>
-
-<details>
-<summary><i>&nbsp; userId</i></summary>
-
-```json
-"c004a863-bce5-492b-b7aa-ba2890bc9e25"
-```
-</details>
-
-<details>
-<summary><i>&nbsp; merchantId</i></summary>
-
-```json
-"3e0cf7da-ad5f-4c99-a9e7-49cad484ef37"
-```
-</details>
-
-<details>
-<summary><i>&nbsp; lenderId</i></summary>
-
-```json
-"f622b3e8-c797-434d-948f-d0fda56e3db6"
-```
-</details>
-
-<details>
-<summary><i>&nbsp; refund</i></summary>
-
-```json
-[
-  {
-    "id": "10122313672606485999",
-    "loanAccountNumber": "CASHe-1686764747795",
-    "orderItems": {
-      "list": [
-        {
-          "sku": "1",
-          "rate": "1",
-          "category": "1",
-          "quantity": 1
-        }
-      ]
-    },
-    "amount": 3000,
-    "status": "SUCCESS",
-    "processedDate": "2023-06-14T17:44:28.052Z",
-    "createdAt": "2023-06-14T17:44:28.052Z"
-  }
-]
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### getSchemes
-Fetch schemes
-
-
-
-
-```java
-customer.getSchemes(body body) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| organizationId | String | yes | This is organizationId |  
-| body | [GetSchemesRequest](#GetSchemesRequest) | yes | Request body |
-
-
-Use this API to fetch available schemes for user order.
-
-*Returned Response:*
-
-
-
-
-[GetSchemesSuccess](#GetSchemesSuccess)
-
-Success. Returns a JSON object as shown below. Refer `GetSchemesSuccess` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; userId</i></summary>
-
-```json
-"bf94b96a-1a15-406b-8d2f-0b37bfe47732"
-```
-</details>
-
-<details>
-<summary><i>&nbsp; lenders</i></summary>
-
-```json
-[
-  {
-    "id": "315f60f4-1238-462c-8108-cfff9fbc400f",
-    "name": "CASHe",
-    "title": "CASHe",
-    "subtitle": "Bhanix Finance and Investment Limited",
-    "isDefault": false,
-    "logoUrl": "https://cdn.pixelbin.io/v2/potlee/original/public/lenders/lenderLogo/v2/512h-logo/cashe-logo.png",
-    "amount": 5000,
-    "paymentOptions": {
-      "emis": [
-        {
-          "id": 62,
-          "title": "3 Months - EMIs",
-          "subtitle": "CASHe Shop 3EMI (PaymentGateway)",
-          "description": "3 Months - No cost EMIs",
-          "tenure": 3,
-          "interest": 0,
-          "processingFee": 75,
-          "amount": 1692,
-          "emiSchedule": [
-            {
-              "installmentNo": 1,
-              "installmentAmount": 1741,
-              "dueDate": "2023-12-22T12:00:00.000+00:00",
-              "dueAmount": 3334
-            },
-            {
-              "installmentNo": 2,
-              "installmentAmount": 1666,
-              "dueDate": "2024-01-22T12:00:00.000+00:00",
-              "dueAmount": 1668
-            },
-            {
-              "installmentNo": 3,
-              "installmentAmount": 1666,
-              "dueDate": "2024-02-22T12:00:00.000+00:00",
-              "dueAmount": 2
-            }
-          ],
-          "isDefault": false
-        }
-      ],
-      "payLater": {
-        "id": 1,
-        "title": "PayLater",
-        "subtitle": "CASHe_PayLater",
-        "description": "Customer can pay after 30days",
-        "tenure": 1,
-        "interest": 0,
-        "processingFee": 0,
-        "amount": 5000,
-        "emiSchedule": null,
-        "isDefault": true
-      }
-    }
-  }
-]
+"#/components/examples/UserExample"
 ```
 </details>
 
@@ -901,6 +224,7 @@ Success. Returns a JSON object as shown below. Refer `GetSchemesSuccess` for mor
  | createdAt | String? |  yes  |  |
  | updatedAt | String? |  yes  |  |
  | deletedAt | String? |  yes  |  |
+ | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -1449,7 +773,6 @@ Success. Returns a JSON object as shown below. Refer `GetSchemesSuccess` for mor
  | message | String |  no  | Message to be displayed to the user |
  | schemes | ArrayList<[SchemeResponse](#SchemeResponse)>? |  yes  | An array of possible schemes of lenders available for a transaction. |
  | limit | [LimitResponse](#LimitResponse)? |  yes  | Limit details of available and possible lenders for a transaction. |
- | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -1466,7 +789,6 @@ Success. Returns a JSON object as shown below. Refer `GetSchemesSuccess` for mor
  | transactionId | String? |  yes  | A unique identifier for the transaction. This is received only if session is passed and auto capture is true in request. ASP merchants do not receive transaction ID in this response. |
  | status | String? |  yes  | Indicates transaction status in case of auto disbursal. |
  | userStatus | String? |  yes  | Represents the status of the user for transaction eligibility |
- | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -1772,6 +1094,7 @@ Success. Returns a JSON object as shown below. Refer `GetSchemesSuccess` for mor
  | tips | ArrayList<[TipsResponse](#TipsResponse)>? |  yes  |  |
  | categories | ArrayList<[TipsCategories](#TipsCategories)>? |  yes  |  |
  | action | [ActionSchema](#ActionSchema)? |  yes  |  |
+ | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -2297,7 +1620,6 @@ Success. Returns a JSON object as shown below. Refer `GetSchemesSuccess` for mor
  | status | String? |  yes  |  |
  | message | String? |  yes  |  |
  | errorCode | String? |  yes  |  |
- | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -2325,7 +1647,6 @@ Success. Returns a JSON object as shown below. Refer `GetSchemesSuccess` for mor
  | statusCode | Double |  no  |  |
  | userStatus | String? |  yes  |  |
  | errorCode | String? |  yes  |  |
- | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -2420,6 +1741,7 @@ Success. Returns a JSON object as shown below. Refer `GetSchemesSuccess` for mor
  | filters | ArrayList<[Filters](#Filters)> |  no  |  |
  | page | [PageResponse](#PageResponse) |  no  |  |
  | listOfUsers | ArrayList<[UserSchema](#UserSchema)> |  no  |  |
+ | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -2525,7 +1847,6 @@ Success. Returns a JSON object as shown below. Refer `GetSchemesSuccess` for mor
  | refreshTokenExpiryAt | String? |  yes  |  |
  | refreshTokenExpiryIn | String? |  yes  |  |
  | scope | ArrayList<String>? |  yes  |  |
- | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -2540,7 +1861,6 @@ Success. Returns a JSON object as shown below. Refer `GetSchemesSuccess` for mor
  | accessToken | String? |  yes  |  |
  | tokenExpireAt | String? |  yes  |  |
  | tokenExpiryIn | String? |  yes  |  |
- | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -2598,7 +1918,6 @@ Success. Returns a JSON object as shown below. Refer `GetSchemesSuccess` for mor
  | lenderId | String? |  yes  |  |
  | loanAccountNumber | String? |  yes  |  |
  | refund | ArrayList<[RefundStatusList](#RefundStatusList)>? |  yes  |  |
- | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -2611,7 +1930,6 @@ Success. Returns a JSON object as shown below. Refer `GetSchemesSuccess` for mor
  | ---------- | ---- | -------- | ----------- |
  | userId | String? |  yes  |  |
  | lenders | ArrayList<[SchemeResponse](#SchemeResponse)> |  no  |  |
- | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
