@@ -1732,7 +1732,7 @@ add lender schema
 
 
 ```java
-merchant.addLenderMetaSchema( lenderSlug,  lenderId, body body) {
+merchant.addLenderMetaSchema( lenderId, body body) {
   //use response
 }
 ```
@@ -1741,7 +1741,6 @@ merchant.addLenderMetaSchema( lenderSlug,  lenderId, body body) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| lenderSlug | String | yes | This is the lenderSlug ID |   
 | lenderId | String | yes | lenderId for lender merchant config |  
 | body | [AddMetaSchemaRequest](#AddMetaSchemaRequest) | yes | Request body |
 
@@ -2042,7 +2041,7 @@ update lender enable status
 
 
 ```java
-merchant.updateLenderStatus( lenderSlug,  lenderId, body body) {
+merchant.updateLenderStatus( lenderId, body body) {
   //use response
 }
 ```
@@ -2051,7 +2050,6 @@ merchant.updateLenderStatus( lenderSlug,  lenderId, body body) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| lenderSlug | String | yes | This is the lenderSlug ID |   
 | lenderId | String | yes | lenderId for lender merchant config |  
 | body | [UpdateLenderStatusSchemaRequest](#UpdateLenderStatusSchemaRequest) | yes | Request body |
 
