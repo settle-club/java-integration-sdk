@@ -2,26 +2,30 @@
 
 
 
-##### [Back to Platform docs](./README.md)
+##### [Back to Public docs](./README.md)
 
 ## MultiKyc Methods
 Will deprecate Hawkeye
-* [approvedLenders](#approvedlenders)
-* [getLimit](#getlimit)
+* [getAlllenders](#getalllenders)
+* [getLenderMetaSchema](#getlendermetaschema)
+* [addLenderMetaSchema](#addlendermetaschema)
+* [getAllUserLendersByEnityId](#getalluserlendersbyenityid)
+* [getUserKycDetails](#getuserkycdetails)
+* [createPixelbinSignedUrl](#createpixelbinsignedurl)
 
 
 
 ## Methods with example and description
 
 
-### approvedLenders
-Approved lenders
+### getAlllenders
+Get alllenders
 
 
 
 
 ```java
-multikyc.approvedLenders() {
+multikyc.getAlllenders( lenderId,  lenderSlug) {
   //use response
 }
 ```
@@ -30,7 +34,8 @@ multikyc.approvedLenders() {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| organizationId | Object | yes |  |  
+| lenderId | String? | no |  |   
+| lenderSlug | String? | no |  |  
 
 
 
@@ -41,7 +46,7 @@ multikyc.approvedLenders() {
 
 
 
-[ApprovedLendersTransaction](#ApprovedLendersTransaction)
+[Lender](#Lender)
 
 
 
@@ -67,14 +72,14 @@ multikyc.approvedLenders() {
 ---
 
 
-### getLimit
-Get limit
+### getLenderMetaSchema
+Get lender meta schema
 
 
 
 
 ```java
-multikyc.getLimit(body body) {
+multikyc.getLenderMetaSchema( lenderSlug) {
   //use response
 }
 ```
@@ -83,8 +88,8 @@ multikyc.getLimit(body body) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| organizationId | String | yes |  |  
-| body | [GetLimitRequest](#GetLimitRequest) | yes | Request body |
+| lenderSlug | String | yes |  |  
+
 
 
 
@@ -94,7 +99,224 @@ multikyc.getLimit(body body) {
 
 
 
-[IntgrCreditLimit](#IntgrCreditLimit)
+[MetaSchema](#MetaSchema)
+
+
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### addLenderMetaSchema
+Add lender meta schema
+
+
+
+
+```java
+multikyc.addLenderMetaSchema( lenderSlug, body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| lenderSlug | String | yes |  |  
+| body | [AddMetaSchemaRequest](#AddMetaSchemaRequest) | yes | Request body |
+
+
+
+
+*Returned Response:*
+
+
+
+
+[AddMetaSchema](#AddMetaSchema)
+
+
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getAllUserLendersByEnityId
+Get all user lenders by enity id
+
+
+
+
+```java
+multikyc.getAllUserLendersByEnityId( entityId) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| organizationId | Object | yes |  |   
+| entityId | String | yes |  |  
+
+
+
+
+
+*Returned Response:*
+
+
+
+
+[GetUserLendersResponse](#GetUserLendersResponse)
+
+
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getUserKycDetails
+Get user kyc details
+
+
+
+
+```java
+multikyc.getUserKycDetails( enitityMap,  entityId) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| organizationId | String | yes |  |   
+| enitityMap | String | yes |  |   
+| entityId | String | yes |  |  
+
+
+
+
+
+*Returned Response:*
+
+
+
+
+[CustomerKycDetailsReponse](#CustomerKycDetailsReponse)
+
+
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### createPixelbinSignedUrl
+Create pixelbin signed url
+
+
+
+
+```java
+multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| documentName | String | yes |  |   
+| purpose | String? | no |  |   
+| extention | String? | no |  |  
+
+
+
+
+
+*Returned Response:*
+
+
+
+
+[SignedUrlResponse](#SignedUrlResponse)
 
 
 
@@ -144,69 +366,7 @@ multikyc.getLimit(body body) {
  | deletedAt | String? |  yes  |  |
  | meta | Object? |  yes  |  |
  | metaSchema | Object? |  yes  |  |
-
----
-
-
- 
- 
- #### [UserLender](#UserLender)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | id | String |  no  |  |
- | userId | String |  no  |  |
- | lenderId | String |  no  |  |
- | active | Boolean? |  yes  |  |
- | status | String |  no  |  |
- | createdAt | String |  no  |  |
- | updatedAt | String |  no  |  |
- | deletedAt | String? |  yes  |  |
- | approvedLimit | Double |  no  |  |
- | entityId | String? |  yes  |  |
- | entityMapId | String? |  yes  |  |
- | lenderUserId | String |  no  |  |
-
----
-
-
- 
- 
- #### [SourceCreditReport](#SourceCreditReport)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | id | String |  no  |  |
- | userId | String |  no  |  |
- | pan | String |  no  |  |
- | name | String |  no  |  |
- | mobile | String |  no  |  |
- | bureau | String |  no  |  |
- | score | String |  no  |  |
- | report | String |  no  |  |
- | createdAt | String? |  yes  |  |
- | updatedAt | String? |  yes  |  |
- | deletedAt | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [Document](#Document)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | id | String |  no  |  |
- | userId | String |  no  |  |
- | imageUrl | String |  no  |  |
- | number | String |  no  |  |
- | detail | Object |  no  |  |
- | valid | Boolean |  no  |  |
- | createdAt | String |  no  |  |
- | updatedAt | String |  no  |  |
- | deletedAt | String? |  yes  |  |
- | entityId | String? |  yes  |  |
+ | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -287,6 +447,26 @@ multikyc.getLimit(body body) {
 
  
  
+ #### [Document](#Document)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String |  no  |  |
+ | userId | String |  no  |  |
+ | imageUrl | String |  no  |  |
+ | number | String |  no  |  |
+ | detail | Object |  no  |  |
+ | valid | Boolean |  no  |  |
+ | createdAt | String |  no  |  |
+ | updatedAt | String |  no  |  |
+ | deletedAt | String? |  yes  |  |
+ | entityId | String? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [UserKycLenderStepMap](#UserKycLenderStepMap)
 
  | Properties | Type | Nullable | Description |
@@ -307,6 +487,28 @@ multikyc.getLimit(body body) {
  | entityMapId | String? |  yes  |  |
  | entityId | String? |  yes  |  |
  | updatedBy | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [UserLender](#UserLender)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String |  no  |  |
+ | userId | String |  no  |  |
+ | lenderId | String |  no  |  |
+ | active | Boolean? |  yes  |  |
+ | status | String |  no  |  |
+ | createdAt | String |  no  |  |
+ | updatedAt | String |  no  |  |
+ | deletedAt | String? |  yes  |  |
+ | approvedLimit | Double |  no  |  |
+ | entityId | String? |  yes  |  |
+ | entityMapId | String? |  yes  |  |
+ | lenderUserId | String |  no  |  |
 
 ---
 
@@ -1656,6 +1858,27 @@ multikyc.getLimit(body body) {
 
  
  
+ #### [SourceCreditReport](#SourceCreditReport)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String |  no  |  |
+ | userId | String |  no  |  |
+ | pan | String |  no  |  |
+ | name | String |  no  |  |
+ | mobile | String |  no  |  |
+ | bureau | String |  no  |  |
+ | score | String |  no  |  |
+ | report | String |  no  |  |
+ | createdAt | String? |  yes  |  |
+ | updatedAt | String? |  yes  |  |
+ | deletedAt | String? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [KycStatusResponse](#KycStatusResponse)
 
  | Properties | Type | Nullable | Description |
@@ -1753,6 +1976,7 @@ multikyc.getLimit(body body) {
  | ---------- | ---- | -------- | ----------- |
  | signedUrl | [PresignedUrl](#PresignedUrl) |  no  |  |
  | fileUrl | String |  no  |  |
+ | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -1831,7 +2055,6 @@ multikyc.getLimit(body body) {
  | updatedAt | Object |  no  |  |
  | deletedAt | Object? |  yes  |  |
  | isDefault | Boolean? |  yes  |  |
- | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -2093,7 +2316,6 @@ multikyc.getLimit(body body) {
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | limit | [IngtrAvailableLimit](#IngtrAvailableLimit) |  no  |  |
- | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -2191,6 +2413,7 @@ multikyc.getLimit(body body) {
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | metaSchema | [MetaSchemaResponse](#MetaSchemaResponse) |  no  |  |
+ | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -2204,6 +2427,7 @@ multikyc.getLimit(body body) {
  | lenderSlug | String |  no  |  |
  | merchantId | String |  no  |  |
  | schema | Object |  no  |  |
+ | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -2304,6 +2528,7 @@ multikyc.getLimit(body body) {
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | data | ArrayList<[UserLender](#UserLender)> |  no  |  |
+ | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -2477,6 +2702,21 @@ multikyc.getLimit(body body) {
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | data | [UserKycLenderStepMap](#UserKycLenderStepMap) |  no  |  |
+ | headers | HashMap<String,Object>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [LenderMerchantConf](#LenderMerchantConf)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String? |  yes  |  |
+ | lenderId | String |  no  |  |
+ | merchantId | String |  no  |  |
+ | schema | String |  no  |  |
 
 ---
 

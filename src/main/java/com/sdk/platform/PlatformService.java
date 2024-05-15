@@ -244,7 +244,7 @@ public static class CustomerService {
     
     
     
-    public PlatformModels.GetSchemesSuccess getSchemes(String organizationId ,PlatformModels.VerifyCustomer body) throws IOException {
+    public PlatformModels.GetSchemesSuccess getSchemes(String organizationId ,PlatformModels.GetSchemesRequest body) throws IOException {
             Response<PlatformModels.GetSchemesSuccess> response = customerApiList.getSchemes(organizationId  , body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null

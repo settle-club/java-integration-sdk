@@ -101,7 +101,7 @@ interface CustomerApiList {
     
     
     @POST ("/service/integration/user/authentication/{organizationId}/schemes")
-    Call<PlatformModels.GetSchemesSuccess> getSchemes(@Path("organizationId") String  organizationId ,@Body PlatformModels.VerifyCustomer payload);
+    Call<PlatformModels.GetSchemesSuccess> getSchemes(@Path("organizationId") String  organizationId ,@Body PlatformModels.GetSchemesRequest payload);
     
 }
 
