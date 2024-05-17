@@ -14,11 +14,11 @@ Get started with the Java Development SDK for Potlee, Compatible with Java 21
 
 1. Create Maven project and add the dependency in the pom.xml 
 ```xml
-    <dependency>
-        <groupId>com.github.settle-finance</groupId>
-        <artifactId>java-integration-sdk</artifactId>
-        <version>1.0.0</version>
-    </dependency>
+<dependency>
+    <groupId>com.github.settle-finance</groupId>
+    <artifactId>java-integration-sdk</artifactId>
+    <version>1.0.0</version>
+</dependency>
 ```
 
 2. Add it in your root pom.xml at the end of repositories:
