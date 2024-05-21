@@ -586,9 +586,9 @@ Use this API to verify the refund customer order amount
 
 
 
-[VerifyCustomerSuccess](#VerifyCustomerSuccess)
+[RefundResponse](#RefundResponse)
 
-Success. Returns a JSON object as shown below. Refer `RefundSuccess` for more details.
+Success. Returns a JSON object as shown below. Refer `RefundResponse` for more details.
 
 
 
@@ -880,6 +880,21 @@ Success. Returns a JSON object as shown below. Refer `GetSchemesSuccess` for mor
 
 
 ### Schemas
+
+ 
+ 
+ #### [RefundResponse](#RefundResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | status | String? |  yes  |  |
+ | message | String? |  yes  |  |
+ | transactionId | String? |  yes  |  |
+ | refundId | String? |  yes  |  |
+ | headers | HashMap<String,Object>? |  yes  |  |
+
+---
+
 
  
  

@@ -11,6 +11,53 @@ public class PlatformModels {
 
 
 /*
+    Model: RefundResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RefundResponse {
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("transactionId")
+    private String transactionId;
+    
+    
+    
+    
+    @JsonProperty("refundId")
+    private String refundId;
+    
+    
+    
+    
+    @JsonProperty("__headers")
+    private Object headers;
+    
+    
+    
+    
+}
+
+/*
     Model: UserSchema
 */
 @AllArgsConstructor
@@ -6567,18 +6614,6 @@ public static class DisbursalRequest {
     
     
     
-    @JsonProperty("data")
-    private Object data;
-    
-    
-    
-    
-    @JsonProperty("transactionId")
-    private String transactionId;
-    
-    
-    
-    
 }
 
 /*
@@ -6973,12 +7008,6 @@ public static class Transactions {
     
     
     
-    @JsonProperty("repaymentTransactionId")
-    private String repaymentTransactionId;
-    
-    
-    
-    
     @JsonProperty("nextDueDate")
     private String nextDueDate;
     
@@ -7117,52 +7146,6 @@ public static class TransactionResponse {
     
     @JsonProperty("transactions")
     private List<Transactions> transactions;
-    
-    
-    
-    
-}
-
-/*
-    Model: MerchantTransactions
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class MerchantTransactions {
-    
-    
-    
-    
-    @JsonProperty("outstandingAmount")
-    private String outstandingAmount;
-    
-    
-    
-    
-}
-
-/*
-    Model: MerchantTransactionSummary
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class MerchantTransactionSummary {
-    
-    
-    
-    
-    @JsonProperty("merchantOutstandingSummary")
-    private MerchantTransactions merchantOutstandingSummary;
     
     
     

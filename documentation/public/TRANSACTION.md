@@ -28,7 +28,7 @@ Get List of transactions
 
 
 ```java
-transaction.getTransactions( page,  type,  limit,  id,  orderId,  name,  mobile,  entityId,  utr,  startDate,  endDate) {
+transaction.getTransactions( page,  type,  limit,  id,  orderId,  name,  mobile,  entityId,  utr) {
   //use response
 }
 ```
@@ -46,9 +46,7 @@ transaction.getTransactions( page,  type,  limit,  id,  orderId,  name,  mobile,
 | name | String? | no | This is the search term |   
 | mobile | String? | no | This is the search term |   
 | entityId | String? | no | This is the entity id |   
-| utr | String? | no | This is the UTR number |   
-| startDate | String? | no | This is used to filter from date |   
-| endDate | String? | no | This is used to filter till date |  
+| utr | String? | no | This is the UTR number |  
 
 
 
@@ -602,8 +600,6 @@ Success. Returns a JSON object as shown below. Refer `UniqueCustomersInOrg` for 
  | isDownpaymentRequired | Boolean? |  yes  |  |
  | downpaymentAmount | Double? |  yes  |  |
  | loanAmount | Double? |  yes  |  |
- | data | HashMap<String,Object>? |  yes  |  |
- | transactionId | String? |  yes  |  |
 
 ---
 
@@ -724,7 +720,6 @@ Success. Returns a JSON object as shown below. Refer `UniqueCustomersInOrg` for 
  | lenderName | String? |  yes  |  |
  | lenderLogo | String? |  yes  |  |
  | loanType | String? |  yes  |  |
- | repaymentTransactionId | String? |  yes  |  |
  | nextDueDate | String? |  yes  |  |
  | paidPercent | Double? |  yes  |  |
  | lenderDetail | [LenderDetail](#LenderDetail)? |  yes  |  |
@@ -829,28 +824,6 @@ Success. Returns a JSON object as shown below. Refer `UniqueCustomersInOrg` for 
  | filters | ArrayList<[Filters](#Filters)> |  no  |  |
  | page | [PageResponse](#PageResponse) |  no  |  |
  | transactions | ArrayList<[Transactions](#Transactions)> |  no  |  |
-
----
-
-
- 
- 
- #### [MerchantTransactions](#MerchantTransactions)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | outstandingAmount | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [MerchantTransactionSummary](#MerchantTransactionSummary)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | merchantOutstandingSummary | [MerchantTransactions](#MerchantTransactions)? |  yes  |  |
 
 ---
 

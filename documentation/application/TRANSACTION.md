@@ -11,7 +11,6 @@ Transaction Service
 * [kfs](#kfs)
 * [listOfTransactions](#listoftransactions)
 * [loadTransactionById](#loadtransactionbyid)
-* [getMerchantSummary](#getmerchantsummary)
 
 
 
@@ -202,7 +201,7 @@ Get List of transactions
 
 
 ```java
-transaction.listOfTransactions( page,  type,  lender,  startDate,  endDate,  loanType,  limit,  partnerId) {
+transaction.listOfTransactions( page,  type,  lender,  loanType,  limit) {
   //use response
 }
 ```
@@ -214,11 +213,8 @@ transaction.listOfTransactions( page,  type,  lender,  startDate,  endDate,  loa
 | page | Integer | yes | This is page number |   
 | type | List<String>? | no | This is transaction type |   
 | lender | String? | no | This is lenderSlug |   
-| startDate | String? | no | This is date range start date |   
-| endDate | String? | no | This is date range end date |   
 | loanType | String? | no | This is loanType EMI/BNPL |   
-| limit | Integer | yes | This is no of transaction |   
-| partnerId | String? | no | This is partner id |  
+| limit | Integer | yes | This is no of transaction |  
 
 
 
@@ -322,59 +318,6 @@ Success. Returns a JSON object as shown below. Refer `Transactions` for more det
 ---
 
 
-### getMerchantSummary
-Get sum of list of transactions of merchant
-
-
-
-
-```java
-transaction.getMerchantSummary( partnerId) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| partnerId | String | yes | This is partner id |  
-
-
-
-Use this API to get sum of list of transactions of merchan.
-
-*Returned Response:*
-
-
-
-
-[MerchantTransactionSummary](#MerchantTransactionSummary)
-
-Success. Returns a JSON object as shown below. Refer `MerchantTransactionSummary` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
 
 ### Schemas
 
@@ -406,8 +349,6 @@ Success. Returns a JSON object as shown below. Refer `MerchantTransactionSummary
  | isDownpaymentRequired | Boolean? |  yes  |  |
  | downpaymentAmount | Double? |  yes  |  |
  | loanAmount | Double? |  yes  |  |
- | data | HashMap<String,Object>? |  yes  |  |
- | transactionId | String? |  yes  |  |
 
 ---
 
@@ -530,7 +471,6 @@ Success. Returns a JSON object as shown below. Refer `MerchantTransactionSummary
  | lenderName | String? |  yes  |  |
  | lenderLogo | String? |  yes  |  |
  | loanType | String? |  yes  |  |
- | repaymentTransactionId | String? |  yes  |  |
  | nextDueDate | String? |  yes  |  |
  | paidPercent | Double? |  yes  |  |
  | lenderDetail | [LenderDetail](#LenderDetail)? |  yes  |  |
@@ -636,29 +576,6 @@ Success. Returns a JSON object as shown below. Refer `MerchantTransactionSummary
  | filters | ArrayList<[Filters](#Filters)> |  no  |  |
  | page | [PageResponse](#PageResponse) |  no  |  |
  | transactions | ArrayList<[Transactions](#Transactions)> |  no  |  |
- | headers | HashMap<String,Object>? |  yes  |  |
-
----
-
-
- 
- 
- #### [MerchantTransactions](#MerchantTransactions)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | outstandingAmount | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [MerchantTransactionSummary](#MerchantTransactionSummary)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | merchantOutstandingSummary | [MerchantTransactions](#MerchantTransactions)? |  yes  |  |
  | headers | HashMap<String,Object>? |  yes  |  |
 
 ---

@@ -206,6 +206,20 @@ Success. Returns a JSON object as shown below. Refer `UserResponse` for more det
 
  
  
+ #### [RefundResponse](#RefundResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | status | String? |  yes  |  |
+ | message | String? |  yes  |  |
+ | transactionId | String? |  yes  |  |
+ | refundId | String? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [UserSchema](#UserSchema)
 
  | Properties | Type | Nullable | Description |
