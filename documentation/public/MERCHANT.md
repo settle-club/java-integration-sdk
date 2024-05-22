@@ -36,7 +36,6 @@ Authentication Service
 * [getVintageData](#getvintagedata)
 * [addLenderMetaSchema](#addlendermetaschema)
 * [getLenderMetaSchema](#getlendermetaschema)
-* [getSubmerchants](#getsubmerchants)
 * [updateLenderStatus](#updatelenderstatus)
 * [generatePaymentLink](#generatepaymentlink)
 * [updateProfile](#updateprofile)
@@ -1864,176 +1863,6 @@ Success. Returns a JSON object as shown below. Refer `AddMetaSchemaResponse` for
 ---
 
 
-### getSubmerchants
-Get submerchants for an merchant/organization
-
-
-
-
-```java
-merchant.getSubmerchants() {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| organizationId | String | yes | This is the organization ID |  
-
-
-
-Use this API to get submerchants for an merchant/organization
-
-*Returned Response:*
-
-
-
-
-[GetSubmerchantsResponse](#GetSubmerchantsResponse)
-
-Success. Returns a JSON object as shown below. Refer `GetSubmerchantsResponse` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-{
-  "success": true,
-  "page": {
-    "type": "number",
-    "current": 1,
-    "hasPrevious": false,
-    "hasNext": true,
-    "size": 5,
-    "itemTotal": 10
-  },
-  "submerchants": [
-    {
-      "id": "fc241243-5b35-4da7-bb59-a4beaa39c23d",
-      "updatedAt": "2024-02-20T17:02:56.849Z",
-      "type": null,
-      "deletedAt": null,
-      "createdBy": null,
-      "createdAt": "2024-02-20T17:02:56.849Z",
-      "businessName": null,
-      "email": null,
-      "businessAddress": null,
-      "pincode": null,
-      "category": null,
-      "name": null,
-      "logo": null,
-      "website": null,
-      "storeId": "1",
-      "disbursementAccountHolderName": null,
-      "disbursementAccountNumber": null,
-      "disbursementIfsc": null,
-      "active": false
-    },
-    {
-      "id": "2aee0321-ae5b-4dad-927c-670360c63b8f",
-      "updatedAt": "2024-02-20T17:02:56.849Z",
-      "type": null,
-      "deletedAt": null,
-      "createdBy": null,
-      "createdAt": "2024-02-20T17:02:56.849Z",
-      "businessName": null,
-      "email": null,
-      "businessAddress": null,
-      "pincode": null,
-      "category": null,
-      "name": null,
-      "logo": null,
-      "website": null,
-      "storeId": "2",
-      "disbursementAccountHolderName": null,
-      "disbursementAccountNumber": null,
-      "disbursementIfsc": null,
-      "active": false
-    },
-    {
-      "id": "cb4a0a8d-be80-4826-86cf-6a248274a62d",
-      "updatedAt": "2024-02-20T17:02:56.849Z",
-      "type": null,
-      "deletedAt": null,
-      "createdBy": null,
-      "createdAt": "2024-02-20T17:02:56.849Z",
-      "businessName": null,
-      "email": null,
-      "businessAddress": null,
-      "pincode": null,
-      "category": null,
-      "name": null,
-      "logo": null,
-      "website": null,
-      "storeId": "3",
-      "disbursementAccountHolderName": null,
-      "disbursementAccountNumber": null,
-      "disbursementIfsc": null,
-      "active": false
-    },
-    {
-      "id": "f0e18922-c800-4f44-a501-33a332eee718",
-      "updatedAt": "2024-02-20T17:02:56.849Z",
-      "type": null,
-      "deletedAt": null,
-      "createdBy": null,
-      "createdAt": "2024-02-20T17:02:56.849Z",
-      "businessName": null,
-      "email": null,
-      "businessAddress": null,
-      "pincode": null,
-      "category": null,
-      "name": null,
-      "logo": null,
-      "website": null,
-      "storeId": "4",
-      "disbursementAccountHolderName": null,
-      "disbursementAccountNumber": null,
-      "disbursementIfsc": null,
-      "active": false
-    },
-    {
-      "id": "54eb215a-abc9-45d0-a1a0-83283d2c169c",
-      "updatedAt": "2024-02-20T17:02:56.849Z",
-      "type": null,
-      "deletedAt": null,
-      "createdBy": null,
-      "createdAt": "2024-02-20T17:02:56.849Z",
-      "businessName": null,
-      "email": null,
-      "businessAddress": null,
-      "pincode": null,
-      "category": null,
-      "name": null,
-      "logo": null,
-      "website": null,
-      "storeId": "5",
-      "disbursementAccountHolderName": null,
-      "disbursementAccountNumber": null,
-      "disbursementIfsc": null,
-      "active": false
-    }
-  ]
-}
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
 ### updateLenderStatus
 update lender enable status
 
@@ -2275,18 +2104,6 @@ Success. Check the example shown below or refer `LoginSuccess` for more details.
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | email | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [FilterByDate](#FilterByDate)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | startDate | String? |  yes  |  |
- | endDate | String? |  yes  |  |
 
 ---
 
@@ -3415,8 +3232,74 @@ Success. Check the example shown below or refer `LoginSuccess` for more details.
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | items | ArrayList<Object> |  no  |  |
- | order | [Order](#Order)? |  yes  |  |
- | device | [Device](#Device)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [FilterByDate](#FilterByDate)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | startDate | String? |  yes  |  |
+ | endDate | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [Refund](#Refund)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | refundItems | [RefundItem](#RefundItem)? |  yes  |  |
+ | refundId | String |  no  |  |
+ | refundAmount | Double |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [GetAccessTokenResponse](#GetAccessTokenResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | success | Boolean? |  yes  |  |
+ | accessToken | String? |  yes  |  |
+ | refreshToken | String? |  yes  |  |
+ | tokenExpireAt | String? |  yes  |  |
+ | tokenExpiryIn | String? |  yes  |  |
+ | refreshTokenExpiryAt | String? |  yes  |  |
+ | refreshTokenExpiryIn | String? |  yes  |  |
+ | scope | ArrayList<String>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [RefreshTokenResponse](#RefreshTokenResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | success | Boolean? |  yes  |  |
+ | accessToken | String? |  yes  |  |
+ | tokenExpireAt | String? |  yes  |  |
+ | tokenExpiryIn | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [RefreshTokenRequest](#RefreshTokenRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | token | String |  no  |  |
 
 ---
 
@@ -3533,129 +3416,8 @@ Success. Check the example shown below or refer `LoginSuccess` for more details.
  | emiTenure | Double? |  yes  |  |
  | customer | [ApplicationCutomer](#ApplicationCutomer) |  no  |  |
  | order | [Order](#Order) |  no  |  |
+ | device | [Device](#Device)? |  yes  |  |
  | meta | HashMap<String,Object>? |  yes  |  |
-
----
-
-
- 
- 
- #### [Refund](#Refund)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | refundItems | [RefundItem](#RefundItem)? |  yes  |  |
- | refundId | String |  no  |  |
- | refundAmount | Double |  no  |  |
-
----
-
-
- 
- 
- #### [GetAccessTokenResponse](#GetAccessTokenResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | success | Boolean? |  yes  |  |
- | accessToken | String? |  yes  |  |
- | refreshToken | String? |  yes  |  |
- | tokenExpireAt | String? |  yes  |  |
- | tokenExpiryIn | String? |  yes  |  |
- | refreshTokenExpiryAt | String? |  yes  |  |
- | refreshTokenExpiryIn | String? |  yes  |  |
- | scope | ArrayList<String>? |  yes  |  |
-
----
-
-
- 
- 
- #### [RefreshTokenResponse](#RefreshTokenResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | success | Boolean? |  yes  |  |
- | accessToken | String? |  yes  |  |
- | tokenExpireAt | String? |  yes  |  |
- | tokenExpiryIn | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [RefreshTokenRequest](#RefreshTokenRequest)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | token | String |  no  |  |
-
----
-
-
- 
- 
- #### [Submerchant](#Submerchant)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | id | String? |  yes  |  |
- | updatedAt | String? |  yes  |  |
- | type | String? |  yes  |  |
- | deletedAt | String? |  yes  |  |
- | createdBy | String? |  yes  |  |
- | createdAt | String? |  yes  |  |
- | businessName | String? |  yes  |  |
- | email | String? |  yes  |  |
- | businessAddress | String? |  yes  |  |
- | pincode | String? |  yes  |  |
- | category | String? |  yes  |  |
- | name | String? |  yes  |  |
- | logo | String? |  yes  |  |
- | website | String? |  yes  |  |
- | storeId | String |  no  |  |
- | disbursementAccountHolderName | String? |  yes  |  |
- | disbursementAccountNumber | String? |  yes  |  |
- | disbursementIfsc | String? |  yes  |  |
- | active | Boolean? |  yes  |  |
-
----
-
-
- 
- 
- #### [GetSubmerchantsResponse](#GetSubmerchantsResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | success | Boolean? |  yes  |  |
- | page | [PaginationSchema](#PaginationSchema)? |  yes  |  |
- | submerchants | ArrayList<[Submerchant](#Submerchant)>? |  yes  |  |
- | headers | HashMap<String,Object>? |  yes  |  |
-
----
-
-
- 
- 
- #### [AddSubmerchantResponse](#AddSubmerchantResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | success | Boolean? |  yes  |  |
- | message | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [AddSubMerchantRequest](#AddSubMerchantRequest)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | submerchant | ArrayList<[Submerchant](#Submerchant)> |  no  |  |
 
 ---
 

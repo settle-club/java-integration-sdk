@@ -11,53 +11,6 @@ public class PlatformModels {
 
 
 /*
-    Model: RefundResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RefundResponse {
-    
-    
-    
-    
-    @JsonProperty("status")
-    private String status;
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-    
-    @JsonProperty("transactionId")
-    private String transactionId;
-    
-    
-    
-    
-    @JsonProperty("refundId")
-    private String refundId;
-    
-    
-    
-    
-    @JsonProperty("__headers")
-    private Object headers;
-    
-    
-    
-    
-}
-
-/*
     Model: UserSchema
 */
 @AllArgsConstructor

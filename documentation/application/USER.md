@@ -19,6 +19,7 @@ Authentication Service
 * [getDataFromOnboardingToken](#getdatafromonboardingtoken)
 * [getMobileNumberFromLinkingToken](#getmobilenumberfromlinkingtoken)
 * [getSessionFromLinkingToken](#getsessionfromlinkingtoken)
+* [validateTransaction](#validatetransaction)
 * [saveUserConsents](#saveuserconsents)
 * [getMobileDashboard](#getmobiledashboard)
 * [getTips](#gettips)
@@ -848,6 +849,64 @@ Success. Returns a JSON object as shown below. Refer `SessionFromLinkingResponse
 ---
 
 
+### validateTransaction
+Verify Transaction
+
+
+
+
+```java
+user.validateTransaction(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- |
+| body | [InitiateTransactions](#InitiateTransactions) | yes | Request body |
+
+
+Use this API to verify the customer based on  mobile number and countryCode.
+
+*Returned Response:*
+
+
+
+
+[VerifyCustomerSuccess](#VerifyCustomerSuccess)
+
+Success. Returns a JSON object as shown below. Refer `VerifyCustomerSuccess` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; status</i></summary>
+
+```json
+"enabled"
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 ### saveUserConsents
 Save user consents
 
@@ -1548,20 +1607,6 @@ Success. Check the example shown below or refer `ProfileEditSuccess` for more de
 
  
  
- #### [RefundResponse](#RefundResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | status | String? |  yes  |  |
- | message | String? |  yes  |  |
- | transactionId | String? |  yes  |  |
- | refundId | String? |  yes  |  |
-
----
-
-
- 
- 
  #### [UserSchema](#UserSchema)
 
  | Properties | Type | Nullable | Description |
@@ -2133,6 +2178,7 @@ Success. Check the example shown below or refer `ProfileEditSuccess` for more de
  | message | String |  no  | Message to be displayed to the user |
  | schemes | ArrayList<[SchemeResponse](#SchemeResponse)>? |  yes  | An array of possible schemes of lenders available for a transaction. |
  | limit | [LimitResponse](#LimitResponse)? |  yes  | Limit details of available and possible lenders for a transaction. |
+ | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 

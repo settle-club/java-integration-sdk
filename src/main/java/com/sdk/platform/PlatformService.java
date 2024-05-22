@@ -194,8 +194,8 @@ public static class CustomerService {
     
     
     
-    public PlatformModels.RefundResponse refund(String organizationId ,PlatformModels.Refund body) throws IOException {
-            Response<PlatformModels.RefundResponse> response = customerApiList.refund(organizationId  , body).execute();
+    public PlatformModels.VerifyCustomerSuccess refund(String organizationId ,PlatformModels.Refund body) throws IOException {
+            Response<PlatformModels.VerifyCustomerSuccess> response = customerApiList.refund(organizationId  , body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
