@@ -77,7 +77,7 @@ interface CustomerApiList {
     
     
     @POST ("/service/integration/user/authentication/{organizationId}/refund")
-    Call<PlatformModels.VerifyCustomerSuccess> refund(@Path("organizationId") String  organizationId ,@Body PlatformModels.Refund payload);
+    Call<PlatformModels.RefundResponse> refund(@Path("organizationId") String  organizationId ,@Body PlatformModels.Refund payload);
     
     
     

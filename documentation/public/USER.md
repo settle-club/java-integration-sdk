@@ -206,6 +206,20 @@ Success. Returns a JSON object as shown below. Refer `UserResponse` for more det
 
  
  
+ #### [RefundResponse](#RefundResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | status | String? |  yes  |  |
+ | message | String? |  yes  |  |
+ | transactionId | String? |  yes  |  |
+ | refundId | String? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [UserSchema](#UserSchema)
 
  | Properties | Type | Nullable | Description |
@@ -743,7 +757,8 @@ Success. Returns a JSON object as shown below. Refer `UserResponse` for more det
  | device | [Device](#Device) |  no  |  |
  | meta | HashMap<String,Object>? |  yes  | Any additional details |
  | emiTenure | Integer? |  yes  | EMI tenure selected by customer |
- | lenderId | String? |  yes  | ID of lender selected by customer |
+ | lenderSlug | String? |  yes  | slug of lender selected by customer |
+ | consents | ArrayList<[Consents](#Consents)> |  no  |  |
 
 ---
 
@@ -2008,10 +2023,10 @@ Success. Returns a JSON object as shown below. Refer `UserResponse` for more det
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | id | String |  no  | Unique identifier for the lender |
  | isDefault | Boolean |  no  | Indicates if this is the default lender |
  | logoUrl | String |  no  | URL to the logo of the lender |
  | name | String |  no  | Name of the lender |
+ | slug | String |  no  | Partners should send slug while sending lender indetifiers in the request |
  | title | String |  no  | Title of the lender |
  | subtitle | String |  no  | Subtitle or additional information about the lender |
  | amount | Double? |  yes  | Transaction amount |

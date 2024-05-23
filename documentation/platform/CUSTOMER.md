@@ -586,9 +586,9 @@ Use this API to verify the refund customer order amount
 
 
 
-[VerifyCustomerSuccess](#VerifyCustomerSuccess)
+[RefundResponse](#RefundResponse)
 
-Success. Returns a JSON object as shown below. Refer `RefundSuccess` for more details.
+Success. Returns a JSON object as shown below. Refer `RefundResponse` for more details.
 
 
 
@@ -806,7 +806,7 @@ Success. Returns a JSON object as shown below. Refer `GetSchemesSuccess` for mor
 ```json
 [
   {
-    "id": "315f60f4-1238-462c-8108-cfff9fbc400f",
+    "slug": "cashe",
     "name": "CASHe",
     "title": "CASHe",
     "subtitle": "Bhanix Finance and Investment Limited",
@@ -880,6 +880,21 @@ Success. Returns a JSON object as shown below. Refer `GetSchemesSuccess` for mor
 
 
 ### Schemas
+
+ 
+ 
+ #### [RefundResponse](#RefundResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | status | String? |  yes  |  |
+ | message | String? |  yes  |  |
+ | transactionId | String? |  yes  |  |
+ | refundId | String? |  yes  |  |
+ | headers | HashMap<String,Object>? |  yes  |  |
+
+---
+
 
  
  
@@ -1419,7 +1434,8 @@ Success. Returns a JSON object as shown below. Refer `GetSchemesSuccess` for mor
  | device | [Device](#Device) |  no  |  |
  | meta | HashMap<String,Object>? |  yes  | Any additional details |
  | emiTenure | Integer? |  yes  | EMI tenure selected by customer |
- | lenderId | String? |  yes  | ID of lender selected by customer |
+ | lenderSlug | String? |  yes  | slug of lender selected by customer |
+ | consents | ArrayList<[Consents](#Consents)> |  no  |  |
 
 ---
 
@@ -2690,10 +2706,10 @@ Success. Returns a JSON object as shown below. Refer `GetSchemesSuccess` for mor
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | id | String |  no  | Unique identifier for the lender |
  | isDefault | Boolean |  no  | Indicates if this is the default lender |
  | logoUrl | String |  no  | URL to the logo of the lender |
  | name | String |  no  | Name of the lender |
+ | slug | String |  no  | Partners should send slug while sending lender indetifiers in the request |
  | title | String |  no  | Title of the lender |
  | subtitle | String |  no  | Subtitle or additional information about the lender |
  | amount | Double? |  yes  | Transaction amount |

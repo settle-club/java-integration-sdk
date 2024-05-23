@@ -251,6 +251,7 @@ true
  | loanAmount | Double? |  yes  |  |
  | data | HashMap<String,Object>? |  yes  |  |
  | transactionId | String? |  yes  |  |
+ | lenderSlug | String? |  yes  |  |
 
 ---
 
