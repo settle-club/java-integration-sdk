@@ -6567,6 +6567,18 @@ public static class DisbursalRequest {
     
     
     
+    @JsonProperty("data")
+    private Object data;
+    
+    
+    
+    
+    @JsonProperty("transactionId")
+    private String transactionId;
+    
+    
+    
+    
 }
 
 /*
@@ -6961,6 +6973,12 @@ public static class Transactions {
     
     
     
+    @JsonProperty("repaymentTransactionId")
+    private String repaymentTransactionId;
+    
+    
+    
+    
     @JsonProperty("nextDueDate")
     private String nextDueDate;
     
@@ -7099,6 +7117,52 @@ public static class TransactionResponse {
     
     @JsonProperty("transactions")
     private List<Transactions> transactions;
+    
+    
+    
+    
+}
+
+/*
+    Model: MerchantTransactions
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class MerchantTransactions {
+    
+    
+    
+    
+    @JsonProperty("outstandingAmount")
+    private String outstandingAmount;
+    
+    
+    
+    
+}
+
+/*
+    Model: MerchantTransactionSummary
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class MerchantTransactionSummary {
+    
+    
+    
+    
+    @JsonProperty("merchantOutstandingSummary")
+    private MerchantTransactions merchantOutstandingSummary;
     
     
     

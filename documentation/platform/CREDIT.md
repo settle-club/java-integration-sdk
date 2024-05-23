@@ -249,6 +249,8 @@ true
  | isDownpaymentRequired | Boolean? |  yes  |  |
  | downpaymentAmount | Double? |  yes  |  |
  | loanAmount | Double? |  yes  |  |
+ | data | HashMap<String,Object>? |  yes  |  |
+ | transactionId | String? |  yes  |  |
 
 ---
 
@@ -372,6 +374,7 @@ true
  | lenderName | String? |  yes  |  |
  | lenderLogo | String? |  yes  |  |
  | loanType | String? |  yes  |  |
+ | repaymentTransactionId | String? |  yes  |  |
  | nextDueDate | String? |  yes  |  |
  | paidPercent | Double? |  yes  |  |
  | lenderDetail | [LenderDetail](#LenderDetail)? |  yes  |  |
@@ -476,6 +479,28 @@ true
  | filters | ArrayList<[Filters](#Filters)> |  no  |  |
  | page | [PageResponse](#PageResponse) |  no  |  |
  | transactions | ArrayList<[Transactions](#Transactions)> |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [MerchantTransactions](#MerchantTransactions)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | outstandingAmount | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [MerchantTransactionSummary](#MerchantTransactionSummary)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | merchantOutstandingSummary | [MerchantTransactions](#MerchantTransactions)? |  yes  |  |
 
 ---
 
