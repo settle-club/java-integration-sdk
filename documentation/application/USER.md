@@ -3439,10 +3439,10 @@ Success. Check the example shown below or refer `ProfileEditSuccess` for more de
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | slug | String |  no  | A slug identifier for the lender. |
  | isDefault | Boolean |  no  | Indicates if this is the default lender |
  | logoUrl | String |  no  | URL to the logo of the lender |
  | name | String |  no  | Name of the lender |
- | slug | String |  no  | Partners should send slug while sending lender indetifiers in the request |
  | title | String |  no  | Title of the lender |
  | subtitle | String |  no  | Subtitle or additional information about the lender |
  | amount | Double? |  yes  | Transaction amount |

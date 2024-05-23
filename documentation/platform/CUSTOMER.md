@@ -16,6 +16,7 @@ Authentication Service
 * [refund](#refund)
 * [refundStatus](#refundstatus)
 * [getSchemes](#getschemes)
+* [checkEligibility](#checkeligibility)
 
 
 
@@ -862,6 +863,65 @@ Success. Returns a JSON object as shown below. Refer `GetSchemesSuccess` for mor
     }
   }
 ]
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### checkEligibility
+Check Credit Eligibility
+
+
+
+
+```java
+customer.checkEligibility(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| organizationId | String | yes | This is organizationId |  
+| body | [CheckEligibilityRequest](#CheckEligibilityRequest) | yes | Request body |
+
+
+Use this API to pre approve by checking the customer's credit eligibility based on mobile number and countryCode and vintage data of monthly transactions.
+
+*Returned Response:*
+
+
+
+
+[EligibilitySuccess](#EligibilitySuccess)
+
+Success. Returns a JSON object as shown below. Refer `EligibilitySuccess` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; $ref</i></summary>
+
+```json
+"#/components/examples/EligibilitySuccess"
 ```
 </details>
 
@@ -2706,10 +2766,10 @@ Success. Returns a JSON object as shown below. Refer `GetSchemesSuccess` for mor
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | slug | String |  no  | A slug identifier for the lender. |
  | isDefault | Boolean |  no  | Indicates if this is the default lender |
  | logoUrl | String |  no  | URL to the logo of the lender |
  | name | String |  no  | Name of the lender |
- | slug | String |  no  | Partners should send slug while sending lender indetifiers in the request |
  | title | String |  no  | Title of the lender |
  | subtitle | String |  no  | Subtitle or additional information about the lender |
  | amount | Double? |  yes  | Transaction amount |
@@ -2946,6 +3006,7 @@ Success. Returns a JSON object as shown below. Refer `GetSchemesSuccess` for mor
  | message | String? |  yes  |  |
  | redirectUrl | String? |  yes  |  |
  | creditLimits | ArrayList<[CreditLimitObject](#CreditLimitObject)>? |  yes  |  |
+ | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 

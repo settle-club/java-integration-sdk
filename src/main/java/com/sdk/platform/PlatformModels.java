@@ -5435,6 +5435,12 @@ public static class SchemeResponse {
     
     
     
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
     @JsonProperty("isDefault")
     private Boolean isDefault;
     
@@ -5449,12 +5455,6 @@ public static class SchemeResponse {
     
     @JsonProperty("name")
     private String name;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
     
     
     
@@ -6183,6 +6183,12 @@ public static class EligibilitySuccess {
     
     @JsonProperty("creditLimits")
     private List<CreditLimitObject> creditLimits;
+    
+    
+    
+    
+    @JsonProperty("__headers")
+    private Object headers;
     
     
     
