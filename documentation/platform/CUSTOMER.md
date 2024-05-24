@@ -1495,7 +1495,7 @@ Success. Returns a JSON object as shown below. Refer `EligibilitySuccess` for mo
  | meta | HashMap<String,Object>? |  yes  | Any additional details |
  | emiTenure | Integer? |  yes  | EMI tenure selected by customer |
  | lenderSlug | String? |  yes  | slug of lender selected by customer |
- | consents | ArrayList<[Consents](#Consents)> |  no  |  |
+ | consents | ArrayList<[Consents](#Consents)>? |  yes  | Consent for AUTO_DISBURSAL is mandatory while calling createOrder API. |
 
 ---
 
