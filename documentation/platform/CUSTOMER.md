@@ -2017,6 +2017,7 @@ Success. Returns a JSON object as shown below. Refer `EligibilitySuccess` for mo
  | ---------- | ---- | -------- | ----------- |
  | tabs | ArrayList<[TabsSchema](#TabsSchema)> |  no  |  |
  | profileSections | ArrayList<[ProfileSectionSchema](#ProfileSectionSchema)> |  no  |  |
+ | footer | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -2220,6 +2221,7 @@ Success. Returns a JSON object as shown below. Refer `EligibilitySuccess` for mo
  | ---------- | ---- | -------- | ----------- |
  | type | String? |  yes  |  |
  | text | String? |  yes  |  |
+ | purpose | String? |  yes  | If consent type is AUTO_DISBURSAL, purpose will be uid of order. |
 
 ---
 
@@ -2688,6 +2690,17 @@ Success. Returns a JSON object as shown below. Refer `EligibilitySuccess` for mo
  | userId | String? |  yes  |  |
  | lenders | ArrayList<[SchemeResponse](#SchemeResponse)> |  no  |  |
  | headers | HashMap<String,Object>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ActiveEntityResponse](#ActiveEntityResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | activeEntity | HashMap<String,Object>? |  yes  |  |
 
 ---
 

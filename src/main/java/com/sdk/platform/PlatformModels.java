@@ -3349,6 +3349,12 @@ public static class NavigationsMobileResponse {
     
     
     
+    @JsonProperty("footer")
+    private Object footer;
+    
+    
+    
+    
 }
 
 /*
@@ -3875,6 +3881,12 @@ public static class Consents {
     
     @JsonProperty("text")
     private String text;
+    
+    
+    
+    
+    @JsonProperty("purpose")
+    private String purpose;
     
     
     
@@ -5221,6 +5233,29 @@ public static class GetSchemesSuccess {
     
     @JsonProperty("__headers")
     private Object headers;
+    
+    
+    
+    
+}
+
+/*
+    Model: ActiveEntityResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ActiveEntityResponse {
+    
+    
+    
+    
+    @JsonProperty("activeEntity")
+    private Object activeEntity;
     
     
     

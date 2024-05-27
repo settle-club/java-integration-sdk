@@ -32,6 +32,7 @@ Authentication Service
 * [getDesktopNavigations](#getdesktopnavigations)
 * [getUserState](#getuserstate)
 * [updateProfile](#updateprofile)
+* [switchActiveEntity](#switchactiveentity)
 
 
 
@@ -1602,6 +1603,60 @@ Success. Check the example shown below or refer `ProfileEditSuccess` for more de
 ---
 
 
+### switchActiveEntity
+Switch Entity type or create new Entity
+
+
+
+
+```java
+user.switchActiveEntity() {
+  //use response
+}
+```
+
+
+
+
+Use this API to Switch Entity type or create new Entity.
+
+*Returned Response:*
+
+
+
+
+[ActiveEntityResponse](#ActiveEntityResponse)
+
+Success. Check the example shown below or refer `ActiveEntityResponse` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; $ref</i></summary>
+
+```json
+"#/components/examples/ActiveEntityResponseExample"
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 
 ### Schemas
 
@@ -2687,6 +2742,7 @@ Success. Check the example shown below or refer `ProfileEditSuccess` for more de
  | ---------- | ---- | -------- | ----------- |
  | tabs | ArrayList<[TabsSchema](#TabsSchema)> |  no  |  |
  | profileSections | ArrayList<[ProfileSectionSchema](#ProfileSectionSchema)> |  no  |  |
+ | footer | HashMap<String,Object>? |  yes  |  |
  | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
@@ -2896,6 +2952,7 @@ Success. Check the example shown below or refer `ProfileEditSuccess` for more de
  | ---------- | ---- | -------- | ----------- |
  | type | String? |  yes  |  |
  | text | String? |  yes  |  |
+ | purpose | String? |  yes  | If consent type is AUTO_DISBURSAL, purpose will be uid of order. |
 
 ---
 
@@ -3361,6 +3418,18 @@ Success. Check the example shown below or refer `ProfileEditSuccess` for more de
  | ---------- | ---- | -------- | ----------- |
  | userId | String? |  yes  |  |
  | lenders | ArrayList<[SchemeResponse](#SchemeResponse)> |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [ActiveEntityResponse](#ActiveEntityResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | activeEntity | HashMap<String,Object>? |  yes  |  |
+ | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
