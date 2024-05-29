@@ -11,6 +11,53 @@ public class PlatformModels {
 
 
 /*
+    Model: RefundResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RefundResponse {
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("transactionId")
+    private String transactionId;
+    
+    
+    
+    
+    @JsonProperty("refundId")
+    private String refundId;
+    
+    
+    
+    
+    @JsonProperty("__headers")
+    private Object headers;
+    
+    
+    
+    
+}
+
+/*
     Model: UserSchema
 */
 @AllArgsConstructor
@@ -1712,8 +1759,14 @@ public static class CreateTransaction {
     
     
     
-    @JsonProperty("lenderId")
-    private String lenderId;
+    @JsonProperty("lenderSlug")
+    private String lenderSlug;
+    
+    
+    
+    
+    @JsonProperty("consents")
+    private List<Consents> consents;
     
     
     
@@ -3826,6 +3879,12 @@ public static class Consents {
     
     
     
+    @JsonProperty("purpose")
+    private String purpose;
+    
+    
+    
+    
 }
 
 /*
@@ -5382,8 +5441,8 @@ public static class SchemeResponse {
     
     
     
-    @JsonProperty("id")
-    private String id;
+    @JsonProperty("slug")
+    private String slug;
     
     
     
@@ -6134,6 +6193,12 @@ public static class EligibilitySuccess {
     
     
     
+    @JsonProperty("__headers")
+    private Object headers;
+    
+    
+    
+    
 }
 
 /*
@@ -6563,6 +6628,12 @@ public static class DisbursalRequest {
     
     @JsonProperty("loanAmount")
     private Double loanAmount;
+    
+    
+    
+    
+    @JsonProperty("lenderSlug")
+    private String lenderSlug;
     
     
     

@@ -194,8 +194,8 @@ public static class CustomerService {
     
     
     
-    public PlatformModels.VerifyCustomerSuccess refund(String organizationId ,PlatformModels.Refund body) throws IOException {
-            Response<PlatformModels.VerifyCustomerSuccess> response = customerApiList.refund(organizationId  , body).execute();
+    public PlatformModels.RefundResponse refund(String organizationId ,PlatformModels.Refund body) throws IOException {
+            Response<PlatformModels.RefundResponse> response = customerApiList.refund(organizationId  , body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -255,6 +255,27 @@ public static class CustomerService {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.EligibilitySuccess checkEligibility(String organizationId ,PlatformModels.CheckEligibilityRequest body) throws IOException {
+            Response<PlatformModels.EligibilitySuccess> response = customerApiList.checkEligibility(organizationId  , body).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+    }
+    
+    
+    
 
 
 public class ApplicationClient {
@@ -270,6 +291,8 @@ public class ApplicationClient {
         this.organizationId = this.platformConfig.getOrganizationId();
     }
 
+    
+    
     
     
     
