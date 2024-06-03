@@ -748,7 +748,20 @@ multikyc.getLimit(body body) {
  | ---------- | ---- | -------- | ----------- |
  | ack | String? |  yes  |  |
  | data | Object |  no  |  |
- | entityMapId | String? |  yes  |  |
+ | merchantId | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [LenderOnboardRequestV1](#LenderOnboardRequestV1)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | entityMapId | String |  no  |  |
+ | ack | String? |  yes  |  |
+ | data | Object |  no  |  |
  | merchantId | String? |  yes  |  |
 
 ---
@@ -1321,6 +1334,8 @@ multikyc.getLimit(body body) {
  | actionIsForm | Boolean |  no  |  |
  | actionForm | [Form](#Form)? |  yes  |  |
  | merchantId | String? |  yes  |  |
+ | actionName | String? |  yes  |  |
+ | actionDescription | String? |  yes  |  |
 
 ---
 
@@ -1600,7 +1615,7 @@ multikyc.getLimit(body body) {
  | lenderId | String |  no  |  |
  | pgId | String |  no  |  |
  | active | Boolean |  no  |  |
- | createdAt | String |  no  |  |
+ | createdAt | String? |  yes  |  |
  | updatedAt | String? |  yes  |  |
  | deletedAt | String? |  yes  |  |
 
