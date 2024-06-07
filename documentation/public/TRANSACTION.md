@@ -604,6 +604,7 @@ Success. Returns a JSON object as shown below. Refer `UniqueCustomersInOrg` for 
  | loanAmount | Double? |  yes  |  |
  | data | HashMap<String,Object>? |  yes  |  |
  | transactionId | String? |  yes  |  |
+ | lenderSlug | String? |  yes  |  |
 
 ---
 

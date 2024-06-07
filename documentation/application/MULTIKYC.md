@@ -8395,7 +8395,7 @@ multikyc.initiateLenderOnboardingV1(body body) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- |
-| body | [LenderOnboardRequest](#LenderOnboardRequest) | yes | Request body |
+| body | [LenderOnboardRequestV1](#LenderOnboardRequestV1) | yes | Request body |
 
 
 This API is called whenever user start or resumes the Onboarding.
@@ -9409,7 +9409,6 @@ API endpoint to create a signed URL for uploading documents to and downloading d
  | merchantConfigSchema | String? |  yes  |  |
  | createdAt | String? |  yes  |  |
  | updatedAt | String? |  yes  |  |
- | approvedLimit | Double? |  yes  |  |
  | deletedAt | String? |  yes  |  |
  | meta | Object? |  yes  |  |
  | metaSchema | Object? |  yes  |  |
@@ -10002,7 +10001,20 @@ API endpoint to create a signed URL for uploading documents to and downloading d
  | ---------- | ---- | -------- | ----------- |
  | ack | String? |  yes  |  |
  | data | Object |  no  |  |
- | entityMapId | String? |  yes  |  |
+ | merchantId | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [LenderOnboardRequestV1](#LenderOnboardRequestV1)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | entityMapId | String |  no  |  |
+ | ack | String? |  yes  |  |
+ | data | Object |  no  |  |
  | merchantId | String? |  yes  |  |
 
 ---
@@ -10576,6 +10588,8 @@ API endpoint to create a signed URL for uploading documents to and downloading d
  | actionIsForm | Boolean |  no  |  |
  | actionForm | [Form](#Form)? |  yes  |  |
  | merchantId | String? |  yes  |  |
+ | actionName | String? |  yes  |  |
+ | actionDescription | String? |  yes  |  |
 
 ---
 

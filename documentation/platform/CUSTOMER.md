@@ -16,6 +16,7 @@ Authentication Service
 * [refund](#refund)
 * [refundStatus](#refundstatus)
 * [getSchemes](#getschemes)
+* [checkEligibility](#checkeligibility)
 
 
 
@@ -586,9 +587,9 @@ Use this API to verify the refund customer order amount
 
 
 
-[VerifyCustomerSuccess](#VerifyCustomerSuccess)
+[RefundResponse](#RefundResponse)
 
-Success. Returns a JSON object as shown below. Refer `RefundSuccess` for more details.
+Success. Returns a JSON object as shown below. Refer `RefundResponse` for more details.
 
 
 
@@ -806,7 +807,7 @@ Success. Returns a JSON object as shown below. Refer `GetSchemesSuccess` for mor
 ```json
 [
   {
-    "id": "315f60f4-1238-462c-8108-cfff9fbc400f",
+    "slug": "cashe",
     "name": "CASHe",
     "title": "CASHe",
     "subtitle": "Bhanix Finance and Investment Limited",
@@ -878,8 +879,82 @@ Success. Returns a JSON object as shown below. Refer `GetSchemesSuccess` for mor
 ---
 
 
+### checkEligibility
+Check Credit Eligibility
+
+
+
+
+```java
+customer.checkEligibility(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| organizationId | String | yes | This is organizationId |  
+| body | [CheckEligibilityRequest](#CheckEligibilityRequest) | yes | Request body |
+
+
+Use this API to pre approve by checking the customer's credit eligibility based on mobile number and countryCode and vintage data of monthly transactions.
+
+*Returned Response:*
+
+
+
+
+[EligibilitySuccess](#EligibilitySuccess)
+
+Success. Returns a JSON object as shown below. Refer `EligibilitySuccess` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; $ref</i></summary>
+
+```json
+"#/components/examples/EligibilitySuccess"
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 
 ### Schemas
+
+ 
+ 
+ #### [RefundResponse](#RefundResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | status | String? |  yes  |  |
+ | message | String? |  yes  |  |
+ | transactionId | String? |  yes  |  |
+ | refundId | String? |  yes  |  |
+ | headers | HashMap<String,Object>? |  yes  |  |
+
+---
+
 
  
  
@@ -1419,7 +1494,8 @@ Success. Returns a JSON object as shown below. Refer `GetSchemesSuccess` for mor
  | device | [Device](#Device) |  no  |  |
  | meta | HashMap<String,Object>? |  yes  | Any additional details |
  | emiTenure | Integer? |  yes  | EMI tenure selected by customer |
- | lenderId | String? |  yes  | ID of lender selected by customer |
+ | lenderSlug | String? |  yes  | slug of lender selected by customer |
+ | consents | ArrayList<[Consents](#Consents)>? |  yes  | Consent for AUTO_DISBURSAL is mandatory while calling createOrder API. |
 
 ---
 
@@ -2145,6 +2221,7 @@ Success. Returns a JSON object as shown below. Refer `GetSchemesSuccess` for mor
  | ---------- | ---- | -------- | ----------- |
  | type | String? |  yes  |  |
  | text | String? |  yes  |  |
+ | purpose | String? |  yes  | If consent type is AUTO_DISBURSAL, purpose will be uid of order. |
 
 ---
 
@@ -2702,7 +2779,7 @@ Success. Returns a JSON object as shown below. Refer `GetSchemesSuccess` for mor
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | id | String |  no  | Unique identifier for the lender |
+ | slug | String |  no  | A slug identifier for the lender. |
  | isDefault | Boolean |  no  | Indicates if this is the default lender |
  | logoUrl | String |  no  | URL to the logo of the lender |
  | name | String |  no  | Name of the lender |
@@ -2942,6 +3019,7 @@ Success. Returns a JSON object as shown below. Refer `GetSchemesSuccess` for mor
  | message | String? |  yes  |  |
  | redirectUrl | String? |  yes  |  |
  | creditLimits | ArrayList<[CreditLimitObject](#CreditLimitObject)>? |  yes  |  |
+ | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 

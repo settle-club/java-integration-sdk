@@ -36,8 +36,7 @@ Authentication Service
 * [getVintageData](#getvintagedata)
 * [addLenderMetaSchema](#addlendermetaschema)
 * [getLenderMetaSchema](#getlendermetaschema)
-* [getSubmerchants](#getsubmerchants)
-* [addSubmerchants](#addsubmerchants)
+* [updateLenderStatus](#updatelenderstatus)
 * [generatePaymentLink](#generatepaymentlink)
 * [updateProfile](#updateprofile)
 
@@ -1732,7 +1731,7 @@ add lender schema
 
 
 ```java
-merchant.addLenderMetaSchema( lenderSlug, body body) {
+merchant.addLenderMetaSchema( lenderId, body body) {
   //use response
 }
 ```
@@ -1741,7 +1740,7 @@ merchant.addLenderMetaSchema( lenderSlug, body body) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| lenderSlug | String | yes | This is the lenderSlug ID |  
+| lenderId | String | yes | lenderId for lender merchant config |  
 | body | [AddMetaSchemaRequest](#AddMetaSchemaRequest) | yes | Request body |
 
 
@@ -1792,7 +1791,7 @@ Get lender meta schema
 
 
 ```java
-merchant.getLenderMetaSchema( lenderSlug) {
+merchant.getLenderMetaSchema( lenderId) {
   //use response
 }
 ```
@@ -1802,7 +1801,7 @@ merchant.getLenderMetaSchema( lenderSlug) {
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
 | organizationId | String | yes | This is the organization ID |   
-| lenderSlug | String | yes | This is the lenderSlug ID |  
+| lenderId | String | yes | lenderId for lender merchant config |  
 
 
 
@@ -1864,14 +1863,14 @@ Success. Returns a JSON object as shown below. Refer `AddMetaSchemaResponse` for
 ---
 
 
-### getSubmerchants
-Get submerchants for an merchant/organization
+### updateLenderStatus
+update lender enable status
 
 
 
 
 ```java
-merchant.getSubmerchants() {
+merchant.updateLenderStatus( lenderId, body body) {
   //use response
 }
 ```
@@ -1880,20 +1879,20 @@ merchant.getSubmerchants() {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| organizationId | String | yes | This is the organization ID |  
+| lenderId | String | yes | lenderId for lender merchant config |  
+| body | [UpdateLenderStatusSchemaRequest](#UpdateLenderStatusSchemaRequest) | yes | Request body |
 
 
-
-Use this API to get submerchants for an merchant/organization
+Use this API to update the status of a lender by updating enable flag value.
 
 *Returned Response:*
 
 
 
 
-[GetSubmerchantsResponse](#GetSubmerchantsResponse)
+[UpdateLenderStatusSchemaResponse](#UpdateLenderStatusSchemaResponse)
 
-Success. Returns a JSON object as shown below. Refer `GetSubmerchantsResponse` for more details.
+Success. Returns a JSON object as shown below. Refer `UpdateLenderStatusSchemaResponse` for more details.
 
 
 
@@ -1903,178 +1902,12 @@ Success. Returns a JSON object as shown below. Refer `GetSubmerchantsResponse` f
 
 ```json
 {
-  "success": true,
-  "page": {
-    "type": "number",
-    "current": 1,
-    "hasPrevious": false,
-    "hasNext": true,
-    "size": 5,
-    "itemTotal": 10
-  },
-  "submerchants": [
-    {
-      "id": "fc241243-5b35-4da7-bb59-a4beaa39c23d",
-      "updatedAt": "2024-02-20T17:02:56.849Z",
-      "type": null,
-      "deletedAt": null,
-      "createdBy": null,
-      "createdAt": "2024-02-20T17:02:56.849Z",
-      "businessName": null,
-      "email": null,
-      "businessAddress": null,
-      "pincode": null,
-      "category": null,
-      "name": null,
-      "logo": null,
-      "website": null,
-      "storeId": "1",
-      "disbursementAccountHolderName": null,
-      "disbursementAccountNumber": null,
-      "disbursementIfsc": null,
-      "active": false
-    },
-    {
-      "id": "2aee0321-ae5b-4dad-927c-670360c63b8f",
-      "updatedAt": "2024-02-20T17:02:56.849Z",
-      "type": null,
-      "deletedAt": null,
-      "createdBy": null,
-      "createdAt": "2024-02-20T17:02:56.849Z",
-      "businessName": null,
-      "email": null,
-      "businessAddress": null,
-      "pincode": null,
-      "category": null,
-      "name": null,
-      "logo": null,
-      "website": null,
-      "storeId": "2",
-      "disbursementAccountHolderName": null,
-      "disbursementAccountNumber": null,
-      "disbursementIfsc": null,
-      "active": false
-    },
-    {
-      "id": "cb4a0a8d-be80-4826-86cf-6a248274a62d",
-      "updatedAt": "2024-02-20T17:02:56.849Z",
-      "type": null,
-      "deletedAt": null,
-      "createdBy": null,
-      "createdAt": "2024-02-20T17:02:56.849Z",
-      "businessName": null,
-      "email": null,
-      "businessAddress": null,
-      "pincode": null,
-      "category": null,
-      "name": null,
-      "logo": null,
-      "website": null,
-      "storeId": "3",
-      "disbursementAccountHolderName": null,
-      "disbursementAccountNumber": null,
-      "disbursementIfsc": null,
-      "active": false
-    },
-    {
-      "id": "f0e18922-c800-4f44-a501-33a332eee718",
-      "updatedAt": "2024-02-20T17:02:56.849Z",
-      "type": null,
-      "deletedAt": null,
-      "createdBy": null,
-      "createdAt": "2024-02-20T17:02:56.849Z",
-      "businessName": null,
-      "email": null,
-      "businessAddress": null,
-      "pincode": null,
-      "category": null,
-      "name": null,
-      "logo": null,
-      "website": null,
-      "storeId": "4",
-      "disbursementAccountHolderName": null,
-      "disbursementAccountNumber": null,
-      "disbursementIfsc": null,
-      "active": false
-    },
-    {
-      "id": "54eb215a-abc9-45d0-a1a0-83283d2c169c",
-      "updatedAt": "2024-02-20T17:02:56.849Z",
-      "type": null,
-      "deletedAt": null,
-      "createdBy": null,
-      "createdAt": "2024-02-20T17:02:56.849Z",
-      "businessName": null,
-      "email": null,
-      "businessAddress": null,
-      "pincode": null,
-      "category": null,
-      "name": null,
-      "logo": null,
-      "website": null,
-      "storeId": "5",
-      "disbursementAccountHolderName": null,
-      "disbursementAccountNumber": null,
-      "disbursementIfsc": null,
-      "active": false
-    }
-  ]
-}
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### addSubmerchants
-Add Submerchants to specific merchant/organization
-
-
-
-
-```java
-merchant.addSubmerchants(body body) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| organizationId | String | yes | This is the organization ID |  
-| body | [AddSubMerchantRequest](#AddSubMerchantRequest) | yes | Request body |
-
-
-Use this API to add Submerchants to specific merchant/organization.
-
-*Returned Response:*
-
-
-
-
-[AddSubmerchantResponse](#AddSubmerchantResponse)
-
-Success. Returns a JSON object as shown below. Refer `AddSubmerchantResponse` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-{
-  "success": true,
-  "message": "Submerchants added successfully."
+  "merchantId": "5fa209a9-cbdb-4c55-98f6-e0a26b9f004a",
+  "lenderId": "5fa209a9-cbdb-4c55-98f6-e0a26b9f004a",
+  "mid": "qwdx23dxq3xxqwx",
+  "data": {
+    "name": "test organization"
+  }
 }
 ```
 </details>
@@ -2271,18 +2104,6 @@ Success. Check the example shown below or refer `LoginSuccess` for more details.
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | email | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [FilterByDate](#FilterByDate)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | startDate | String? |  yes  |  |
- | endDate | String? |  yes  |  |
 
 ---
 
@@ -3417,6 +3238,74 @@ Success. Check the example shown below or refer `LoginSuccess` for more details.
 
  
  
+ #### [FilterByDate](#FilterByDate)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | startDate | String? |  yes  |  |
+ | endDate | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [Refund](#Refund)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | refundItems | [RefundItem](#RefundItem)? |  yes  |  |
+ | refundId | String |  no  |  |
+ | refundAmount | Double |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [GetAccessTokenResponse](#GetAccessTokenResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | success | Boolean? |  yes  |  |
+ | accessToken | String? |  yes  |  |
+ | refreshToken | String? |  yes  |  |
+ | tokenExpireAt | String? |  yes  |  |
+ | tokenExpiryIn | String? |  yes  |  |
+ | refreshTokenExpiryAt | String? |  yes  |  |
+ | refreshTokenExpiryIn | String? |  yes  |  |
+ | scope | ArrayList<String>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [RefreshTokenResponse](#RefreshTokenResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | success | Boolean? |  yes  |  |
+ | accessToken | String? |  yes  |  |
+ | tokenExpireAt | String? |  yes  |  |
+ | tokenExpiryIn | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [RefreshTokenRequest](#RefreshTokenRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | token | String |  no  |  |
+
+---
+
+
+ 
+ 
  #### [PaymentLinkResponse](#PaymentLinkResponse)
 
  | Properties | Type | Nullable | Description |
@@ -3510,8 +3399,8 @@ Success. Check the example shown below or refer `LoginSuccess` for more details.
  | ---------- | ---- | -------- | ----------- |
  | ipAddress | String |  no  |  |
  | userAgent | String |  no  |  |
- | latitude | ? |  yes  |  |
- | longitude | ? |  yes  |  |
+ | latitude | Double? |  yes  |  |
+ | longitude | Double? |  yes  |  |
 
 ---
 
@@ -3535,123 +3424,28 @@ Success. Check the example shown below or refer `LoginSuccess` for more details.
 
  
  
- #### [Refund](#Refund)
+ #### [UpdateLenderStatusSchemaRequest](#UpdateLenderStatusSchemaRequest)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | refundItems | [RefundItem](#RefundItem)? |  yes  |  |
- | refundId | String |  no  |  |
- | refundAmount | Double |  no  |  |
+ | merchantId | String? |  yes  |  |
+ | enable | Boolean? |  yes  |  |
 
 ---
 
 
  
  
- #### [GetAccessTokenResponse](#GetAccessTokenResponse)
+ #### [UpdateLenderStatusSchemaResponse](#UpdateLenderStatusSchemaResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | success | Boolean? |  yes  |  |
- | accessToken | String? |  yes  |  |
- | refreshToken | String? |  yes  |  |
- | tokenExpireAt | String? |  yes  |  |
- | tokenExpiryIn | String? |  yes  |  |
- | refreshTokenExpiryAt | String? |  yes  |  |
- | refreshTokenExpiryIn | String? |  yes  |  |
- | scope | ArrayList<String>? |  yes  |  |
-
----
-
-
- 
- 
- #### [RefreshTokenResponse](#RefreshTokenResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | success | Boolean? |  yes  |  |
- | accessToken | String? |  yes  |  |
- | tokenExpireAt | String? |  yes  |  |
- | tokenExpiryIn | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [RefreshTokenRequest](#RefreshTokenRequest)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | token | String |  no  |  |
-
----
-
-
- 
- 
- #### [Submerchant](#Submerchant)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | id | String? |  yes  |  |
- | updatedAt | String? |  yes  |  |
- | type | String? |  yes  |  |
- | deletedAt | String? |  yes  |  |
- | createdBy | String? |  yes  |  |
- | createdAt | String? |  yes  |  |
- | businessName | String? |  yes  |  |
- | email | String? |  yes  |  |
- | businessAddress | String? |  yes  |  |
- | pincode | String? |  yes  |  |
- | category | String? |  yes  |  |
- | name | String? |  yes  |  |
- | logo | String? |  yes  |  |
- | website | String? |  yes  |  |
- | storeId | String |  no  |  |
- | disbursementAccountHolderName | String? |  yes  |  |
- | disbursementAccountNumber | String? |  yes  |  |
- | disbursementIfsc | String? |  yes  |  |
- | active | Boolean? |  yes  |  |
-
----
-
-
- 
- 
- #### [GetSubmerchantsResponse](#GetSubmerchantsResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | success | Boolean? |  yes  |  |
- | page | [PaginationSchema](#PaginationSchema)? |  yes  |  |
- | submerchants | ArrayList<[Submerchant](#Submerchant)>? |  yes  |  |
+ | merchantId | String? |  yes  |  |
+ | lenderId | String? |  yes  |  |
+ | mid | String? |  yes  |  |
+ | enable | Boolean? |  yes  |  |
+ | data | HashMap<String,Object>? |  yes  |  |
  | headers | HashMap<String,Object>? |  yes  |  |
-
----
-
-
- 
- 
- #### [AddSubmerchantResponse](#AddSubmerchantResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | success | Boolean? |  yes  |  |
- | message | String? |  yes  |  |
- | headers | HashMap<String,Object>? |  yes  |  |
-
----
-
-
- 
- 
- #### [AddSubMerchantRequest](#AddSubMerchantRequest)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | submerchant | ArrayList<[Submerchant](#Submerchant)> |  no  |  |
 
 ---
 

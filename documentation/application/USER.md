@@ -1662,6 +1662,20 @@ Success. Check the example shown below or refer `ActiveEntityResponse` for more 
 
  
  
+ #### [RefundResponse](#RefundResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | status | String? |  yes  |  |
+ | message | String? |  yes  |  |
+ | transactionId | String? |  yes  |  |
+ | refundId | String? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [UserSchema](#UserSchema)
 
  | Properties | Type | Nullable | Description |
@@ -2203,7 +2217,8 @@ Success. Check the example shown below or refer `ActiveEntityResponse` for more 
  | device | [Device](#Device) |  no  |  |
  | meta | HashMap<String,Object>? |  yes  | Any additional details |
  | emiTenure | Integer? |  yes  | EMI tenure selected by customer |
- | lenderId | String? |  yes  | ID of lender selected by customer |
+ | lenderSlug | String? |  yes  | slug of lender selected by customer |
+ | consents | ArrayList<[Consents](#Consents)>? |  yes  | Consent for AUTO_DISBURSAL is mandatory while calling createOrder API. |
 
 ---
 
@@ -2937,6 +2952,7 @@ Success. Check the example shown below or refer `ActiveEntityResponse` for more 
  | ---------- | ---- | -------- | ----------- |
  | type | String? |  yes  |  |
  | text | String? |  yes  |  |
+ | purpose | String? |  yes  | If consent type is AUTO_DISBURSAL, purpose will be uid of order. |
 
 ---
 
@@ -3492,7 +3508,7 @@ Success. Check the example shown below or refer `ActiveEntityResponse` for more 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | id | String |  no  | Unique identifier for the lender |
+ | slug | String |  no  | A slug identifier for the lender. |
  | isDefault | Boolean |  no  | Indicates if this is the default lender |
  | logoUrl | String |  no  | URL to the logo of the lender |
  | name | String |  no  | Name of the lender |
