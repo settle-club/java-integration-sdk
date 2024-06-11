@@ -2434,11 +2434,12 @@ Success. Returns a JSON object as shown below. Refer `EligibilitySuccess` for mo
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | fingerprint | String? |  yes  |  |
- | customer | [CustomerObject](#CustomerObject) |  no  |  |
+ | customer | [CustomerObject](#CustomerObject)? |  yes  |  |
  | refundItems | ArrayList<[Items](#Items)>? |  yes  |  |
  | orderId | String |  no  |  |
  | refundId | String |  no  |  |
  | refundAmount | Double |  no  |  |
+ | redirectionUrl | String? |  yes  |  |
 
 ---
 
@@ -3131,6 +3132,20 @@ Success. Returns a JSON object as shown below. Refer `EligibilitySuccess` for mo
  | ---------- | ---- | -------- | ----------- |
  | userId | String |  no  |  |
  | lenders | ArrayList<[LenderAndPaymentOption](#LenderAndPaymentOption)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [PageSchemaResponse](#PageSchemaResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | slug | String? |  yes  |  |
+ | description | String? |  yes  |  |
+ | sections | HashMap<String,Object>? |  yes  |  |
+ | settings | HashMap<String,Object>? |  yes  |  |
 
 ---
 

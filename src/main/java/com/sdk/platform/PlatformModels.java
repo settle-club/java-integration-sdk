@@ -4505,6 +4505,12 @@ public static class Refund {
     
     
     
+    @JsonProperty("redirectionUrl")
+    private String redirectionUrl;
+    
+    
+    
+    
 }
 
 /*
@@ -6589,6 +6595,47 @@ public static class GetSchemesSuccessOld {
     
     @JsonProperty("lenders")
     private List<LenderAndPaymentOption> lenders;
+    
+    
+    
+    
+}
+
+/*
+    Model: PageSchemaResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PageSchemaResponse {
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("sections")
+    private Object sections;
+    
+    
+    
+    
+    @JsonProperty("settings")
+    private Object settings;
     
     
     

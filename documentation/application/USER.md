@@ -26,6 +26,7 @@ Authentication Service
 * [getDesktopDashboard](#getdesktopdashboard)
 * [checkIsUserWhitelistedForKyC](#checkisuserwhitelistedforkyc)
 * [languageTranslation](#languagetranslation)
+* [getPageBySlug](#getpagebyslug)
 * [getFaqs](#getfaqs)
 * [getFaqById](#getfaqbyid)
 * [getMobileNavigations](#getmobilenavigations)
@@ -1237,6 +1238,59 @@ Success. Check the example shown below or refer `Translation` for more details.
 ```
 </details>
 
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getPageBySlug
+Retrieve a single page by slug
+
+
+
+
+```java
+user.getPageBySlug( slug) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| slug | String | yes | Slug |  
+
+
+
+GET: Retrieve a single page by slug
+
+*Returned Response:*
+
+
+
+
+[PageSchemaResponse](#PageSchemaResponse)
+
+Success. Returns a JSON object as shown below. Refer `createPage` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{}
+```
 </details>
 
 
@@ -3164,11 +3218,12 @@ Success. Check the example shown below or refer `ActiveEntityResponse` for more 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | fingerprint | String? |  yes  |  |
- | customer | [CustomerObject](#CustomerObject) |  no  |  |
+ | customer | [CustomerObject](#CustomerObject)? |  yes  |  |
  | refundItems | ArrayList<[Items](#Items)>? |  yes  |  |
  | orderId | String |  no  |  |
  | refundId | String |  no  |  |
  | refundAmount | Double |  no  |  |
+ | redirectionUrl | String? |  yes  |  |
 
 ---
 
@@ -3859,6 +3914,21 @@ Success. Check the example shown below or refer `ActiveEntityResponse` for more 
  | ---------- | ---- | -------- | ----------- |
  | userId | String |  no  |  |
  | lenders | ArrayList<[LenderAndPaymentOption](#LenderAndPaymentOption)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [PageSchemaResponse](#PageSchemaResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | slug | String? |  yes  |  |
+ | description | String? |  yes  |  |
+ | sections | HashMap<String,Object>? |  yes  |  |
+ | settings | HashMap<String,Object>? |  yes  |  |
+ | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
