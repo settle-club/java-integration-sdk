@@ -202,8 +202,8 @@ multikyc.getLimit(body body) {
  | number | String |  no  |  |
  | detail | Object |  no  |  |
  | valid | Boolean |  no  |  |
- | createdAt | String |  no  |  |
- | updatedAt | String |  no  |  |
+ | createdAt | String? |  yes  |  |
+ | updatedAt | String? |  yes  |  |
  | deletedAt | String? |  yes  |  |
  | entityId | String? |  yes  |  |
 
@@ -249,7 +249,7 @@ multikyc.getLimit(body body) {
  | form | Object? |  yes  |  |
  | uiSchema | Object? |  yes  |  |
  | workflowId | String? |  yes  |  |
- | createdAt | String |  no  |  |
+ | createdAt | String? |  yes  |  |
  | updatedAt | String? |  yes  |  |
  | deletedAt | String? |  yes  |  |
 
@@ -299,8 +299,8 @@ multikyc.getLimit(body body) {
  | active | Boolean |  no  |  |
  | status | String |  no  |  |
  | documentId | String? |  yes  |  |
- | createdAt | String |  no  |  |
- | updatedAt | String |  no  |  |
+ | createdAt | String? |  yes  |  |
+ | updatedAt | String? |  yes  |  |
  | deletedAt | String? |  yes  |  |
  | lenderKycStepMap | [LenderKycStepMap](#LenderKycStepMap)? |  yes  |  |
  | entityMapId | String? |  yes  |  |
@@ -1579,7 +1579,7 @@ multikyc.getLimit(body body) {
  | id | String |  no  |  |
  | name | String |  no  |  |
  | active | Boolean |  no  |  |
- | createdAt | String |  no  |  |
+ | createdAt | String? |  yes  |  |
  | updatedAt | String? |  yes  |  |
  | deletedAt | String? |  yes  |  |
 
@@ -1599,7 +1599,7 @@ multikyc.getLimit(body body) {
  | lenderId | String |  no  |  |
  | pgId | String |  no  |  |
  | active | Boolean |  no  |  |
- | createdAt | String |  no  |  |
+ | createdAt | String? |  yes  |  |
  | updatedAt | String? |  yes  |  |
  | deletedAt | String? |  yes  |  |
 
@@ -1841,8 +1841,8 @@ multikyc.getLimit(body body) {
  | status | String |  no  |  |
  | active | Boolean |  no  |  |
  | proposedLimit | Double |  no  |  |
- | createdAt | Object |  no  |  |
- | updatedAt | Object |  no  |  |
+ | createdAt | Object? |  yes  |  |
+ | updatedAt | Object? |  yes  |  |
  | deletedAt | Object? |  yes  |  |
  | isDefault | Boolean? |  yes  |  |
  | headers | HashMap<String,Object>? |  yes  |  |
