@@ -10466,6 +10466,20 @@ API endpoint to create a signed URL for uploading documents to and downloading d
 
  
  
+ #### [KycCountByStatus](#KycCountByStatus)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | startDate | String? |  yes  |  |
+ | endDate | String? |  yes  |  |
+ | merchantId | String? |  yes  |  |
+ | lenderId | String? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [FindDocResponse](#FindDocResponse)
 
  | Properties | Type | Nullable | Description |

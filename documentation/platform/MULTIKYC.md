@@ -1196,6 +1196,20 @@ multikyc.getLimit(body body) {
 
  
  
+ #### [KycCountByStatus](#KycCountByStatus)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | startDate | String? |  yes  |  |
+ | endDate | String? |  yes  |  |
+ | merchantId | String? |  yes  |  |
+ | lenderId | String? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [FindDocResponse](#FindDocResponse)
 
  | Properties | Type | Nullable | Description |

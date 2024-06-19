@@ -12253,6 +12253,47 @@ public static class DocumentObjects {
 }
 
 /*
+    Model: KycCountByStatus
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class KycCountByStatus {
+    
+    
+    
+    
+    @JsonProperty("startDate")
+    private String startDate;
+    
+    
+    
+    
+    @JsonProperty("endDate")
+    private String endDate;
+    
+    
+    
+    
+    @JsonProperty("merchantId")
+    private String merchantId;
+    
+    
+    
+    
+    @JsonProperty("lenderId")
+    private String lenderId;
+    
+    
+    
+    
+}
+
+/*
     Model: FindDocResponse
 */
 @AllArgsConstructor
