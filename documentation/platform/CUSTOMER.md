@@ -2949,6 +2949,7 @@ Success. Returns a JSON object as shown below. Refer `EligibilitySuccess` for mo
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | filters | ArrayList<[CustomerMetricsFilters](#CustomerMetricsFilters)>? |  yes  |  |
+ | merchantId | String? |  yes  |  |
 
 ---
 
@@ -3146,6 +3147,19 @@ Success. Returns a JSON object as shown below. Refer `EligibilitySuccess` for mo
  | description | String? |  yes  |  |
  | sections | HashMap<String,Object>? |  yes  |  |
  | settings | HashMap<String,Object>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [userCountRequest](#userCountRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | merchantId | String? |  yes  |  |
+ | startDate | String? |  yes  |  |
+ | endDate | String? |  yes  |  |
 
 ---
 

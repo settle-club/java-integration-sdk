@@ -1008,4 +1008,17 @@ true
 ---
 
 
+ 
+ 
+ #### [SummaryRequest](#SummaryRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | startDate | String? |  yes  |  |
+ | endDate | String? |  yes  |  |
+ | merchantId | String? |  yes  |  |
+
+---
+
+
 

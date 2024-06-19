@@ -3732,6 +3732,7 @@ Success. Check the example shown below or refer `ActiveEntityResponse` for more 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | filters | ArrayList<[CustomerMetricsFilters](#CustomerMetricsFilters)>? |  yes  |  |
+ | merchantId | String? |  yes  |  |
 
 ---
 
@@ -3929,6 +3930,19 @@ Success. Check the example shown below or refer `ActiveEntityResponse` for more 
  | sections | HashMap<String,Object>? |  yes  |  |
  | settings | HashMap<String,Object>? |  yes  |  |
  | headers | HashMap<String,Object>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [userCountRequest](#userCountRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | merchantId | String? |  yes  |  |
+ | startDate | String? |  yes  |  |
+ | endDate | String? |  yes  |  |
 
 ---
 

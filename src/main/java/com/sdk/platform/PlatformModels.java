@@ -6017,6 +6017,12 @@ public static class SourceAnalyticsRequest {
     
     
     
+    @JsonProperty("merchantId")
+    private String merchantId;
+    
+    
+    
+    
 }
 
 /*
@@ -6636,6 +6642,41 @@ public static class PageSchemaResponse {
     
     @JsonProperty("settings")
     private Object settings;
+    
+    
+    
+    
+}
+
+/*
+    Model: userCountRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class userCountRequest {
+    
+    
+    
+    
+    @JsonProperty("merchantId")
+    private String merchantId;
+    
+    
+    
+    
+    @JsonProperty("startDate")
+    private String startDate;
+    
+    
+    
+    
+    @JsonProperty("endDate")
+    private String endDate;
     
     
     
@@ -8802,6 +8843,41 @@ public static class LenderCustomerTransactionMetricsRequest {
     
     @JsonProperty("pivotPoints")
     private Double pivotPoints;
+    
+    
+    
+    
+}
+
+/*
+    Model: SummaryRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SummaryRequest {
+    
+    
+    
+    
+    @JsonProperty("startDate")
+    private String startDate;
+    
+    
+    
+    
+    @JsonProperty("endDate")
+    private String endDate;
+    
+    
+    
+    
+    @JsonProperty("merchantId")
+    private String merchantId;
     
     
     
