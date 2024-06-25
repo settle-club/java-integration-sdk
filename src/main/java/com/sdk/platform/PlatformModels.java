@@ -8882,12 +8882,6 @@ public static class SummaryRequest {
     
     
     
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
 }
 
 

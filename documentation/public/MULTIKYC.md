@@ -10,6 +10,7 @@ Will deprecate Hawkeye
 * [getLenderMetaSchema](#getlendermetaschema)
 * [addLenderMetaSchema](#addlendermetaschema)
 * [getAllUserLendersByEnityId](#getalluserlendersbyenityid)
+* [getAvailableLimit](#getavailablelimit)
 * [getUserKycDetails](#getuserkycdetails)
 * [createPixelbinSignedUrl](#createpixelbinsignedurl)
 
@@ -207,6 +208,61 @@ multikyc.getAllUserLendersByEnityId( entityId) {
 
 
 [GetUserLendersResponse](#GetUserLendersResponse)
+
+
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getAvailableLimit
+Get available limit
+
+
+
+
+```java
+multikyc.getAvailableLimit( lenderSlug,  entityId,  type) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| lenderSlug | String | yes |  |   
+| entityId | String | yes |  |   
+| type | String? | no |  |  
+
+
+
+
+
+*Returned Response:*
+
+
+
+
+[CreditLimitResponse](#CreditLimitResponse)
 
 
 
@@ -2138,6 +2194,7 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
  | message | String |  no  |  |
  | action | Boolean |  no  |  |
  | credit | [CreditLimit](#CreditLimit) |  no  |  |
+ | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 

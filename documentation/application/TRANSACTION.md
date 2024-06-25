@@ -1177,7 +1177,6 @@ Success. Returns a JSON object as shown below. Refer `MerchantTransactionSummary
  | startDate | String? |  yes  |  |
  | endDate | String? |  yes  |  |
  | merchantId | String? |  yes  |  |
- | type | String? |  yes  |  |
 
 ---
 

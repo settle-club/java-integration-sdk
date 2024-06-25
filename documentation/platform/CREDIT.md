@@ -1017,7 +1017,6 @@ true
  | startDate | String? |  yes  |  |
  | endDate | String? |  yes  |  |
  | merchantId | String? |  yes  |  |
- | type | String? |  yes  |  |
 
 ---
 
