@@ -1374,6 +1374,7 @@ Success. Returns a JSON object as shown below. Refer `UniqueCustomersInOrg` for 
  | startDate | String? |  yes  |  |
  | endDate | String? |  yes  |  |
  | merchantId | String? |  yes  |  |
+ | type | String? |  yes  |  |
 
 ---
 
