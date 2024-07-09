@@ -1416,7 +1416,7 @@ Success. Returns a JSON object as shown below. Refer `EligibilitySuccess` for mo
  | ---------- | ---- | -------- | ----------- |
  | countryCode | String? |  yes  |  |
  | mobile | String |  no  |  |
- | uid | String |  no  |  |
+ | uid | String? |  yes  |  |
  | email | String? |  yes  |  |
  | firstname | String? |  yes  |  |
  | middleName | String? |  yes  |  |

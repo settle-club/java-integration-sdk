@@ -2193,7 +2193,7 @@ Success. Check the example shown below or refer `ActiveEntityResponse` for more 
  | ---------- | ---- | -------- | ----------- |
  | countryCode | String? |  yes  |  |
  | mobile | String |  no  |  |
- | uid | String |  no  |  |
+ | uid | String? |  yes  |  |
  | email | String? |  yes  |  |
  | firstname | String? |  yes  |  |
  | middleName | String? |  yes  |  |
