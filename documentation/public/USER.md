@@ -2420,6 +2420,56 @@ Success. Returns a JSON object as shown below. Refer `UserResponse` for more det
 ---
 
 
+ 
+ 
+ #### [RepaymentRequest](#RepaymentRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | userId | String? |  yes  |  |
+ | mobile | String? |  yes  |  |
+ | countryCode | String? |  yes  |  |
+ | target | String? |  yes  |  |
+ | callbackUrl | String |  no  |  |
+ | lenderSlug | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [RepaymentResponse](#RepaymentResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | repaymentUrl | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [VerifyMagicLinkResponse](#VerifyMagicLinkResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | user | [UserSchema](#UserSchema)? |  yes  |  |
+ | scope | ArrayList<String>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [VerifyMagicLinkRequest](#VerifyMagicLinkRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | token | String |  no  |  |
+
+---
+
+
 
 
 ### Enums

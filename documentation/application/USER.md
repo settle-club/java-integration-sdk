@@ -20,6 +20,7 @@ Authentication Service
 * [getMobileNumberFromLinkingToken](#getmobilenumberfromlinkingtoken)
 * [getSessionFromLinkingToken](#getsessionfromlinkingtoken)
 * [validateTransaction](#validatetransaction)
+* [verifyMagicLink](#verifymagiclink)
 * [saveUserConsents](#saveuserconsents)
 * [getMobileDashboard](#getmobiledashboard)
 * [getTips](#gettips)
@@ -893,6 +894,79 @@ Success. Returns a JSON object as shown below. Refer `VerifyCustomerSuccess` for
 
 ```json
 "enabled"
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### verifyMagicLink
+Verify magic link
+
+
+
+
+```java
+user.verifyMagicLink(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- |
+| body | [VerifyMagicLinkRequest](#VerifyMagicLinkRequest) | yes | Request body |
+
+
+Use this API to verify magic link and login into application without authentication. This link is a one time link and should not be shared and cannot be used multiple times.
+
+*Returned Response:*
+
+
+
+
+[VerifyMagicLinkResponse](#VerifyMagicLinkResponse)
+
+Success. Returns a JSON object as shown below. Refer `VerifyMagicLinkResponse` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; user</i></summary>
+
+```json
+{
+  "mobile": "9810122290",
+  "activeEntity": {
+    "userId": "12k3qw-x3x4-w3tw-a2oe3m"
+  }
+}
+```
+</details>
+
+<details>
+<summary><i>&nbsp; scope</i></summary>
+
+```json
+[
+  "repayment"
+]
 ```
 </details>
 
@@ -3943,6 +4017,56 @@ Success. Check the example shown below or refer `ActiveEntityResponse` for more 
  | merchantId | String? |  yes  |  |
  | startDate | String? |  yes  |  |
  | endDate | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [RepaymentRequest](#RepaymentRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | userId | String? |  yes  |  |
+ | mobile | String? |  yes  |  |
+ | countryCode | String? |  yes  |  |
+ | target | String? |  yes  |  |
+ | callbackUrl | String |  no  |  |
+ | lenderSlug | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [RepaymentResponse](#RepaymentResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | repaymentUrl | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [VerifyMagicLinkResponse](#VerifyMagicLinkResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | user | [UserSchema](#UserSchema)? |  yes  |  |
+ | scope | ArrayList<String>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [VerifyMagicLinkRequest](#VerifyMagicLinkRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | token | String |  no  |  |
 
 ---
 

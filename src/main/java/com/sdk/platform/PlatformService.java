@@ -276,6 +276,27 @@ public static class CustomerService {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.RepaymentResponse repay(String organizationId ,PlatformModels.RepaymentRequest body) throws IOException {
+            Response<PlatformModels.RepaymentResponse> response = customerApiList.repay(organizationId  , body).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+    }
+    
+    
+    
 
 
 public class ApplicationClient {
@@ -291,6 +312,8 @@ public class ApplicationClient {
         this.organizationId = this.platformConfig.getOrganizationId();
     }
 
+    
+    
     
     
     

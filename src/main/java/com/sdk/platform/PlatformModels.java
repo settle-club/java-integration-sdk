@@ -6683,6 +6683,140 @@ public static class userCountRequest {
     
 }
 
+/*
+    Model: RepaymentRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RepaymentRequest {
+    
+    
+    
+    
+    @JsonProperty("userId")
+    private String userId;
+    
+    
+    
+    
+    @JsonProperty("mobile")
+    private String mobile;
+    
+    
+    
+    
+    @JsonProperty("countryCode")
+    private String countryCode;
+    
+    
+    
+    
+    @JsonProperty("target")
+    private String target;
+    
+    
+    
+    
+    @JsonProperty("callbackUrl")
+    private String callbackUrl;
+    
+    
+    
+    
+    @JsonProperty("lenderSlug")
+    private String lenderSlug;
+    
+    
+    
+    
+}
+
+/*
+    Model: RepaymentResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RepaymentResponse {
+    
+    
+    
+    
+    @JsonProperty("repaymentUrl")
+    private String repaymentUrl;
+    
+    
+    
+    
+    @JsonProperty("__headers")
+    private Object headers;
+    
+    
+    
+    
+}
+
+/*
+    Model: VerifyMagicLinkResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class VerifyMagicLinkResponse {
+    
+    
+    
+    
+    @JsonProperty("user")
+    private UserSchema user;
+    
+    
+    
+    
+    @JsonProperty("scope")
+    private List<String> scope;
+    
+    
+    
+    
+}
+
+/*
+    Model: VerifyMagicLinkRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class VerifyMagicLinkRequest {
+    
+    
+    
+    
+    @JsonProperty("token")
+    private String token;
+    
+    
+    
+    
+}
+
 
     
     /*

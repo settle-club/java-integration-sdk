@@ -17,6 +17,7 @@ Authentication Service
 * [refundStatus](#refundstatus)
 * [getSchemes](#getschemes)
 * [checkEligibility](#checkeligibility)
+* [repay](#repay)
 
 
 
@@ -922,6 +923,65 @@ Success. Returns a JSON object as shown below. Refer `EligibilitySuccess` for mo
 
 ```json
 "#/components/examples/EligibilitySuccess"
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### repay
+Repayment link
+
+
+
+
+```java
+customer.repay(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| organizationId | String | yes | This is organizationId |  
+| body | [RepaymentRequest](#RepaymentRequest) | yes | Request body |
+
+
+use this api to redirect user for repayment.
+
+*Returned Response:*
+
+
+
+
+[RepaymentResponse](#RepaymentResponse)
+
+Success. Returns a JSON object as shown below. Refer `RepaymentResponse` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; repaymentLink</i></summary>
+
+```json
+"http://account.settle.club/magic-link?token=qwertyui"
 ```
 </details>
 
@@ -3160,6 +3220,57 @@ Success. Returns a JSON object as shown below. Refer `EligibilitySuccess` for mo
  | merchantId | String? |  yes  |  |
  | startDate | String? |  yes  |  |
  | endDate | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [RepaymentRequest](#RepaymentRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | userId | String? |  yes  |  |
+ | mobile | String? |  yes  |  |
+ | countryCode | String? |  yes  |  |
+ | target | String? |  yes  |  |
+ | callbackUrl | String |  no  |  |
+ | lenderSlug | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [RepaymentResponse](#RepaymentResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | repaymentUrl | String? |  yes  |  |
+ | headers | HashMap<String,Object>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [VerifyMagicLinkResponse](#VerifyMagicLinkResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | user | [UserSchema](#UserSchema)? |  yes  |  |
+ | scope | ArrayList<String>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [VerifyMagicLinkRequest](#VerifyMagicLinkRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | token | String |  no  |  |
 
 ---
 

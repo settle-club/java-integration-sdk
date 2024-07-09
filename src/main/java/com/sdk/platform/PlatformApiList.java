@@ -112,6 +112,15 @@ interface CustomerApiList {
     @POST ("/service/integration/user/authentication/{organizationId}/eligibility")
     Call<PlatformModels.EligibilitySuccess> checkEligibility(@Path("organizationId") String  organizationId ,@Body PlatformModels.CheckEligibilityRequest payload);
     
+    
+    
+    
+    
+    
+    
+    @POST ("/service/integration/user/authentication/{organizationId}/repay")
+    Call<PlatformModels.RepaymentResponse> repay(@Path("organizationId") String  organizationId ,@Body PlatformModels.RepaymentRequest payload);
+    
 }
 
 interface CreditApiList {
