@@ -12393,76 +12393,6 @@ public static class DocumentObjects {
 }
 
 /*
-    Model: PlatformFees
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PlatformFees {
-    
-    
-    
-    
-    @JsonProperty("customerAcquisitionFee")
-    private Double customerAcquisitionFee;
-    
-    
-    
-    
-    @JsonProperty("transactionFee")
-    private Double transactionFee;
-    
-    
-    
-    
-}
-
-/*
-    Model: Commercial
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Commercial {
-    
-    
-    
-    
-    @JsonProperty("id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("interestRate")
-    private Double interestRate;
-    
-    
-    
-    
-    @JsonProperty("platformFees")
-    private PlatformFees platformFees;
-    
-    
-    
-    
-    @JsonProperty("active")
-    private Boolean active;
-    
-    
-    
-    
-}
-
-/*
     Model: KycCountByStatus
 */
 @AllArgsConstructor
@@ -14094,6 +14024,65 @@ public static class LenderDocument {
     
     @JsonProperty("deletedAt")
     private String deletedAt;
+    
+    
+    
+    
+}
+
+/*
+    Model: Commercial
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Commercial {
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("lenderId")
+    private String lenderId;
+    
+    
+    
+    
+    @JsonProperty("merchantId")
+    private String merchantId;
+    
+    
+    
+    
+    @JsonProperty("commercial")
+    private Object commercial;
+    
+    
+    
+    
+    @JsonProperty("active")
+    private Boolean active;
+    
+    
+    
+    
+    @JsonProperty("createdAt")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("updatedAt")
+    private String updatedAt;
     
     
     
@@ -16261,6 +16250,35 @@ public static class CustomerKycDetailsReponse {
     
     @JsonProperty("data")
     private UserKycLenderStepMap data;
+    
+    
+    
+    
+}
+
+/*
+    Model: PlatformFees
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PlatformFees {
+    
+    
+    
+    
+    @JsonProperty("customerAcquisitionFee")
+    private Double customerAcquisitionFee;
+    
+    
+    
+    
+    @JsonProperty("transactionFee")
+    private Double transactionFee;
     
     
     

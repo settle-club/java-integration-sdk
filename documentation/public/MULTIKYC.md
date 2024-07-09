@@ -1453,32 +1453,6 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
 
  
  
- #### [PlatformFees](#PlatformFees)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | customerAcquisitionFee | Double |  no  |  |
- | transactionFee | Double |  no  |  |
-
----
-
-
- 
- 
- #### [Commercial](#Commercial)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | id | String? |  yes  |  |
- | interestRate | Double |  no  |  |
- | platformFees | [PlatformFees](#PlatformFees) |  no  |  |
- | active | Boolean |  no  |  |
-
----
-
-
- 
- 
  #### [KycCountByStatus](#KycCountByStatus)
 
  | Properties | Type | Nullable | Description |
@@ -1982,6 +1956,23 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
  | createdAt | String? |  yes  |  |
  | updatedAt | String? |  yes  |  |
  | deletedAt | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [Commercial](#Commercial)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String? |  yes  |  |
+ | lenderId | String |  no  |  |
+ | merchantId | String |  no  |  |
+ | commercial | Object |  no  |  |
+ | active | Boolean |  no  |  |
+ | createdAt | String? |  yes  |  |
+ | updatedAt | String? |  yes  |  |
 
 ---
 
@@ -2813,6 +2804,18 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
  | ---------- | ---- | -------- | ----------- |
  | data | [UserKycLenderStepMap](#UserKycLenderStepMap) |  no  |  |
  | headers | HashMap<String,Object>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [PlatformFees](#PlatformFees)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | customerAcquisitionFee | Double |  no  |  |
+ | transactionFee | Double |  no  |  |
 
 ---
 

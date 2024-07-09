@@ -10466,32 +10466,6 @@ API endpoint to create a signed URL for uploading documents to and downloading d
 
  
  
- #### [PlatformFees](#PlatformFees)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | customerAcquisitionFee | Double |  no  |  |
- | transactionFee | Double |  no  |  |
-
----
-
-
- 
- 
- #### [Commercial](#Commercial)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | id | String? |  yes  |  |
- | interestRate | Double |  no  |  |
- | platformFees | [PlatformFees](#PlatformFees) |  no  |  |
- | active | Boolean |  no  |  |
-
----
-
-
- 
- 
  #### [KycCountByStatus](#KycCountByStatus)
 
  | Properties | Type | Nullable | Description |
@@ -10976,6 +10950,23 @@ API endpoint to create a signed URL for uploading documents to and downloading d
  | createdAt | String? |  yes  |  |
  | updatedAt | String? |  yes  |  |
  | deletedAt | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [Commercial](#Commercial)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String? |  yes  |  |
+ | lenderId | String |  no  |  |
+ | merchantId | String |  no  |  |
+ | commercial | Object |  no  |  |
+ | active | Boolean |  no  |  |
+ | createdAt | String? |  yes  |  |
+ | updatedAt | String? |  yes  |  |
 
 ---
 
@@ -11819,6 +11810,18 @@ API endpoint to create a signed URL for uploading documents to and downloading d
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | data | [UserKycLenderStepMap](#UserKycLenderStepMap) |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [PlatformFees](#PlatformFees)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | customerAcquisitionFee | Double |  no  |  |
+ | transactionFee | Double |  no  |  |
 
 ---
 
