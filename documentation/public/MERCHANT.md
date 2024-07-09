@@ -21,7 +21,7 @@ Authentication Service
 * [getTeamMembers](#getteammembers)
 * [addTeamMemberToOrganization](#addteammembertoorganization)
 * [removeTeamMemberFromOrganization](#removeteammemberfromorganization)
-* [updateMamberRole](#updatemamberrole)
+* [updateMemberRole](#updatememberrole)
 * [getOrganizationApiKeyAndSecret](#getorganizationapikeyandsecret)
 * [updateTransactionApiHookOfOrganization](#updatetransactionapihookoforganization)
 * [getOrganizationApiHookDetails](#getorganizationapihookdetails)
@@ -984,14 +984,14 @@ Success. Returns a JSON object as shown below. Refer `RemoveTeamMemberResponse` 
 ---
 
 
-### updateMamberRole
+### updateMemberRole
 Update Team Member Role in Organization
 
 
 
 
 ```java
-merchant.updateMamberRole(body body) {
+merchant.updateMemberRole(body body) {
   //use response
 }
 ```
