@@ -16,7 +16,7 @@ Authentication Service
 * [refund](#refund)
 * [refundStatus](#refundstatus)
 * [getSchemes](#getschemes)
-* [checkEligibility](#checkeligibility)
+* [repay](#repay)
 
 
 
@@ -879,14 +879,14 @@ Success. Returns a JSON object as shown below. Refer `GetSchemesSuccess` for mor
 ---
 
 
-### checkEligibility
-Check Credit Eligibility
+### repay
+Repayment link
 
 
 
 
 ```java
-customer.checkEligibility(body body) {
+customer.repay(body body) {
   //use response
 }
 ```
@@ -896,19 +896,19 @@ customer.checkEligibility(body body) {
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
 | organizationId | String | yes | This is organizationId |  
-| body | [CheckEligibilityRequest](#CheckEligibilityRequest) | yes | Request body |
+| body | [RepaymentRequest](#RepaymentRequest) | yes | Request body |
 
 
-Use this API to pre approve by checking the customer's credit eligibility based on mobile number and countryCode and vintage data of monthly transactions.
+use this api to redirect user for repayment.
 
 *Returned Response:*
 
 
 
 
-[EligibilitySuccess](#EligibilitySuccess)
+[RepaymentResponse](#RepaymentResponse)
 
-Success. Returns a JSON object as shown below. Refer `EligibilitySuccess` for more details.
+Success. Returns a JSON object as shown below. Refer `RepaymentResponse` for more details.
 
 
 
@@ -918,10 +918,10 @@ Success. Returns a JSON object as shown below. Refer `EligibilitySuccess` for mo
 
 
 <details>
-<summary><i>&nbsp; $ref</i></summary>
+<summary><i>&nbsp; repaymentLink</i></summary>
 
 ```json
-"#/components/examples/EligibilitySuccess"
+"http://account.settle.club/magic-link?token=qwertyui"
 ```
 </details>
 
@@ -1506,7 +1506,6 @@ Success. Returns a JSON object as shown below. Refer `EligibilitySuccess` for mo
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | autoCapture | Boolean? |  yes  | If autoCapture is true, transaction will automatically be created without requiring the user to login, provided that other details such as user session, emiTenure and lenderId are valid. Default value is false. User session has to be passed in session field in case of SDK integration or in Cookie header with key user.session in case of direct integration. |
  | redirectUrl | String |  no  | User will be redirected back to this URL after a successful or a failed transaction. |
  | customer | [CustomerObject](#CustomerObject) |  no  |  |
  | order | [Order](#Order) |  no  |  |
@@ -1525,7 +1524,6 @@ Success. Returns a JSON object as shown below. Refer `EligibilitySuccess` for mo
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | autoCapture | Boolean? |  yes  |  |
  | redirectUrl | String? |  yes  |  |
  | customer | [CustomerObject](#CustomerObject) |  no  |  |
  | order | [OrderUid](#OrderUid) |  no  |  |
@@ -1556,7 +1554,7 @@ Success. Returns a JSON object as shown below. Refer `EligibilitySuccess` for mo
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | chargeToken | String? |  yes  | A unique token for completing the transaction. Charge token is received only if a valid user session is passed in request and auto capture is false. ASP merchants do not receive charge token. |
- | redirectUrl | String? |  yes  | URL to which the user is redirected to complete the transaction. This is received only when transaction cannot be created without requiring the user to login on Potlee, for example, when autoCapture is false or user session is invalid. |
+ | redirectUrl | String? |  yes  | URL to which the user should be redirected to complete the transaction. |
  | message | String |  no  | A message or information related to the transaction. |
  | transactionId | String? |  yes  | A unique identifier for the transaction. This is received only if session is passed and auto capture is true in request. ASP merchants do not receive transaction ID in this response. |
  | status | String? |  yes  | Indicates transaction status in case of auto disbursal. |
@@ -3028,7 +3026,6 @@ Success. Returns a JSON object as shown below. Refer `EligibilitySuccess` for mo
  | message | String? |  yes  |  |
  | redirectUrl | String? |  yes  |  |
  | creditLimits | ArrayList<[CreditLimitObject](#CreditLimitObject)>? |  yes  |  |
- | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -3148,6 +3145,58 @@ Success. Returns a JSON object as shown below. Refer `EligibilitySuccess` for mo
  | merchantId | String? |  yes  |  |
  | startDate | String? |  yes  |  |
  | endDate | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [RepaymentRequest](#RepaymentRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | userId | String? |  yes  |  |
+ | mobile | String? |  yes  |  |
+ | countryCode | String? |  yes  |  |
+ | target | String? |  yes  |  |
+ | callbackUrl | String |  no  |  |
+ | lenderSlug | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [RepaymentResponse](#RepaymentResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | repaymentUrl | String? |  yes  |  |
+ | headers | HashMap<String,Object>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [VerifyMagicLinkResponse](#VerifyMagicLinkResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | user | [UserSchema](#UserSchema)? |  yes  |  |
+ | lenderSlug | String? |  yes  |  |
+ | scope | ArrayList<String>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [VerifyMagicLinkRequest](#VerifyMagicLinkRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | token | String |  no  |  |
 
 ---
 

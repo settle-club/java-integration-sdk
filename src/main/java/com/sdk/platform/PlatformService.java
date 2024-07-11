@@ -265,8 +265,8 @@ public static class CustomerService {
     
     
     
-    public PlatformModels.EligibilitySuccess checkEligibility(String organizationId ,PlatformModels.CheckEligibilityRequest body) throws IOException {
-            Response<PlatformModels.EligibilitySuccess> response = customerApiList.checkEligibility(organizationId  , body).execute();
+    public PlatformModels.RepaymentResponse repay(String organizationId ,PlatformModels.RepaymentRequest body) throws IOException {
+            Response<PlatformModels.RepaymentResponse> response = customerApiList.repay(organizationId  , body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

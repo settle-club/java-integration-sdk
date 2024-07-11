@@ -1788,12 +1788,6 @@ public static class CreateTransaction {
     
     
     
-    @JsonProperty("autoCapture")
-    private Boolean autoCapture;
-    
-    
-    
-    
     @JsonProperty("redirectUrl")
     private String redirectUrl;
     
@@ -1855,12 +1849,6 @@ public static class CreateTransaction {
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ResendPaymentRequest {
-    
-    
-    
-    
-    @JsonProperty("autoCapture")
-    private Boolean autoCapture;
     
     
     
@@ -6276,12 +6264,6 @@ public static class EligibilitySuccess {
     
     
     
-    @JsonProperty("__headers")
-    private Object headers;
-    
-    
-    
-    
 }
 
 /*
@@ -6648,6 +6630,146 @@ public static class userCountRequest {
     
     @JsonProperty("endDate")
     private String endDate;
+    
+    
+    
+    
+}
+
+/*
+    Model: RepaymentRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RepaymentRequest {
+    
+    
+    
+    
+    @JsonProperty("userId")
+    private String userId;
+    
+    
+    
+    
+    @JsonProperty("mobile")
+    private String mobile;
+    
+    
+    
+    
+    @JsonProperty("countryCode")
+    private String countryCode;
+    
+    
+    
+    
+    @JsonProperty("target")
+    private String target;
+    
+    
+    
+    
+    @JsonProperty("callbackUrl")
+    private String callbackUrl;
+    
+    
+    
+    
+    @JsonProperty("lenderSlug")
+    private String lenderSlug;
+    
+    
+    
+    
+}
+
+/*
+    Model: RepaymentResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RepaymentResponse {
+    
+    
+    
+    
+    @JsonProperty("repaymentUrl")
+    private String repaymentUrl;
+    
+    
+    
+    
+    @JsonProperty("__headers")
+    private Object headers;
+    
+    
+    
+    
+}
+
+/*
+    Model: VerifyMagicLinkResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class VerifyMagicLinkResponse {
+    
+    
+    
+    
+    @JsonProperty("user")
+    private UserSchema user;
+    
+    
+    
+    
+    @JsonProperty("lenderSlug")
+    private String lenderSlug;
+    
+    
+    
+    
+    @JsonProperty("scope")
+    private List<String> scope;
+    
+    
+    
+    
+}
+
+/*
+    Model: VerifyMagicLinkRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class VerifyMagicLinkRequest {
+    
+    
+    
+    
+    @JsonProperty("token")
+    private String token;
     
     
     

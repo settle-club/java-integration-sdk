@@ -19,6 +19,7 @@ Authentication Service
 * [getDataFromOnboardingToken](#getdatafromonboardingtoken)
 * [getMobileNumberFromLinkingToken](#getmobilenumberfromlinkingtoken)
 * [getSessionFromLinkingToken](#getsessionfromlinkingtoken)
+* [verifyMagicLink](#verifymagiclink)
 * [saveUserConsents](#saveuserconsents)
 * [getMobileDashboard](#getmobiledashboard)
 * [getTips](#gettips)
@@ -833,6 +834,87 @@ Success. Returns a JSON object as shown below. Refer `SessionFromLinkingResponse
 
 ```json
 1686882926224
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### verifyMagicLink
+Verify magic link
+
+
+
+
+```java
+user.verifyMagicLink(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- |
+| body | [VerifyMagicLinkRequest](#VerifyMagicLinkRequest) | yes | Request body |
+
+
+Use this API to verify magic link and login into application without authentication. This link is a one time link and should not be shared and cannot be used multiple times.
+
+*Returned Response:*
+
+
+
+
+[VerifyMagicLinkResponse](#VerifyMagicLinkResponse)
+
+Success. Returns a JSON object as shown below. Refer `VerifyMagicLinkResponse` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; user</i></summary>
+
+```json
+{
+  "mobile": "9810122290",
+  "activeEntity": {
+    "userId": "12k3qw-x3x4-w3tw-a2oe3m"
+  }
+}
+```
+</details>
+
+<details>
+<summary><i>&nbsp; lenderSlug</i></summary>
+
+```json
+"cashe"
+```
+</details>
+
+<details>
+<summary><i>&nbsp; scope</i></summary>
+
+```json
+[
+  "repayment"
+]
 ```
 </details>
 
@@ -2169,7 +2251,6 @@ Success. Check the example shown below or refer `ProfileEditSuccess` for more de
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | autoCapture | Boolean? |  yes  | If autoCapture is true, transaction will automatically be created without requiring the user to login, provided that other details such as user session, emiTenure and lenderId are valid. Default value is false. User session has to be passed in session field in case of SDK integration or in Cookie header with key user.session in case of direct integration. |
  | redirectUrl | String |  no  | User will be redirected back to this URL after a successful or a failed transaction. |
  | customer | [CustomerObject](#CustomerObject) |  no  |  |
  | order | [Order](#Order) |  no  |  |
@@ -2188,7 +2269,6 @@ Success. Check the example shown below or refer `ProfileEditSuccess` for more de
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | autoCapture | Boolean? |  yes  |  |
  | redirectUrl | String? |  yes  |  |
  | customer | [CustomerObject](#CustomerObject) |  no  |  |
  | order | [OrderUid](#OrderUid) |  no  |  |
@@ -2218,7 +2298,7 @@ Success. Check the example shown below or refer `ProfileEditSuccess` for more de
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | chargeToken | String? |  yes  | A unique token for completing the transaction. Charge token is received only if a valid user session is passed in request and auto capture is false. ASP merchants do not receive charge token. |
- | redirectUrl | String? |  yes  | URL to which the user is redirected to complete the transaction. This is received only when transaction cannot be created without requiring the user to login on Potlee, for example, when autoCapture is false or user session is invalid. |
+ | redirectUrl | String? |  yes  | URL to which the user should be redirected to complete the transaction. |
  | message | String |  no  | A message or information related to the transaction. |
  | transactionId | String? |  yes  | A unique identifier for the transaction. This is received only if session is passed and auto capture is true in request. ASP merchants do not receive transaction ID in this response. |
  | status | String? |  yes  | Indicates transaction status in case of auto disbursal. |
@@ -3815,6 +3895,57 @@ Success. Check the example shown below or refer `ProfileEditSuccess` for more de
  | merchantId | String? |  yes  |  |
  | startDate | String? |  yes  |  |
  | endDate | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [RepaymentRequest](#RepaymentRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | userId | String? |  yes  |  |
+ | mobile | String? |  yes  |  |
+ | countryCode | String? |  yes  |  |
+ | target | String? |  yes  |  |
+ | callbackUrl | String |  no  |  |
+ | lenderSlug | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [RepaymentResponse](#RepaymentResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | repaymentUrl | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [VerifyMagicLinkResponse](#VerifyMagicLinkResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | user | [UserSchema](#UserSchema)? |  yes  |  |
+ | lenderSlug | String? |  yes  |  |
+ | scope | ArrayList<String>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [VerifyMagicLinkRequest](#VerifyMagicLinkRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | token | String |  no  |  |
 
 ---
 
