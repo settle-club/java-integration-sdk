@@ -2,7 +2,7 @@
 
 
 Settle client for Java language
-[![](https://jitpack.io/v/settle-finance/java-integration-sdk.svg)](https://jitpack.io/#settle-finance/java-integration-sdk)
+[![](https://jitpack.io/v/settle-club/java-integration-sdk.svg)](https://jitpack.io/#settle-club/java-integration-sdk)
 
 
 
@@ -15,7 +15,7 @@ Get started with the Java Development SDK for Potlee, Compatible with Java 21
 1. Create Maven project and add the dependency in the pom.xml 
 ```xml
     <dependency>
-        <groupId>com.github.settle-finance</groupId>
+        <groupId>com.github.settle-club</groupId>
         <artifactId>java-integration-sdk</artifactId>
         <version>1.0.0</version>
     </dependency>
@@ -46,7 +46,7 @@ public class Example {
                     "API_KEY",
                     "API_SECRET",
                     "API_TOKEN",
-                    "https://api.potleez5.de",
+                    "https://api.settle.club",
                     false
             );
 
