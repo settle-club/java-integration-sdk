@@ -211,64 +211,66 @@ Success. Returns a JSON object as shown below. Refer GetTransactionsResponse for
 
 ```json
 {
-  "message": "The request has been processed successfully.",
-  "data": {
-    "transactions": [
-      {
-        "id": "TXN1234PKoGu",
-        "amount": 5000,
-        "type": "DEBIT",
-        "status": "SUCCESS",
-        "settlementUtr": null,
-        "createdAt": "2024-06-10T12:56:46.396Z",
-        "merchant": {
-          "name": "J Company",
-          "logo": "https://cdn.pixelbin.io/v2/muddy-glitter-1091e5/original/public/logos/j.png"
-        },
-        "order": {
-          "id": "ORD1234",
-          "amount": 5000
-        },
-        "loan": {
-          "number": "LN123456",
+  "value": {
+    "message": "The request has been processed successfully.",
+    "data": {
+      "transactions": [
+        {
+          "id": "TXN1234PKoGu",
           "amount": 5000,
-          "type": "EMI"
+          "type": "DEBIT",
+          "status": "SUCCESS",
+          "settlementUtr": null,
+          "createdAt": "2024-06-10T12:56:46.396Z",
+          "merchant": {
+            "name": "J Company",
+            "logo": "https://cdn.pixelbin.io/v2/muddy-glitter-1091e5/original/public/logos/j.png"
+          },
+          "order": {
+            "id": "ORD1234",
+            "amount": 5000
+          },
+          "loan": {
+            "number": "LN123456",
+            "amount": 5000,
+            "type": "EMI"
+          },
+          "lender": {
+            "name": "Bank of J Limited",
+            "slug": "j-bank",
+            "logo": "https://cdn.pixelbin.io/v2/muddy-glitter-1091e5/original/public/logos/j.png",
+            "shortName": "J Bank"
+          },
+          "isMasked": false
         },
-        "lender": {
-          "name": "Bank of J Limited",
-          "slug": "j-bank",
-          "logo": "https://cdn.pixelbin.io/v2/muddy-glitter-1091e5/original/public/logos/j.png",
-          "shortName": "J Bank"
-        },
-        "isMasked": false
-      },
-      {
-        "id": "XXXXXPKoGu",
-        "amount": 500,
-        "type": "DEBIT",
-        "status": "SUCCESS",
-        "settlementUtr": null,
-        "createdAt": "2024-07-01T11:56:46.396Z",
-        "merchant": {
-          "name": "Other Merchant",
-          "logo": "https://cdn.pixelbin.io/v2/potlee/t.grey()/public/logos/settle/square-dark.png"
-        },
-        "isMasked": true
+        {
+          "id": "XXXXXPKoGu",
+          "amount": 500,
+          "type": "DEBIT",
+          "status": "SUCCESS",
+          "settlementUtr": null,
+          "createdAt": "2024-07-01T11:56:46.396Z",
+          "merchant": {
+            "name": "Other Merchant",
+            "logo": "https://cdn.pixelbin.io/v2/potlee/t.grey()/public/logos/settle/square-dark.png"
+          },
+          "isMasked": true
+        }
+      ],
+      "page": {
+        "type": "number",
+        "current": 1,
+        "hasPrevious": false,
+        "hasNext": false,
+        "size": 25,
+        "itemTotal": 1
       }
-    ],
-    "page": {
-      "type": "number",
-      "current": 1,
-      "hasPrevious": false,
-      "hasNext": false,
-      "size": 25,
-      "itemTotal": 1
+    },
+    "meta": {
+      "timestamp": "2024-07-10T13:56:46.396Z",
+      "version": "v1.0",
+      "product": "Settle Checkout"
     }
-  },
-  "meta": {
-    "timestamp": "2024-07-10T13:56:46.396Z",
-    "version": "v1.0",
-    "product": "Settle Checkout"
   }
 }
 ```

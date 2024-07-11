@@ -6680,12 +6680,6 @@ public static class RepaymentRequest {
     
     
     
-    @JsonProperty("userId")
-    private String userId;
-    
-    
-    
-    
     @JsonProperty("mobile")
     private String mobile;
     

@@ -4033,9 +4033,8 @@ Success. Check the example shown below or refer `ActiveEntityResponse` for more 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | userId | String? |  yes  |  |
- | mobile | String? |  yes  |  |
- | countryCode | String? |  yes  |  |
+ | mobile | String |  no  |  |
+ | countryCode | String |  no  |  |
  | target | String? |  yes  |  |
  | callbackUrl | String |  no  |  |
  | lenderSlug | String? |  yes  |  |
