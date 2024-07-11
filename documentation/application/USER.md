@@ -25,6 +25,7 @@ Authentication Service
 * [getDesktopDashboard](#getdesktopdashboard)
 * [checkIsUserWhitelistedForKyC](#checkisuserwhitelistedforkyc)
 * [languageTranslation](#languagetranslation)
+* [getPageBySlug](#getpagebyslug)
 * [getFaqs](#getfaqs)
 * [getFaqById](#getfaqbyid)
 * [getMobileNavigations](#getmobilenavigations)
@@ -1190,6 +1191,59 @@ Success. Check the example shown below or refer `Translation` for more details.
 ---
 
 
+### getPageBySlug
+Retrieve a single page by slug
+
+
+
+
+```java
+user.getPageBySlug( slug) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| slug | String | yes | Slug |  
+
+
+
+GET: Retrieve a single page by slug
+
+*Returned Response:*
+
+
+
+
+[PageSchemaResponse](#PageSchemaResponse)
+
+Success. Returns a JSON object as shown below. Refer `createPage` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{}
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 ### getFaqs
 Get All FAQ categories
 
@@ -1556,6 +1610,25 @@ Success. Check the example shown below or refer `ProfileEditSuccess` for more de
  | message | String? |  yes  |  |
  | transactionId | String? |  yes  |  |
  | refundId | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [UserSource](#UserSource)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | userId | String? |  yes  |  |
+ | type | String? |  yes  |  |
+ | sourceId | String? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
+ | createdAt | String? |  yes  |  |
+ | updatedAt | String? |  yes  |  |
+ | app | String? |  yes  |  |
+ | entityId | String? |  yes  |  |
+ | userMerchants | ArrayList<Object>? |  yes  |  |
 
 ---
 
@@ -3714,6 +3787,21 @@ Success. Check the example shown below or refer `ProfileEditSuccess` for more de
  | ---------- | ---- | -------- | ----------- |
  | userId | String |  no  |  |
  | lenders | ArrayList<[LenderAndPaymentOption](#LenderAndPaymentOption)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [PageSchemaResponse](#PageSchemaResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | slug | String? |  yes  |  |
+ | description | String? |  yes  |  |
+ | sections | HashMap<String,Object>? |  yes  |  |
+ | settings | HashMap<String,Object>? |  yes  |  |
+ | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 

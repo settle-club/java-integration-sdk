@@ -58,6 +58,77 @@ public static class RefundResponse {
 }
 
 /*
+    Model: UserSource
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UserSource {
+    
+    
+    
+    
+    @JsonProperty("userId")
+    private String userId;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("sourceId")
+    private String sourceId;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private Object meta;
+    
+    
+    
+    
+    @JsonProperty("createdAt")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("updatedAt")
+    private String updatedAt;
+    
+    
+    
+    
+    @JsonProperty("app")
+    private String app;
+    
+    
+    
+    
+    @JsonProperty("entityId")
+    private String entityId;
+    
+    
+    
+    
+    @JsonProperty("userMerchants")
+    private List<Object> userMerchants;
+    
+    
+    
+    
+}
+
+/*
     Model: UserSchema
 */
 @AllArgsConstructor
@@ -6508,6 +6579,47 @@ public static class GetSchemesSuccessOld {
 }
 
 /*
+    Model: PageSchemaResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PageSchemaResponse {
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("sections")
+    private Object sections;
+    
+    
+    
+    
+    @JsonProperty("settings")
+    private Object settings;
+    
+    
+    
+    
+}
+
+/*
     Model: userCountRequest
 */
 @AllArgsConstructor
@@ -8728,12 +8840,6 @@ public static class Lender {
     
     
     
-    @JsonProperty("approvedLimit")
-    private Double approvedLimit;
-    
-    
-    
-    
     @JsonProperty("deletedAt")
     private String deletedAt;
     
@@ -10739,8 +10845,43 @@ public static class LenderOnboardRequest {
     
     
     
+    @JsonProperty("merchantId")
+    private String merchantId;
+    
+    
+    
+    
+}
+
+/*
+    Model: LenderOnboardRequestV1
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class LenderOnboardRequestV1 {
+    
+    
+    
+    
     @JsonProperty("entityMapId")
     private String entityMapId;
+    
+    
+    
+    
+    @JsonProperty("ack")
+    private String ack;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private Object data;
     
     
     
@@ -12318,6 +12459,18 @@ public static class OnboardStatusDto {
     
     @JsonProperty("merchantId")
     private String merchantId;
+    
+    
+    
+    
+    @JsonProperty("actionName")
+    private String actionName;
+    
+    
+    
+    
+    @JsonProperty("actionDescription")
+    private String actionDescription;
     
     
     

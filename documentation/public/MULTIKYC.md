@@ -10,6 +10,7 @@ Will deprecate Hawkeye
 * [getLenderMetaSchema](#getlendermetaschema)
 * [addLenderMetaSchema](#addlendermetaschema)
 * [getAllUserLendersByEnityId](#getalluserlendersbyenityid)
+* [getAvailableLimit](#getavailablelimit)
 * [getUserKycDetails](#getuserkycdetails)
 * [createPixelbinSignedUrl](#createpixelbinsignedurl)
 
@@ -232,6 +233,60 @@ multikyc.getAllUserLendersByEnityId( entityId) {
 ---
 
 
+### getAvailableLimit
+Get available limit
+
+
+
+
+```java
+multikyc.getAvailableLimit( lenderSlug,  entityId) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| lenderSlug | String | yes |  |   
+| entityId | String | yes |  |  
+
+
+
+
+
+*Returned Response:*
+
+
+
+
+[CreditLimitResponse](#CreditLimitResponse)
+
+
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 ### getUserKycDetails
 Get user kyc details
 
@@ -362,7 +417,6 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
  | merchantConfigSchema | String? |  yes  |  |
  | createdAt | String? |  yes  |  |
  | updatedAt | String? |  yes  |  |
- | approvedLimit | Double? |  yes  |  |
  | deletedAt | String? |  yes  |  |
  | meta | Object? |  yes  |  |
  | metaSchema | Object? |  yes  |  |
@@ -930,7 +984,20 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
  | ---------- | ---- | -------- | ----------- |
  | ack | String? |  yes  |  |
  | data | Object |  no  |  |
- | entityMapId | String? |  yes  |  |
+ | merchantId | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [LenderOnboardRequestV1](#LenderOnboardRequestV1)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | entityMapId | String |  no  |  |
+ | ack | String? |  yes  |  |
+ | data | Object |  no  |  |
  | merchantId | String? |  yes  |  |
 
 ---
@@ -1489,6 +1556,8 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
  | actionIsForm | Boolean |  no  |  |
  | actionForm | [Form](#Form)? |  yes  |  |
  | merchantId | String? |  yes  |  |
+ | actionName | String? |  yes  |  |
+ | actionDescription | String? |  yes  |  |
 
 ---
 
@@ -2072,6 +2141,7 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
  | message | String |  no  |  |
  | action | Boolean |  no  |  |
  | credit | [CreditLimit](#CreditLimit) |  no  |  |
+ | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 

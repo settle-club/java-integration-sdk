@@ -958,6 +958,25 @@ Success. Returns a JSON object as shown below. Refer `EligibilitySuccess` for mo
 
  
  
+ #### [UserSource](#UserSource)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | userId | String? |  yes  |  |
+ | type | String? |  yes  |  |
+ | sourceId | String? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
+ | createdAt | String? |  yes  |  |
+ | updatedAt | String? |  yes  |  |
+ | app | String? |  yes  |  |
+ | entityId | String? |  yes  |  |
+ | userMerchants | ArrayList<Object>? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [UserSchema](#UserSchema)
 
  | Properties | Type | Nullable | Description |
@@ -3102,6 +3121,20 @@ Success. Returns a JSON object as shown below. Refer `EligibilitySuccess` for mo
  | ---------- | ---- | -------- | ----------- |
  | userId | String |  no  |  |
  | lenders | ArrayList<[LenderAndPaymentOption](#LenderAndPaymentOption)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [PageSchemaResponse](#PageSchemaResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | slug | String? |  yes  |  |
+ | description | String? |  yes  |  |
+ | sections | HashMap<String,Object>? |  yes  |  |
+ | settings | HashMap<String,Object>? |  yes  |  |
 
 ---
 
