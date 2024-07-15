@@ -20,6 +20,7 @@ Authentication Service
 * [updateFinancialDetails](#updatefinancialdetails)
 * [getTeamMembers](#getteammembers)
 * [addTeamMemberToOrganization](#addteammembertoorganization)
+* [inviteTeamMemberToOrganization](#inviteteammembertoorganization)
 * [removeTeamMemberFromOrganization](#removeteammemberfromorganization)
 * [updateMemberRole](#updatememberrole)
 * [getOrganizationApiKeyAndSecret](#getorganizationapikeyandsecret)
@@ -888,6 +889,67 @@ merchant.addTeamMemberToOrganization(body body) {
 
 
 Use this API to add  new team members to  organization.
+
+*Returned Response:*
+
+
+
+
+[AddTeamMemberResponse](#AddTeamMemberResponse)
+
+Success. Returns a JSON object as shown below. Refer `AddTeamMemberResponse` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
+  "userId": "d3bda3f7-2bd0-4ad5-ab32-eeb24987aaed",
+  "organizationId": "edc21c75-0226-49a7-8dd5-02db865cde11",
+  "createdAt": "2022-05-11T05:10:30.266Z",
+  "updatedAt": "2022-05-11T05:10:30.266Z",
+  "id": "78ead1da-22ce-4367-90ef-22c388a15db3",
+  "isAdmin": null,
+  "deletedAt": null
+}
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### inviteTeamMemberToOrganization
+Invite Team Member to Organization
+
+
+
+
+```java
+merchant.inviteTeamMemberToOrganization(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| organizationId | String | yes | This is the organization ID |  
+| body | [InviteTeamMember](#InviteTeamMember) | yes | Request body |
+
+
+Use this API to invite new team members to  organization.
 
 *Returned Response:*
 
@@ -2832,6 +2894,19 @@ Success. Check the example shown below or refer `LoginSuccess` for more details.
  | countryCode | String? |  yes  |  |
  | mobile | String? |  yes  |  |
  | email | String? |  yes  |  |
+ | userIsAdmin | Boolean? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [InviteTeamMember](#InviteTeamMember)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | countryCode | String? |  yes  |  |
+ | mobile | String? |  yes  |  |
  | userIsAdmin | Boolean? |  yes  |  |
 
 ---

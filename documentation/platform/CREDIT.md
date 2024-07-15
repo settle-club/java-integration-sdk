@@ -180,7 +180,7 @@ credit.getTransactions( page,  type,  status,  limit,  countryCode,  mobile,  or
 | type | Object? | no | The transaction type |   
 | status | Object? | no | The transaction status |   
 | limit | Integer? | no | The number of transactions to fetch |   
-| countryCode | String? | no | The country code of the user's mobile number. The default value is 91. |   
+| countryCode | String? | no | The country code of the user's mobile number. |   
 | mobile | String | yes | The mobile number of the user |   
 | orderId | String? | no | Ther order ID |   
 | transactionId | String? | no | The transaction ID |   
