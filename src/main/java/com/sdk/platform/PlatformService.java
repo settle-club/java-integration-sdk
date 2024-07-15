@@ -255,27 +255,6 @@ public static class CustomerService {
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    public PlatformModels.EligibilitySuccess checkEligibility(String organizationId ,PlatformModels.CheckEligibilityRequest body) throws IOException {
-            Response<PlatformModels.EligibilitySuccess> response = customerApiList.checkEligibility(organizationId  , body).execute();
-            if (!response.isSuccessful()) {
-                    throw new IOException(response.errorBody() != null
-                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-                }
-            return response.body();
-    }
-    
-    
-    
 
 
 public class ApplicationClient {
@@ -291,8 +270,6 @@ public class ApplicationClient {
         this.organizationId = this.platformConfig.getOrganizationId();
     }
 
-    
-    
     
     
     
@@ -353,27 +330,6 @@ public static class CreditService {
     
     
     
-    public PlatformModels.DisbursalResponse disburse(String organizationId ,PlatformModels.DisbursalRequest body) throws IOException {
-            Response<PlatformModels.DisbursalResponse> response = creditApiList.disburse(organizationId  , body).execute();
-            if (!response.isSuccessful()) {
-                    throw new IOException(response.errorBody() != null
-                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-                }
-            return response.body();
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -405,6 +361,63 @@ public static class CreditService {
     
     public PlatformModels.EligiblePlansResponse getEligiblePlans(String organizationId , String lenderSlug ,PlatformModels.EligiblePlansRequest body) throws IOException {
             Response<PlatformModels.EligiblePlansResponse> response = creditApiList.getEligiblePlans(organizationId  , lenderSlug  , body).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.GetTransactionsResponse getTransactions(String organizationId , Integer page , Object type , Object status , Integer limit , String countryCode , String mobile , String orderId , String transactionId , Boolean onlySelf ) throws IOException {
+            Response<PlatformModels.GetTransactionsResponse> response = creditApiList.getTransactions(organizationId  ,page , type , status , limit , countryCode , mobile , orderId , transactionId , onlySelf ).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

@@ -6,72 +6,13 @@
 
 ## Credit Methods
 Transaction Service
-* [disburse](#disburse)
 * [getOrderStatus](#getorderstatus)
 * [getEligiblePlans](#geteligibleplans)
+* [getTransactions](#gettransactions)
 
 
 
 ## Methods with example and description
-
-
-### disburse
-Disburse the credit
-
-
-
-
-```java
-credit.disburse(body body) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| organizationId | String | yes | This is organization id |  
-| body | [DisbursalRequest](#DisbursalRequest) | yes | Request body |
-
-
-Use this API to disburse the credit.
-
-*Returned Response:*
-
-
-
-
-[DisbursalResponse](#DisbursalResponse)
-
-Success. Returns a JSON object as shown below. Refer `DisbursalResponse` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; success</i></summary>
-
-```json
-true
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
 
 
 ### getOrderStatus
@@ -218,6 +159,136 @@ true
 ---
 
 
+### getTransactions
+Get list of user transactions
+
+
+
+
+```java
+credit.getTransactions( page,  type,  status,  limit,  countryCode,  mobile,  orderId,  transactionId,  onlySelf) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| organizationId | String | yes | The unique identifier of the organization |   
+| page | Integer? | no | The page number of the transaction list |   
+| type | Object? | no | The transaction type |   
+| status | Object? | no | The transaction status |   
+| limit | Integer? | no | The number of transactions to fetch |   
+| countryCode | String? | no | The country code of the user's mobile number. |   
+| mobile | String | yes | The mobile number of the user |   
+| orderId | String? | no | Ther order ID |   
+| transactionId | String? | no | The transaction ID |   
+| onlySelf | Boolean? | no | Set this flag to true to fetch transactions exclusively for your organization, excluding other organizations. |  
+
+
+
+Retrieves a paginated list of transactions associated with a specific organization, sorted from the latest to the oldest. This endpoint allows filtering transactions by type and supports pagination.
+
+*Returned Response:*
+
+
+
+
+[GetTransactionsResponse](#GetTransactionsResponse)
+
+Success. Returns a JSON object as shown below. Refer GetTransactionsResponse for more details
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; IntegrationGetTransactionsExample</i></summary>
+
+```json
+{
+  "value": {
+    "message": "The request has been processed successfully.",
+    "data": {
+      "transactions": [
+        {
+          "id": "TXN1234PKoGu",
+          "amount": 5000,
+          "type": "DEBIT",
+          "status": "SUCCESS",
+          "settlementUtr": null,
+          "createdAt": "2024-06-10T12:56:46.396Z",
+          "merchant": {
+            "name": "J Company",
+            "logo": "https://cdn.pixelbin.io/v2/muddy-glitter-1091e5/original/public/logos/j.png"
+          },
+          "order": {
+            "id": "ORD1234",
+            "amount": 5000
+          },
+          "loan": {
+            "number": "LN123456",
+            "amount": 5000,
+            "type": "EMI"
+          },
+          "lender": {
+            "name": "Bank of J Limited",
+            "slug": "j-bank",
+            "logo": "https://cdn.pixelbin.io/v2/muddy-glitter-1091e5/original/public/logos/j.png",
+            "shortName": "J Bank"
+          },
+          "isMasked": false
+        },
+        {
+          "id": "XXXXXPKoGu",
+          "amount": 500,
+          "type": "DEBIT",
+          "status": "SUCCESS",
+          "settlementUtr": null,
+          "createdAt": "2024-07-01T11:56:46.396Z",
+          "merchant": {
+            "name": "Other Merchant",
+            "logo": "https://cdn.pixelbin.io/v2/potlee/t.grey()/public/logos/settle/square-dark.png"
+          },
+          "isMasked": true
+        }
+      ],
+      "page": {
+        "type": "number",
+        "current": 1,
+        "hasPrevious": false,
+        "hasNext": false,
+        "size": 25,
+        "itemTotal": 1
+      }
+    },
+    "meta": {
+      "timestamp": "2024-07-10T13:56:46.396Z",
+      "version": "v1.0",
+      "product": "Settle Checkout"
+    }
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 
 ### Schemas
 
@@ -238,6 +309,61 @@ true
 
  
  
+ #### [IntegrationResponseMeta](#IntegrationResponseMeta)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | timestamp | String |  no  | The timestamp when the response was generated. |
+ | version | String |  no  | The version of the API. |
+ | product | String |  no  | The name of the product or service. |
+ | requestId | String? |  yes  | An optional request identifier. |
+
+---
+
+
+ 
+ 
+ #### [IntegrationResponseError](#IntegrationResponseError)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | code | String |  no  | Error code representing the type of error. |
+ | message | String |  no  | A human-readable message providing more details about the error. |
+ | exception | String |  no  | The exception name or type. |
+ | field | String? |  yes  | The field associated with the error, if applicable. |
+ | in | String? |  yes  | The location of the field, such as 'query', 'param' or 'body'. |
+
+---
+
+
+ 
+ 
+ #### [IntegrationSuccessResponse](#IntegrationSuccessResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | message | String |  no  | A message indicating the success of the operation. |
+ | meta | [IntegrationResponseMeta](#IntegrationResponseMeta) |  no  |  |
+ | data | HashMap<String,Object> |  no  | The data payload of the response. The structure of this object will vary depending on the specific API endpoint. |
+
+---
+
+
+ 
+ 
+ #### [IntegrationErrorResponse](#IntegrationErrorResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | message | String |  no  | A message indicating the failure of the operation. |
+ | meta | [IntegrationResponseMeta](#IntegrationResponseMeta) |  no  |  |
+ | error | [IntegrationResponseError](#IntegrationResponseError) |  no  |  |
+
+---
+
+
+ 
+ 
  #### [DisbursalRequest](#DisbursalRequest)
 
  | Properties | Type | Nullable | Description |
@@ -249,6 +375,8 @@ true
  | isDownpaymentRequired | Boolean? |  yes  |  |
  | downpaymentAmount | Double? |  yes  |  |
  | loanAmount | Double? |  yes  |  |
+ | data | HashMap<String,Object>? |  yes  |  |
+ | transactionId | String? |  yes  |  |
  | lenderSlug | String? |  yes  |  |
 
 ---
@@ -315,7 +443,6 @@ true
  | transactionId | String? |  yes  |  |
  | status | String? |  yes  |  |
  | message | String? |  yes  |  |
- | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -979,6 +1106,135 @@ true
  | merchantId | String? |  yes  |  |
  | lenderId | String? |  yes  |  |
  | pivotPoints | Double? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [TransactionOrder](#TransactionOrder)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String |  no  | Unique identifier of the order. |
+ | amount | Double |  no  | Total amount of the order. |
+
+---
+
+
+ 
+ 
+ #### [TransactionMerchant](#TransactionMerchant)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | name | String |  no  | Name of the merchant. |
+ | logo | String |  no  | URL to the merchant's logo. |
+
+---
+
+
+ 
+ 
+ #### [TransactionLoan](#TransactionLoan)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | number | String |  no  | Loan account number. |
+ | amount | Double |  no  | Loan amount. |
+ | type | String |  no  | Type of loan. |
+
+---
+
+
+ 
+ 
+ #### [TransactionLender](#TransactionLender)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | name | String |  no  | Name of the lender. |
+ | slug | String |  no  | A slug representing the lender. |
+ | logo | String |  no  | URL to the lender's logo. |
+ | shortName | String |  no  | Short name of the lender. |
+
+---
+
+
+ 
+ 
+ #### [UserTransaction](#UserTransaction)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String |  no  | Unique identifier of the transaction. |
+ | amount | Double |  no  | Amount of the transaction. |
+ | type | String |  no  | Type of the transaction. |
+ | status | String |  no  | Status of the transaction. |
+ | settlementUtr | String? |  yes  | Settlement UTR for the transaction. |
+ | refundId | String? |  yes  | Refund ID if the transaction is a refund. |
+ | createdAt | String |  no  | Timestamp when the transaction was created. |
+ | isMasked | Boolean |  no  | Indicates if the transaction details are masked. This field is true of the transaction if done on some other merchant |
+ | order | [TransactionOrder](#TransactionOrder)? |  yes  |  |
+ | merchant | [TransactionMerchant](#TransactionMerchant) |  no  |  |
+ | loan | [TransactionLoan](#TransactionLoan)? |  yes  |  |
+ | lender | [TransactionLender](#TransactionLender)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [Pagination](#Pagination)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | type | String? |  yes  | The type of pagination. |
+ | current | Integer |  no  | The current page number. |
+ | hasPrevious | Boolean |  no  | Indicates if there is a previous page. |
+ | hasNext | Boolean |  no  | Indicates if there is a next page. |
+ | size | Integer |  no  | The number of items per page. |
+ | itemTotal | Integer |  no  | The total number of items across all pages. |
+
+---
+
+
+ 
+ 
+ #### [GetTransactionsData](#GetTransactionsData)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | transactions | ArrayList<[UserTransaction](#UserTransaction)> |  no  |  |
+ | page | [Pagination](#Pagination) |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [GetTransactionsResponse](#GetTransactionsResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | message | String |  no  | Response message indicating the result of the operation. |
+ | meta | [IntegrationResponseMeta](#IntegrationResponseMeta) |  no  |  |
+ | data | [GetTransactionsData](#GetTransactionsData) |  no  |  |
+ | headers | HashMap<String,Object>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [SummaryRequest](#SummaryRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | startDate | String? |  yes  |  |
+ | endDate | String? |  yes  |  |
+ | merchantId | String? |  yes  |  |
+ | type | String? |  yes  |  |
 
 ---
 

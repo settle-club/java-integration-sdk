@@ -21,6 +21,7 @@ Authentication Service
 * [getTeamMembers](#getteammembers)
 * [addTeamMemberToOrganization](#addteammembertoorganization)
 * [removeTeamMemberFromOrganization](#removeteammemberfromorganization)
+* [updateMemberRole](#updatememberrole)
 * [getOrganizationApiKeyAndSecret](#getorganizationapikeyandsecret)
 * [updateTransactionApiHookOfOrganization](#updatetransactionapihookoforganization)
 * [getOrganizationApiHookDetails](#getorganizationapihookdetails)
@@ -969,6 +970,59 @@ Success. Returns a JSON object as shown below. Refer `RemoveTeamMemberResponse` 
 {
   "success": "true"
 }
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### updateMemberRole
+Update Team Member Role in Organization
+
+
+
+
+```java
+merchant.updateMemberRole(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| organizationId | String | yes | This is the organization ID |  
+| body | [UpdateTeamMemberRole](#UpdateTeamMemberRole) | yes | Request body |
+
+
+Use this API to update team members role in organization.
+
+*Returned Response:*
+
+
+
+
+[AddTeamMemberResponse](#AddTeamMemberResponse)
+
+Success. Returns a JSON object as shown below. Refer `AddTeamMemberResponse` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{}
 ```
 </details>
 
@@ -2778,6 +2832,19 @@ Success. Check the example shown below or refer `LoginSuccess` for more details.
  | countryCode | String? |  yes  |  |
  | mobile | String? |  yes  |  |
  | email | String? |  yes  |  |
+ | userIsAdmin | Boolean? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [UpdateTeamMemberRole](#UpdateTeamMemberRole)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | userIsAdmin | Boolean? |  yes  |  |
+ | userId | String? |  yes  |  |
 
 ---
 

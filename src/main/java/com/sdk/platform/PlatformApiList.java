@@ -103,27 +103,9 @@ interface CustomerApiList {
     @POST ("/service/integration/user/authentication/{organizationId}/schemes")
     Call<PlatformModels.GetSchemesSuccess> getSchemes(@Path("organizationId") String  organizationId ,@Body PlatformModels.GetSchemesRequest payload);
     
-    
-    
-    
-    
-    
-    
-    @POST ("/service/integration/user/authentication/{organizationId}/eligibility")
-    Call<PlatformModels.EligibilitySuccess> checkEligibility(@Path("organizationId") String  organizationId ,@Body PlatformModels.CheckEligibilityRequest payload);
-    
 }
 
 interface CreditApiList {
-    
-    
-    
-    
-    
-    
-    
-    @POST ("/service/integration/credit/credit/{organizationId}/disburse")
-    Call<PlatformModels.DisbursalResponse> disburse(@Path("organizationId") String  organizationId ,@Body PlatformModels.DisbursalRequest payload);
     
     
     
@@ -148,6 +130,42 @@ interface CreditApiList {
     
     @POST ("/service/integration/credit/credit/{organizationId}/{lenderSlug}/plans")
     Call<PlatformModels.EligiblePlansResponse> getEligiblePlans(@Path("organizationId") String  organizationId , @Path("lenderSlug") String  lenderSlug ,@Body PlatformModels.EligiblePlansRequest payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/integration/credit/summary/organization/{organizationId}/transactions")
+    Call<PlatformModels.GetTransactionsResponse> getTransactions(@Path("organizationId") String  organizationId , @Query("page") Integer  page ,  @Query("type") Object  type ,  @Query("status") Object  status ,  @Query("limit") Integer  limit ,  @Query("countryCode") String  countryCode ,  @Query("mobile") String  mobile ,  @Query("orderId") String  orderId ,  @Query("transactionId") String  transactionId ,  @Query("onlySelf") Boolean  onlySelf );
     
 }
 

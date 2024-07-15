@@ -58,6 +58,77 @@ public static class RefundResponse {
 }
 
 /*
+    Model: UserSource
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UserSource {
+    
+    
+    
+    
+    @JsonProperty("userId")
+    private String userId;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("sourceId")
+    private String sourceId;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private Object meta;
+    
+    
+    
+    
+    @JsonProperty("createdAt")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("updatedAt")
+    private String updatedAt;
+    
+    
+    
+    
+    @JsonProperty("app")
+    private String app;
+    
+    
+    
+    
+    @JsonProperty("entityId")
+    private String entityId;
+    
+    
+    
+    
+    @JsonProperty("userMerchants")
+    private List<Object> userMerchants;
+    
+    
+    
+    
+}
+
+/*
     Model: UserSchema
 */
 @AllArgsConstructor
@@ -1717,12 +1788,6 @@ public static class CreateTransaction {
     
     
     
-    @JsonProperty("autoCapture")
-    private Boolean autoCapture;
-    
-    
-    
-    
     @JsonProperty("redirectUrl")
     private String redirectUrl;
     
@@ -1784,12 +1849,6 @@ public static class CreateTransaction {
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ResendPaymentRequest {
-    
-    
-    
-    
-    @JsonProperty("autoCapture")
-    private Boolean autoCapture;
     
     
     
@@ -4428,6 +4487,12 @@ public static class Refund {
     
     
     
+    @JsonProperty("redirectionUrl")
+    private String redirectionUrl;
+    
+    
+    
+    
 }
 
 /*
@@ -5911,6 +5976,12 @@ public static class SourceAnalyticsRequest {
     
     
     
+    @JsonProperty("merchantId")
+    private String merchantId;
+    
+    
+    
+    
 }
 
 /*
@@ -6189,12 +6260,6 @@ public static class EligibilitySuccess {
     
     @JsonProperty("creditLimits")
     private List<CreditLimitObject> creditLimits;
-    
-    
-    
-    
-    @JsonProperty("__headers")
-    private Object headers;
     
     
     
@@ -6495,6 +6560,82 @@ public static class GetSchemesSuccessOld {
     
 }
 
+/*
+    Model: PageSchemaResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PageSchemaResponse {
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("sections")
+    private Object sections;
+    
+    
+    
+    
+    @JsonProperty("settings")
+    private Object settings;
+    
+    
+    
+    
+}
+
+/*
+    Model: userCountRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class userCountRequest {
+    
+    
+    
+    
+    @JsonProperty("merchantId")
+    private String merchantId;
+    
+    
+    
+    
+    @JsonProperty("startDate")
+    private String startDate;
+    
+    
+    
+    
+    @JsonProperty("endDate")
+    private String endDate;
+    
+    
+    
+    
+}
+
 
     
     /*
@@ -6576,6 +6717,164 @@ public static class GetSchemesSuccessOld {
 
 
 /*
+    Model: IntegrationResponseMeta
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class IntegrationResponseMeta {
+    
+    
+    
+    
+    @JsonProperty("timestamp")
+    private String timestamp;
+    
+    
+    
+    
+    @JsonProperty("version")
+    private String version;
+    
+    
+    
+    
+    @JsonProperty("product")
+    private String product;
+    
+    
+    
+    
+    @JsonProperty("requestId")
+    private String requestId;
+    
+    
+    
+    
+}
+
+/*
+    Model: IntegrationResponseError
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class IntegrationResponseError {
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("exception")
+    private String exception;
+    
+    
+    
+    
+    @JsonProperty("field")
+    private String field;
+    
+    
+    
+    
+    @JsonProperty("in")
+    private String in;
+    
+    
+    
+    
+}
+
+/*
+    Model: IntegrationSuccessResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class IntegrationSuccessResponse {
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private IntegrationResponseMeta meta;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private Object data;
+    
+    
+    
+    
+}
+
+/*
+    Model: IntegrationErrorResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class IntegrationErrorResponse {
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private IntegrationResponseMeta meta;
+    
+    
+    
+    
+    @JsonProperty("error")
+    private IntegrationResponseError error;
+    
+    
+    
+    
+}
+
+/*
     Model: DisbursalRequest
 */
 @AllArgsConstructor
@@ -6628,6 +6927,18 @@ public static class DisbursalRequest {
     
     @JsonProperty("loanAmount")
     private Double loanAmount;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private Object data;
+    
+    
+    
+    
+    @JsonProperty("transactionId")
+    private String transactionId;
     
     
     
@@ -6809,12 +7120,6 @@ public static class DisbursalResponse {
     
     @JsonProperty("message")
     private String message;
-    
-    
-    
-    
-    @JsonProperty("__headers")
-    private Object headers;
     
     
     
@@ -8597,6 +8902,393 @@ public static class LenderCustomerTransactionMetricsRequest {
     
 }
 
+/*
+    Model: TransactionOrder
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TransactionOrder {
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("amount")
+    private Double amount;
+    
+    
+    
+    
+}
+
+/*
+    Model: TransactionMerchant
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TransactionMerchant {
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("logo")
+    private String logo;
+    
+    
+    
+    
+}
+
+/*
+    Model: TransactionLoan
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TransactionLoan {
+    
+    
+    
+    
+    @JsonProperty("number")
+    private String number;
+    
+    
+    
+    
+    @JsonProperty("amount")
+    private Double amount;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+}
+
+/*
+    Model: TransactionLender
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TransactionLender {
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("logo")
+    private String logo;
+    
+    
+    
+    
+    @JsonProperty("shortName")
+    private String shortName;
+    
+    
+    
+    
+}
+
+/*
+    Model: UserTransaction
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UserTransaction {
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("amount")
+    private Double amount;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("settlementUtr")
+    private String settlementUtr;
+    
+    
+    
+    
+    @JsonProperty("refundId")
+    private String refundId;
+    
+    
+    
+    
+    @JsonProperty("createdAt")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("isMasked")
+    private Boolean isMasked;
+    
+    
+    
+    
+    @JsonProperty("order")
+    private TransactionOrder order;
+    
+    
+    
+    
+    @JsonProperty("merchant")
+    private TransactionMerchant merchant;
+    
+    
+    
+    
+    @JsonProperty("loan")
+    private TransactionLoan loan;
+    
+    
+    
+    
+    @JsonProperty("lender")
+    private TransactionLender lender;
+    
+    
+    
+    
+}
+
+/*
+    Model: Pagination
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Pagination {
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("current")
+    private Integer current;
+    
+    
+    
+    
+    @JsonProperty("hasPrevious")
+    private Boolean hasPrevious;
+    
+    
+    
+    
+    @JsonProperty("hasNext")
+    private Boolean hasNext;
+    
+    
+    
+    
+    @JsonProperty("size")
+    private Integer size;
+    
+    
+    
+    
+    @JsonProperty("itemTotal")
+    private Integer itemTotal;
+    
+    
+    
+    
+}
+
+/*
+    Model: GetTransactionsData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GetTransactionsData {
+    
+    
+    
+    
+    @JsonProperty("transactions")
+    private List<UserTransaction> transactions;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Pagination page;
+    
+    
+    
+    
+}
+
+/*
+    Model: GetTransactionsResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GetTransactionsResponse {
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private IntegrationResponseMeta meta;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private GetTransactionsData data;
+    
+    
+    
+    
+    @JsonProperty("__headers")
+    private Object headers;
+    
+    
+    
+    
+}
+
+/*
+    Model: SummaryRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SummaryRequest {
+    
+    
+    
+    
+    @JsonProperty("startDate")
+    private String startDate;
+    
+    
+    
+    
+    @JsonProperty("endDate")
+    private String endDate;
+    
+    
+    
+    
+    @JsonProperty("merchantId")
+    private String merchantId;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+}
+
 
 
 
@@ -8677,12 +9369,6 @@ public static class Lender {
     
     @JsonProperty("updatedAt")
     private String updatedAt;
-    
-    
-    
-    
-    @JsonProperty("approvedLimit")
-    private Double approvedLimit;
     
     
     
@@ -10692,8 +11378,43 @@ public static class LenderOnboardRequest {
     
     
     
+    @JsonProperty("merchantId")
+    private String merchantId;
+    
+    
+    
+    
+}
+
+/*
+    Model: LenderOnboardRequestV1
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class LenderOnboardRequestV1 {
+    
+    
+    
+    
     @JsonProperty("entityMapId")
     private String entityMapId;
+    
+    
+    
+    
+    @JsonProperty("ack")
+    private String ack;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private Object data;
     
     
     
@@ -11866,6 +12587,47 @@ public static class DocumentObjects {
 }
 
 /*
+    Model: KycCountByStatus
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class KycCountByStatus {
+    
+    
+    
+    
+    @JsonProperty("startDate")
+    private String startDate;
+    
+    
+    
+    
+    @JsonProperty("endDate")
+    private String endDate;
+    
+    
+    
+    
+    @JsonProperty("merchantId")
+    private String merchantId;
+    
+    
+    
+    
+    @JsonProperty("lenderId")
+    private String lenderId;
+    
+    
+    
+    
+}
+
+/*
     Model: FindDocResponse
 */
 @AllArgsConstructor
@@ -12271,6 +13033,18 @@ public static class OnboardStatusDto {
     
     @JsonProperty("merchantId")
     private String merchantId;
+    
+    
+    
+    
+    @JsonProperty("actionName")
+    private String actionName;
+    
+    
+    
+    
+    @JsonProperty("actionDescription")
+    private String actionDescription;
     
     
     
