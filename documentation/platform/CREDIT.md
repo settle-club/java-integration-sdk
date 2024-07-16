@@ -182,13 +182,13 @@ credit.getTransactions( page,  type,  status,  limit,  countryCode,  mobile,  or
 | limit | Integer? | no | The number of transactions to fetch |   
 | countryCode | String? | no | The country code of the user's mobile number. |   
 | mobile | String | yes | The mobile number of the user |   
-| orderId | String? | no | Ther order ID |   
+| orderId | String? | no | The order ID |   
 | transactionId | String? | no | The transaction ID |   
 | onlySelf | Boolean? | no | Set this flag to true to fetch transactions exclusively for your organization, excluding other organizations. |  
 
 
 
-Retrieves a paginated list of transactions associated with a specific organization, sorted from the latest to the oldest. This endpoint allows filtering transactions by type and supports pagination.
+Retrieves a paginated list of transactions associated with a specific organization, sorted from the latest to the oldest. This endpoint allows filtering transactions based on various criteria and supports pagination.
 
 *Returned Response:*
 
