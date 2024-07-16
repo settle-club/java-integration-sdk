@@ -8,6 +8,7 @@
 Transaction Service
 * [getOrderStatus](#getorderstatus)
 * [getEligiblePlans](#geteligibleplans)
+* [updateOrderDeliveryStatus](#updateorderdeliverystatus)
 * [getTransactions](#gettransactions)
 
 
@@ -143,6 +144,94 @@ Success. Returns a JSON object as shown below. Refer `EligiblePlansResponse` for
 
 ```json
 true
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### updateOrderDeliveryStatus
+Update delivery status for an order
+
+
+
+
+```java
+credit.updateOrderDeliveryStatus(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| organizationId | String | yes | This is organization id |  
+| body | [OrderDeliveryUpdatesBody](#OrderDeliveryUpdatesBody) | yes | Request body |
+
+
+Use this API to update the delivery status of an order using order ID or transaction ID.
+
+*Returned Response:*
+
+
+
+
+[OrderDeliveryUpdatesResponse](#OrderDeliveryUpdatesResponse)
+
+Success. Returns a JSON object as shown below. Refer `OrderDeliveryUpdatesResponse` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; OrderDeliveryUpdatesResponseExample</i></summary>
+
+```json
+{
+  "value": {
+    "message": "The request has been processed successfully.",
+    "data": {
+      "orderId": "ORD1234",
+      "transactionId": "ORD1234",
+      "shipments": [
+        {
+          "id": "ship1234",
+          "urn": "ship1234_0",
+          "shipmentStatus": "DELIVERED",
+          "shipmentAmount": 5000,
+          "processingStatus": "PROCESSED"
+        },
+        {
+          "id": "ship3245",
+          "urn": "ship3245_1",
+          "shipmentStatus": "CANCELLED",
+          "shipmentAmount": 2000,
+          "processingStatus": "PROCESSED"
+        }
+      ]
+    },
+    "meta": {
+      "timestamp": "2024-07-16T12:07:26.979Z",
+      "version": "v1.0",
+      "product": "Settle Checkout"
+    }
+  }
+}
 ```
 </details>
 
@@ -1258,6 +1347,125 @@ Success. Returns a JSON object as shown below. Refer GetTransactionsResponse for
  | endDate | String? |  yes  |  |
  | merchantId | String? |  yes  |  |
  | type | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [OrderShipmentAddressGeoLocation](#OrderShipmentAddressGeoLocation)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | latitude | Double |  no  | The latitude of the location. |
+ | longitude | Double |  no  | The longitude of the location. |
+
+---
+
+
+ 
+ 
+ #### [OrderShipmentAddress](#OrderShipmentAddress)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | line1 | String? |  yes  | The first line of the address. |
+ | line2 | String? |  yes  | The second line of the address. |
+ | city | String? |  yes  | The city of the address. |
+ | state | String? |  yes  | The state of the address. |
+ | country | String? |  yes  | The country of the address. |
+ | pincode | String? |  yes  | The postal code of the address. |
+ | type | String? |  yes  | The type of address (e.g., residential, business). |
+ | geoLocation | [OrderShipmentAddressGeoLocation](#OrderShipmentAddressGeoLocation)? |  yes  | The geographical location of the address. |
+
+---
+
+
+ 
+ 
+ #### [OrderShipmentItem](#OrderShipmentItem)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | category | String? |  yes  | The category of the item. |
+ | sku | String? |  yes  | The stock keeping unit for the item. |
+ | rate | Double? |  yes  | The price of a single item. |
+ | quantity | Double? |  yes  | The quantity of the item. |
+
+---
+
+
+ 
+ 
+ #### [OrderShipment](#OrderShipment)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String |  no  | The identifier for the shipment. |
+ | urn | String? |  yes  | A unique reference number for the shipment. This is optional; the system will generate a URN if not provided. There can be multiple shipment objects with the same shipment ID, making the URN a unique identifier within the system. |
+ | amount | Double |  no  | The amount corresponding to the shipment that is subject to the status update. |
+ | timestamp | String |  no  | The timestamp when the status of the shipment was updated. |
+ | status | String |  no  | The current status of the shipment. |
+ | remark | String? |  yes  | Any remarks regarding the shipment. |
+ | items | ArrayList<[OrderShipmentItem](#OrderShipmentItem)>? |  yes  | The list of items in the shipment. |
+ | shippingAddress | [OrderShipmentAddress](#OrderShipmentAddress)? |  yes  | The shipping address for the shipment. |
+ | billingAddress | [OrderShipmentAddress](#OrderShipmentAddress)? |  yes  | The billing address for the shipment. |
+
+---
+
+
+ 
+ 
+ #### [OrderDeliveryUpdatesBody](#OrderDeliveryUpdatesBody)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | orderId | String? |  yes  | The unique identifier for the order. |
+ | transactionId | String? |  yes  | The unique identifier for the transaction. |
+ | shipments | ArrayList<[OrderShipment](#OrderShipment)> |  no  | The list of shipments for which the status needs to be updated. Only include shipments requiring a status change. |
+
+---
+
+
+ 
+ 
+ #### [OrderShipmentResponse](#OrderShipmentResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String |  no  | The unique identifier of the shipment. |
+ | urn | String? |  yes  | A unique resource identifier for the shipment. |
+ | shipmentStatus | String |  no  | The status of the shipment. |
+ | shipmentAmount | Double |  no  | The total amount associated with the shipment. |
+ | processingStatus | String |  no  | The processing status of the order shipment. |
+
+---
+
+
+ 
+ 
+ #### [OrderDeliveryUpdatesData](#OrderDeliveryUpdatesData)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | orderId | String |  no  | The unique identifier for the order. |
+ | transactionId | String |  no  | The unique identifier for the order. |
+ | shipments | ArrayList<[OrderShipmentResponse](#OrderShipmentResponse)> |  no  | The list of shipments for which the status was updated. |
+
+---
+
+
+ 
+ 
+ #### [OrderDeliveryUpdatesResponse](#OrderDeliveryUpdatesResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | message | String |  no  | Response message indicating the result of the operation. |
+ | meta | [IntegrationResponseMeta](#IntegrationResponseMeta) |  no  |  |
+ | data | [OrderDeliveryUpdatesData](#OrderDeliveryUpdatesData) |  no  |  |
+ | errors | ArrayList<[IntegrationResponseError](#IntegrationResponseError)>? |  yes  |  |
+ | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
