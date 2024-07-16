@@ -16,7 +16,7 @@ Authentication Service
 * [refund](#refund)
 * [refundStatus](#refundstatus)
 * [getSchemes](#getschemes)
-* [repay](#repay)
+* [getRepaymentLink](#getrepaymentlink)
 
 
 
@@ -879,14 +879,14 @@ Success. Returns a JSON object as shown below. Refer `GetSchemesSuccess` for mor
 ---
 
 
-### repay
+### getRepaymentLink
 Repayment link
 
 
 
 
 ```java
-customer.repay(body body) {
+customer.getRepaymentLink(body body) {
   //use response
 }
 ```
@@ -899,7 +899,7 @@ customer.repay(body body) {
 | body | [RepaymentRequest](#RepaymentRequest) | yes | Request body |
 
 
-use this api to redirect user for repayment.
+Use this API to get repayment link. User should be redirected to this URL to complete the repayment.
 
 *Returned Response:*
 
@@ -918,10 +918,22 @@ Success. Returns a JSON object as shown below. Refer `RepaymentResponse` for mor
 
 
 <details>
-<summary><i>&nbsp; repaymentLink</i></summary>
+<summary><i>&nbsp; RepaymentUrlResponseExample</i></summary>
 
 ```json
-"http://account.settle.club/magic-link?token=qwertyui"
+{
+  "value": {
+    "message": "The request has been processed successfully.",
+    "data": {
+      "repaymentUrl": "https://account.settle.club/magic-link/65bafe6a-f665-4378-964f-fc7457585ac7"
+    },
+    "meta": {
+      "timestamp": "2024-07-16T13:30:10.663Z",
+      "version": "v1.0",
+      "product": "Settle Checkout"
+    }
+  }
+}
 ```
 </details>
 
@@ -940,6 +952,61 @@ Success. Returns a JSON object as shown below. Refer `RepaymentResponse` for mor
 
 
 ### Schemas
+
+ 
+ 
+ #### [IntegrationResponseMeta](#IntegrationResponseMeta)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | timestamp | String |  no  | The timestamp when the response was generated. |
+ | version | String |  no  | The version of the API. |
+ | product | String |  no  | The name of the product or service. |
+ | requestId | String? |  yes  | An optional request identifier. |
+
+---
+
+
+ 
+ 
+ #### [IntegrationResponseError](#IntegrationResponseError)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | code | String |  no  | Error code representing the type of error. |
+ | message | String |  no  | A human-readable message providing more details about the error. |
+ | exception | String |  no  | The exception name or type. |
+ | field | String? |  yes  | The field associated with the error, if applicable. |
+ | in | String? |  yes  | The location of the field, such as 'query', 'param' or 'body'. |
+
+---
+
+
+ 
+ 
+ #### [IntegrationSuccessResponse](#IntegrationSuccessResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | message | String |  no  | A message indicating the success of the operation. |
+ | meta | [IntegrationResponseMeta](#IntegrationResponseMeta) |  no  |  |
+ | data | HashMap<String,Object> |  no  | The data payload of the response. The structure of this object will vary depending on the specific API endpoint. |
+
+---
+
+
+ 
+ 
+ #### [IntegrationErrorResponse](#IntegrationErrorResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | message | String |  no  | A message indicating the failure of the operation. |
+ | meta | [IntegrationResponseMeta](#IntegrationResponseMeta) |  no  |  |
+ | error | [IntegrationResponseError](#IntegrationResponseError) |  no  |  |
+
+---
+
 
  
  
@@ -3169,7 +3236,7 @@ Success. Returns a JSON object as shown below. Refer `RepaymentResponse` for mor
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | mobile | String |  no  |  |
- | countryCode | String |  no  |  |
+ | countryCode | String? |  yes  |  |
  | target | String? |  yes  |  |
  | callbackUrl | String |  no  |  |
  | lenderSlug | String? |  yes  |  |
@@ -3183,8 +3250,21 @@ Success. Returns a JSON object as shown below. Refer `RepaymentResponse` for mor
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | repaymentUrl | String? |  yes  |  |
+ | message | String |  no  | Response message indicating the result of the operation. |
+ | meta | [IntegrationResponseMeta](#IntegrationResponseMeta) |  no  |  |
+ | data | [RepaymentResponseData](#RepaymentResponseData) |  no  |  |
  | headers | HashMap<String,Object>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [RepaymentResponseData](#RepaymentResponseData)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | repaymentUrl | String? |  yes  |  |
 
 ---
 
@@ -3195,9 +3275,11 @@ Success. Returns a JSON object as shown below. Refer `RepaymentResponse` for mor
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | user | [UserSchema](#UserSchema)? |  yes  |  |
- | lenderSlug | String? |  yes  |  |
+ | user | [UserSchema](#UserSchema) |  no  |  |
  | scope | ArrayList<String>? |  yes  |  |
+ | redirectPath | String |  no  |  |
+ | callbackUrl | String? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
 
 ---
 

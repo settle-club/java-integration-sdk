@@ -1798,6 +1798,61 @@ Success. Check the example shown below or refer `ActiveEntityResponse` for more 
 
  
  
+ #### [IntegrationResponseMeta](#IntegrationResponseMeta)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | timestamp | String |  no  | The timestamp when the response was generated. |
+ | version | String |  no  | The version of the API. |
+ | product | String |  no  | The name of the product or service. |
+ | requestId | String? |  yes  | An optional request identifier. |
+
+---
+
+
+ 
+ 
+ #### [IntegrationResponseError](#IntegrationResponseError)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | code | String |  no  | Error code representing the type of error. |
+ | message | String |  no  | A human-readable message providing more details about the error. |
+ | exception | String |  no  | The exception name or type. |
+ | field | String? |  yes  | The field associated with the error, if applicable. |
+ | in | String? |  yes  | The location of the field, such as 'query', 'param' or 'body'. |
+
+---
+
+
+ 
+ 
+ #### [IntegrationSuccessResponse](#IntegrationSuccessResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | message | String |  no  | A message indicating the success of the operation. |
+ | meta | [IntegrationResponseMeta](#IntegrationResponseMeta) |  no  |  |
+ | data | HashMap<String,Object> |  no  | The data payload of the response. The structure of this object will vary depending on the specific API endpoint. |
+
+---
+
+
+ 
+ 
+ #### [IntegrationErrorResponse](#IntegrationErrorResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | message | String |  no  | A message indicating the failure of the operation. |
+ | meta | [IntegrationResponseMeta](#IntegrationResponseMeta) |  no  |  |
+ | error | [IntegrationResponseError](#IntegrationResponseError) |  no  |  |
+
+---
+
+
+ 
+ 
  #### [RefundResponse](#RefundResponse)
 
  | Properties | Type | Nullable | Description |
@@ -4035,7 +4090,7 @@ Success. Check the example shown below or refer `ActiveEntityResponse` for more 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | mobile | String |  no  |  |
- | countryCode | String |  no  |  |
+ | countryCode | String? |  yes  |  |
  | target | String? |  yes  |  |
  | callbackUrl | String |  no  |  |
  | lenderSlug | String? |  yes  |  |
@@ -4046,6 +4101,19 @@ Success. Check the example shown below or refer `ActiveEntityResponse` for more 
  
  
  #### [RepaymentResponse](#RepaymentResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | message | String |  no  | Response message indicating the result of the operation. |
+ | meta | [IntegrationResponseMeta](#IntegrationResponseMeta) |  no  |  |
+ | data | [RepaymentResponseData](#RepaymentResponseData) |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [RepaymentResponseData](#RepaymentResponseData)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
@@ -4060,9 +4128,11 @@ Success. Check the example shown below or refer `ActiveEntityResponse` for more 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | user | [UserSchema](#UserSchema)? |  yes  |  |
- | lenderSlug | String? |  yes  |  |
+ | user | [UserSchema](#UserSchema) |  no  |  |
  | scope | ArrayList<String>? |  yes  |  |
+ | redirectPath | String |  no  |  |
+ | callbackUrl | String? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
 
 ---
 

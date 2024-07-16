@@ -109,8 +109,8 @@ interface CustomerApiList {
     
     
     
-    @POST ("/service/integration/user/authentication/{organizationId}/repay")
-    Call<PlatformModels.RepaymentResponse> repay(@Path("organizationId") String  organizationId ,@Body PlatformModels.RepaymentRequest payload);
+    @POST ("/service/integration/user/authentication/{organizationId}/repayment-link")
+    Call<PlatformModels.RepaymentResponse> getRepaymentLink(@Path("organizationId") String  organizationId ,@Body PlatformModels.RepaymentRequest payload);
     
 }
 

@@ -265,8 +265,8 @@ public static class CustomerService {
     
     
     
-    public PlatformModels.RepaymentResponse repay(String organizationId ,PlatformModels.RepaymentRequest body) throws IOException {
-            Response<PlatformModels.RepaymentResponse> response = customerApiList.repay(organizationId  , body).execute();
+    public PlatformModels.RepaymentResponse getRepaymentLink(String organizationId ,PlatformModels.RepaymentRequest body) throws IOException {
+            Response<PlatformModels.RepaymentResponse> response = customerApiList.getRepaymentLink(organizationId  , body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

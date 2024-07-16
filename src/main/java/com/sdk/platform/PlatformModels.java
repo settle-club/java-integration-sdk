@@ -11,6 +11,164 @@ public class PlatformModels {
 
 
 /*
+    Model: IntegrationResponseMeta
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class IntegrationResponseMeta {
+    
+    
+    
+    
+    @JsonProperty("timestamp")
+    private String timestamp;
+    
+    
+    
+    
+    @JsonProperty("version")
+    private String version;
+    
+    
+    
+    
+    @JsonProperty("product")
+    private String product;
+    
+    
+    
+    
+    @JsonProperty("requestId")
+    private String requestId;
+    
+    
+    
+    
+}
+
+/*
+    Model: IntegrationResponseError
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class IntegrationResponseError {
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("exception")
+    private String exception;
+    
+    
+    
+    
+    @JsonProperty("field")
+    private String field;
+    
+    
+    
+    
+    @JsonProperty("in")
+    private String in;
+    
+    
+    
+    
+}
+
+/*
+    Model: IntegrationSuccessResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class IntegrationSuccessResponse {
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private IntegrationResponseMeta meta;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private Object data;
+    
+    
+    
+    
+}
+
+/*
+    Model: IntegrationErrorResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class IntegrationErrorResponse {
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private IntegrationResponseMeta meta;
+    
+    
+    
+    
+    @JsonProperty("error")
+    private IntegrationResponseError error;
+    
+    
+    
+    
+}
+
+/*
     Model: RefundResponse
 */
 @AllArgsConstructor
@@ -6733,14 +6891,49 @@ public static class RepaymentResponse {
     
     
     
-    @JsonProperty("repaymentUrl")
-    private String repaymentUrl;
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private IntegrationResponseMeta meta;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private RepaymentResponseData data;
     
     
     
     
     @JsonProperty("__headers")
     private Object headers;
+    
+    
+    
+    
+}
+
+/*
+    Model: RepaymentResponseData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RepaymentResponseData {
+    
+    
+    
+    
+    @JsonProperty("repaymentUrl")
+    private String repaymentUrl;
     
     
     
@@ -6768,14 +6961,26 @@ public static class VerifyMagicLinkResponse {
     
     
     
-    @JsonProperty("lenderSlug")
-    private String lenderSlug;
-    
-    
-    
-    
     @JsonProperty("scope")
     private List<String> scope;
+    
+    
+    
+    
+    @JsonProperty("redirectPath")
+    private String redirectPath;
+    
+    
+    
+    
+    @JsonProperty("callbackUrl")
+    private String callbackUrl;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private HashMap<String,Object> meta;
     
     
     
@@ -6884,164 +7089,6 @@ public static class VerifyMagicLinkRequest {
 
 
 
-
-/*
-    Model: IntegrationResponseMeta
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class IntegrationResponseMeta {
-    
-    
-    
-    
-    @JsonProperty("timestamp")
-    private String timestamp;
-    
-    
-    
-    
-    @JsonProperty("version")
-    private String version;
-    
-    
-    
-    
-    @JsonProperty("product")
-    private String product;
-    
-    
-    
-    
-    @JsonProperty("requestId")
-    private String requestId;
-    
-    
-    
-    
-}
-
-/*
-    Model: IntegrationResponseError
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class IntegrationResponseError {
-    
-    
-    
-    
-    @JsonProperty("code")
-    private String code;
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-    
-    @JsonProperty("exception")
-    private String exception;
-    
-    
-    
-    
-    @JsonProperty("field")
-    private String field;
-    
-    
-    
-    
-    @JsonProperty("in")
-    private String in;
-    
-    
-    
-    
-}
-
-/*
-    Model: IntegrationSuccessResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class IntegrationSuccessResponse {
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-    
-    @JsonProperty("meta")
-    private IntegrationResponseMeta meta;
-    
-    
-    
-    
-    @JsonProperty("data")
-    private Object data;
-    
-    
-    
-    
-}
-
-/*
-    Model: IntegrationErrorResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class IntegrationErrorResponse {
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-    
-    @JsonProperty("meta")
-    private IntegrationResponseMeta meta;
-    
-    
-    
-    
-    @JsonProperty("error")
-    private IntegrationResponseError error;
-    
-    
-    
-    
-}
 
 /*
     Model: DisbursalRequest
