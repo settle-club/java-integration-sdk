@@ -1661,6 +1661,7 @@ Success. Returns a JSON object as shown below. Refer `RepaymentResponse` for mor
  | order | [Order](#Order)? |  yes  |  |
  | isAsp | Boolean? |  yes  |  |
  | merchant | [MerchantDetails](#MerchantDetails)? |  yes  |  |
+ | redirectUrl | String? |  yes  |  |
 
 ---
 

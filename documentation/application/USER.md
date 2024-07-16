@@ -2520,6 +2520,7 @@ Success. Check the example shown below or refer `ActiveEntityResponse` for more 
  | order | [Order](#Order)? |  yes  |  |
  | isAsp | Boolean? |  yes  |  |
  | merchant | [MerchantDetails](#MerchantDetails)? |  yes  |  |
+ | redirectUrl | String? |  yes  |  |
 
 ---
 

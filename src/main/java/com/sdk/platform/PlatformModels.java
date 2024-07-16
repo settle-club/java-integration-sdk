@@ -2245,6 +2245,12 @@ public static class InitiateTransactionsSuccess {
     
     
     
+    @JsonProperty("redirectUrl")
+    private String redirectUrl;
+    
+    
+    
+    
 }
 
 /*

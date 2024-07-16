@@ -922,6 +922,7 @@ Success. Returns a JSON object as shown below. Refer `UserResponse` for more det
  | order | [Order](#Order)? |  yes  |  |
  | isAsp | Boolean? |  yes  |  |
  | merchant | [MerchantDetails](#MerchantDetails)? |  yes  |  |
+ | redirectUrl | String? |  yes  |  |
 
 ---
 
