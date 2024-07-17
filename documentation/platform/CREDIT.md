@@ -467,6 +467,7 @@ Success. The request has been processed successfully and the response contains t
  | data | HashMap<String,Object>? |  yes  |  |
  | transactionId | String? |  yes  |  |
  | lenderSlug | String? |  yes  |  |
+ | intent | String? |  yes  |  |
 
 ---
 

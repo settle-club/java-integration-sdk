@@ -660,6 +660,7 @@ Success. Returns a JSON object as shown below. Refer `UniqueCustomersInOrg` for 
  | data | HashMap<String,Object>? |  yes  |  |
  | transactionId | String? |  yes  |  |
  | lenderSlug | String? |  yes  |  |
+ | intent | String? |  yes  |  |
 
 ---
 

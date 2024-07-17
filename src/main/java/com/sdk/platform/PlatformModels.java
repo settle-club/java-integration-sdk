@@ -7153,6 +7153,12 @@ public static class DisbursalRequest {
     
     
     
+    @JsonProperty("intent")
+    private String intent;
+    
+    
+    
+    
 }
 
 /*
