@@ -1495,6 +1495,7 @@ Success. Returns a JSON object as shown below. Refer `ValidateCredentialsRespons
  | refreshTokenExpiryAt | String? |  yes  |  |
  | refreshTokenExpiryIn | String? |  yes  |  |
  | scope | ArrayList<String>? |  yes  |  |
+ | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -1509,6 +1510,7 @@ Success. Returns a JSON object as shown below. Refer `ValidateCredentialsRespons
  | accessToken | String? |  yes  |  |
  | tokenExpireAt | String? |  yes  |  |
  | tokenExpiryIn | String? |  yes  |  |
+ | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
