@@ -11,8 +11,6 @@ Authentication Service
 * [createOrder](#createorder)
 * [link](#link)
 * [unlink](#unlink)
-* [getAccessToken](#getaccesstoken)
-* [renewAccessToken](#renewaccesstoken)
 * [refund](#refund)
 * [refundStatus](#refundstatus)
 * [getSchemes](#getschemes)
@@ -343,206 +341,6 @@ Success. Returns a JSON object as shown below. Refer `UnlinkAccountSuccess` for 
 
 ```json
 true
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### getAccessToken
-Get Access Token
-
-
-
-
-```java
-customer.getAccessToken() {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| organizationId | String | yes | This is organizationId |  
-
-
-
-Use this API to get access token
-
-*Returned Response:*
-
-
-
-
-[GetAccessTokenResponse](#GetAccessTokenResponse)
-
-Success. Returns a JSON object as shown below. Refer `GetAccessTokenResponse` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; success</i></summary>
-
-```json
-true
-```
-</details>
-
-<details>
-<summary><i>&nbsp; accessToken</i></summary>
-
-```json
-"oa-0a7a064dd15ef22fe002946f90c1e7b22eea47de"
-```
-</details>
-
-<details>
-<summary><i>&nbsp; refreshToken</i></summary>
-
-```json
-"oa-d2f33b6be9957050386be051501b84b008f5ef6f"
-```
-</details>
-
-<details>
-<summary><i>&nbsp; tokenExpireAt</i></summary>
-
-```json
-"2023-06-27T09:43:07.818Z"
-```
-</details>
-
-<details>
-<summary><i>&nbsp; tokenExpiryIn</i></summary>
-
-```json
-"600"
-```
-</details>
-
-<details>
-<summary><i>&nbsp; refreshTokenExpiryAt</i></summary>
-
-```json
-"2023-06-27T10:33:07.822Z"
-```
-</details>
-
-<details>
-<summary><i>&nbsp; refreshTokenExpiryIn</i></summary>
-
-```json
-"3600"
-```
-</details>
-
-<details>
-<summary><i>&nbsp; scope</i></summary>
-
-```json
-[
-  "transaction"
-]
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### renewAccessToken
-Renew Access Token
-
-
-
-
-```java
-customer.renewAccessToken(body body) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| organizationId | String | yes | This is organizationId |  
-| body | [RefreshTokenRequest](#RefreshTokenRequest) | yes | Request body |
-
-
-Use this API to renew access token
-
-*Returned Response:*
-
-
-
-
-[RefreshTokenResponse](#RefreshTokenResponse)
-
-Success. Returns a JSON object as shown below. Refer `RefreshTokenResponse` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; success</i></summary>
-
-```json
-true
-```
-</details>
-
-<details>
-<summary><i>&nbsp; accessToken</i></summary>
-
-```json
-"oa-de1496c16c91c45396ba87a888eed20fb223995d"
-```
-</details>
-
-<details>
-<summary><i>&nbsp; tokenExpireAt</i></summary>
-
-```json
-"2023-06-26T19:23:46.977Z"
-```
-</details>
-
-<details>
-<summary><i>&nbsp; tokenExpiryIn</i></summary>
-
-```json
-"600"
 ```
 </details>
 
@@ -2560,7 +2358,6 @@ Success. Returns a JSON object as shown below. Refer `GetSchemesSuccess` for mor
  | refreshTokenExpiryAt | String? |  yes  |  |
  | refreshTokenExpiryIn | String? |  yes  |  |
  | scope | ArrayList<String>? |  yes  |  |
- | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -2575,7 +2372,6 @@ Success. Returns a JSON object as shown below. Refer `GetSchemesSuccess` for mor
  | accessToken | String? |  yes  |  |
  | tokenExpireAt | String? |  yes  |  |
  | tokenExpiryIn | String? |  yes  |  |
- | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 

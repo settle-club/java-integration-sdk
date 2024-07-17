@@ -637,7 +637,7 @@ Success. Returns a JSON object as shown below. Refer `UniqueCustomersInOrg` for 
  | ---------- | ---- | -------- | ----------- |
  | message | String |  no  | A message indicating the failure of the operation. |
  | meta | [IntegrationResponseMeta](#IntegrationResponseMeta) |  no  |  |
- | error | [IntegrationResponseError](#IntegrationResponseError) |  no  |  |
+ | errors | ArrayList<[IntegrationResponseError](#IntegrationResponseError)>? |  yes  |  |
 
 ---
 

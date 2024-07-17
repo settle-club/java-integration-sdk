@@ -197,7 +197,7 @@ Retrieves a paginated list of transactions associated with a specific organizati
 
 [GetTransactionsResponse](#GetTransactionsResponse)
 
-Success. Returns a JSON object as shown below. Refer GetTransactionsResponse for more details
+Success. The request has been processed successfully and the response contains the requested data.
 
 
 
@@ -357,7 +357,7 @@ Success. Returns a JSON object as shown below. Refer GetTransactionsResponse for
  | ---------- | ---- | -------- | ----------- |
  | message | String |  no  | A message indicating the failure of the operation. |
  | meta | [IntegrationResponseMeta](#IntegrationResponseMeta) |  no  |  |
- | error | [IntegrationResponseError](#IntegrationResponseError) |  no  |  |
+ | errors | ArrayList<[IntegrationResponseError](#IntegrationResponseError)>? |  yes  |  |
 
 ---
 
