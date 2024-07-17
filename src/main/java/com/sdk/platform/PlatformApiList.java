@@ -208,3 +208,34 @@ interface MultiKycApiList {
     Call<PlatformModels.IntgrCreditLimit> getLimit(@Path("organizationId") String  organizationId ,@Body PlatformModels.GetLimitRequest payload);
     
 }
+
+interface MerchantApiList {
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/integration/staff/authentication/oauth/{organizationId}/authorize")
+    Call<PlatformModels.GetAccessTokenResponse> getAccessToken(@Path("organizationId") String  organizationId );
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/integration/staff/authentication/oauth/{organizationId}/token")
+    Call<PlatformModels.RefreshTokenResponse> renewAccessToken(@Path("organizationId") String  organizationId ,@Body PlatformModels.RefreshTokenRequest payload);
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/integration/staff/authentication/oauth/{organizationId}/validate-credentials")
+    Call<PlatformModels.ValidateCredentialsResponse> validateCredentials(@Path("organizationId") String  organizationId );
+    
+}

@@ -591,6 +591,120 @@ public class ApplicationClient {
 
 }
 
+public static class MerchantService {
+    private PlatformConfig platformConfig;
+
+    private RetrofitServiceFactory retrofitServiceFactory;
+
+    private String organizationId;
+
+    private MerchantApiList merchantApiList;
+
+    public MerchantService(PlatformConfig platformConfig) {
+        this.platformConfig = platformConfig;
+        this.retrofitServiceFactory = new RetrofitServiceFactory();
+        this.organizationId = this.platformConfig.getOrganizationId();
+        this.merchantApiList = generateMerchantApiList(this.platformConfig.getPersistentCookieStore());
+    }
+
+    private MerchantApiList generateMerchantApiList(CookieStore cookieStore) {
+        List<Interceptor> interceptorList = new ArrayList<>();
+        interceptorList.add(new AccessTokenInterceptor(platformConfig));
+        interceptorList.add(new RequestSignerInterceptor());
+        return retrofitServiceFactory.createService(platformConfig.getDomain(),MerchantApiList.class, interceptorList, cookieStore);
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.GetAccessTokenResponse getAccessToken(String organizationId ) throws IOException {
+            Response<PlatformModels.GetAccessTokenResponse> response = merchantApiList.getAccessToken(organizationId  ).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.RefreshTokenResponse renewAccessToken(String organizationId ,PlatformModels.RefreshTokenRequest body) throws IOException {
+            Response<PlatformModels.RefreshTokenResponse> response = merchantApiList.renewAccessToken(organizationId  , body).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.ValidateCredentialsResponse validateCredentials(String organizationId ) throws IOException {
+            Response<PlatformModels.ValidateCredentialsResponse> response = merchantApiList.validateCredentials(organizationId  ).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+    }
+    
+    
+    
+
+
+public class ApplicationClient {
+    private PlatformConfig platformConfig;
+
+    private String applicationId;
+
+    private String organizationId;
+
+    ApplicationClient(PlatformConfig platformConfig, String applicationId) {
+        this.platformConfig = platformConfig;
+        this.applicationId = applicationId;
+        this.organizationId = this.platformConfig.getOrganizationId();
+    }
+
+    
+    
+    
+    
+    
+    
+    
+
+}
+
+}
+
 private interface Fields {
     String UNKNOWN_ERROR = "Unknown error";
 }

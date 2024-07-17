@@ -17213,4 +17213,3270 @@ public static class CommercialResponse {
 
 
 
+
+/*
+    Model: BlockUserRequestSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BlockUserRequestSchema {
+    
+    
+    
+    
+    @JsonProperty("status")
+    private Boolean status;
+    
+    
+    
+    
+    @JsonProperty("userid")
+    private List<String> userid;
+    
+    
+    
+    
+    @JsonProperty("reason")
+    private String reason;
+    
+    
+    
+    
+}
+
+/*
+    Model: EditEmailRequestSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class EditEmailRequestSchema {
+    
+    
+    
+    
+    @JsonProperty("email")
+    private String email;
+    
+    
+    
+    
+}
+
+/*
+    Model: SendVerificationLinkMobileRequestSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SendVerificationLinkMobileRequestSchema {
+    
+    
+    
+    
+    @JsonProperty("verified")
+    private Boolean verified;
+    
+    
+    
+    
+    @JsonProperty("active")
+    private Boolean active;
+    
+    
+    
+    
+    @JsonProperty("countryCode")
+    private String countryCode;
+    
+    
+    
+    
+    @JsonProperty("phone")
+    private String phone;
+    
+    
+    
+    
+    @JsonProperty("primary")
+    private Boolean primary;
+    
+    
+    
+    
+}
+
+/*
+    Model: EditMobileRequestSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class EditMobileRequestSchema {
+    
+    
+    
+    
+    @JsonProperty("countryCode")
+    private String countryCode;
+    
+    
+    
+    
+    @JsonProperty("phone")
+    private String phone;
+    
+    
+    
+    
+}
+
+/*
+    Model: UpdateEmail
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UpdateEmail {
+    
+    
+    
+    
+    @JsonProperty("email")
+    private String email;
+    
+    
+    
+    
+    @JsonProperty("additionalProperties")
+    private Object additionalProperties;
+    
+    
+    
+    
+}
+
+/*
+    Model: EditProfileRequestSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class EditProfileRequestSchema {
+    
+    
+    
+    
+    @JsonProperty("firstName")
+    private String firstName;
+    
+    
+    
+    
+    @JsonProperty("lastName")
+    private String lastName;
+    
+    
+    
+    
+    @JsonProperty("countryCode")
+    private String countryCode;
+    
+    
+    
+    
+    @JsonProperty("mobile")
+    private String mobile;
+    
+    
+    
+    
+    @JsonProperty("email")
+    private String email;
+    
+    
+    
+    
+    @JsonProperty("gender")
+    private String gender;
+    
+    
+    
+    
+    @JsonProperty("registrationToken")
+    private String registrationToken;
+    
+    
+    
+    
+}
+
+/*
+    Model: EditProfileMobileSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class EditProfileMobileSchema {
+    
+    
+    
+    
+    @JsonProperty("phone")
+    private String phone;
+    
+    
+    
+    
+    @JsonProperty("countryCode")
+    private String countryCode;
+    
+    
+    
+    
+}
+
+/*
+    Model: SendEmailOtpRequestSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SendEmailOtpRequestSchema {
+    
+    
+    
+    
+    @JsonProperty("email")
+    private String email;
+    
+    
+    
+    
+    @JsonProperty("action")
+    private String action;
+    
+    
+    
+    
+    @JsonProperty("token")
+    private String token;
+    
+    
+    
+    
+    @JsonProperty("registerToken")
+    private String registerToken;
+    
+    
+    
+    
+}
+
+/*
+    Model: VerifyEmailOtpRequestSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class VerifyEmailOtpRequestSchema {
+    
+    
+    
+    
+    @JsonProperty("email")
+    private String email;
+    
+    
+    
+    
+    @JsonProperty("action")
+    private String action;
+    
+    
+    
+    
+    @JsonProperty("registerToken")
+    private String registerToken;
+    
+    
+    
+    
+    @JsonProperty("otp")
+    private String otp;
+    
+    
+    
+    
+}
+
+/*
+    Model: ReSendMobileOtpRequestSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ReSendMobileOtpRequestSchema {
+    
+    
+    
+    
+    @JsonProperty("captchaCode")
+    private String captchaCode;
+    
+    
+    
+    
+    @JsonProperty("token")
+    private String token;
+    
+    
+    
+    
+    @JsonProperty("androidHash")
+    private String androidHash;
+    
+    
+    
+    
+}
+
+/*
+    Model: ResetPasswordSuccess
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ResetPasswordSuccess {
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+}
+
+/*
+    Model: RegisterFormSuccess
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RegisterFormSuccess {
+    
+    
+    
+    
+    @JsonProperty("email")
+    private String email;
+    
+    
+    
+    
+    @JsonProperty("resendTimer")
+    private Integer resendTimer;
+    
+    
+    
+    
+    @JsonProperty("resendToken")
+    private String resendToken;
+    
+    
+    
+    
+    @JsonProperty("resendEmailToken")
+    private String resendEmailToken;
+    
+    
+    
+    
+    @JsonProperty("registerToken")
+    private String registerToken;
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("requestId")
+    private String requestId;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("mobile")
+    private String mobile;
+    
+    
+    
+    
+    @JsonProperty("countryCode")
+    private String countryCode;
+    
+    
+    
+    
+    @JsonProperty("verifyEmailOtp")
+    private Boolean verifyEmailOtp;
+    
+    
+    
+    
+    @JsonProperty("verifyMobileOtp")
+    private Boolean verifyMobileOtp;
+    
+    
+    
+    
+    @JsonProperty("userExists")
+    private Boolean userExists;
+    
+    
+    
+    
+}
+
+/*
+    Model: VerifyEmailSuccess
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class VerifyEmailSuccess {
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+}
+
+/*
+    Model: BlockUserSuccess
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BlockUserSuccess {
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+}
+
+/*
+    Model: EmailOtpSuccess
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class EmailOtpSuccess {
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+}
+
+/*
+    Model: VerifyEmailOTPSuccess
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class VerifyEmailOTPSuccess {
+    
+    
+    
+    
+    @JsonProperty("user")
+    private UserSchema user;
+    
+    
+    
+    
+    @JsonProperty("verifyEmailLink")
+    private Boolean verifyEmailLink;
+    
+    
+    
+    
+}
+
+/*
+    Model: SendMobileVerifyLinkSuccess
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SendMobileVerifyLinkSuccess {
+    
+    
+    
+    
+    @JsonProperty("verifyMobileLink")
+    private Boolean verifyMobileLink;
+    
+    
+    
+    
+}
+
+/*
+    Model: SendEmailVerifyLinkSuccess
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SendEmailVerifyLinkSuccess {
+    
+    
+    
+    
+    @JsonProperty("verifyEmailLink")
+    private Boolean verifyEmailLink;
+    
+    
+    
+    
+}
+
+/*
+    Model: UserSearchResponseSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UserSearchResponseSchema {
+    
+    
+    
+    
+    @JsonProperty("users")
+    private List<UserSchema> users;
+    
+    
+    
+    
+}
+
+/*
+    Model: CustomerListResponseSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CustomerListResponseSchema {
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<UserSchema> items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private PaginationSchema page;
+    
+    
+    
+    
+}
+
+/*
+    Model: PaginationSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PaginationSchema {
+    
+    
+    
+    
+    @JsonProperty("size")
+    private Integer size;
+    
+    
+    
+    
+    @JsonProperty("itemTotal")
+    private Integer itemTotal;
+    
+    
+    
+    
+    @JsonProperty("hasNext")
+    private Boolean hasNext;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("current")
+    private Integer current;
+    
+    
+    
+    
+}
+
+/*
+    Model: UserObjectSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UserObjectSchema {
+    
+    
+    
+    
+    @JsonProperty("user")
+    private UserSchema user;
+    
+    
+    
+    
+}
+
+/*
+    Model: CreateOrganization
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CreateOrganization {
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("logo")
+    private String logo;
+    
+    
+    
+    
+    @JsonProperty("website")
+    private String website;
+    
+    
+    
+    
+    @JsonProperty("disbursementAccountHolderName")
+    private String disbursementAccountHolderName;
+    
+    
+    
+    
+    @JsonProperty("disbursementAccountNumber")
+    private String disbursementAccountNumber;
+    
+    
+    
+    
+    @JsonProperty("disbursementIfsc")
+    private String disbursementIfsc;
+    
+    
+    
+    
+    @JsonProperty("businessName")
+    private String businessName;
+    
+    
+    
+    
+    @JsonProperty("email")
+    private String email;
+    
+    
+    
+    
+    @JsonProperty("businessAddress")
+    private String businessAddress;
+    
+    
+    
+    
+    @JsonProperty("pincode")
+    private String pincode;
+    
+    
+    
+    
+    @JsonProperty("b2b")
+    private Boolean b2B;
+    
+    
+    
+    
+    @JsonProperty("b2c")
+    private Boolean b2C;
+    
+    
+    
+    
+    @JsonProperty("docType")
+    private String docType;
+    
+    
+    
+    
+    @JsonProperty("docNumber")
+    private String docNumber;
+    
+    
+    
+    
+    @JsonProperty("organizationId")
+    private String organizationId;
+    
+    
+    
+    
+}
+
+/*
+    Model: UpdateLogo
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UpdateLogo {
+    
+    
+    
+    
+    @JsonProperty("logo")
+    private String logo;
+    
+    
+    
+    
+}
+
+/*
+    Model: AddMetaSchemaResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AddMetaSchemaResponse {
+    
+    
+    
+    
+    @JsonProperty("merchantId")
+    private String merchantId;
+    
+    
+    
+    
+    @JsonProperty("lenderId")
+    private String lenderId;
+    
+    
+    
+    
+    @JsonProperty("mid")
+    private String mid;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private Object data;
+    
+    
+    
+    
+}
+
+/*
+    Model: UpdateOrganization
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UpdateOrganization {
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private Object name;
+    
+    
+    
+    
+    @JsonProperty("logo")
+    private Object logo;
+    
+    
+    
+    
+    @JsonProperty("website")
+    private Object website;
+    
+    
+    
+    
+    @JsonProperty("disbursementAccountHolderName")
+    private Object disbursementAccountHolderName;
+    
+    
+    
+    
+    @JsonProperty("disbursementAccountNumber")
+    private Object disbursementAccountNumber;
+    
+    
+    
+    
+    @JsonProperty("disbursementIfsc")
+    private Object disbursementIfsc;
+    
+    
+    
+    
+    @JsonProperty("active")
+    private Boolean active;
+    
+    
+    
+    
+}
+
+/*
+    Model: UpdateFinancials
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UpdateFinancials {
+    
+    
+    
+    
+    @JsonProperty("disbursementAccountHolderName")
+    private String disbursementAccountHolderName;
+    
+    
+    
+    
+    @JsonProperty("disbursementAccountNumber")
+    private String disbursementAccountNumber;
+    
+    
+    
+    
+    @JsonProperty("disbursementIfsc")
+    private String disbursementIfsc;
+    
+    
+    
+    
+}
+
+/*
+    Model: Documents
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Documents {
+    
+    
+    
+    
+    @JsonProperty("docType")
+    private String docType;
+    
+    
+    
+    
+    @JsonProperty("docNumber")
+    private String docNumber;
+    
+    
+    
+    
+}
+
+/*
+    Model: FinancialDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class FinancialDetails {
+    
+    
+    
+    
+    @JsonProperty("disbursementAccountHolderName")
+    private String disbursementAccountHolderName;
+    
+    
+    
+    
+    @JsonProperty("disbursementAccountNumber")
+    private String disbursementAccountNumber;
+    
+    
+    
+    
+    @JsonProperty("disbursementIfsc")
+    private String disbursementIfsc;
+    
+    
+    
+    
+    @JsonProperty("b2b")
+    private Boolean b2B;
+    
+    
+    
+    
+    @JsonProperty("b2c")
+    private Boolean b2C;
+    
+    
+    
+    
+    @JsonProperty("businessName")
+    private String businessName;
+    
+    
+    
+    
+    @JsonProperty("email")
+    private String email;
+    
+    
+    
+    
+    @JsonProperty("businessAddress")
+    private String businessAddress;
+    
+    
+    
+    
+    @JsonProperty("pincode")
+    private String pincode;
+    
+    
+    
+    
+    @JsonProperty("documents")
+    private List<Documents> documents;
+    
+    
+    
+    
+}
+
+/*
+    Model: GetOrganization
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GetOrganization {
+    
+    
+    
+    
+    @JsonProperty("organizationId")
+    private String organizationId;
+    
+    
+    
+    
+    @JsonProperty("createdAt")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("updatedAt")
+    private String updatedAt;
+    
+    
+    
+    
+    @JsonProperty("isAdmin")
+    private Boolean isAdmin;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("isActive")
+    private Boolean isActive;
+    
+    
+    
+    
+}
+
+/*
+    Model: OrganizationDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OrganizationDetails {
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("organizationId")
+    private String organizationId;
+    
+    
+    
+    
+    @JsonProperty("isAdmin")
+    private Boolean isAdmin;
+    
+    
+    
+    
+    @JsonProperty("createdAt")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("updatedAt")
+    private String updatedAt;
+    
+    
+    
+    
+    @JsonProperty("deletedAt")
+    private String deletedAt;
+    
+    
+    
+    
+    @JsonProperty("isActive")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("logo")
+    private String logo;
+    
+    
+    
+    
+    @JsonProperty("website")
+    private String website;
+    
+    
+    
+    
+    @JsonProperty("disbursementAccountHolderName")
+    private String disbursementAccountHolderName;
+    
+    
+    
+    
+    @JsonProperty("disbursementAccountNumber")
+    private String disbursementAccountNumber;
+    
+    
+    
+    
+    @JsonProperty("disbursementIfsc")
+    private String disbursementIfsc;
+    
+    
+    
+    
+}
+
+/*
+    Model: Organization
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Organization {
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("active")
+    private Boolean active;
+    
+    
+    
+    
+    @JsonProperty("createdAt")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("updatedAt")
+    private String updatedAt;
+    
+    
+    
+    
+    @JsonProperty("deletedAt")
+    private String deletedAt;
+    
+    
+    
+    
+}
+
+/*
+    Model: OrganizationList
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OrganizationList {
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("logo")
+    private String logo;
+    
+    
+    
+    
+    @JsonProperty("id")
+    private Boolean id;
+    
+    
+    
+    
+    @JsonProperty("createdAt")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("updatedAt")
+    private String updatedAt;
+    
+    
+    
+    
+    @JsonProperty("deletedAt")
+    private String deletedAt;
+    
+    
+    
+    
+    @JsonProperty("isActive")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("epikId")
+    private String epikId;
+    
+    
+    
+    
+    @JsonProperty("website")
+    private String website;
+    
+    
+    
+    
+    @JsonProperty("disbursementAccountHolderName")
+    private String disbursementAccountHolderName;
+    
+    
+    
+    
+    @JsonProperty("disbursementAccountNumber")
+    private String disbursementAccountNumber;
+    
+    
+    
+    
+    @JsonProperty("disbursementIfsc")
+    private String disbursementIfsc;
+    
+    
+    
+    
+}
+
+/*
+    Model: OrganizationCount
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OrganizationCount {
+    
+    
+    
+    
+    @JsonProperty("count")
+    private String count;
+    
+    
+    
+    
+}
+
+/*
+    Model: TeamMembers
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TeamMembers {
+    
+    
+    
+    
+    @JsonProperty("members")
+    private List<Member> members;
+    
+    
+    
+    
+}
+
+/*
+    Model: Member
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Member {
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("userId")
+    private String userId;
+    
+    
+    
+    
+    @JsonProperty("organizationId")
+    private String organizationId;
+    
+    
+    
+    
+    @JsonProperty("isAdmin")
+    private Boolean isAdmin;
+    
+    
+    
+    
+    @JsonProperty("createdAt")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("updatedAt")
+    private String updatedAt;
+    
+    
+    
+    
+    @JsonProperty("deletedAt")
+    private String deletedAt;
+    
+    
+    
+    
+    @JsonProperty("profile")
+    private Profile profile;
+    
+    
+    
+    
+}
+
+/*
+    Model: Profile
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Profile {
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("userId")
+    private String userId;
+    
+    
+    
+    
+    @JsonProperty("organizationId")
+    private String organizationId;
+    
+    
+    
+    
+    @JsonProperty("isAdmin")
+    private Boolean isAdmin;
+    
+    
+    
+    
+    @JsonProperty("createdAt")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("updatedAt")
+    private String updatedAt;
+    
+    
+    
+    
+    @JsonProperty("deletedAt")
+    private String deletedAt;
+    
+    
+    
+    
+}
+
+/*
+    Model: AddTeamMember
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AddTeamMember {
+    
+    
+    
+    
+    @JsonProperty("countryCode")
+    private String countryCode;
+    
+    
+    
+    
+    @JsonProperty("mobile")
+    private String mobile;
+    
+    
+    
+    
+    @JsonProperty("email")
+    private String email;
+    
+    
+    
+    
+    @JsonProperty("userIsAdmin")
+    private Boolean userIsAdmin;
+    
+    
+    
+    
+}
+
+/*
+    Model: UpdateTeamMemberRole
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UpdateTeamMemberRole {
+    
+    
+    
+    
+    @JsonProperty("userIsAdmin")
+    private Boolean userIsAdmin;
+    
+    
+    
+    
+    @JsonProperty("userId")
+    private String userId;
+    
+    
+    
+    
+}
+
+/*
+    Model: RemoveTeamMemberResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RemoveTeamMemberResponse {
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+}
+
+/*
+    Model: AddTeamMemberResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AddTeamMemberResponse {
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("userId")
+    private String userId;
+    
+    
+    
+    
+    @JsonProperty("organizationId")
+    private String organizationId;
+    
+    
+    
+    
+    @JsonProperty("isAdmin")
+    private Boolean isAdmin;
+    
+    
+    
+    
+    @JsonProperty("createdAt")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("updatedAt")
+    private String updatedAt;
+    
+    
+    
+    
+    @JsonProperty("deletedAt")
+    private String deletedAt;
+    
+    
+    
+    
+}
+
+/*
+    Model: ApiKey
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ApiKey {
+    
+    
+    
+    
+    @JsonProperty("key")
+    private String key;
+    
+    
+    
+    
+    @JsonProperty("secret")
+    private String secret;
+    
+    
+    
+    
+}
+
+/*
+    Model: UpdateApiHook
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UpdateApiHook {
+    
+    
+    
+    
+    @JsonProperty("apiKey")
+    private String apiKey;
+    
+    
+    
+    
+    @JsonProperty("url")
+    private String url;
+    
+    
+    
+    
+    @JsonProperty("customHeaders")
+    private Object customHeaders;
+    
+    
+    
+    
+}
+
+/*
+    Model: ApiHookDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ApiHookDetails {
+    
+    
+    
+    
+    @JsonProperty("apiKey")
+    private String apiKey;
+    
+    
+    
+    
+    @JsonProperty("url")
+    private String url;
+    
+    
+    
+    
+    @JsonProperty("customHeaders")
+    private Object customHeaders;
+    
+    
+    
+    
+    @JsonProperty("createdAt")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("updatedAt")
+    private String updatedAt;
+    
+    
+    
+    
+}
+
+/*
+    Model: UpdateApiHookResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UpdateApiHookResponse {
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+}
+
+/*
+    Model: OrganizationIp
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OrganizationIp {
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("ip")
+    private String ip;
+    
+    
+    
+    
+}
+
+/*
+    Model: AddOrganizationIpDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AddOrganizationIpDetails {
+    
+    
+    
+    
+    @JsonProperty("organizationIps")
+    private List<OrganizationIp> organizationIps;
+    
+    
+    
+    
+    @JsonProperty("delete")
+    private String delete;
+    
+    
+    
+    
+}
+
+/*
+    Model: AddUpdateCsvFileResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AddUpdateCsvFileResponse {
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+}
+
+/*
+    Model: AddUpdateCsvFileRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AddUpdateCsvFileRequest {
+    
+    
+    
+    
+    @JsonProperty("csv")
+    private String csv;
+    
+    
+    
+    
+    @JsonProperty("organizationId")
+    private String organizationId;
+    
+    
+    
+    
+}
+
+/*
+    Model: CsvFile
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CsvFile {
+    
+    
+    
+    
+    @JsonProperty("csv")
+    private String csv;
+    
+    
+    
+    
+}
+
+/*
+    Model: AddReportCsvFileResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AddReportCsvFileResponse {
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+}
+
+/*
+    Model: AddReportCsvFileRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AddReportCsvFileRequest {
+    
+    
+    
+    
+    @JsonProperty("csv")
+    private String csv;
+    
+    
+    
+    
+    @JsonProperty("organizationId")
+    private String organizationId;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+}
+
+/*
+    Model: ReportCsvFileResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ReportCsvFileResponse {
+    
+    
+    
+    
+    @JsonProperty("csv")
+    private String csv;
+    
+    
+    
+    
+}
+
+/*
+    Model: AddReportRequestArray
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AddReportRequestArray {
+    
+    
+    
+    
+    @JsonProperty("mobile")
+    private String mobile;
+    
+    
+    
+    
+    @JsonProperty("merchantId")
+    private String merchantId;
+    
+    
+    
+    
+    @JsonProperty("category")
+    private String category;
+    
+    
+    
+    
+    @JsonProperty("shopName")
+    private String shopName;
+    
+    
+    
+    
+    @JsonProperty("legalName")
+    private String legalName;
+    
+    
+    
+    
+    @JsonProperty("firstName")
+    private String firstName;
+    
+    
+    
+    
+    @JsonProperty("middleName")
+    private String middleName;
+    
+    
+    
+    
+    @JsonProperty("lastName")
+    private String lastName;
+    
+    
+    
+    
+    @JsonProperty("aadhaar")
+    private String aadhaar;
+    
+    
+    
+    
+    @JsonProperty("nameOnPan")
+    private String nameOnPan;
+    
+    
+    
+    
+    @JsonProperty("gstNumber")
+    private String gstNumber;
+    
+    
+    
+    
+    @JsonProperty("gstBusinessName")
+    private String gstBusinessName;
+    
+    
+    
+    
+    @JsonProperty("panNumber")
+    private String panNumber;
+    
+    
+    
+    
+    @JsonProperty("udyam")
+    private String udyam;
+    
+    
+    
+    
+    @JsonProperty("ownershipType")
+    private String ownershipType;
+    
+    
+    
+    
+    @JsonProperty("address")
+    private String address;
+    
+    
+    
+    
+    @JsonProperty("pincode")
+    private String pincode;
+    
+    
+    
+    
+    @JsonProperty("license1Type")
+    private String license1Type;
+    
+    
+    
+    
+    @JsonProperty("license1")
+    private String license1;
+    
+    
+    
+    
+    @JsonProperty("license2Type")
+    private String license2Type;
+    
+    
+    
+    
+    @JsonProperty("license2")
+    private String license2;
+    
+    
+    
+    
+}
+
+/*
+    Model: AddReportRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AddReportRequest {
+    
+    
+    
+    
+    @JsonProperty("businessDetails")
+    private List<Object> businessDetails;
+    
+    
+    
+    
+}
+
+/*
+    Model: AddReportResponseArray
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AddReportResponseArray {
+    
+    
+    
+    
+    @JsonProperty("mobile")
+    private String mobile;
+    
+    
+    
+    
+    @JsonProperty("merchantId")
+    private String merchantId;
+    
+    
+    
+    
+    @JsonProperty("anchorId")
+    private String anchorId;
+    
+    
+    
+    
+    @JsonProperty("category")
+    private String category;
+    
+    
+    
+    
+    @JsonProperty("shopName")
+    private String shopName;
+    
+    
+    
+    
+    @JsonProperty("legalName")
+    private String legalName;
+    
+    
+    
+    
+    @JsonProperty("firstName")
+    private String firstName;
+    
+    
+    
+    
+    @JsonProperty("middleName")
+    private String middleName;
+    
+    
+    
+    
+    @JsonProperty("lastName")
+    private String lastName;
+    
+    
+    
+    
+    @JsonProperty("aadhaar")
+    private String aadhaar;
+    
+    
+    
+    
+    @JsonProperty("nameOnPan")
+    private String nameOnPan;
+    
+    
+    
+    
+    @JsonProperty("gstNumber")
+    private String gstNumber;
+    
+    
+    
+    
+    @JsonProperty("gstBusinessName")
+    private String gstBusinessName;
+    
+    
+    
+    
+    @JsonProperty("panNumber")
+    private String panNumber;
+    
+    
+    
+    
+    @JsonProperty("udyam")
+    private String udyam;
+    
+    
+    
+    
+    @JsonProperty("ownershipType")
+    private String ownershipType;
+    
+    
+    
+    
+    @JsonProperty("address")
+    private String address;
+    
+    
+    
+    
+    @JsonProperty("pincode")
+    private String pincode;
+    
+    
+    
+    
+    @JsonProperty("license1Type")
+    private String license1Type;
+    
+    
+    
+    
+    @JsonProperty("license1")
+    private String license1;
+    
+    
+    
+    
+    @JsonProperty("license2Type")
+    private String license2Type;
+    
+    
+    
+    
+    @JsonProperty("license2")
+    private String license2;
+    
+    
+    
+    
+}
+
+/*
+    Model: AddReportResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AddReportResponse {
+    
+    
+    
+    
+    @JsonProperty("businessDetails")
+    private List<AddReportResponseArray> businessDetails;
+    
+    
+    
+    
+}
+
+/*
+    Model: VintageDataResponseObject
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class VintageDataResponseObject {
+    
+    
+    
+    
+    @JsonProperty("month")
+    private String month;
+    
+    
+    
+    
+    @JsonProperty("year")
+    private Integer year;
+    
+    
+    
+    
+    @JsonProperty("revenue")
+    private String revenue;
+    
+    
+    
+    
+    @JsonProperty("businessId")
+    private String businessId;
+    
+    
+    
+    
+    @JsonProperty("createdBy")
+    private String createdBy;
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("createdAt")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("updatedBy")
+    private String updatedBy;
+    
+    
+    
+    
+    @JsonProperty("updatedAt")
+    private String updatedAt;
+    
+    
+    
+    
+}
+
+/*
+    Model: VintageDataResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class VintageDataResponse {
+    
+    
+    
+    
+    @JsonProperty("vintageData")
+    private List<VintageDataResponseObject> vintageData;
+    
+    
+    
+    
+}
+
+/*
+    Model: AddSkuRequestArray
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AddSkuRequestArray {
+    
+    
+    
+    
+    @JsonProperty("sku")
+    private String sku;
+    
+    
+    
+    
+    @JsonProperty("productName")
+    private String productName;
+    
+    
+    
+    
+    @JsonProperty("creditPurchaseOptionFlag")
+    private String creditPurchaseOptionFlag;
+    
+    
+    
+    
+    @JsonProperty("effectiveDates")
+    private String effectiveDates;
+    
+    
+    
+    
+    @JsonProperty("organizationId")
+    private String organizationId;
+    
+    
+    
+    
+}
+
+/*
+    Model: AddSkuRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AddSkuRequest {
+    
+    
+    
+    
+    @JsonProperty("skuDetails")
+    private List<AddSkuRequestArray> skuDetails;
+    
+    
+    
+    
+}
+
+/*
+    Model: AddSkuResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AddSkuResponse {
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+}
+
+/*
+    Model: RestrictedSkuSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RestrictedSkuSchema {
+    
+    
+    
+    
+    @JsonProperty("skuDetails")
+    private List<Object> skuDetails;
+    
+    
+    
+    
+}
+
+/*
+    Model: OrganizationIpResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OrganizationIpResponse {
+    
+    
+    
+    
+    @JsonProperty("organizationId")
+    private String organizationId;
+    
+    
+    
+    
+    @JsonProperty("ip")
+    private String ip;
+    
+    
+    
+    
+    @JsonProperty("createdAt")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("updatedAt")
+    private String updatedAt;
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+}
+
+/*
+    Model: OrganizationIpDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OrganizationIpDetails {
+    
+    
+    
+    
+    @JsonProperty("organizationIps")
+    private List<OrganizationIpResponse> organizationIps;
+    
+    
+    
+    
+}
+
+/*
+    Model: RefundSuccess
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RefundSuccess {
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private Double message;
+    
+    
+    
+    
+    @JsonProperty("transactionId")
+    private String transactionId;
+    
+    
+    
+    
+    @JsonProperty("refundId")
+    private String refundId;
+    
+    
+    
+    
+}
+
+/*
+    Model: RefundItem
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RefundItem {
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<Object> items;
+    
+    
+    
+    
+}
+
+/*
+    Model: ValidateCredentialsData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ValidateCredentialsData {
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("organizationId")
+    private String organizationId;
+    
+    
+    
+    
+    @JsonProperty("organizationName")
+    private String organizationName;
+    
+    
+    
+    
+}
+
+/*
+    Model: ValidateCredentialsResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ValidateCredentialsResponse {
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private IntegrationResponseMeta meta;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private ValidateCredentialsData data;
+    
+    
+    
+    
+    @JsonProperty("__headers")
+    private Object headers;
+    
+    
+    
+    
+}
+
+/*
+    Model: PaymentLinkResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PaymentLinkResponse {
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("paymentLink")
+    private String paymentLink;
+    
+    
+    
+    
+}
+
+/*
+    Model: ApplicationCutomer
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ApplicationCutomer {
+    
+    
+    
+    
+    @JsonProperty("countryCode")
+    private String countryCode;
+    
+    
+    
+    
+    @JsonProperty("mobile")
+    private String mobile;
+    
+    
+    
+    
+    @JsonProperty("uid")
+    private String uid;
+    
+    
+    
+    
+    @JsonProperty("email")
+    private String email;
+    
+    
+    
+    
+}
+
+/*
+    Model: GeoLocation
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GeoLocation {
+    
+    
+    
+    
+    @JsonProperty("latitude")
+    private Double latitude;
+    
+    
+    
+    
+    @JsonProperty("longitude")
+    private Double longitude;
+    
+    
+    
+    
+}
+
+/*
+    Model: Address
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Address {
+    
+    
+    
+    
+    @JsonProperty("line1")
+    private String line1;
+    
+    
+    
+    
+    @JsonProperty("line2")
+    private String line2;
+    
+    
+    
+    
+    @JsonProperty("city")
+    private String city;
+    
+    
+    
+    
+    @JsonProperty("state")
+    private String state;
+    
+    
+    
+    
+    @JsonProperty("country")
+    private String country;
+    
+    
+    
+    
+    @JsonProperty("pincode")
+    private String pincode;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("geoLocation")
+    private GeoLocation geoLocation;
+    
+    
+    
+    
+}
+
+/*
+    Model: OrderItems
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OrderItems {
+    
+    
+    
+    
+    @JsonProperty("category")
+    private String category;
+    
+    
+    
+    
+    @JsonProperty("sku")
+    private String sku;
+    
+    
+    
+    
+    @JsonProperty("rate")
+    private Double rate;
+    
+    
+    
+    
+    @JsonProperty("quantity")
+    private Double quantity;
+    
+    
+    
+    
+}
+
+/*
+    Model: PaymentLinkRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PaymentLinkRequest {
+    
+    
+    
+    
+    @JsonProperty("autoCapture")
+    private Boolean autoCapture;
+    
+    
+    
+    
+    @JsonProperty("lenderId")
+    private String lenderId;
+    
+    
+    
+    
+    @JsonProperty("emiTenure")
+    private Double emiTenure;
+    
+    
+    
+    
+    @JsonProperty("customer")
+    private ApplicationCutomer customer;
+    
+    
+    
+    
+    @JsonProperty("order")
+    private Order order;
+    
+    
+    
+    
+    @JsonProperty("device")
+    private Device device;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private HashMap<String,Object> meta;
+    
+    
+    
+    
+}
+
+/*
+    Model: UpdateLenderStatusSchemaRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UpdateLenderStatusSchemaRequest {
+    
+    
+    
+    
+    @JsonProperty("merchantId")
+    private String merchantId;
+    
+    
+    
+    
+    @JsonProperty("enable")
+    private Boolean enable;
+    
+    
+    
+    
+}
+
+/*
+    Model: UpdateLenderStatusSchemaResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UpdateLenderStatusSchemaResponse {
+    
+    
+    
+    
+    @JsonProperty("merchantId")
+    private String merchantId;
+    
+    
+    
+    
+    @JsonProperty("lenderId")
+    private String lenderId;
+    
+    
+    
+    
+    @JsonProperty("mid")
+    private String mid;
+    
+    
+    
+    
+    @JsonProperty("enable")
+    private Boolean enable;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private Object data;
+    
+    
+    
+    
+}
+
+/*
+    Model: CreateUserRequestSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CreateUserRequestSchema {
+    
+    
+    
+    
+    @JsonProperty("mobile")
+    private String mobile;
+    
+    
+    
+    
+    @JsonProperty("email")
+    private String email;
+    
+    
+    
+    
+    @JsonProperty("firstName")
+    private String firstName;
+    
+    
+    
+    
+    @JsonProperty("lastName")
+    private String lastName;
+    
+    
+    
+    
+    @JsonProperty("gender")
+    private String gender;
+    
+    
+    
+    
+}
+
+/*
+    Model: CreateUserResponseSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CreateUserResponseSchema {
+    
+    
+    
+    
+    @JsonProperty("user")
+    private UserSchema user;
+    
+    
+    
+    
+}
+
+
+
 }
