@@ -7,7 +7,6 @@
 ## Customer Methods
 Authentication Service
 * [verify](#verify)
-* [resendPaymentRequest](#resendpaymentrequest)
 * [createOrder](#createorder)
 * [link](#link)
 * [unlink](#unlink)
@@ -86,81 +85,6 @@ Success. Returns a JSON object as shown below. Refer `VerifyCustomerSuccess` for
     "message": "Order value exceeds the available limit of ₹36,452"
   }
 }
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### resendPaymentRequest
-Resend Payment Request
-
-
-
-
-```java
-customer.resendPaymentRequest(body body) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| organizationId | String | yes | This is organizationId |  
-| body | [ResendPaymentRequest](#ResendPaymentRequest) | yes | Request body |
-
-
-Use this API to resend payment request to user
-
-*Returned Response:*
-
-
-
-
-[CreateTransactionSuccess](#CreateTransactionSuccess)
-
-Success. Returns a JSON object as shown below. Refer `CreateTransactionSuccess` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; redirectUrl</i></summary>
-
-```json
-"https://account.potleex0.de/auth/login?onboardingToken=e738521b-a763-460d-a440-d9570e79be47&redirectUrl=https://local.potleex0.de:3003/callback?apiKey=0c8e7bbf-6c0c-41b1-8a37-7e066e8fbd4a&apiSecret=48a7d96f46868f78297be845b6afb5da50893d0b&domain=https://api.potleex0.de"
-```
-</details>
-
-<details>
-<summary><i>&nbsp; message</i></summary>
-
-```json
-"Payment Authorised"
-```
-</details>
-
-<details>
-<summary><i>&nbsp; userStatus</i></summary>
-
-```json
-"PAYMENT_AUTHORISED"
 ```
 </details>
 
@@ -908,7 +832,7 @@ Use this API to get repayment link. User should be redirected to this URL to com
 
 [RepaymentResponse](#RepaymentResponse)
 
-Success. Returns a JSON object as shown below. Refer `RepaymentResponse` for more details.
+Success. The request has been processed successfully and the response contains the requested data.
 
 
 
@@ -1003,7 +927,7 @@ Success. Returns a JSON object as shown below. Refer `RepaymentResponse` for mor
  | ---------- | ---- | -------- | ----------- |
  | message | String |  no  | A message indicating the failure of the operation. |
  | meta | [IntegrationResponseMeta](#IntegrationResponseMeta) |  no  |  |
- | error | [IntegrationResponseError](#IntegrationResponseError) |  no  |  |
+ | errors | ArrayList<[IntegrationResponseError](#IntegrationResponseError)>? |  yes  |  |
 
 ---
 

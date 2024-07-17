@@ -160,8 +160,8 @@ public static class IntegrationErrorResponse {
     
     
     
-    @JsonProperty("error")
-    private IntegrationResponseError error;
+    @JsonProperty("errors")
+    private List<IntegrationResponseError> errors;
     
     
     

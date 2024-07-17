@@ -68,27 +68,6 @@ public static class CustomerService {
     
     
     
-    public PlatformModels.CreateTransactionSuccess resendPaymentRequest(String organizationId ,PlatformModels.ResendPaymentRequest body) throws IOException {
-            Response<PlatformModels.CreateTransactionSuccess> response = customerApiList.resendPaymentRequest(organizationId  , body).execute();
-            if (!response.isSuccessful()) {
-                    throw new IOException(response.errorBody() != null
-                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-                }
-            return response.body();
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     public PlatformModels.CreateTransactionSuccess createOrder(String organizationId ,PlatformModels.CreateTransaction body) throws IOException {
             Response<PlatformModels.CreateTransactionSuccess> response = customerApiList.createOrder(organizationId  , body).execute();
             if (!response.isSuccessful()) {
@@ -291,8 +270,6 @@ public class ApplicationClient {
         this.organizationId = this.platformConfig.getOrganizationId();
     }
 
-    
-    
     
     
     

@@ -22,15 +22,6 @@ interface CustomerApiList {
     
     
     
-    @POST ("/service/integration/user/authentication/{organizationId}/transaction/resend")
-    Call<PlatformModels.CreateTransactionSuccess> resendPaymentRequest(@Path("organizationId") String  organizationId ,@Body PlatformModels.ResendPaymentRequest payload);
-    
-    
-    
-    
-    
-    
-    
     @POST ("/service/integration/user/authentication/{organizationId}/transaction")
     Call<PlatformModels.CreateTransactionSuccess> createOrder(@Path("organizationId") String  organizationId ,@Body PlatformModels.CreateTransaction payload);
     
