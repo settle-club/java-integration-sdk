@@ -131,48 +131,6 @@ public static class CustomerService {
     
     
     
-    public PlatformModels.GetAccessTokenResponse getAccessToken(String organizationId ) throws IOException {
-            Response<PlatformModels.GetAccessTokenResponse> response = customerApiList.getAccessToken(organizationId  ).execute();
-            if (!response.isSuccessful()) {
-                    throw new IOException(response.errorBody() != null
-                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-                }
-            return response.body();
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    public PlatformModels.RefreshTokenResponse renewAccessToken(String organizationId ,PlatformModels.RefreshTokenRequest body) throws IOException {
-            Response<PlatformModels.RefreshTokenResponse> response = customerApiList.renewAccessToken(organizationId  , body).execute();
-            if (!response.isSuccessful()) {
-                    throw new IOException(response.errorBody() != null
-                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-                }
-            return response.body();
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     public PlatformModels.RefundResponse refund(String organizationId ,PlatformModels.Refund body) throws IOException {
             Response<PlatformModels.RefundResponse> response = customerApiList.refund(organizationId  , body).execute();
             if (!response.isSuccessful()) {
@@ -270,10 +228,6 @@ public class ApplicationClient {
         this.organizationId = this.platformConfig.getOrganizationId();
     }
 
-    
-    
-    
-    
     
     
     

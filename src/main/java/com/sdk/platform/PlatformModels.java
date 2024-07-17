@@ -5202,12 +5202,6 @@ public static class GetAccessTokenResponse {
     
     
     
-    @JsonProperty("__headers")
-    private Object headers;
-    
-    
-    
-    
 }
 
 /*
@@ -5245,12 +5239,6 @@ public static class RefreshTokenResponse {
     
     @JsonProperty("tokenExpiryIn")
     private String tokenExpiryIn;
-    
-    
-    
-    
-    @JsonProperty("__headers")
-    private Object headers;
     
     
     

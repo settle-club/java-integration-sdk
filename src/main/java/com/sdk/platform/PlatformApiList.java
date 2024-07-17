@@ -49,24 +49,6 @@ interface CustomerApiList {
     
     
     
-    @POST ("/service/integration/user/authentication/{organizationId}/authorize")
-    Call<PlatformModels.GetAccessTokenResponse> getAccessToken(@Path("organizationId") String  organizationId );
-    
-    
-    
-    
-    
-    
-    
-    @POST ("/service/integration/user/authentication/{organizationId}/token")
-    Call<PlatformModels.RefreshTokenResponse> renewAccessToken(@Path("organizationId") String  organizationId ,@Body PlatformModels.RefreshTokenRequest payload);
-    
-    
-    
-    
-    
-    
-    
     @POST ("/service/integration/user/authentication/{organizationId}/refund")
     Call<PlatformModels.RefundResponse> refund(@Path("organizationId") String  organizationId ,@Body PlatformModels.Refund payload);
     
