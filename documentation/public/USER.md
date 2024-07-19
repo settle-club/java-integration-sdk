@@ -2582,6 +2582,7 @@ Success. Returns a JSON object as shown below. Refer `UserResponse` for more det
  | upiRepayment | upiRepayment | Symbolic link for UPI Repayment: /repayment/upi |
  | sanctionLetter | sanctionLetter | Symbolic link for Sanction Letter: /sanction/:userId |
  | kfs | kfs | Symbolic link for KFS: /kfs/:userId |
+ | dynamicPage | dynamicPage | Symbolic link for Dynamic Page: /page/:slug |
 
 ---
 
