@@ -3058,6 +3058,7 @@ Success. The request has been processed successfully and the response contains t
  | upiRepayment | upiRepayment | Symbolic link for UPI Repayment: /repayment/upi |
  | sanctionLetter | sanctionLetter | Symbolic link for Sanction Letter: /sanction/:userId |
  | kfs | kfs | Symbolic link for KFS: /kfs/:userId |
+ | dynamicPage | dynamicPage | Symbolic link for Dynamic Page: /page/:slug |
 
 ---
 

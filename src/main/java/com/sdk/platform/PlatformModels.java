@@ -7066,7 +7066,9 @@ public static class VerifyMagicLinkRequest {
         
         sanctionLetter("sanctionLetter"), 
         
-        kfs("kfs");
+        kfs("kfs"), 
+        
+        dynamicPage("dynamicPage");
         
 
         private String priority;
