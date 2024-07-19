@@ -4191,7 +4191,6 @@ Success. Check the example shown below or refer `ActiveEntityResponse` for more 
  | upiRepayment | upiRepayment | Symbolic link for UPI Repayment: /repayment/upi |
  | sanctionLetter | sanctionLetter | Symbolic link for Sanction Letter: /sanction/:userId |
  | kfs | kfs | Symbolic link for KFS: /kfs/:userId |
- | dynamicPage | dynamicPage | Symbolic link for Dynamic Page: /page/:slug |
 
 ---
 
