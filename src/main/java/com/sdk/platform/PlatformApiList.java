@@ -212,3 +212,22 @@ interface MerchantApiList {
     Call<PlatformModels.ValidateCredentialsResponse> validateCredentials(@Path("organizationId") String  organizationId );
     
 }
+
+interface PaymentsApiList {
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/integration/payments/repayment/:mobile/:organizationId/outstanding")
+    Call<PlatformModels.OutstandingDetailsResponse> getOutStandingDetails(@Path("mobile") String  mobile , @Path("organizationId") String  organizationId , @Query("lenderSlugs") String  lenderSlugs );
+    
+}

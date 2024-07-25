@@ -636,6 +636,82 @@ public class ApplicationClient {
 
 }
 
+public static class PaymentsService {
+    private PlatformConfig platformConfig;
+
+    private RetrofitServiceFactory retrofitServiceFactory;
+
+    private String organizationId;
+
+    private PaymentsApiList paymentsApiList;
+
+    public PaymentsService(PlatformConfig platformConfig) {
+        this.platformConfig = platformConfig;
+        this.retrofitServiceFactory = new RetrofitServiceFactory();
+        this.organizationId = this.platformConfig.getOrganizationId();
+        this.paymentsApiList = generatePaymentsApiList(this.platformConfig.getPersistentCookieStore());
+    }
+
+    private PaymentsApiList generatePaymentsApiList(CookieStore cookieStore) {
+        List<Interceptor> interceptorList = new ArrayList<>();
+        interceptorList.add(new AccessTokenInterceptor(platformConfig));
+        interceptorList.add(new RequestSignerInterceptor());
+        return retrofitServiceFactory.createService(platformConfig.getDomain(),PaymentsApiList.class, interceptorList, cookieStore);
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.OutstandingDetailsResponse getOutStandingDetails(String mobile , String organizationId , String lenderSlugs ) throws IOException {
+            Response<PlatformModels.OutstandingDetailsResponse> response = paymentsApiList.getOutStandingDetails(mobile  , organizationId  ,lenderSlugs ).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+    }
+    
+    
+    
+
+
+public class ApplicationClient {
+    private PlatformConfig platformConfig;
+
+    private String applicationId;
+
+    private String organizationId;
+
+    ApplicationClient(PlatformConfig platformConfig, String applicationId) {
+        this.platformConfig = platformConfig;
+        this.applicationId = applicationId;
+        this.organizationId = this.platformConfig.getOrganizationId();
+    }
+
+    
+    
+    
+
+}
+
+}
+
 private interface Fields {
     String UNKNOWN_ERROR = "Unknown error";
 }
