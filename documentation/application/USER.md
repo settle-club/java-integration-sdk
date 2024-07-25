@@ -20,7 +20,6 @@ Authentication Service
 * [getMobileNumberFromLinkingToken](#getmobilenumberfromlinkingtoken)
 * [getSessionFromLinkingToken](#getsessionfromlinkingtoken)
 * [validateTransaction](#validatetransaction)
-* [verifyMagicLink](#verifymagiclink)
 * [saveUserConsents](#saveuserconsents)
 * [getMobileDashboard](#getmobiledashboard)
 * [getTips](#gettips)
@@ -30,6 +29,7 @@ Authentication Service
 * [getPageBySlug](#getpagebyslug)
 * [getFaqs](#getfaqs)
 * [getFaqById](#getfaqbyid)
+* [verifyMagicLink](#verifymagiclink)
 * [getMobileNavigations](#getmobilenavigations)
 * [getDesktopNavigations](#getdesktopnavigations)
 * [getUserState](#getuserstate)
@@ -910,87 +910,6 @@ Success. Returns a JSON object as shown below. Refer `VerifyCustomerSuccess` for
 ---
 
 
-### verifyMagicLink
-Verify magic link
-
-
-
-
-```java
-user.verifyMagicLink(body body) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- |
-| body | [VerifyMagicLinkRequest](#VerifyMagicLinkRequest) | yes | Request body |
-
-
-Use this API to verify magic link and login into application without authentication. This link is a one time link and should not be shared and cannot be used multiple times.
-
-*Returned Response:*
-
-
-
-
-[VerifyMagicLinkResponse](#VerifyMagicLinkResponse)
-
-Success. Returns a JSON object as shown below. Refer `VerifyMagicLinkResponse` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; user</i></summary>
-
-```json
-{
-  "mobile": "9810122290",
-  "activeEntity": {
-    "userId": "12k3qw-x3x4-w3tw-a2oe3m"
-  }
-}
-```
-</details>
-
-<details>
-<summary><i>&nbsp; lenderSlug</i></summary>
-
-```json
-"cashe"
-```
-</details>
-
-<details>
-<summary><i>&nbsp; scope</i></summary>
-
-```json
-[
-  "repayment"
-]
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
 ### saveUserConsents
 Save user consents
 
@@ -1499,6 +1418,69 @@ Success. Check the example shown below or refer `CategorySchema` for more detail
 ---
 
 
+### verifyMagicLink
+Verify magic link
+
+
+
+
+```java
+user.verifyMagicLink(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- |
+| body | [VerifyMagicLinkRequest](#VerifyMagicLinkRequest) | yes | Request body |
+
+
+Use this API to verify magic link and login into application without authentication. This link is a one time link and should not be shared and cannot be used multiple times.
+
+*Returned Response:*
+
+
+
+
+[VerifyMagicLinkResponse](#VerifyMagicLinkResponse)
+
+Success. Returns a JSON object as shown below. Refer `VerifyMagicLinkResponse` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
+  "user": {
+    "mobile": "9810122290",
+    "activeEntity": {
+      "userId": "12k3qw-x3x4-w3tw-a2oe3m"
+    }
+  },
+  "lenderSlug": "cashe",
+  "scope": [
+    "repayment"
+  ]
+}
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 ### getMobileNavigations
 Get Mobile Navigations
 
@@ -1820,7 +1802,7 @@ Success. Check the example shown below or refer `ActiveEntityResponse` for more 
  | message | String |  no  | A human-readable message providing more details about the error. |
  | exception | String |  no  | The exception name or type. |
  | field | String? |  yes  | The field associated with the error, if applicable. |
- | in | String? |  yes  | The location of the field, such as 'query', 'param' or 'body'. |
+ | location | String? |  yes  | The location of the field, such as 'query', 'param' or 'body'. |
 
 ---
 
@@ -2356,6 +2338,21 @@ Success. Check the example shown below or refer `ActiveEntityResponse` for more 
 
  
  
+ #### [VerifyOrder](#VerifyOrder)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | valueInPaise | Integer |  no  |  |
+ | uid | String? |  yes  |  |
+ | items | ArrayList<[Items](#Items)>? |  yes  |  |
+ | shippingAddress | [OrderAddress](#OrderAddress)? |  yes  |  |
+ | billingAddress | [OrderAddress](#OrderAddress)? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [OrderUid](#OrderUid)
 
  | Properties | Type | Nullable | Description |
@@ -2405,7 +2402,7 @@ Success. Check the example shown below or refer `ActiveEntityResponse` for more 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | customer | [CustomerObject](#CustomerObject) |  no  |  |
- | order | [Order](#Order) |  no  |  |
+ | order | [VerifyOrder](#VerifyOrder) |  no  |  |
  | device | [Device](#Device) |  no  |  |
  | meta | HashMap<String,Object>? |  yes  |  |
  | fetchLimitOptions | Boolean? |  yes  |  |

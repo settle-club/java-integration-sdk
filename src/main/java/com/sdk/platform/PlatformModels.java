@@ -90,8 +90,8 @@ public static class IntegrationResponseError {
     
     
     
-    @JsonProperty("in")
-    private String in;
+    @JsonProperty("location")
+    private String location;
     
     
     
@@ -1744,6 +1744,53 @@ public static class Order {
 }
 
 /*
+    Model: VerifyOrder
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class VerifyOrder {
+    
+    
+    
+    
+    @JsonProperty("valueInPaise")
+    private Integer valueInPaise;
+    
+    
+    
+    
+    @JsonProperty("uid")
+    private String uid;
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<Items> items;
+    
+    
+    
+    
+    @JsonProperty("shippingAddress")
+    private OrderAddress shippingAddress;
+    
+    
+    
+    
+    @JsonProperty("billingAddress")
+    private OrderAddress billingAddress;
+    
+    
+    
+    
+}
+
+/*
     Model: OrderUid
 */
 @AllArgsConstructor
@@ -1900,7 +1947,7 @@ public static class VerifyCustomer {
     
     
     @JsonProperty("order")
-    private Order order;
+    private VerifyOrder order;
     
     
     
@@ -20397,6 +20444,317 @@ public static class UpdateLenderStatusSchemaResponse {
     
     @JsonProperty("data")
     private Object data;
+    
+    
+    
+    
+}
+
+/*
+    Model: LenderObject
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class LenderObject {
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("active")
+    private Boolean active;
+    
+    
+    
+    
+    @JsonProperty("imageUrl")
+    private String imageUrl;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("b2b")
+    private Boolean b2B;
+    
+    
+    
+    
+    @JsonProperty("b2c")
+    private Boolean b2C;
+    
+    
+    
+    
+}
+
+/*
+    Model: OutstandingDetailsMessage
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OutstandingDetailsMessage {
+    
+    
+    
+    
+    @JsonProperty("backgroundColor")
+    private String backgroundColor;
+    
+    
+    
+    
+    @JsonProperty("textColor")
+    private String textColor;
+    
+    
+    
+    
+    @JsonProperty("isFlexiRepayEnabled")
+    private Boolean isFlexiRepayEnabled;
+    
+    
+    
+    
+}
+
+/*
+    Model: DueSummary
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DueSummary {
+    
+    
+    
+    
+    @JsonProperty("totalDue")
+    private Double totalDue;
+    
+    
+    
+    
+    @JsonProperty("totalDueWithInterest")
+    private Double totalDueWithInterest;
+    
+    
+    
+    
+    @JsonProperty("totalDuePenalty")
+    private Double totalDuePenalty;
+    
+    
+    
+    
+}
+
+/*
+    Model: OutstandingSummary
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OutstandingSummary {
+    
+    
+    
+    
+    @JsonProperty("totalOutstanding")
+    private Double totalOutstanding;
+    
+    
+    
+    
+    @JsonProperty("totalOutstandingWithInterest")
+    private Double totalOutstandingWithInterest;
+    
+    
+    
+    
+    @JsonProperty("totalOutstandingPenalty")
+    private Double totalOutstandingPenalty;
+    
+    
+    
+    
+}
+
+/*
+    Model: CreditObject
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CreditObject {
+    
+    
+    
+    
+    @JsonProperty("availableLimit")
+    private Double availableLimit;
+    
+    
+    
+    
+    @JsonProperty("approvedLimit")
+    private Double approvedLimit;
+    
+    
+    
+    
+    @JsonProperty("isEligibleToDrawdown")
+    private Boolean isEligibleToDrawdown;
+    
+    
+    
+    
+}
+
+/*
+    Model: OutstandingDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OutstandingDetails {
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("action")
+    private Boolean action;
+    
+    
+    
+    
+    @JsonProperty("lender")
+    private LenderObject lender;
+    
+    
+    
+    
+    @JsonProperty("entityMapId")
+    private String entityMapId;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private OutstandingDetailsMessage message;
+    
+    
+    
+    
+    @JsonProperty("credit")
+    private CreditObject credit;
+    
+    
+    
+    
+    @JsonProperty("dueSummary")
+    private DueSummary dueSummary;
+    
+    
+    
+    
+    @JsonProperty("outstandingSummary")
+    private OutstandingSummary outstandingSummary;
+    
+    
+    
+    
+}
+
+/*
+    Model: OutstandingDetailsResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OutstandingDetailsResponse {
+    
+    
+    
+    
+    @JsonProperty("outstandingDetails")
+    private List<OutstandingDetails> outstandingDetails;
+    
+    
+    
+    
+    @JsonProperty("overallDueSummary")
+    private DueSummary overallDueSummary;
+    
+    
+    
+    
+    @JsonProperty("overallOutstandingSummary")
+    private OutstandingSummary overallOutstandingSummary;
+    
+    
+    
+    
+    @JsonProperty("userId")
+    private String userId;
+    
+    
+    
+    
+    @JsonProperty("entityId")
+    private String entityId;
     
     
     

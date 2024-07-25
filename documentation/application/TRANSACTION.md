@@ -417,7 +417,7 @@ Success. Returns a JSON object as shown below. Refer `MerchantTransactionSummary
  | message | String |  no  | A human-readable message providing more details about the error. |
  | exception | String |  no  | The exception name or type. |
  | field | String? |  yes  | The field associated with the error, if applicable. |
- | in | String? |  yes  | The location of the field, such as 'query', 'param' or 'body'. |
+ | location | String? |  yes  | The location of the field, such as 'query', 'param' or 'body'. |
 
 ---
 

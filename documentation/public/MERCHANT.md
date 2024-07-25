@@ -40,6 +40,7 @@ Authentication Service
 * [updateLenderStatus](#updatelenderstatus)
 * [generatePaymentLink](#generatepaymentlink)
 * [updateProfile](#updateprofile)
+* [getOutStandingDetails](#getoutstandingdetails)
 
 
 
@@ -2120,6 +2121,112 @@ Success. Check the example shown below or refer `LoginSuccess` for more details.
 ---
 
 
+### getOutStandingDetails
+Get user outstanding details.
+
+
+
+
+```java
+merchant.getOutStandingDetails( userId,  lenderSlugs) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| organizationId | String | yes | This is organizationId |   
+| userId | String | yes | This is userId |   
+| lenderSlugs | String? | no | This is comma seperated list of lender slugs. eg. 'cashe','liquiloans' |  
+
+
+
+This api is for getting outstanding details for the user with all the lenders.
+
+*Returned Response:*
+
+
+
+
+[OutstandingDetailsResponse](#OutstandingDetailsResponse)
+
+Success. Returns a JSON object as shown below. Refer `PaymentLinkResponse` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; default</i></summary>
+
+```json
+{
+  "overallDueSummary": {
+    "totalDue": 0,
+    "totalDueWithInterest": 0,
+    "totalDuePenalty": 0
+  },
+  "overallOutstandingSummary": {
+    "totalOutstanding": 0,
+    "totalOutstandingWithInterest": 0,
+    "totalOutstandingPenalty": 0
+  },
+  "outstandingDetails": [
+    {
+      "lender": {
+        "slug": "cashe",
+        "id": "f162ae3e-cc7c-4b96-85d1-19c3e0f7e780",
+        "name": "Bhanix"
+      },
+      "entityMapId": "2e6ff5e8-5153-4a3f-9a6b-3f73d2f3c6d4",
+      "message": {
+        "backgroundColor": "#f8e6b7",
+        "textColor": "#ffffff",
+        "isFlexiRepayEnabled": false
+      },
+      "status": "SUCCESS",
+      "action": false,
+      "credit": {
+        "availableLimit": 40000,
+        "approvedLimit": 40000,
+        "isEligibleToDrawdown": true
+      },
+      "dueSummary": {
+        "totalDue": 0,
+        "totalDueWithInterest": 0,
+        "totalDuePenalty": 0,
+        "dueTransactions": null,
+        "minAmntDue": 0
+      },
+      "outstandingSummary": {
+        "totalOutstanding": 0,
+        "totalOutstandingWithInterest": 0,
+        "totalOutstandingPenalty": 0
+      }
+    }
+  ]
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 
 ### Schemas
 
@@ -3580,6 +3687,109 @@ Success. Check the example shown below or refer `LoginSuccess` for more details.
  | mid | String? |  yes  |  |
  | enable | Boolean? |  yes  |  |
  | data | HashMap<String,Object>? |  yes  |  |
+ | headers | HashMap<String,Object>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [LenderObject](#LenderObject)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String? |  yes  |  |
+ | name | String? |  yes  |  |
+ | active | Boolean? |  yes  |  |
+ | imageUrl | String? |  yes  |  |
+ | slug | String? |  yes  |  |
+ | b2B | Boolean? |  yes  |  |
+ | b2C | Boolean? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [OutstandingDetailsMessage](#OutstandingDetailsMessage)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | backgroundColor | String? |  yes  |  |
+ | textColor | String? |  yes  |  |
+ | isFlexiRepayEnabled | Boolean? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [DueSummary](#DueSummary)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | totalDue | Double? |  yes  |  |
+ | totalDueWithInterest | Double? |  yes  |  |
+ | totalDuePenalty | Double? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [OutstandingSummary](#OutstandingSummary)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | totalOutstanding | Double? |  yes  |  |
+ | totalOutstandingWithInterest | Double? |  yes  |  |
+ | totalOutstandingPenalty | Double? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [CreditObject](#CreditObject)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | availableLimit | Double? |  yes  |  |
+ | approvedLimit | Double? |  yes  |  |
+ | isEligibleToDrawdown | Boolean? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [OutstandingDetails](#OutstandingDetails)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | status | String? |  yes  |  |
+ | action | Boolean? |  yes  |  |
+ | lender | [LenderObject](#LenderObject)? |  yes  |  |
+ | entityMapId | String? |  yes  |  |
+ | message | [OutstandingDetailsMessage](#OutstandingDetailsMessage)? |  yes  |  |
+ | credit | [CreditObject](#CreditObject)? |  yes  |  |
+ | dueSummary | [DueSummary](#DueSummary)? |  yes  |  |
+ | outstandingSummary | [OutstandingSummary](#OutstandingSummary)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [OutstandingDetailsResponse](#OutstandingDetailsResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | outstandingDetails | ArrayList<[OutstandingDetails](#OutstandingDetails)>? |  yes  |  |
+ | overallDueSummary | [DueSummary](#DueSummary)? |  yes  |  |
+ | overallOutstandingSummary | [OutstandingSummary](#OutstandingSummary)? |  yes  |  |
+ | userId | String? |  yes  |  |
+ | entityId | String? |  yes  |  |
  | headers | HashMap<String,Object>? |  yes  |  |
 
 ---

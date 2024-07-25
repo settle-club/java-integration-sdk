@@ -228,7 +228,7 @@ Success. Returns a JSON object as shown below. Refer `UserResponse` for more det
  | message | String |  no  | A human-readable message providing more details about the error. |
  | exception | String |  no  | The exception name or type. |
  | field | String? |  yes  | The field associated with the error, if applicable. |
- | in | String? |  yes  | The location of the field, such as 'query', 'param' or 'body'. |
+ | location | String? |  yes  | The location of the field, such as 'query', 'param' or 'body'. |
 
 ---
 
@@ -760,6 +760,21 @@ Success. Returns a JSON object as shown below. Refer `UserResponse` for more det
 
  
  
+ #### [VerifyOrder](#VerifyOrder)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | valueInPaise | Integer |  no  |  |
+ | uid | String? |  yes  |  |
+ | items | ArrayList<[Items](#Items)>? |  yes  |  |
+ | shippingAddress | [OrderAddress](#OrderAddress)? |  yes  |  |
+ | billingAddress | [OrderAddress](#OrderAddress)? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [OrderUid](#OrderUid)
 
  | Properties | Type | Nullable | Description |
@@ -809,7 +824,7 @@ Success. Returns a JSON object as shown below. Refer `UserResponse` for more det
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | customer | [CustomerObject](#CustomerObject) |  no  |  |
- | order | [Order](#Order) |  no  |  |
+ | order | [VerifyOrder](#VerifyOrder) |  no  |  |
  | device | [Device](#Device) |  no  |  |
  | meta | HashMap<String,Object>? |  yes  |  |
  | fetchLimitOptions | Boolean? |  yes  |  |
