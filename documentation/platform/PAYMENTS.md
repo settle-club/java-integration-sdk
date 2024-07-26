@@ -54,10 +54,38 @@ Success. Returns a JSON object as shown below. Refer `PaymentLinkResponse` for m
 
 
 <details>
-<summary><i>&nbsp; $ref</i></summary>
+<summary><i>&nbsp; OutstandingDetailsResponse</i></summary>
 
 ```json
-"#/components/examples/OutstandingDetailsResponse"
+{
+  "message": "The request has been processed successfully.",
+  "data": {
+    "outstandingDetails": [
+      {
+        "lender": {
+          "id": "315f60f4-1238-462c-8108-cfff9fbc400f",
+          "name": "Bhanix Finance and Investment Limited",
+          "slug": "cashe",
+          "theme": {
+            "iconUrl": "https://cdn.pixelbin.io/v2/potlee/original/public/lenders/lenderLogo/v2/512h-logo/cashe-icon.png",
+            "logoUrl": "https://cdn.pixelbin.io/v2/potlee/original/public/lenders/lenderLogo/v2/512h-logo/cashe-logo.png"
+          }
+        },
+        "availableLimit": 40000,
+        "creditLimit": 40000,
+        "dueAmount": 0,
+        "outstandingAmount": 0,
+        "dueDate": null
+      }
+    ]
+  },
+  "meta": {
+    "timestamp": "2024-07-26T08:01:02.592Z",
+    "version": "v1.0",
+    "product": "Settle Checkout",
+    "requestId": "048dcf5c1d4ab39a9f39e1d07c584983"
+  }
+}
 ```
 </details>
 
@@ -468,6 +496,20 @@ Success. Returns a JSON object as shown below. Refer `PaymentLinkResponse` for m
 
  
  
+ #### [MetaResponse](#MetaResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | timestamp | String? |  yes  |  |
+ | version | String? |  yes  |  |
+ | product | String? |  yes  |  |
+ | requestId | String? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [OutstandingData](#OutstandingData)
 
  | Properties | Type | Nullable | Description |
@@ -484,11 +526,24 @@ Success. Returns a JSON object as shown below. Refer `PaymentLinkResponse` for m
 
  
  
- #### [OutstandingDetailsResponse](#OutstandingDetailsResponse)
+ #### [OutstandingDetailsData](#OutstandingDetailsData)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | outstandingDetails | ArrayList<[OutstandingData](#OutstandingData)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [OutstandingDetailsResponse](#OutstandingDetailsResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | mesasge | String? |  yes  |  |
+ | meta | [MetaResponse](#MetaResponse)? |  yes  |  |
+ | data | [OutstandingDetailsData](#OutstandingDetailsData)? |  yes  |  |
  | headers | HashMap<String,Object>? |  yes  |  |
 
 ---

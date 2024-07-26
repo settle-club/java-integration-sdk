@@ -1139,6 +1139,20 @@ Success. Returns a JSON object as shown below. Refer `OutstandingDetail` for mor
 
  
  
+ #### [MetaResponse](#MetaResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | timestamp | String? |  yes  |  |
+ | version | String? |  yes  |  |
+ | product | String? |  yes  |  |
+ | requestId | String? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [OutstandingData](#OutstandingData)
 
  | Properties | Type | Nullable | Description |
@@ -1155,11 +1169,24 @@ Success. Returns a JSON object as shown below. Refer `OutstandingDetail` for mor
 
  
  
- #### [OutstandingDetailsResponse](#OutstandingDetailsResponse)
+ #### [OutstandingDetailsData](#OutstandingDetailsData)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | outstandingDetails | ArrayList<[OutstandingData](#OutstandingData)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [OutstandingDetailsResponse](#OutstandingDetailsResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | mesasge | String? |  yes  |  |
+ | meta | [MetaResponse](#MetaResponse)? |  yes  |  |
+ | data | [OutstandingDetailsData](#OutstandingDetailsData)? |  yes  |  |
 
 ---
 
