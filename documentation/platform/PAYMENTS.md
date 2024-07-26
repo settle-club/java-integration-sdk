@@ -54,29 +54,10 @@ Success. Returns a JSON object as shown below. Refer `PaymentLinkResponse` for m
 
 
 <details>
-<summary><i>&nbsp; default</i></summary>
+<summary><i>&nbsp; $ref</i></summary>
 
 ```json
-{
-  "outstandingDetails": [
-    {
-      "lenderDetails": {
-        "slug": "cashe",
-        "id": "f162ae3e-cc7c-4b96-85d1-19c3e0f7e780",
-        "name": "Bhanix",
-        "theme": {
-          "logoUrl": "",
-          "iconUrl": ""
-        }
-      },
-      "availableLimit": 40000,
-      "crediLimit": 40000,
-      "dueAmount": 0,
-      "outstandingAmount": 0,
-      "dueDate": null
-    }
-  ]
-}
+"#/components/examples/OutstandingDetailsResponse"
 ```
 </details>
 
