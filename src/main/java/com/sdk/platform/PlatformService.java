@@ -678,7 +678,7 @@ public static class PaymentsService {
     
     
     
-    public PlatformModels.OutstandingDetailsResponse getOutStandingDetails(String mobile , String organizationId , String lenderSlugs ) throws IOException {
+    public PlatformModels.OutstandingDetailsResponse getOutStandingDetails(String mobile , String organizationId , List<String> lenderSlugs ) throws IOException {
             Response<PlatformModels.OutstandingDetailsResponse> response = paymentsApiList.getOutStandingDetails(mobile  , organizationId  ,lenderSlugs ).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null

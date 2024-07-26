@@ -2139,7 +2139,7 @@ merchant.getOutStandingDetails( userId,  lenderSlugs) {
 | --------- | -----  | -------- | ----------- | 
 | organizationId | String | yes | This is organizationId |   
 | userId | String | yes | This is userId |   
-| lenderSlugs | String? | no | This is comma seperated list of lender slugs. eg. 'cashe','liquiloans' |  
+| lenderSlugs | List<String>? | no | This list of lender slugs. eg. ['cashe','liquiloans'] |  
 
 
 
@@ -2166,48 +2166,22 @@ Success. Returns a JSON object as shown below. Refer `PaymentLinkResponse` for m
 
 ```json
 {
-  "overallDueSummary": {
-    "totalDue": 0,
-    "totalDueWithInterest": 0,
-    "totalDuePenalty": 0
-  },
-  "overallOutstandingSummary": {
-    "totalOutstanding": 0,
-    "totalOutstandingWithInterest": 0,
-    "totalOutstandingPenalty": 0
-  },
   "outstandingDetails": [
     {
-      "lender": {
+      "lenderDetails": {
         "slug": "cashe",
         "id": "f162ae3e-cc7c-4b96-85d1-19c3e0f7e780",
-        "name": "Bhanix"
+        "name": "Bhanix",
+        "theme": {
+          "logoUrl": "",
+          "iconUrl": ""
+        }
       },
-      "entityMapId": "2e6ff5e8-5153-4a3f-9a6b-3f73d2f3c6d4",
-      "message": {
-        "backgroundColor": "#f8e6b7",
-        "textColor": "#ffffff",
-        "isFlexiRepayEnabled": false
-      },
-      "status": "SUCCESS",
-      "action": false,
-      "credit": {
-        "availableLimit": 40000,
-        "approvedLimit": 40000,
-        "isEligibleToDrawdown": true
-      },
-      "dueSummary": {
-        "totalDue": 0,
-        "totalDueWithInterest": 0,
-        "totalDuePenalty": 0,
-        "dueTransactions": null,
-        "minAmntDue": 0
-      },
-      "outstandingSummary": {
-        "totalOutstanding": 0,
-        "totalOutstandingWithInterest": 0,
-        "totalOutstandingPenalty": 0
-      }
+      "availableLimit": 40000,
+      "crediLimit": 40000,
+      "dueAmount": 0,
+      "outstandingAmount": 0,
+      "dueDate": null
     }
   ]
 }
@@ -3694,87 +3668,42 @@ Success. Returns a JSON object as shown below. Refer `PaymentLinkResponse` for m
 
  
  
- #### [LenderObject](#LenderObject)
+ #### [LenderTheme](#LenderTheme)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | id | String? |  yes  |  |
- | name | String? |  yes  |  |
- | active | Boolean? |  yes  |  |
- | imageUrl | String? |  yes  |  |
+ | iconUrl | String? |  yes  |  |
+ | logoUrl | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [LenderDetails](#LenderDetails)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
  | slug | String? |  yes  |  |
- | b2B | Boolean? |  yes  |  |
- | b2C | Boolean? |  yes  |  |
+ | name | String? |  yes  |  |
+ | id | String? |  yes  |  |
+ | theme | [LenderTheme](#LenderTheme)? |  yes  |  |
 
 ---
 
 
  
  
- #### [OutstandingDetailsMessage](#OutstandingDetailsMessage)
+ #### [OutstandingData](#OutstandingData)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | backgroundColor | String? |  yes  |  |
- | textColor | String? |  yes  |  |
- | isFlexiRepayEnabled | Boolean? |  yes  |  |
-
----
-
-
- 
- 
- #### [DueSummary](#DueSummary)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | totalDue | Double? |  yes  |  |
- | totalDueWithInterest | Double? |  yes  |  |
- | totalDuePenalty | Double? |  yes  |  |
-
----
-
-
- 
- 
- #### [OutstandingSummary](#OutstandingSummary)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | totalOutstanding | Double? |  yes  |  |
- | totalOutstandingWithInterest | Double? |  yes  |  |
- | totalOutstandingPenalty | Double? |  yes  |  |
-
----
-
-
- 
- 
- #### [CreditObject](#CreditObject)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
+ | lenderDetails | [LenderDetails](#LenderDetails)? |  yes  |  |
  | availableLimit | Double? |  yes  |  |
- | approvedLimit | Double? |  yes  |  |
- | isEligibleToDrawdown | Boolean? |  yes  |  |
-
----
-
-
- 
- 
- #### [OutstandingDetails](#OutstandingDetails)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | status | String? |  yes  |  |
- | action | Boolean? |  yes  |  |
- | lender | [LenderObject](#LenderObject)? |  yes  |  |
- | entityMapId | String? |  yes  |  |
- | message | [OutstandingDetailsMessage](#OutstandingDetailsMessage)? |  yes  |  |
- | credit | [CreditObject](#CreditObject)? |  yes  |  |
- | dueSummary | [DueSummary](#DueSummary)? |  yes  |  |
- | outstandingSummary | [OutstandingSummary](#OutstandingSummary)? |  yes  |  |
+ | creditLimit | Double? |  yes  |  |
+ | dueAmount | Double? |  yes  |  |
+ | outstandingAmount | Double? |  yes  |  |
+ | dueDate | String? |  yes  |  |
 
 ---
 
@@ -3785,11 +3714,7 @@ Success. Returns a JSON object as shown below. Refer `PaymentLinkResponse` for m
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | outstandingDetails | ArrayList<[OutstandingDetails](#OutstandingDetails)>? |  yes  |  |
- | overallDueSummary | [DueSummary](#DueSummary)? |  yes  |  |
- | overallOutstandingSummary | [OutstandingSummary](#OutstandingSummary)? |  yes  |  |
- | userId | String? |  yes  |  |
- | entityId | String? |  yes  |  |
+ | outstandingDetails | ArrayList<[OutstandingData](#OutstandingData)>? |  yes  |  |
  | headers | HashMap<String,Object>? |  yes  |  |
 
 ---

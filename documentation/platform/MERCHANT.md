@@ -1741,87 +1741,42 @@ Success. Returns a JSON object as shown below. Refer `ValidateCredentialsRespons
 
  
  
- #### [LenderObject](#LenderObject)
+ #### [LenderTheme](#LenderTheme)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | id | String? |  yes  |  |
- | name | String? |  yes  |  |
- | active | Boolean? |  yes  |  |
- | imageUrl | String? |  yes  |  |
+ | iconUrl | String? |  yes  |  |
+ | logoUrl | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [LenderDetails](#LenderDetails)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
  | slug | String? |  yes  |  |
- | b2B | Boolean? |  yes  |  |
- | b2C | Boolean? |  yes  |  |
+ | name | String? |  yes  |  |
+ | id | String? |  yes  |  |
+ | theme | [LenderTheme](#LenderTheme)? |  yes  |  |
 
 ---
 
 
  
  
- #### [OutstandingDetailsMessage](#OutstandingDetailsMessage)
+ #### [OutstandingData](#OutstandingData)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | backgroundColor | String? |  yes  |  |
- | textColor | String? |  yes  |  |
- | isFlexiRepayEnabled | Boolean? |  yes  |  |
-
----
-
-
- 
- 
- #### [DueSummary](#DueSummary)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | totalDue | Double? |  yes  |  |
- | totalDueWithInterest | Double? |  yes  |  |
- | totalDuePenalty | Double? |  yes  |  |
-
----
-
-
- 
- 
- #### [OutstandingSummary](#OutstandingSummary)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | totalOutstanding | Double? |  yes  |  |
- | totalOutstandingWithInterest | Double? |  yes  |  |
- | totalOutstandingPenalty | Double? |  yes  |  |
-
----
-
-
- 
- 
- #### [CreditObject](#CreditObject)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
+ | lenderDetails | [LenderDetails](#LenderDetails)? |  yes  |  |
  | availableLimit | Double? |  yes  |  |
- | approvedLimit | Double? |  yes  |  |
- | isEligibleToDrawdown | Boolean? |  yes  |  |
-
----
-
-
- 
- 
- #### [OutstandingDetails](#OutstandingDetails)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | status | String? |  yes  |  |
- | action | Boolean? |  yes  |  |
- | lender | [LenderObject](#LenderObject)? |  yes  |  |
- | entityMapId | String? |  yes  |  |
- | message | [OutstandingDetailsMessage](#OutstandingDetailsMessage)? |  yes  |  |
- | credit | [CreditObject](#CreditObject)? |  yes  |  |
- | dueSummary | [DueSummary](#DueSummary)? |  yes  |  |
- | outstandingSummary | [OutstandingSummary](#OutstandingSummary)? |  yes  |  |
+ | creditLimit | Double? |  yes  |  |
+ | dueAmount | Double? |  yes  |  |
+ | outstandingAmount | Double? |  yes  |  |
+ | dueDate | String? |  yes  |  |
 
 ---
 
@@ -1832,11 +1787,7 @@ Success. Returns a JSON object as shown below. Refer `ValidateCredentialsRespons
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | outstandingDetails | ArrayList<[OutstandingDetails](#OutstandingDetails)>? |  yes  |  |
- | overallDueSummary | [DueSummary](#DueSummary)? |  yes  |  |
- | overallOutstandingSummary | [OutstandingSummary](#OutstandingSummary)? |  yes  |  |
- | userId | String? |  yes  |  |
- | entityId | String? |  yes  |  |
+ | outstandingDetails | ArrayList<[OutstandingData](#OutstandingData)>? |  yes  |  |
 
 ---
 

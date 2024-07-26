@@ -20451,7 +20451,7 @@ public static class UpdateLenderStatusSchemaResponse {
 }
 
 /*
-    Model: LenderObject
+    Model: LenderTheme
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20460,31 +20460,36 @@ public static class UpdateLenderStatusSchemaResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class LenderObject {
+public static class LenderTheme {
     
     
     
     
-    @JsonProperty("id")
-    private String id;
+    @JsonProperty("iconUrl")
+    private String iconUrl;
     
     
     
     
-    @JsonProperty("name")
-    private String name;
+    @JsonProperty("logoUrl")
+    private String logoUrl;
     
     
     
     
-    @JsonProperty("active")
-    private Boolean active;
-    
-    
-    
-    
-    @JsonProperty("imageUrl")
-    private String imageUrl;
+}
+
+/*
+    Model: LenderDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class LenderDetails {
     
     
     
@@ -20495,14 +20500,20 @@ public static class LenderObject {
     
     
     
-    @JsonProperty("b2b")
-    private Boolean b2B;
+    @JsonProperty("name")
+    private String name;
     
     
     
     
-    @JsonProperty("b2c")
-    private Boolean b2C;
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("theme")
+    private LenderTheme theme;
     
     
     
@@ -20510,7 +20521,7 @@ public static class LenderObject {
 }
 
 /*
-    Model: OutstandingDetailsMessage
+    Model: OutstandingData
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20519,112 +20530,13 @@ public static class LenderObject {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OutstandingDetailsMessage {
+public static class OutstandingData {
     
     
     
     
-    @JsonProperty("backgroundColor")
-    private String backgroundColor;
-    
-    
-    
-    
-    @JsonProperty("textColor")
-    private String textColor;
-    
-    
-    
-    
-    @JsonProperty("isFlexiRepayEnabled")
-    private Boolean isFlexiRepayEnabled;
-    
-    
-    
-    
-}
-
-/*
-    Model: DueSummary
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DueSummary {
-    
-    
-    
-    
-    @JsonProperty("totalDue")
-    private Double totalDue;
-    
-    
-    
-    
-    @JsonProperty("totalDueWithInterest")
-    private Double totalDueWithInterest;
-    
-    
-    
-    
-    @JsonProperty("totalDuePenalty")
-    private Double totalDuePenalty;
-    
-    
-    
-    
-}
-
-/*
-    Model: OutstandingSummary
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OutstandingSummary {
-    
-    
-    
-    
-    @JsonProperty("totalOutstanding")
-    private Double totalOutstanding;
-    
-    
-    
-    
-    @JsonProperty("totalOutstandingWithInterest")
-    private Double totalOutstandingWithInterest;
-    
-    
-    
-    
-    @JsonProperty("totalOutstandingPenalty")
-    private Double totalOutstandingPenalty;
-    
-    
-    
-    
-}
-
-/*
-    Model: CreditObject
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreditObject {
+    @JsonProperty("lenderDetails")
+    private LenderDetails lenderDetails;
     
     
     
@@ -20635,79 +20547,26 @@ public static class CreditObject {
     
     
     
-    @JsonProperty("approvedLimit")
-    private Double approvedLimit;
+    @JsonProperty("creditLimit")
+    private Double creditLimit;
     
     
     
     
-    @JsonProperty("isEligibleToDrawdown")
-    private Boolean isEligibleToDrawdown;
+    @JsonProperty("dueAmount")
+    private Double dueAmount;
     
     
     
     
-}
-
-/*
-    Model: OutstandingDetails
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OutstandingDetails {
+    @JsonProperty("outstandingAmount")
+    private Double outstandingAmount;
     
     
     
     
-    @JsonProperty("status")
-    private String status;
-    
-    
-    
-    
-    @JsonProperty("action")
-    private Boolean action;
-    
-    
-    
-    
-    @JsonProperty("lender")
-    private LenderObject lender;
-    
-    
-    
-    
-    @JsonProperty("entityMapId")
-    private String entityMapId;
-    
-    
-    
-    
-    @JsonProperty("message")
-    private OutstandingDetailsMessage message;
-    
-    
-    
-    
-    @JsonProperty("credit")
-    private CreditObject credit;
-    
-    
-    
-    
-    @JsonProperty("dueSummary")
-    private DueSummary dueSummary;
-    
-    
-    
-    
-    @JsonProperty("outstandingSummary")
-    private OutstandingSummary outstandingSummary;
+    @JsonProperty("dueDate")
+    private String dueDate;
     
     
     
@@ -20730,31 +20589,7 @@ public static class OutstandingDetailsResponse {
     
     
     @JsonProperty("outstandingDetails")
-    private List<OutstandingDetails> outstandingDetails;
-    
-    
-    
-    
-    @JsonProperty("overallDueSummary")
-    private DueSummary overallDueSummary;
-    
-    
-    
-    
-    @JsonProperty("overallOutstandingSummary")
-    private OutstandingSummary overallOutstandingSummary;
-    
-    
-    
-    
-    @JsonProperty("userId")
-    private String userId;
-    
-    
-    
-    
-    @JsonProperty("entityId")
-    private String entityId;
+    private List<OutstandingData> outstandingDetails;
     
     
     
@@ -21325,6 +21160,65 @@ public static class OutstandingDetail {
     
     @JsonProperty("entityMapId")
     private String entityMapId;
+    
+    
+    
+    
+}
+
+/*
+    Model: OutstandingSummary
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OutstandingSummary {
+    
+    
+    
+    
+    @JsonProperty("totalOutstanding")
+    private Integer totalOutstanding;
+    
+    
+    
+    
+    @JsonProperty("totalOutstandingWithInterest")
+    private Integer totalOutstandingWithInterest;
+    
+    
+    
+    
+    @JsonProperty("totalOutstandingPenalty")
+    private Double totalOutstandingPenalty;
+    
+    
+    
+    
+    @JsonProperty("availableLimit")
+    private Integer availableLimit;
+    
+    
+    
+    
+    @JsonProperty("isOverdue")
+    private Boolean isOverdue;
+    
+    
+    
+    
+    @JsonProperty("dueFromDate")
+    private String dueFromDate;
+    
+    
+    
+    
+    @JsonProperty("repaymentSummary")
+    private List<RepaymentSummaryOutstanding> repaymentSummary;
     
     
     
