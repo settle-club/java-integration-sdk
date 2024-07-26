@@ -58,32 +58,34 @@ Success. Returns a JSON object as shown below. Refer `PaymentLinkResponse` for m
 
 ```json
 {
-  "message": "The request has been processed successfully.",
-  "data": {
-    "outstandingDetails": [
-      {
-        "lender": {
-          "id": "315f60f4-1238-462c-8108-cfff9fbc400f",
-          "name": "Bhanix Finance and Investment Limited",
-          "slug": "cashe",
-          "theme": {
-            "iconUrl": "https://cdn.pixelbin.io/v2/potlee/original/public/lenders/lenderLogo/v2/512h-logo/cashe-icon.png",
-            "logoUrl": "https://cdn.pixelbin.io/v2/potlee/original/public/lenders/lenderLogo/v2/512h-logo/cashe-logo.png"
-          }
-        },
-        "availableLimit": 40000,
-        "creditLimit": 40000,
-        "dueAmount": 0,
-        "outstandingAmount": 0,
-        "dueDate": null
-      }
-    ]
-  },
-  "meta": {
-    "timestamp": "2024-07-26T08:01:02.592Z",
-    "version": "v1.0",
-    "product": "Settle Checkout",
-    "requestId": "048dcf5c1d4ab39a9f39e1d07c584983"
+  "value": {
+    "message": "The request has been processed successfully.",
+    "data": {
+      "outstandingDetails": [
+        {
+          "lender": {
+            "id": "315f60f4-1238-462c-8108-cfff9fbc400f",
+            "name": "Bhanix Finance and Investment Limited",
+            "slug": "cashe",
+            "theme": {
+              "iconUrl": "https://cdn.pixelbin.io/v2/potlee/original/public/lenders/lenderLogo/v2/512h-logo/cashe-icon.png",
+              "logoUrl": "https://cdn.pixelbin.io/v2/potlee/original/public/lenders/lenderLogo/v2/512h-logo/cashe-logo.png"
+            }
+          },
+          "availableLimit": 40000,
+          "creditLimit": 40000,
+          "dueAmount": 0,
+          "outstandingAmount": 0,
+          "dueDate": null
+        }
+      ]
+    },
+    "meta": {
+      "timestamp": "2024-07-26T08:01:02.592Z",
+      "version": "v1.0",
+      "product": "Settle Checkout",
+      "requestId": "048dcf5c1d4ab39a9f39e1d07c584983"
+    }
   }
 }
 ```
