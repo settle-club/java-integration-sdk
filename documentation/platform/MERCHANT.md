@@ -254,34 +254,10 @@ Success. Returns a JSON object as shown below. Refer `ValidateCredentialsRespons
 
 
 <details>
-<summary><i>&nbsp; message</i></summary>
+<summary><i>&nbsp; $ref</i></summary>
 
 ```json
-"The request has been processed successfully."
-```
-</details>
-
-<details>
-<summary><i>&nbsp; data</i></summary>
-
-```json
-{
-  "success": true,
-  "organizationId": "d5a2db76-499d-45fc-af67-435481af9a87",
-  "organizationName": "Priti Org"
-}
-```
-</details>
-
-<details>
-<summary><i>&nbsp; meta</i></summary>
-
-```json
-{
-  "timestamp": "2024-07-15T12:57:06.818Z",
-  "version": "v1.0",
-  "product": "Settle Checkout"
-}
+"#/components/schemas/ValidateCredentialsResponseExample"
 ```
 </details>
 
@@ -1550,7 +1526,7 @@ Success. Returns a JSON object as shown below. Refer `ValidateCredentialsRespons
  | message | String |  no  | A human-readable message providing more details about the error. |
  | exception | String |  no  | The exception name or type. |
  | field | String? |  yes  | The field associated with the error, if applicable. |
- | in | String? |  yes  | The location of the field, such as 'query', 'param' or 'body'. |
+ | location | String? |  yes  | The location of the field, such as 'query', 'param' or 'body'. |
 
 ---
 

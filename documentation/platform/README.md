@@ -7,4 +7,3 @@
 * [Credit](CREDIT.md) - Transaction Service 
 * [MultiKyc](MULTIKYC.md) - Will deprecate Hawkeye 
 * [Merchant](MERCHANT.md) - Authentication Service 
-* [Payments](PAYMENTS.md) - KYC Service 
