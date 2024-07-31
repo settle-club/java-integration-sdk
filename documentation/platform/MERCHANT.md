@@ -1804,15 +1804,53 @@ Success. Returns a JSON object as shown below. Refer `ValidateCredentialsRespons
 
  
  
+ #### [LenderTheme](#LenderTheme)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | iconUrl | String? |  yes  |  |
+ | logoUrl | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [LenderDetails](#LenderDetails)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | slug | String? |  yes  |  |
+ | name | String? |  yes  |  |
+ | id | String? |  yes  |  |
+ | theme | [LenderTheme](#LenderTheme)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [OutstandingData](#OutstandingData)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | lenderDetails | [LenderDetails](#LenderDetails)? |  yes  |  |
+ | availableLimit | Double? |  yes  |  |
+ | creditLimit | Double? |  yes  |  |
+ | dueAmount | Double? |  yes  |  |
+ | outstandingAmount | Double? |  yes  |  |
+ | dueDate | String? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [OutstandingDetailsResponse](#OutstandingDetailsResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | outstandingDetails | ArrayList<[OutstandingDetails](#OutstandingDetails)>? |  yes  |  |
- | overallDueSummary | [DueSummary](#DueSummary)? |  yes  |  |
- | overallOutstandingSummary | [OutstandingSummary](#OutstandingSummary)? |  yes  |  |
- | userId | String? |  yes  |  |
- | entityId | String? |  yes  |  |
+ | outstandingDetails | ArrayList<[OutstandingData](#OutstandingData)>? |  yes  |  |
 
 ---
 

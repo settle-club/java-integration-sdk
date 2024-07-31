@@ -82,6 +82,15 @@ interface CustomerApiList {
     
     
     
+    @POST ("/service/integration/user/authentication/{organizationId}/eligibility")
+    Call<PlatformModels.EligibilitySuccess> checkEligibility(@Path("organizationId") String  organizationId ,@Body PlatformModels.CheckEligibilityRequest payload);
+    
+    
+    
+    
+    
+    
+    
     @POST ("/service/integration/user/authentication/{organizationId}/repayment-link")
     Call<PlatformModels.RepaymentResponse> getRepaymentLink(@Path("organizationId") String  organizationId ,@Body PlatformModels.RepaymentRequest payload);
     
@@ -108,6 +117,15 @@ interface CustomerApiList {
     
     @GET ("/service/integration/user/authentication/{organizationId}/users")
     Call<PlatformModels.UserResponse> getAll(@Path("organizationId") String  organizationId , @Query("page") Integer  page ,  @Query("limit") Integer  limit ,  @Query("name") String  name ,  @Query("id") String  id ,  @Query("mobile") String  mobile );
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/integration/user/authentication/{organizationId}/vintage")
+    Call<PlatformModels.AddVintageResponse> addVintageData(@Path("organizationId") String  organizationId ,@Body PlatformModels.VintageData payload);
     
 }
 

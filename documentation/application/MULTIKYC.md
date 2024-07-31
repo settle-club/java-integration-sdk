@@ -5433,7 +5433,7 @@ This API retruns the credit insight screen.
       {
         "title": "Tips to improve your score",
         "type": "credit_insight_tips",
-        "url": "https://www.uat.potleex0.de/faq",
+        "url": "https://www.settle.club/faq",
         "data": [
           {
             "title": "TIP #01",
@@ -5460,11 +5460,11 @@ This API retruns the credit insight screen.
       {
         "title": "FAQs",
         "type": "credit_insight_faqs",
-        "url": "https://www.uat.potleex0.de/faq",
+        "url": "https://www.settle.club/faq",
         "data": [
           {
             "title": "How can I get a free credit report?",
-            "subtitle": "To obtain a free credit report, you can visit the website https://www.uat.potleex0.de/credit-score. This website provides access to your credit report, which is a summary of your credit history and financial activities."
+            "subtitle": "To obtain a free credit report, you can visit the website https://www.settle.club/credit-score. This website provides access to your credit report, which is a summary of your credit history and financial activities."
           },
           {
             "title": "What variables go into calculating credit scores?",
@@ -5483,7 +5483,7 @@ This API retruns the credit insight screen.
       {
         "title": "Learn more",
         "type": "credit_insight_learn_more",
-        "url": "https://www.uat.potleex0.de/faq",
+        "url": "https://www.settle.club/faq",
         "data": [
           {
             "title": "What happens if I pay more than the balance on my credit card?",
@@ -10448,18 +10448,33 @@ API endpoint to create a signed URL for uploading documents to and downloading d
 
  
  
- #### [CheckEligibilityRequest](#CheckEligibilityRequest)
+ #### [AddVintageRequest](#AddVintageRequest)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | user | Object |  no  |  |
- | entity | [EntityDto](#EntityDto)? |  yes  |  |
  | businessDetails | [BusinessDetail](#BusinessDetail) |  no  |  |
  | vintageData | [VintageData](#VintageData) |  no  |  |
  | documents | [DocumentObjects](#DocumentObjects) |  no  |  |
- | isPreApproved | Boolean |  no  |  |
  | merchant | [MerchantSchema](#MerchantSchema) |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [CheckEligibilityRequest](#CheckEligibilityRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | entity | [EntityDto](#EntityDto)? |  yes  |  |
+ | isPreApproved | Boolean |  no  |  |
  | fetchLimit | Boolean? |  yes  |  |
+ | user | Object |  no  |  |
+ | businessDetails | [BusinessDetail](#BusinessDetail) |  no  |  |
+ | vintageData | [VintageData](#VintageData) |  no  |  |
+ | documents | [DocumentObjects](#DocumentObjects) |  no  |  |
+ | merchant | [MerchantSchema](#MerchantSchema) |  no  |  |
 
 ---
 

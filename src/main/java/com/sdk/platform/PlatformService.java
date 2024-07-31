@@ -202,6 +202,27 @@ public static class CustomerService {
     
     
     
+    public PlatformModels.EligibilitySuccess checkEligibility(String organizationId ,PlatformModels.CheckEligibilityRequest body) throws IOException {
+            Response<PlatformModels.EligibilitySuccess> response = customerApiList.checkEligibility(organizationId  , body).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     public PlatformModels.RepaymentResponse getRepaymentLink(String organizationId ,PlatformModels.RepaymentRequest body) throws IOException {
             Response<PlatformModels.RepaymentResponse> response = customerApiList.getRepaymentLink(organizationId  , body).execute();
             if (!response.isSuccessful()) {
@@ -254,6 +275,27 @@ public static class CustomerService {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.AddVintageResponse addVintageData(String organizationId ,PlatformModels.VintageData body) throws IOException {
+            Response<PlatformModels.AddVintageResponse> response = customerApiList.addVintageData(organizationId  , body).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+    }
+    
+    
+    
 
 
 public class ApplicationClient {
@@ -269,6 +311,10 @@ public class ApplicationClient {
         this.organizationId = this.platformConfig.getOrganizationId();
     }
 
+    
+    
+    
+    
     
     
     

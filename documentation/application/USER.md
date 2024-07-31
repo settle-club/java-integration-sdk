@@ -3969,10 +3969,7 @@ Success. Check the example shown below or refer `ActiveEntityResponse` for more 
  | ---------- | ---- | -------- | ----------- |
  | customer | [CustomerObject](#CustomerObject) |  no  |  |
  | order | [Order](#Order)? |  yes  |  |
- | businessDetails | [BusinessDetails](#BusinessDetails)? |  yes  |  |
- | documents | ArrayList<[DocumentItems](#DocumentItems)>? |  yes  |  |
  | device | [Device](#Device) |  no  |  |
- | vintage | ArrayList<[VintageItems](#VintageItems)>? |  yes  |  |
  | meta | HashMap<String,Object>? |  yes  |  |
  | fetchLimitOptions | Boolean? |  yes  |  |
 
@@ -4142,6 +4139,35 @@ Success. Check the example shown below or refer `ActiveEntityResponse` for more 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | token | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [VintageData](#VintageData)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | customer | [CustomerObject](#CustomerObject)? |  yes  |  |
+ | businessDetails | [BusinessDetails](#BusinessDetails) |  no  |  |
+ | documents | ArrayList<[DocumentItems](#DocumentItems)>? |  yes  |  |
+ | device | [Device](#Device)? |  yes  |  |
+ | vintage | ArrayList<[VintageItems](#VintageItems)> |  no  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [AddVintageResponse](#AddVintageResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | mesasge | String? |  yes  |  |
+ | meta | [IntegrationResponseMeta](#IntegrationResponseMeta)? |  yes  |  |
+ | data | HashMap<String,Object>? |  yes  |  |
 
 ---
 

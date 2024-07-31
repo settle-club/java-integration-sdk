@@ -6504,6 +6504,12 @@ public static class EligibilitySuccess {
     
     
     
+    @JsonProperty("__headers")
+    private Object headers;
+    
+    
+    
+    
 }
 
 /*
@@ -6533,26 +6539,8 @@ public static class CheckEligibilityRequest {
     
     
     
-    @JsonProperty("businessDetails")
-    private BusinessDetails businessDetails;
-    
-    
-    
-    
-    @JsonProperty("documents")
-    private List<DocumentItems> documents;
-    
-    
-    
-    
     @JsonProperty("device")
     private Device device;
-    
-    
-    
-    
-    @JsonProperty("vintage")
-    private List<VintageItems> vintage;
     
     
     
@@ -7051,6 +7039,100 @@ public static class VerifyMagicLinkRequest {
     
     @JsonProperty("token")
     private String token;
+    
+    
+    
+    
+}
+
+/*
+    Model: VintageData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class VintageData {
+    
+    
+    
+    
+    @JsonProperty("customer")
+    private CustomerObject customer;
+    
+    
+    
+    
+    @JsonProperty("businessDetails")
+    private BusinessDetails businessDetails;
+    
+    
+    
+    
+    @JsonProperty("documents")
+    private List<DocumentItems> documents;
+    
+    
+    
+    
+    @JsonProperty("device")
+    private Device device;
+    
+    
+    
+    
+    @JsonProperty("vintage")
+    private List<VintageItems> vintage;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private HashMap<String,Object> meta;
+    
+    
+    
+    
+}
+
+/*
+    Model: AddVintageResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AddVintageResponse {
+    
+    
+    
+    
+    @JsonProperty("mesasge")
+    private String mesasge;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private IntegrationResponseMeta meta;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private Object data;
+    
+    
+    
+    
+    @JsonProperty("__headers")
+    private Object headers;
     
     
     
@@ -13233,59 +13315,6 @@ public static class BusinessDetail {
 }
 
 /*
-    Model: VintageData
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class VintageData {
-    
-    
-    
-    
-    @JsonProperty("month")
-    private Double month;
-    
-    
-    
-    
-    @JsonProperty("year")
-    private Double year;
-    
-    
-    
-    
-    @JsonProperty("totalTransactions")
-    private Double totalTransactions;
-    
-    
-    
-    
-    @JsonProperty("totalTransactionAmount")
-    private Double totalTransactionAmount;
-    
-    
-    
-    
-    @JsonProperty("totalCancellations")
-    private Double totalCancellations;
-    
-    
-    
-    
-    @JsonProperty("totalCancellationAmount")
-    private Double totalCancellationAmount;
-    
-    
-    
-    
-}
-
-/*
     Model: DocumentObjects
 */
 @AllArgsConstructor
@@ -13344,6 +13373,53 @@ public static class DocumentObjects {
     
     @JsonProperty("expiryOn")
     private String expiryOn;
+    
+    
+    
+    
+}
+
+/*
+    Model: AddVintageRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AddVintageRequest {
+    
+    
+    
+    
+    @JsonProperty("user")
+    private Object user;
+    
+    
+    
+    
+    @JsonProperty("businessDetails")
+    private BusinessDetail businessDetails;
+    
+    
+    
+    
+    @JsonProperty("vintageData")
+    private VintageData vintageData;
+    
+    
+    
+    
+    @JsonProperty("documents")
+    private DocumentObjects documents;
+    
+    
+    
+    
+    @JsonProperty("merchant")
+    private MerchantSchema merchant;
     
     
     
@@ -20727,6 +20803,129 @@ public static class OutstandingDetails {
 }
 
 /*
+    Model: LenderTheme
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class LenderTheme {
+    
+    
+    
+    
+    @JsonProperty("iconUrl")
+    private String iconUrl;
+    
+    
+    
+    
+    @JsonProperty("logoUrl")
+    private String logoUrl;
+    
+    
+    
+    
+}
+
+/*
+    Model: LenderDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class LenderDetails {
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("theme")
+    private LenderTheme theme;
+    
+    
+    
+    
+}
+
+/*
+    Model: OutstandingData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OutstandingData {
+    
+    
+    
+    
+    @JsonProperty("lenderDetails")
+    private LenderDetails lenderDetails;
+    
+    
+    
+    
+    @JsonProperty("availableLimit")
+    private Double availableLimit;
+    
+    
+    
+    
+    @JsonProperty("creditLimit")
+    private Double creditLimit;
+    
+    
+    
+    
+    @JsonProperty("dueAmount")
+    private Double dueAmount;
+    
+    
+    
+    
+    @JsonProperty("outstandingAmount")
+    private Double outstandingAmount;
+    
+    
+    
+    
+    @JsonProperty("dueDate")
+    private String dueDate;
+    
+    
+    
+    
+}
+
+/*
     Model: OutstandingDetailsResponse
 */
 @AllArgsConstructor
@@ -20742,31 +20941,7 @@ public static class OutstandingDetailsResponse {
     
     
     @JsonProperty("outstandingDetails")
-    private List<OutstandingDetails> outstandingDetails;
-    
-    
-    
-    
-    @JsonProperty("overallDueSummary")
-    private DueSummary overallDueSummary;
-    
-    
-    
-    
-    @JsonProperty("overallOutstandingSummary")
-    private OutstandingSummary overallOutstandingSummary;
-    
-    
-    
-    
-    @JsonProperty("userId")
-    private String userId;
-    
-    
-    
-    
-    @JsonProperty("entityId")
-    private String entityId;
+    private List<OutstandingData> outstandingDetails;
     
     
     

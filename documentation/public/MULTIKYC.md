@@ -1435,18 +1435,33 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
 
  
  
- #### [CheckEligibilityRequest](#CheckEligibilityRequest)
+ #### [AddVintageRequest](#AddVintageRequest)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | user | Object |  no  |  |
- | entity | [EntityDto](#EntityDto)? |  yes  |  |
  | businessDetails | [BusinessDetail](#BusinessDetail) |  no  |  |
  | vintageData | [VintageData](#VintageData) |  no  |  |
  | documents | [DocumentObjects](#DocumentObjects) |  no  |  |
- | isPreApproved | Boolean |  no  |  |
  | merchant | [MerchantSchema](#MerchantSchema) |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [CheckEligibilityRequest](#CheckEligibilityRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | entity | [EntityDto](#EntityDto)? |  yes  |  |
+ | isPreApproved | Boolean |  no  |  |
  | fetchLimit | Boolean? |  yes  |  |
+ | user | Object |  no  |  |
+ | businessDetails | [BusinessDetail](#BusinessDetail) |  no  |  |
+ | vintageData | [VintageData](#VintageData) |  no  |  |
+ | documents | [DocumentObjects](#DocumentObjects) |  no  |  |
+ | merchant | [MerchantSchema](#MerchantSchema) |  no  |  |
 
 ---
 

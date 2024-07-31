@@ -28,7 +28,7 @@ Get List of transactions
 
 
 ```java
-transaction.getTransactions( page,  type,  limit,  id,  orderId,  name,  mobile,  entityId,  utr,  startDate,  endDate) {
+transaction.getTransactions( page,  type,  status,  limit,  id,  orderId,  name,  mobile,  entityId,  utr,  startDate,  endDate) {
   //use response
 }
 ```
@@ -39,6 +39,7 @@ transaction.getTransactions( page,  type,  limit,  id,  orderId,  name,  mobile,
 | --------- | -----  | -------- | ----------- | 
 | page | Double | yes | This is page number |   
 | type | List<String>? | no | This is transaction type |   
+| status | List<String>? | no | This is transaction status |   
 | limit | Double | yes | This is no of transaction |   
 | organizationId | String | yes | This is the organization ID |   
 | id | String? | no | This is the search term |   

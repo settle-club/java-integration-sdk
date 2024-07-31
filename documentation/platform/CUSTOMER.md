@@ -13,8 +13,10 @@ Authentication Service
 * [refund](#refund)
 * [refundStatus](#refundstatus)
 * [getSchemes](#getschemes)
+* [checkEligibility](#checkeligibility)
 * [getRepaymentLink](#getrepaymentlink)
 * [getAll](#getall)
+* [addVintageData](#addvintagedata)
 
 
 
@@ -582,6 +584,65 @@ Success. Returns a JSON object as shown below. Refer `GetSchemesSuccess` for mor
 ---
 
 
+### checkEligibility
+Check Credit Eligibility
+
+
+
+
+```java
+customer.checkEligibility(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| organizationId | String | yes | This is organizationId |  
+| body | [CheckEligibilityRequest](#CheckEligibilityRequest) | yes | Request body |
+
+
+Use this API to pre approve by checking the customer's credit eligibility based on mobile number and countryCode and vintage data of monthly transactions.
+
+*Returned Response:*
+
+
+
+
+[EligibilitySuccess](#EligibilitySuccess)
+
+Success. Returns a JSON object as shown below. Refer `EligibilitySuccess` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; $ref</i></summary>
+
+```json
+"#/components/examples/EligibilitySuccess"
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 ### getRepaymentLink
 Repayment link
 
@@ -701,6 +762,65 @@ Success. Returns a JSON object as shown below. Refer `UserResponse` for more det
 
 ```json
 "#/components/examples/UserExample"
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### addVintageData
+Add user vintage details.
+
+
+
+
+```java
+customer.addVintageData(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| organizationId | String | yes | This is organizationId |  
+| body | [VintageData](#VintageData) | yes | Request body |
+
+
+Use this API to add vintage details of the user.
+
+*Returned Response:*
+
+
+
+
+[AddVintageResponse](#AddVintageResponse)
+
+Success. Returns a JSON object as shown below. Refer `AddVintageResponse` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; $ref</i></summary>
+
+```json
+"#/components/examples/AddVintageResponse"
 ```
 </details>
 
@@ -2888,6 +3008,7 @@ Success. Returns a JSON object as shown below. Refer `UserResponse` for more det
  | message | String? |  yes  |  |
  | redirectUrl | String? |  yes  |  |
  | creditLimits | ArrayList<[CreditLimitObject](#CreditLimitObject)>? |  yes  |  |
+ | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -2900,10 +3021,7 @@ Success. Returns a JSON object as shown below. Refer `UserResponse` for more det
  | ---------- | ---- | -------- | ----------- |
  | customer | [CustomerObject](#CustomerObject) |  no  |  |
  | order | [Order](#Order)? |  yes  |  |
- | businessDetails | [BusinessDetails](#BusinessDetails)? |  yes  |  |
- | documents | ArrayList<[DocumentItems](#DocumentItems)>? |  yes  |  |
  | device | [Device](#Device) |  no  |  |
- | vintage | ArrayList<[VintageItems](#VintageItems)>? |  yes  |  |
  | meta | HashMap<String,Object>? |  yes  |  |
  | fetchLimitOptions | Boolean? |  yes  |  |
 
@@ -3073,6 +3191,36 @@ Success. Returns a JSON object as shown below. Refer `UserResponse` for more det
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | token | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [VintageData](#VintageData)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | customer | [CustomerObject](#CustomerObject)? |  yes  |  |
+ | businessDetails | [BusinessDetails](#BusinessDetails) |  no  |  |
+ | documents | ArrayList<[DocumentItems](#DocumentItems)>? |  yes  |  |
+ | device | [Device](#Device)? |  yes  |  |
+ | vintage | ArrayList<[VintageItems](#VintageItems)> |  no  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [AddVintageResponse](#AddVintageResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | mesasge | String? |  yes  |  |
+ | meta | [IntegrationResponseMeta](#IntegrationResponseMeta)? |  yes  |  |
+ | data | HashMap<String,Object>? |  yes  |  |
+ | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
