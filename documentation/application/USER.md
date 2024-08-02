@@ -19,6 +19,7 @@ Authentication Service
 * [getDataFromOnboardingToken](#getdatafromonboardingtoken)
 * [getMobileNumberFromLinkingToken](#getmobilenumberfromlinkingtoken)
 * [getSessionFromLinkingToken](#getsessionfromlinkingtoken)
+* [validateTransaction](#validatetransaction)
 * [saveUserConsents](#saveuserconsents)
 * [getMobileDashboard](#getmobiledashboard)
 * [getTips](#gettips)
@@ -33,6 +34,7 @@ Authentication Service
 * [getDesktopNavigations](#getdesktopnavigations)
 * [getUserState](#getuserstate)
 * [updateProfile](#updateprofile)
+* [switchActiveEntity](#switchactiveentity)
 
 
 
@@ -834,6 +836,64 @@ Success. Returns a JSON object as shown below. Refer `SessionFromLinkingResponse
 
 ```json
 1686882926224
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### validateTransaction
+Verify Transaction
+
+
+
+
+```java
+user.validateTransaction(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- |
+| body | [InitiateTransactions](#InitiateTransactions) | yes | Request body |
+
+
+Use this API to verify the customer based on  mobile number and countryCode.
+
+*Returned Response:*
+
+
+
+
+[ValidateCustomerSuccess](#ValidateCustomerSuccess)
+
+Success. Returns a JSON object as shown below. Refer `ValidateCustomerSuccess` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; status</i></summary>
+
+```json
+"enabled"
 ```
 </details>
 
@@ -1661,6 +1721,60 @@ Success. Check the example shown below or refer `ProfileEditSuccess` for more de
 ---
 
 
+### switchActiveEntity
+Switch Entity type or create new Entity
+
+
+
+
+```java
+user.switchActiveEntity() {
+  //use response
+}
+```
+
+
+
+
+Use this API to Switch Entity type or create new Entity.
+
+*Returned Response:*
+
+
+
+
+[ActiveEntityResponse](#ActiveEntityResponse)
+
+Success. Check the example shown below or refer `ActiveEntityResponse` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; $ref</i></summary>
+
+```json
+"#/components/examples/ActiveEntityResponseExample"
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 
 ### Schemas
 
@@ -2283,7 +2397,7 @@ Success. Check the example shown below or refer `ProfileEditSuccess` for more de
 
  
  
- #### [VerifyCustomer](#VerifyCustomer)
+ #### [ValidateCustomer](#ValidateCustomer)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
@@ -2310,7 +2424,7 @@ Success. Check the example shown below or refer `ProfileEditSuccess` for more de
  | meta | HashMap<String,Object>? |  yes  | Any additional details |
  | emiTenure | Integer? |  yes  | EMI tenure selected by customer |
  | lenderSlug | String? |  yes  | slug of lender selected by customer |
- | consents | ArrayList<[Consents](#Consents)>? |  yes  | Consent for AUTO_DISBURSAL is mandatory while calling createOrder API. |
+ | consents | ArrayList<[Consents](#Consents)>? |  yes  | Consent for AUTO_DISBURSAL is mandatory while calling createTransaction API. |
 
 ---
 
@@ -2330,7 +2444,7 @@ Success. Check the example shown below or refer `ProfileEditSuccess` for more de
 
  
  
- #### [VerifyCustomerSuccess](#VerifyCustomerSuccess)
+ #### [ValidateCustomerSuccess](#ValidateCustomerSuccess)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
@@ -2339,6 +2453,7 @@ Success. Check the example shown below or refer `ProfileEditSuccess` for more de
  | message | String |  no  | Message to be displayed to the user |
  | schemes | ArrayList<[SchemeResponse](#SchemeResponse)>? |  yes  | An array of possible schemes of lenders available for a transaction. |
  | limit | [LimitResponse](#LimitResponse)? |  yes  | Limit details of available and possible lenders for a transaction. |
+ | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -2833,6 +2948,7 @@ Success. Check the example shown below or refer `ProfileEditSuccess` for more de
  | ---------- | ---- | -------- | ----------- |
  | tabs | ArrayList<[TabsSchema](#TabsSchema)> |  no  |  |
  | profileSections | ArrayList<[ProfileSectionSchema](#ProfileSectionSchema)> |  no  |  |
+ | footer | HashMap<String,Object>? |  yes  |  |
  | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
@@ -2845,6 +2961,7 @@ Success. Check the example shown below or refer `ProfileEditSuccess` for more de
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | title | String |  no  |  |
+ | action | [ActionSchema](#ActionSchema)? |  yes  |  |
  | page | [PageSchema](#PageSchema) |  no  |  |
  | icon | String |  no  |  |
  | activeIcon | String |  no  |  |
@@ -3509,6 +3626,18 @@ Success. Check the example shown below or refer `ProfileEditSuccess` for more de
  | ---------- | ---- | -------- | ----------- |
  | userId | String? |  yes  |  |
  | lenders | ArrayList<[SchemeResponse](#SchemeResponse)> |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [ActiveEntityResponse](#ActiveEntityResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | activeEntity | HashMap<String,Object>? |  yes  |  |
+ | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 

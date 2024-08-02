@@ -819,7 +819,7 @@ Success. Returns a JSON object as shown below. Refer `UserResponse` for more det
 
  
  
- #### [VerifyCustomer](#VerifyCustomer)
+ #### [ValidateCustomer](#ValidateCustomer)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
@@ -846,7 +846,7 @@ Success. Returns a JSON object as shown below. Refer `UserResponse` for more det
  | meta | HashMap<String,Object>? |  yes  | Any additional details |
  | emiTenure | Integer? |  yes  | EMI tenure selected by customer |
  | lenderSlug | String? |  yes  | slug of lender selected by customer |
- | consents | ArrayList<[Consents](#Consents)>? |  yes  | Consent for AUTO_DISBURSAL is mandatory while calling createOrder API. |
+ | consents | ArrayList<[Consents](#Consents)>? |  yes  | Consent for AUTO_DISBURSAL is mandatory while calling createTransaction API. |
 
 ---
 
@@ -866,7 +866,7 @@ Success. Returns a JSON object as shown below. Refer `UserResponse` for more det
 
  
  
- #### [VerifyCustomerSuccess](#VerifyCustomerSuccess)
+ #### [ValidateCustomerSuccess](#ValidateCustomerSuccess)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
@@ -1367,6 +1367,7 @@ Success. Returns a JSON object as shown below. Refer `UserResponse` for more det
  | ---------- | ---- | -------- | ----------- |
  | tabs | ArrayList<[TabsSchema](#TabsSchema)> |  no  |  |
  | profileSections | ArrayList<[ProfileSectionSchema](#ProfileSectionSchema)> |  no  |  |
+ | footer | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -1378,6 +1379,7 @@ Success. Returns a JSON object as shown below. Refer `UserResponse` for more det
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | title | String |  no  |  |
+ | action | [ActionSchema](#ActionSchema)? |  yes  |  |
  | page | [PageSchema](#PageSchema) |  no  |  |
  | icon | String |  no  |  |
  | activeIcon | String |  no  |  |
@@ -2035,6 +2037,17 @@ Success. Returns a JSON object as shown below. Refer `UserResponse` for more det
  | ---------- | ---- | -------- | ----------- |
  | userId | String? |  yes  |  |
  | lenders | ArrayList<[SchemeResponse](#SchemeResponse)> |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [ActiveEntityResponse](#ActiveEntityResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | activeEntity | HashMap<String,Object>? |  yes  |  |
 
 ---
 

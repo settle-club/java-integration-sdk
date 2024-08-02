@@ -6,8 +6,8 @@
 
 ## Customer Methods
 Authentication Service
-* [verify](#verify)
-* [createOrder](#createorder)
+* [validate](#validate)
+* [createTransaction](#createtransaction)
 * [link](#link)
 * [unlink](#unlink)
 * [refund](#refund)
@@ -23,14 +23,14 @@ Authentication Service
 ## Methods with example and description
 
 
-### verify
-Verify Customer
+### validate
+ValidateCustomer
 
 
 
 
 ```java
-customer.verify(body body) {
+customer.validate(body body) {
   //use response
 }
 ```
@@ -40,19 +40,19 @@ customer.verify(body body) {
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
 | organizationId | String | yes | This is organizationId |  
-| body | [VerifyCustomer](#VerifyCustomer) | yes | Request body |
+| body | [ValidateCustomer](#ValidateCustomer) | yes | Request body |
 
 
-Use this API to verify the customer based on  mobile number and countryCode.
+The Validate Customer API processes validity checks using customer details, order information, a redirect URL, and device data. It returns `Disabled` if the transaction cannot proceed due to reasons such as the customer's limit being unavailable, already used, the customer being blocked, the pincode not being serviceable, or the SKU/product category not being serviceable by the lender. It returns `Enabled` if the transaction is allowed.
 
 *Returned Response:*
 
 
 
 
-[VerifyCustomerSuccess](#VerifyCustomerSuccess)
+[ValidateCustomerSuccess](#ValidateCustomerSuccess)
 
-Success. Returns a JSON object as shown below. Refer `VerifyCustomerSuccess` for more details.
+Success. Returns a JSON object as shown below. Refer `ValidateCustomerSuccess` for more details.
 
 
 
@@ -62,30 +62,10 @@ Success. Returns a JSON object as shown below. Refer `VerifyCustomerSuccess` for
 
 
 <details>
-<summary><i>&nbsp; VerifyCustomerEnabledResponseExample</i></summary>
+<summary><i>&nbsp; $ref</i></summary>
 
 ```json
-{
-  "value": {
-    "status": "ENABLED",
-    "userStatus": "USER_AUTHORISED",
-    "message": "Kindly proceed to complete your order"
-  }
-}
-```
-</details>
-
-<details>
-<summary><i>&nbsp; VerifyCustomerDisabledResponseExample</i></summary>
-
-```json
-{
-  "value": {
-    "status": "DISABLED",
-    "userStatus": "CREDIT_EXAHUSTED",
-    "message": "Order value exceeds the available limit of ₹36,452"
-  }
-}
+"#/components/examples/ValidateCustomerSuccess"
 ```
 </details>
 
@@ -102,14 +82,14 @@ Success. Returns a JSON object as shown below. Refer `VerifyCustomerSuccess` for
 ---
 
 
-### createOrder
+### createTransaction
 Create Order
 
 
 
 
 ```java
-customer.createOrder(body body) {
+customer.createTransaction(body body) {
   //use response
 }
 ```
@@ -122,7 +102,7 @@ customer.createOrder(body body) {
 | body | [CreateTransaction](#CreateTransaction) | yes | Request body |
 
 
-Use this API to create transaction for user
+The Create Transaction API processes transactions using customer details, order information, a redirect URL, and device data. It returns `Disabled` if the transaction cannot proceed due to reasons such as the customer's limit being unavailable, already used, the customer being blocked, the pincode not being serviceable, or the SKU/product category not being serviceable by the lender. If the transaction is allowed, it returns `Enabled` along with the redirect URL and the user status as authorized.
 
 *Returned Response:*
 
@@ -187,7 +167,7 @@ customer.link(body body) {
 | body | [LinkAccount](#LinkAccount) | yes | Request body |
 
 
-Use this API to link account with merchant
+The Link API generates a merchant-linked session for the user, enabling automatic login to complete payment or repayment activities seamlessly. This session ensures a smooth and secure transaction process without requiring the user to manually log in.
 
 *Returned Response:*
 
@@ -246,7 +226,7 @@ customer.unlink(body body) {
 | body | [UnlinkAccount](#UnlinkAccount) | yes | Request body |
 
 
-Use this API to unlink account from merchant
+The Unlink API serves as the reverse of the Link API. It terminates the merchant-linked session for the user, effectively logging them out and preventing any further automatic login for payment or repayment activities. This ensures security and control over session management.
 
 *Returned Response:*
 
@@ -305,7 +285,7 @@ customer.refund(body body) {
 | body | [Refund](#Refund) | yes | Request body |
 
 
-Use this API to verify the refund customer order amount
+The Refund API processes refunds based on business arrangements and returns the corresponding status of the refund request. The possible statuses include: - SUCCESS: The refund was processed successfully. - FAILED: The refund request failed. - PENDING: The refund request is still being processed and is awaiting completion.
 
 *Returned Response:*
 
@@ -390,7 +370,7 @@ customer.refundStatus( refundId,  orderId) {
 
 
 
-Use this API to fetch the refund status
+The Refund Status API returns the current status of a refund request based on business arrangements. The possible statuses include: - SUCCESS: The refund was processed successfully. - FAILED: The refund request failed. - PENDING: The refund request is still being processed and is awaiting completion.
 
 *Returned Response:*
 
@@ -500,7 +480,7 @@ customer.getSchemes(body body) {
 | body | [GetSchemesRequest](#GetSchemesRequest) | yes | Request body |
 
 
-Use this API to fetch available schemes for user order.
+The Schemes API returns Buy Now, Pay Later (BNPL) and EMI plans offered by lenders for the user. It provides details on available financing options, including terms and conditions for both BNPL and EMI arrangements.
 
 *Returned Response:*
 
@@ -683,7 +663,7 @@ customer.getRepaymentLink(body body) {
 | body | [RepaymentRequest](#RepaymentRequest) | yes | Request body |
 
 
-Use this API to get repayment link. User should be redirected to this URL to complete the repayment.
+The Repayment Link API generates a repayment link based on the current outstanding balance. The URL provided allows users to make payments and settle their outstanding amounts directly.
 
 *Returned Response:*
 
@@ -759,7 +739,7 @@ customer.getAll( page,  limit,  name,  id,  mobile) {
 
 
 
-Use this API to get list of user.
+The Customer Listing API returns a paginated list of users associated with the specified organization. Supports filtering by various query parameters such as name, ID, and mobile number.
 
 *Returned Response:*
 
@@ -1475,7 +1455,7 @@ Success. Returns a JSON object as shown below. Refer `AddVintageResponse` for mo
 
  
  
- #### [VerifyCustomer](#VerifyCustomer)
+ #### [ValidateCustomer](#ValidateCustomer)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
@@ -1502,7 +1482,7 @@ Success. Returns a JSON object as shown below. Refer `AddVintageResponse` for mo
  | meta | HashMap<String,Object>? |  yes  | Any additional details |
  | emiTenure | Integer? |  yes  | EMI tenure selected by customer |
  | lenderSlug | String? |  yes  | slug of lender selected by customer |
- | consents | ArrayList<[Consents](#Consents)>? |  yes  | Consent for AUTO_DISBURSAL is mandatory while calling createOrder API. |
+ | consents | ArrayList<[Consents](#Consents)>? |  yes  | Consent for AUTO_DISBURSAL is mandatory while calling createTransaction API. |
 
 ---
 
@@ -1522,7 +1502,7 @@ Success. Returns a JSON object as shown below. Refer `AddVintageResponse` for mo
 
  
  
- #### [VerifyCustomerSuccess](#VerifyCustomerSuccess)
+ #### [ValidateCustomerSuccess](#ValidateCustomerSuccess)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
@@ -2024,6 +2004,7 @@ Success. Returns a JSON object as shown below. Refer `AddVintageResponse` for mo
  | ---------- | ---- | -------- | ----------- |
  | tabs | ArrayList<[TabsSchema](#TabsSchema)> |  no  |  |
  | profileSections | ArrayList<[ProfileSectionSchema](#ProfileSectionSchema)> |  no  |  |
+ | footer | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -2035,6 +2016,7 @@ Success. Returns a JSON object as shown below. Refer `AddVintageResponse` for mo
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | title | String |  no  |  |
+ | action | [ActionSchema](#ActionSchema)? |  yes  |  |
  | page | [PageSchema](#PageSchema) |  no  |  |
  | icon | String |  no  |  |
  | activeIcon | String |  no  |  |
@@ -2696,6 +2678,17 @@ Success. Returns a JSON object as shown below. Refer `AddVintageResponse` for mo
  | userId | String? |  yes  |  |
  | lenders | ArrayList<[SchemeResponse](#SchemeResponse)> |  no  |  |
  | headers | HashMap<String,Object>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ActiveEntityResponse](#ActiveEntityResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | activeEntity | HashMap<String,Object>? |  yes  |  |
 
 ---
 

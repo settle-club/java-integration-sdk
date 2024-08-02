@@ -47,8 +47,8 @@ public static class CustomerService {
     
     
     
-    public PlatformModels.VerifyCustomerSuccess verify(String organizationId ,PlatformModels.VerifyCustomer body) throws IOException {
-            Response<PlatformModels.VerifyCustomerSuccess> response = customerApiList.verify(organizationId  , body).execute();
+    public PlatformModels.ValidateCustomerSuccess validate(String organizationId ,PlatformModels.ValidateCustomer body) throws IOException {
+            Response<PlatformModels.ValidateCustomerSuccess> response = customerApiList.validate(organizationId  , body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -68,8 +68,8 @@ public static class CustomerService {
     
     
     
-    public PlatformModels.CreateTransactionSuccess createOrder(String organizationId ,PlatformModels.CreateTransaction body) throws IOException {
-            Response<PlatformModels.CreateTransactionSuccess> response = customerApiList.createOrder(organizationId  , body).execute();
+    public PlatformModels.CreateTransactionSuccess createTransaction(String organizationId ,PlatformModels.CreateTransaction body) throws IOException {
+            Response<PlatformModels.CreateTransactionSuccess> response = customerApiList.createTransaction(organizationId  , body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -480,8 +480,12 @@ public static class CreditService {
     
     
     
-    public PlatformModels.GetTransactionsResponse getTransactions(String organizationId , Integer page , Object type , Object status , Integer limit , String countryCode , String mobile , String orderId , String transactionId , Boolean onlySelf ) throws IOException {
-            Response<PlatformModels.GetTransactionsResponse> response = creditApiList.getTransactions(organizationId  ,page , type , status , limit , countryCode , mobile , orderId , transactionId , onlySelf ).execute();
+    
+    
+    
+    
+    public PlatformModels.GetTransactionsResponse getTransactions(String organizationId , String mobile , String countryCode , Integer page , Integer limit , String orderId , String transactionId , Object type , Object status , Boolean onlySelf , String granularity ) throws IOException {
+            Response<PlatformModels.GetTransactionsResponse> response = creditApiList.getTransactions(organizationId  ,mobile , countryCode , page , limit , orderId , transactionId , type , status , onlySelf , granularity ).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

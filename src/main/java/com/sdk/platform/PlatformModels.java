@@ -1926,7 +1926,7 @@ public static class Device {
 }
 
 /*
-    Model: VerifyCustomer
+    Model: ValidateCustomer
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1935,7 +1935,7 @@ public static class Device {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class VerifyCustomer {
+public static class ValidateCustomer {
     
     
     
@@ -2079,7 +2079,7 @@ public static class ResendPaymentRequest {
 }
 
 /*
-    Model: VerifyCustomerSuccess
+    Model: ValidateCustomerSuccess
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2088,7 +2088,7 @@ public static class ResendPaymentRequest {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class VerifyCustomerSuccess {
+public static class ValidateCustomerSuccess {
     
     
     
@@ -3619,6 +3619,12 @@ public static class NavigationsMobileResponse {
     
     
     
+    @JsonProperty("footer")
+    private Object footer;
+    
+    
+    
+    
 }
 
 /*
@@ -3638,6 +3644,12 @@ public static class TabsSchema {
     
     @JsonProperty("title")
     private String title;
+    
+    
+    
+    
+    @JsonProperty("action")
+    private ActionSchema action;
     
     
     
@@ -5497,6 +5509,29 @@ public static class GetSchemesSuccess {
     
     @JsonProperty("__headers")
     private Object headers;
+    
+    
+    
+    
+}
+
+/*
+    Model: ActiveEntityResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ActiveEntityResponse {
+    
+    
+    
+    
+    @JsonProperty("activeEntity")
+    private Object activeEntity;
     
     
     
@@ -9363,6 +9398,77 @@ public static class TransactionLoan {
     
     
     
+    @JsonProperty("dueDate")
+    private String dueDate;
+    
+    
+    
+    
+    @JsonProperty("repaidAmount")
+    private Double repaidAmount;
+    
+    
+    
+    
+    @JsonProperty("isSettled")
+    private Boolean isSettled;
+    
+    
+    
+    
+    @JsonProperty("emis")
+    private List<TransactionLoanEmi> emis;
+    
+    
+    
+    
+}
+
+/*
+    Model: TransactionLoanEmi
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TransactionLoanEmi {
+    
+    
+    
+    
+    @JsonProperty("amount")
+    private Double amount;
+    
+    
+    
+    
+    @JsonProperty("dueDate")
+    private String dueDate;
+    
+    
+    
+    
+    @JsonProperty("installmentNo")
+    private Integer installmentNo;
+    
+    
+    
+    
+    @JsonProperty("repaidAmount")
+    private Double repaidAmount;
+    
+    
+    
+    
+    @JsonProperty("isSettled")
+    private Boolean isSettled;
+    
+    
+    
+    
 }
 
 /*
@@ -9481,8 +9587,8 @@ public static class UserTransaction {
     
     
     
-    @JsonProperty("loan")
-    private TransactionLoan loan;
+    @JsonProperty("loans")
+    private List<TransactionLoan> loans;
     
     
     

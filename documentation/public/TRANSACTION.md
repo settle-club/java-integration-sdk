@@ -1455,6 +1455,25 @@ Success. Returns a JSON object as shown below. Refer `UniqueCustomersInOrg` for 
  | number | String |  no  | Loan account number. |
  | amount | Double |  no  | Loan amount. |
  | type | String |  no  | Type of loan. |
+ | dueDate | String |  no  | Due date in ISO format for the loan repayment. |
+ | repaidAmount | Double |  no  | Amount that has been repaid. |
+ | isSettled | Boolean |  no  | Indicates if the loan is fully settled. |
+ | emis | ArrayList<[TransactionLoanEmi](#TransactionLoanEmi)>? |  yes  | EMIs associated with the loan. This information is available only if the granularity is set to 'detail' and an EMI schedule is available for this loan. |
+
+---
+
+
+ 
+ 
+ #### [TransactionLoanEmi](#TransactionLoanEmi)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | amount | Double |  no  | EMI amount. |
+ | dueDate | String |  no  | Due date in ISO format for the EMI payment. |
+ | installmentNo | Integer |  no  | Installment number for the EMI. |
+ | repaidAmount | Double |  no  | Amount that has been repaid towards the EMI. |
+ | isSettled | Boolean |  no  | Indicates if the EMI is fully settled. |
 
 ---
 
@@ -1485,11 +1504,11 @@ Success. Returns a JSON object as shown below. Refer `UniqueCustomersInOrg` for 
  | status | String |  no  | Status of the transaction. |
  | settlementUtr | String? |  yes  | Settlement UTR for the transaction. |
  | refundId | String? |  yes  | Refund ID if the transaction is a refund. |
- | createdAt | String |  no  | Timestamp when the transaction was created. |
+ | createdAt | String |  no  | Timestamp in ISO format when the transaction was created. |
  | isMasked | Boolean |  no  | Indicates if the transaction details are masked. This field is true of the transaction if done on some other merchant |
  | order | [TransactionOrder](#TransactionOrder)? |  yes  |  |
  | merchant | [TransactionMerchant](#TransactionMerchant) |  no  |  |
- | loan | [TransactionLoan](#TransactionLoan)? |  yes  |  |
+ | loans | ArrayList<[TransactionLoan](#TransactionLoan)>? |  yes  |  |
  | lender | [TransactionLender](#TransactionLender)? |  yes  |  |
 
 ---
