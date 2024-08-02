@@ -14,7 +14,7 @@ interface CustomerApiList {
     
     
     @POST ("/service/integration/user/authentication/{organizationId}/validate-customer")
-    Call<PlatformModels.ValidateCustomerSuccess> validate(@Path("organizationId") String  organizationId ,@Body PlatformModels.ValidateCustomer payload);
+    Call<PlatformModels.VerifyCustomerSuccess> verify(@Path("organizationId") String  organizationId ,@Body PlatformModels.VerifyCustomer payload);
     
     
     
@@ -23,7 +23,7 @@ interface CustomerApiList {
     
     
     @POST ("/service/integration/user/authentication/{organizationId}/transaction")
-    Call<PlatformModels.CreateTransactionSuccess> createTransaction(@Path("organizationId") String  organizationId ,@Body PlatformModels.CreateTransaction payload);
+    Call<PlatformModels.CreateTransactionSuccess> createOrder(@Path("organizationId") String  organizationId ,@Body PlatformModels.CreateTransaction payload);
     
     
     

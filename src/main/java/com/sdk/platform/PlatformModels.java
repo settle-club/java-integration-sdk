@@ -1926,7 +1926,7 @@ public static class Device {
 }
 
 /*
-    Model: ValidateCustomer
+    Model: VerifyCustomer
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1935,7 +1935,7 @@ public static class Device {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ValidateCustomer {
+public static class VerifyCustomer {
     
     
     
@@ -2079,7 +2079,7 @@ public static class ResendPaymentRequest {
 }
 
 /*
-    Model: ValidateCustomerSuccess
+    Model: VerifyCustomerSuccess
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2088,7 +2088,7 @@ public static class ResendPaymentRequest {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ValidateCustomerSuccess {
+public static class VerifyCustomerSuccess {
     
     
     
@@ -3619,12 +3619,6 @@ public static class NavigationsMobileResponse {
     
     
     
-    @JsonProperty("footer")
-    private Object footer;
-    
-    
-    
-    
 }
 
 /*
@@ -3644,12 +3638,6 @@ public static class TabsSchema {
     
     @JsonProperty("title")
     private String title;
-    
-    
-    
-    
-    @JsonProperty("action")
-    private ActionSchema action;
     
     
     
@@ -5509,29 +5497,6 @@ public static class GetSchemesSuccess {
     
     @JsonProperty("__headers")
     private Object headers;
-    
-    
-    
-    
-}
-
-/*
-    Model: ActiveEntityResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ActiveEntityResponse {
-    
-    
-    
-    
-    @JsonProperty("activeEntity")
-    private Object activeEntity;
     
     
     

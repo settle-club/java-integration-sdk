@@ -47,8 +47,8 @@ public static class CustomerService {
     
     
     
-    public PlatformModels.ValidateCustomerSuccess validate(String organizationId ,PlatformModels.ValidateCustomer body) throws IOException {
-            Response<PlatformModels.ValidateCustomerSuccess> response = customerApiList.validate(organizationId  , body).execute();
+    public PlatformModels.VerifyCustomerSuccess verify(String organizationId ,PlatformModels.VerifyCustomer body) throws IOException {
+            Response<PlatformModels.VerifyCustomerSuccess> response = customerApiList.verify(organizationId  , body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -68,8 +68,8 @@ public static class CustomerService {
     
     
     
-    public PlatformModels.CreateTransactionSuccess createTransaction(String organizationId ,PlatformModels.CreateTransaction body) throws IOException {
-            Response<PlatformModels.CreateTransactionSuccess> response = customerApiList.createTransaction(organizationId  , body).execute();
+    public PlatformModels.CreateTransactionSuccess createOrder(String organizationId ,PlatformModels.CreateTransaction body) throws IOException {
+            Response<PlatformModels.CreateTransactionSuccess> response = customerApiList.createOrder(organizationId  , body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
