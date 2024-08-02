@@ -24,7 +24,7 @@ Authentication Service
 
 
 ### validate
-ValidateCustomer
+Validate Customer
 
 
 
@@ -83,7 +83,7 @@ Success. Returns a JSON object as shown below. Refer `ValidateCustomerSuccess` f
 
 
 ### createTransaction
-Create Order
+Create Transaction
 
 
 
@@ -266,7 +266,7 @@ true
 
 
 ### refund
-Refund customer order amount
+Refund Order
 
 
 
@@ -349,7 +349,7 @@ Success. Returns a JSON object as shown below. Refer `RefundResponse` for more d
 
 
 ### refundStatus
-Refund status
+Check Refund status
 
 
 
@@ -461,7 +461,7 @@ Success. Returns a JSON object as shown below. Refer `RefundStatus` for more det
 
 
 ### getSchemes
-Fetch schemes
+Get schemes
 
 
 
@@ -644,7 +644,7 @@ Success. Returns a JSON object as shown below. Refer `EligibilitySuccess` for mo
 
 
 ### getRepaymentLink
-Repayment link
+Get Repayment link
 
 
 
@@ -779,7 +779,7 @@ Success. Returns a JSON object as shown below. Refer `UserResponse` for more det
 
 
 ### addVintageData
-Add user vintage details.
+Add user vintage details
 
 
 
