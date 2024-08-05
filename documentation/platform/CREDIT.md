@@ -180,7 +180,7 @@ credit.updateOrderDeliveryStatus(body body) {
 | body | [OrderDeliveryUpdatesBody](#OrderDeliveryUpdatesBody) | yes | Request body |
 
 
-Use this API to update the delivery status of an order using order ID or transaction ID.
+Use this API to update the delivery status of an order using order ID or transaction ID, and to trigger loan disbursals based on defined configurations.
 
 *Returned Response:*
 
@@ -214,14 +214,16 @@ Success. Returns a JSON object as shown below. Refer `OrderDeliveryUpdatesRespon
           "urn": "ship1234_0",
           "shipmentStatus": "DELIVERED",
           "shipmentAmount": 5000,
-          "processingStatus": "PROCESSED"
+          "processingStatus": "PROCESSED",
+          "isCurrentUpdate": false
         },
         {
           "id": "ship3245",
           "urn": "ship3245_1",
           "shipmentStatus": "CANCELLED",
           "shipmentAmount": 2000,
-          "processingStatus": "PROCESSED"
+          "processingStatus": "PROCESSED",
+          "isCurrentUpdate": true
         }
       ]
     },
@@ -1462,8 +1464,9 @@ Success. The request has been processed successfully and the response contains t
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | orderId | String? |  yes  | The unique identifier for the order. |
- | transactionId | String? |  yes  | The unique identifier for the transaction. |
+ | orderId | String? |  yes  | The unique identifier for the order. Required if transactionId is not provided. |
+ | transactionId | String? |  yes  | The unique identifier for the transaction. Required if orderId is not provided. |
+ | fetchAllShipments | Boolean? |  yes  | A flag to fetch data for all shipments associated with the provided order ID or transaction ID. |
  | shipments | ArrayList<[OrderShipment](#OrderShipment)> |  no  | The list of shipments for which the status needs to be updated. Only include shipments requiring a status change. |
 
 ---
@@ -1476,10 +1479,11 @@ Success. The request has been processed successfully and the response contains t
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | id | String |  no  | The unique identifier of the shipment. |
- | urn | String? |  yes  | A unique resource identifier for the shipment. |
+ | urn | String |  no  | A unique resource identifier for the shipment. |
  | shipmentStatus | String |  no  | The status of the shipment. |
  | shipmentAmount | Double |  no  | The total amount associated with the shipment. |
  | processingStatus | String |  no  | The processing status of the order shipment. |
+ | isCurrentUpdate | Boolean |  no  | Indicates if the shipment data is newly updated for this operation. |
 
 ---
 

@@ -9998,6 +9998,12 @@ public static class OrderDeliveryUpdatesBody {
     
     
     
+    @JsonProperty("fetchAllShipments")
+    private Boolean fetchAllShipments;
+    
+    
+    
+    
     @JsonProperty("shipments")
     private List<OrderShipment> shipments;
     
@@ -10047,6 +10053,12 @@ public static class OrderShipmentResponse {
     
     @JsonProperty("processingStatus")
     private String processingStatus;
+    
+    
+    
+    
+    @JsonProperty("isCurrentUpdate")
+    private Boolean isCurrentUpdate;
     
     
     
