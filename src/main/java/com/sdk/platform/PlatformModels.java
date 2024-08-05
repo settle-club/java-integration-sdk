@@ -21353,13 +21353,13 @@ public static class OutstandingSummary {
     
     
     @JsonProperty("totalOutstanding")
-    private Integer totalOutstanding;
+    private Double totalOutstanding;
     
     
     
     
     @JsonProperty("totalOutstandingWithInterest")
-    private Integer totalOutstandingWithInterest;
+    private Double totalOutstandingWithInterest;
     
     
     
@@ -21371,7 +21371,7 @@ public static class OutstandingSummary {
     
     
     @JsonProperty("availableLimit")
-    private Integer availableLimit;
+    private Double availableLimit;
     
     
     
@@ -21418,13 +21418,13 @@ public static class DueSummaryOutstanding {
     
     
     @JsonProperty("totalDue")
-    private Integer totalDue;
+    private Double totalDue;
     
     
     
     
     @JsonProperty("totalDueWithInterest")
-    private Integer totalDueWithInterest;
+    private Double totalDueWithInterest;
     
     
     
@@ -21506,13 +21506,13 @@ public static class UserCredit {
     
     
     @JsonProperty("availableLimit")
-    private Integer availableLimit;
+    private Double availableLimit;
     
     
     
     
     @JsonProperty("approvedLimit")
-    private Integer approvedLimit;
+    private Double approvedLimit;
     
     
     
@@ -21553,19 +21553,19 @@ public static class DueTransactionsOutstanding {
     
     
     @JsonProperty("installmentAmountWithInterest")
-    private Integer installmentAmountWithInterest;
+    private Double installmentAmountWithInterest;
     
     
     
     
     @JsonProperty("installmentAmount")
-    private Integer installmentAmount;
+    private Double installmentAmount;
     
     
     
     
     @JsonProperty("dueAmount")
-    private Integer dueAmount;
+    private Double dueAmount;
     
     
     
@@ -21601,7 +21601,7 @@ public static class DueTransactionsOutstanding {
     
     
     @JsonProperty("penaltyAmount")
-    private Integer penaltyAmount;
+    private Double penaltyAmount;
     
     
     
@@ -21701,19 +21701,19 @@ public static class OutstandingDetailsRepayment {
     
     
     @JsonProperty("installmentAmountWithInterest")
-    private Integer installmentAmountWithInterest;
+    private Double installmentAmountWithInterest;
     
     
     
     
     @JsonProperty("installmentAmount")
-    private Integer installmentAmount;
+    private Double installmentAmount;
     
     
     
     
     @JsonProperty("dueAmount")
-    private Integer dueAmount;
+    private Double dueAmount;
     
     
     

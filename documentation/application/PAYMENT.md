@@ -983,10 +983,10 @@ Success. Returns a JSON object as shown below. Refer `OutstandingDetail` for mor
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | totalOutstanding | Integer? |  yes  |  |
- | totalOutstandingWithInterest | Integer? |  yes  |  |
+ | totalOutstanding | Double? |  yes  |  |
+ | totalOutstandingWithInterest | Double? |  yes  |  |
  | totalOutstandingPenalty | Double? |  yes  |  |
- | availableLimit | Integer? |  yes  |  |
+ | availableLimit | Double? |  yes  |  |
  | isOverdue | Boolean? |  yes  |  |
  | dueFromDate | String? |  yes  |  |
  | repaymentSummary | ArrayList<[RepaymentSummaryOutstanding](#RepaymentSummaryOutstanding)>? |  yes  |  |
@@ -1001,8 +1001,8 @@ Success. Returns a JSON object as shown below. Refer `OutstandingDetail` for mor
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | dueDate | String? |  yes  |  |
- | totalDue | Integer? |  yes  |  |
- | totalDueWithInterest | Integer? |  yes  |  |
+ | totalDue | Double? |  yes  |  |
+ | totalDueWithInterest | Double? |  yes  |  |
  | totalDuePenalty | Double? |  yes  |  |
  | dueTransactions | ArrayList<[DueTransactionsOutstanding](#DueTransactionsOutstanding)>? |  yes  |  |
  | minAmntDue | Double? |  yes  |  |
@@ -1030,8 +1030,8 @@ Success. Returns a JSON object as shown below. Refer `OutstandingDetail` for mor
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | availableLimit | Integer? |  yes  |  |
- | approvedLimit | Integer? |  yes  |  |
+ | availableLimit | Double? |  yes  |  |
+ | approvedLimit | Double? |  yes  |  |
  | isEligibleToDrawdown | Boolean? |  yes  |  |
 
 ---
@@ -1045,15 +1045,15 @@ Success. Returns a JSON object as shown below. Refer `OutstandingDetail` for mor
  | ---------- | ---- | -------- | ----------- |
  | loanRequestNo | String? |  yes  |  |
  | merchantCategory | String? |  yes  |  |
- | installmentAmountWithInterest | Integer? |  yes  |  |
- | installmentAmount | Integer? |  yes  |  |
- | dueAmount | Integer? |  yes  |  |
+ | installmentAmountWithInterest | Double? |  yes  |  |
+ | installmentAmount | Double? |  yes  |  |
+ | dueAmount | Double? |  yes  |  |
  | loanType | String? |  yes  |  |
  | installmentNo | String? |  yes  |  |
  | installmentDueDate | String? |  yes  |  |
  | isPastDue | Boolean? |  yes  |  |
  | isPenaltyCharged | Boolean? |  yes  |  |
- | penaltyAmount | Integer? |  yes  |  |
+ | penaltyAmount | Double? |  yes  |  |
  | noOfDaysPenaltyCharged | Integer? |  yes  |  |
  | daysDifference | Integer? |  yes  |  |
  | lenderTransactionId | String? |  yes  |  |
@@ -1084,9 +1084,9 @@ Success. Returns a JSON object as shown below. Refer `OutstandingDetail` for mor
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | installmentAmountWithInterest | Integer? |  yes  |  |
- | installmentAmount | Integer? |  yes  |  |
- | dueAmount | Integer? |  yes  |  |
+ | installmentAmountWithInterest | Double? |  yes  |  |
+ | installmentAmount | Double? |  yes  |  |
+ | dueAmount | Double? |  yes  |  |
  | installmentNo | String? |  yes  |  |
  | installmentDueDate | String? |  yes  |  |
  | isPastDue | Boolean? |  yes  |  |
