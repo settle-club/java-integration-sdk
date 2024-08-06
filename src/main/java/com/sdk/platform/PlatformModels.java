@@ -2310,12 +2310,6 @@ public static class InitiateTransactions {
     
     
     
-    @JsonProperty("intent")
-    private String intent;
-    
-    
-    
-    
 }
 
 /*

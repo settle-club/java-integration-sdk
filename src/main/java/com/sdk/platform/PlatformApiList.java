@@ -112,11 +112,8 @@ interface CustomerApiList {
     
     
     
-    
-    
-    
     @GET ("/service/integration/user/authentication/{organizationId}/users")
-    Call<PlatformModels.UserResponse> getAll(@Path("organizationId") String  organizationId , @Query("page") Integer  page ,  @Query("limit") Integer  limit ,  @Query("name") String  name ,  @Query("id") String  id ,  @Query("mobile") String  mobile );
+    Call<PlatformModels.UserResponse> getAllCustomer(@Path("organizationId") String  organizationId , @Query("page") Integer  page ,  @Query("limit") Integer  limit ,  @Query("name") String  name ,  @Query("mobile") String  mobile );
     
     
     

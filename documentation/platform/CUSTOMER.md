@@ -15,7 +15,7 @@ Authentication Service
 * [getSchemes](#getschemes)
 * [checkEligibility](#checkeligibility)
 * [getRepaymentLink](#getrepaymentlink)
-* [getAll](#getall)
+* [getAllCustomer](#getallcustomer)
 * [addVintageData](#addvintagedata)
 
 
@@ -725,14 +725,14 @@ Success. The request has been processed successfully and the response contains t
 ---
 
 
-### getAll
+### getAllCustomer
 Get List of Users
 
 
 
 
 ```java
-customer.getAll( page,  limit,  name,  id,  mobile) {
+customer.getAllCustomer( page,  limit,  name,  mobile) {
   //use response
 }
 ```
@@ -745,7 +745,6 @@ customer.getAll( page,  limit,  name,  id,  mobile) {
 | page | Integer | yes | This is page number |   
 | limit | Integer | yes | This is no of transaction |   
 | name | String? | no | This is name for filter |   
-| id | String? | no | This is uuid for filter |   
 | mobile | String? | no | This is Mobile Number for filter |  
 
 
@@ -1613,7 +1612,6 @@ Success. Returns a JSON object as shown below. Refer `AddVintageResponse` for mo
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | token | String |  no  |  |
- | intent | String? |  yes  |  |
 
 ---
 
