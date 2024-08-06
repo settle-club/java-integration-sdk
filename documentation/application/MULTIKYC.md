@@ -9434,7 +9434,6 @@ API endpoint to create a signed URL for uploading documents to and downloading d
  | approvedLimit | Double |  no  |  |
  | entityId | String? |  yes  |  |
  | entityMapId | String? |  yes  |  |
- | lenderUserId | String |  no  |  |
 
 ---
 
@@ -9454,8 +9453,6 @@ API endpoint to create a signed URL for uploading documents to and downloading d
  | score | String |  no  |  |
  | report | String |  no  |  |
  | createdAt | String? |  yes  |  |
- | updatedAt | String? |  yes  |  |
- | deletedAt | String? |  yes  |  |
 
 ---
 
@@ -9472,8 +9469,8 @@ API endpoint to create a signed URL for uploading documents to and downloading d
  | number | String |  no  |  |
  | detail | Object |  no  |  |
  | valid | Boolean |  no  |  |
- | createdAt | String? |  yes  |  |
- | updatedAt | String? |  yes  |  |
+ | createdAt | String |  no  |  |
+ | updatedAt | String |  no  |  |
  | deletedAt | String? |  yes  |  |
  | entityId | String? |  yes  |  |
 
@@ -9519,9 +9516,6 @@ API endpoint to create a signed URL for uploading documents to and downloading d
  | form | Object? |  yes  |  |
  | uiSchema | Object? |  yes  |  |
  | workflowId | String? |  yes  |  |
- | createdAt | String? |  yes  |  |
- | updatedAt | String? |  yes  |  |
- | deletedAt | String? |  yes  |  |
 
 ---
 
@@ -9569,8 +9563,8 @@ API endpoint to create a signed URL for uploading documents to and downloading d
  | active | Boolean |  no  |  |
  | status | String |  no  |  |
  | documentId | String? |  yes  |  |
- | createdAt | String? |  yes  |  |
- | updatedAt | String? |  yes  |  |
+ | createdAt | String |  no  |  |
+ | updatedAt | String |  no  |  |
  | deletedAt | String? |  yes  |  |
  | lenderKycStepMap | [LenderKycStepMap](#LenderKycStepMap)? |  yes  |  |
  | entityMapId | String? |  yes  |  |
@@ -10315,6 +10309,31 @@ API endpoint to create a signed URL for uploading documents to and downloading d
 
  
  
+ #### [StonewallCustomer](#StonewallCustomer)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | mobile | String? |  yes  |  |
+ | uid | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [GetLimitRequest](#GetLimitRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | lenderSlugs | ArrayList<Object>? |  yes  |  |
+ | onlyDefaultLender | Boolean? |  yes  |  |
+ | customer | [StonewallCustomer](#StonewallCustomer) |  no  |  |
+
+---
+
+
+ 
+ 
  #### [DocumentObject](#DocumentObject)
 
  | Properties | Type | Nullable | Description |
@@ -10354,44 +10373,6 @@ API endpoint to create a signed URL for uploading documents to and downloading d
  | ---------- | ---- | -------- | ----------- |
  | stepId | String |  no  |  |
  | data | Object |  no  |  |
-
----
-
-
- 
- 
- #### [RetriggerLenderOnboardRequestV2](#RetriggerLenderOnboardRequestV2)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | lenderUserId | String |  no  |  |
- | stepName | String |  no  |  |
- | data | Object |  no  |  |
-
----
-
-
- 
- 
- #### [StonewallCustomer](#StonewallCustomer)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | mobile | String? |  yes  |  |
- | uid | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [GetLimitRequest](#GetLimitRequest)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | lenderSlugs | ArrayList<Object>? |  yes  |  |
- | onlyDefaultLender | Boolean? |  yes  |  |
- | customer | [StonewallCustomer](#StonewallCustomer) |  no  |  |
 
 ---
 
@@ -10501,7 +10482,6 @@ API endpoint to create a signed URL for uploading documents to and downloading d
  | ---------- | ---- | -------- | ----------- |
  | status | String |  no  |  |
  | info | String |  no  |  |
- | number | String |  no  |  |
  | details | Object? |  yes  |  |
  | name | String? |  yes  |  |
  | headers | HashMap<String,Object>? |  yes  |  |
@@ -10660,17 +10640,6 @@ API endpoint to create a signed URL for uploading documents to and downloading d
  | createdAt | Object? |  yes  |  |
  | updatedAt | Object? |  yes  |  |
  | deletedAt | Object? |  yes  |  |
-
----
-
-
- 
- 
- #### [GetKycDocsResponse](#GetKycDocsResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | documents | ArrayList<[FindDocResponse](#FindDocResponse)> |  no  |  |
 
 ---
 
@@ -10880,9 +10849,6 @@ API endpoint to create a signed URL for uploading documents to and downloading d
  | id | String |  no  |  |
  | name | String |  no  |  |
  | active | Boolean |  no  |  |
- | createdAt | String? |  yes  |  |
- | updatedAt | String? |  yes  |  |
- | deletedAt | String? |  yes  |  |
 
 ---
 
@@ -10900,9 +10866,6 @@ API endpoint to create a signed URL for uploading documents to and downloading d
  | lenderId | String |  no  |  |
  | pgId | String |  no  |  |
  | active | Boolean |  no  |  |
- | createdAt | String? |  yes  |  |
- | updatedAt | String? |  yes  |  |
- | deletedAt | String? |  yes  |  |
 
 ---
 
@@ -11168,8 +11131,8 @@ API endpoint to create a signed URL for uploading documents to and downloading d
  | status | String |  no  |  |
  | active | Boolean |  no  |  |
  | proposedLimit | Double |  no  |  |
- | createdAt | Object? |  yes  |  |
- | updatedAt | Object? |  yes  |  |
+ | createdAt | Object |  no  |  |
+ | updatedAt | Object |  no  |  |
  | deletedAt | Object? |  yes  |  |
  | isDefault | Boolean? |  yes  |  |
 
@@ -11213,7 +11176,6 @@ API endpoint to create a signed URL for uploading documents to and downloading d
  | ---------- | ---- | -------- | ----------- |
  | availableLimit | Double |  no  |  |
  | approvedLimit | Double |  no  |  |
- | isEligibleToDrawdown | Boolean |  no  |  |
 
 ---
 
@@ -11785,18 +11747,6 @@ API endpoint to create a signed URL for uploading documents to and downloading d
 
  
  
- #### [ManualKycResponse](#ManualKycResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | message | String |  no  |  |
- | step | [UserKycLenderStepMap](#UserKycLenderStepMap) |  no  |  |
-
----
-
-
- 
- 
  #### [BreOutput](#BreOutput)
 
  | Properties | Type | Nullable | Description |
@@ -11814,6 +11764,18 @@ API endpoint to create a signed URL for uploading documents to and downloading d
  | createdAt | String |  no  |  |
  | updatedAt | String |  no  |  |
  | deletedAt | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [ManualKycResponse](#ManualKycResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | message | String |  no  |  |
+ | step | [UserKycLenderStepMap](#UserKycLenderStepMap) |  no  |  |
 
 ---
 
@@ -11890,8 +11852,8 @@ API endpoint to create a signed URL for uploading documents to and downloading d
  | type | String |  no  |  |
  | lenderId | String? |  yes  |  |
  | merchantId | String? |  yes  |  |
- | createdAt | String? |  yes  |  |
- | updatedAt | String? |  yes  |  |
+ | createdAt | String |  no  |  |
+ | updatedAt | String |  no  |  |
 
 ---
 

@@ -2520,6 +2520,7 @@ Success. Check the example shown below or refer `ActiveEntityResponse` for more 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | token | String |  no  |  |
+ | intent | String? |  yes  |  |
 
 ---
 

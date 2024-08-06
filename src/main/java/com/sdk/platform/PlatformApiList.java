@@ -161,15 +161,6 @@ interface CreditApiList {
     
     
     
-    @POST ("/service/integration/credit/orders/organization/{organizationId}/delivery-updates")
-    Call<PlatformModels.OrderDeliveryUpdatesResponse> updateOrderDeliveryStatus(@Path("organizationId") String  organizationId ,@Body PlatformModels.OrderDeliveryUpdatesBody payload);
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -215,15 +206,6 @@ interface MultiKycApiList {
     
     @GET ("/service/integration/kyc-onboarding/bre/{organizationId}/approved-lenders")
     Call<PlatformModels.ApprovedLendersTransaction> approvedLenders(@Path("organizationId") Object  organizationId );
-    
-    
-    
-    
-    
-    
-    
-    @POST ("/service/integration/kyc-onboarding/credit/{organizationId}/limit")
-    Call<PlatformModels.IntgrCreditLimit> getLimit(@Path("organizationId") String  organizationId ,@Body PlatformModels.GetLimitRequest payload);
     
 }
 

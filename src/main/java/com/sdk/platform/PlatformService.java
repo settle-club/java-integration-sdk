@@ -423,27 +423,6 @@ public static class CreditService {
     
     
     
-    public PlatformModels.OrderDeliveryUpdatesResponse updateOrderDeliveryStatus(String organizationId ,PlatformModels.OrderDeliveryUpdatesBody body) throws IOException {
-            Response<PlatformModels.OrderDeliveryUpdatesResponse> response = creditApiList.updateOrderDeliveryStatus(organizationId  , body).execute();
-            if (!response.isSuccessful()) {
-                    throw new IOException(response.errorBody() != null
-                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-                }
-            return response.body();
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -517,8 +496,6 @@ public class ApplicationClient {
     
     
     
-    
-    
 
 }
 
@@ -569,27 +546,6 @@ public static class MultiKycService {
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    public PlatformModels.IntgrCreditLimit getLimit(String organizationId ,PlatformModels.GetLimitRequest body) throws IOException {
-            Response<PlatformModels.IntgrCreditLimit> response = multikycApiList.getLimit(organizationId  , body).execute();
-            if (!response.isSuccessful()) {
-                    throw new IOException(response.errorBody() != null
-                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-                }
-            return response.body();
-    }
-    
-    
-    
 
 
 public class ApplicationClient {
@@ -605,8 +561,6 @@ public class ApplicationClient {
         this.organizationId = this.platformConfig.getOrganizationId();
     }
 
-    
-    
     
     
     

@@ -11,7 +11,6 @@ Transaction Service
 * [kfs](#kfs)
 * [listOfTransactions](#listoftransactions)
 * [loadTransactionById](#loadtransactionbyid)
-* [getMerchantSummary](#getmerchantsummary)
 
 
 
@@ -202,7 +201,7 @@ Get List of transactions
 
 
 ```java
-transaction.listOfTransactions( page,  type,  lender,  startDate,  endDate,  loanType,  limit,  partnerId) {
+transaction.listOfTransactions( page,  type,  lender,  loanType,  limit) {
   //use response
 }
 ```
@@ -214,11 +213,8 @@ transaction.listOfTransactions( page,  type,  lender,  startDate,  endDate,  loa
 | page | Integer | yes | This is page number |   
 | type | List<String>? | no | This is transaction type |   
 | lender | String? | no | This is lenderSlug |   
-| startDate | String? | no | This is date range start date |   
-| endDate | String? | no | This is date range end date |   
 | loanType | String? | no | This is loanType EMI/BNPL |   
-| limit | Integer | yes | This is no of transaction |   
-| partnerId | String? | no | This is partnerId (merchant id) |  
+| limit | Integer | yes | This is no of transaction |  
 
 
 
@@ -308,59 +304,6 @@ Success. Returns a JSON object as shown below. Refer `Transactions` for more det
     "remark": "Potlee credit"
   }
 ]
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### getMerchantSummary
-Get sum of list of transactions of merchant
-
-
-
-
-```java
-transaction.getMerchantSummary( partnerId) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| partnerId | String | yes | This is partner id |  
-
-
-
-Use this API to get sum of list of transactions of merchan.
-
-*Returned Response:*
-
-
-
-
-[MerchantTransactionSummary](#MerchantTransactionSummary)
-
-Success. Returns a JSON object as shown below. Refer `MerchantTransactionSummary` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-
 ```
 </details>
 
@@ -587,7 +530,6 @@ Success. Returns a JSON object as shown below. Refer `MerchantTransactionSummary
  | lenderName | String? |  yes  |  |
  | lenderLogo | String? |  yes  |  |
  | loanType | String? |  yes  |  |
- | repaymentTransactionId | String? |  yes  |  |
  | nextDueDate | String? |  yes  |  |
  | paidPercent | Double? |  yes  |  |
  | lenderDetail | [LenderDetail](#LenderDetail)? |  yes  |  |
@@ -693,29 +635,6 @@ Success. Returns a JSON object as shown below. Refer `MerchantTransactionSummary
  | filters | ArrayList<[Filters](#Filters)> |  no  |  |
  | page | [PageResponse](#PageResponse) |  no  |  |
  | transactions | ArrayList<[Transactions](#Transactions)> |  no  |  |
- | headers | HashMap<String,Object>? |  yes  |  |
-
----
-
-
- 
- 
- #### [MerchantTransactions](#MerchantTransactions)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | outstandingAmount | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [MerchantTransactionSummary](#MerchantTransactionSummary)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | merchantOutstandingSummary | [MerchantTransactions](#MerchantTransactions)? |  yes  |  |
  | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
@@ -1367,126 +1286,6 @@ Success. Returns a JSON object as shown below. Refer `MerchantTransactionSummary
  | endDate | String? |  yes  |  |
  | merchantId | String? |  yes  |  |
  | type | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [OrderShipmentAddressGeoLocation](#OrderShipmentAddressGeoLocation)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | latitude | Double |  no  | The latitude of the location. |
- | longitude | Double |  no  | The longitude of the location. |
-
----
-
-
- 
- 
- #### [OrderShipmentAddress](#OrderShipmentAddress)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | line1 | String? |  yes  | The first line of the address. |
- | line2 | String? |  yes  | The second line of the address. |
- | city | String? |  yes  | The city of the address. |
- | state | String? |  yes  | The state of the address. |
- | country | String? |  yes  | The country of the address. |
- | pincode | String? |  yes  | The postal code of the address. |
- | type | String? |  yes  | The type of address (e.g., residential, business). |
- | geoLocation | [OrderShipmentAddressGeoLocation](#OrderShipmentAddressGeoLocation)? |  yes  | The geographical location of the address. |
-
----
-
-
- 
- 
- #### [OrderShipmentItem](#OrderShipmentItem)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | category | String? |  yes  | The category of the item. |
- | sku | String? |  yes  | The stock keeping unit for the item. |
- | rate | Double? |  yes  | The price of a single item. |
- | quantity | Double? |  yes  | The quantity of the item. |
-
----
-
-
- 
- 
- #### [OrderShipment](#OrderShipment)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | id | String |  no  | The identifier for the shipment. |
- | urn | String? |  yes  | A unique reference number for the shipment. This is optional; the system will generate a URN if not provided. There can be multiple shipment objects with the same shipment ID, making the URN a unique identifier within the system. |
- | amount | Double |  no  | The amount corresponding to the shipment that is subject to the status update. |
- | timestamp | String |  no  | The timestamp when the status of the shipment was updated. |
- | status | String |  no  | The current status of the shipment. |
- | remark | String? |  yes  | Any remarks regarding the shipment. |
- | items | ArrayList<[OrderShipmentItem](#OrderShipmentItem)>? |  yes  | The list of items in the shipment. |
- | shippingAddress | [OrderShipmentAddress](#OrderShipmentAddress)? |  yes  | The shipping address for the shipment. |
- | billingAddress | [OrderShipmentAddress](#OrderShipmentAddress)? |  yes  | The billing address for the shipment. |
-
----
-
-
- 
- 
- #### [OrderDeliveryUpdatesBody](#OrderDeliveryUpdatesBody)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | orderId | String? |  yes  | The unique identifier for the order. Required if transactionId is not provided. |
- | transactionId | String? |  yes  | The unique identifier for the transaction. Required if orderId is not provided. |
- | fetchAllShipments | Boolean? |  yes  | A flag to fetch data for all shipments associated with the provided order ID or transaction ID. |
- | shipments | ArrayList<[OrderShipment](#OrderShipment)> |  no  | The list of shipments for which the status needs to be updated. Only include shipments requiring a status change. |
-
----
-
-
- 
- 
- #### [OrderShipmentResponse](#OrderShipmentResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | id | String |  no  | The unique identifier of the shipment. |
- | urn | String |  no  | A unique resource identifier for the shipment. |
- | shipmentStatus | String |  no  | The status of the shipment. |
- | shipmentAmount | Double |  no  | The total amount associated with the shipment. |
- | processingStatus | String |  no  | The processing status of the order shipment. |
- | isCurrentUpdate | Boolean |  no  | Indicates if the shipment data is newly updated for this operation. |
-
----
-
-
- 
- 
- #### [OrderDeliveryUpdatesData](#OrderDeliveryUpdatesData)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | orderId | String |  no  | The unique identifier for the order. |
- | transactionId | String |  no  | The unique identifier for the order. |
- | shipments | ArrayList<[OrderShipmentResponse](#OrderShipmentResponse)> |  no  | The list of shipments for which the status was updated. |
-
----
-
-
- 
- 
- #### [OrderDeliveryUpdatesResponse](#OrderDeliveryUpdatesResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | message | String |  no  | Response message indicating the result of the operation. |
- | meta | [IntegrationResponseMeta](#IntegrationResponseMeta) |  no  |  |
- | data | [OrderDeliveryUpdatesData](#OrderDeliveryUpdatesData) |  no  |  |
- | errors | ArrayList<[IntegrationResponseError](#IntegrationResponseError)>? |  yes  |  |
 
 ---
 

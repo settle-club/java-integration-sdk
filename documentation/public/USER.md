@@ -940,6 +940,7 @@ Success. Returns a JSON object as shown below. Refer `UserResponse` for more det
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | token | String |  no  |  |
+ | intent | String? |  yes  |  |
 
 ---
 
