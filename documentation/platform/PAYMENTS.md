@@ -356,8 +356,8 @@ Success. Returns a JSON object as shown below. Refer `PaymentLinkResponse` for m
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | iconUrl | String? |  yes  |  |
- | logoUrl | String? |  yes  |  |
+ | iconUrl | String |  no  |  |
+ | logoUrl | String |  no  |  |
 
 ---
 
@@ -368,10 +368,10 @@ Success. Returns a JSON object as shown below. Refer `PaymentLinkResponse` for m
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | slug | String? |  yes  |  |
- | name | String? |  yes  |  |
- | id | String? |  yes  |  |
- | theme | [LenderTheme](#LenderTheme)? |  yes  |  |
+ | slug | String |  no  |  |
+ | name | String |  no  |  |
+ | id | String |  no  |  |
+ | theme | [LenderTheme](#LenderTheme) |  no  |  |
 
 ---
 
@@ -553,27 +553,13 @@ Success. Returns a JSON object as shown below. Refer `PaymentLinkResponse` for m
 
  
  
- #### [MetaResponse](#MetaResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | timestamp | String? |  yes  |  |
- | version | String? |  yes  |  |
- | product | String? |  yes  |  |
- | requestId | String? |  yes  |  |
-
----
-
-
- 
- 
  #### [OutstandingData](#OutstandingData)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | lenderDetails | [LenderDetails](#LenderDetails)? |  yes  |  |
- | availableLimit | Double? |  yes  |  |
- | creditLimit | Double? |  yes  |  |
+ | availableLimit | Double |  no  |  |
+ | creditLimit | Double |  no  |  |
  | dueAmount | Double? |  yes  |  |
  | outstandingAmount | Double? |  yes  |  |
  | dueDate | String? |  yes  |  |
@@ -587,7 +573,7 @@ Success. Returns a JSON object as shown below. Refer `PaymentLinkResponse` for m
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | outstandingDetails | ArrayList<[OutstandingData](#OutstandingData)>? |  yes  |  |
+ | outstandingDetails | ArrayList<[OutstandingData](#OutstandingData)> |  no  |  |
 
 ---
 
@@ -598,9 +584,9 @@ Success. Returns a JSON object as shown below. Refer `PaymentLinkResponse` for m
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | mesasge | String? |  yes  |  |
- | meta | [MetaResponse](#MetaResponse)? |  yes  |  |
- | data | [OutstandingDetailsData](#OutstandingDetailsData)? |  yes  |  |
+ | message | String |  no  |  |
+ | meta | [IntegrationResponseMeta](#IntegrationResponseMeta) |  no  |  |
+ | data | [OutstandingDetailsData](#OutstandingDetailsData) |  no  |  |
  | headers | HashMap<String,Object>? |  yes  |  |
 
 ---

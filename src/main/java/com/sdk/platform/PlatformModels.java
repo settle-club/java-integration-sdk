@@ -21274,47 +21274,6 @@ public static class AutoPayStatusResponse {
 }
 
 /*
-    Model: MetaResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class MetaResponse {
-    
-    
-    
-    
-    @JsonProperty("timestamp")
-    private String timestamp;
-    
-    
-    
-    
-    @JsonProperty("version")
-    private String version;
-    
-    
-    
-    
-    @JsonProperty("product")
-    private String product;
-    
-    
-    
-    
-    @JsonProperty("requestId")
-    private String requestId;
-    
-    
-    
-    
-}
-
-/*
     Model: OutstandingDetailsData
 */
 @AllArgsConstructor
