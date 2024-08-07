@@ -10482,6 +10482,7 @@ API endpoint to create a signed URL for uploading documents to and downloading d
  | ---------- | ---- | -------- | ----------- |
  | status | String |  no  |  |
  | info | String |  no  |  |
+ | number | String |  no  |  |
  | details | Object? |  yes  |  |
  | name | String? |  yes  |  |
  | headers | HashMap<String,Object>? |  yes  |  |
@@ -10762,6 +10763,17 @@ API endpoint to create a signed URL for uploading documents to and downloading d
  | ---------- | ---- | -------- | ----------- |
  | status | String |  no  |  |
  | approvedLenders | ArrayList<[BreOutput](#BreOutput)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [GetKycDocsResponse](#GetKycDocsResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | documents | ArrayList<[FindDocResponse](#FindDocResponse)> |  no  |  |
 
 ---
 

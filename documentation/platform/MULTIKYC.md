@@ -1158,6 +1158,7 @@ multikyc.approvedLenders() {
  | ---------- | ---- | -------- | ----------- |
  | status | String |  no  |  |
  | info | String |  no  |  |
+ | number | String |  no  |  |
  | details | Object? |  yes  |  |
  | name | String? |  yes  |  |
 
@@ -1436,6 +1437,17 @@ multikyc.approvedLenders() {
  | ---------- | ---- | -------- | ----------- |
  | status | String |  no  |  |
  | approvedLenders | ArrayList<[BreOutput](#BreOutput)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [GetKycDocsResponse](#GetKycDocsResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | documents | ArrayList<[FindDocResponse](#FindDocResponse)> |  no  |  |
 
 ---
 

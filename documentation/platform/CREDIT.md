@@ -166,7 +166,7 @@ Get list of user transactions
 
 
 ```java
-credit.getTransactions( mobile,  countryCode,  page,  limit,  orderId,  transactionId,  type,  status,  onlySelf,  granularity) {
+credit.getTransactions( page,  type,  status,  limit,  countryCode,  mobile,  orderId,  transactionId,  onlySelf) {
   //use response
 }
 ```
@@ -176,16 +176,15 @@ credit.getTransactions( mobile,  countryCode,  page,  limit,  orderId,  transact
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
 | organizationId | String | yes | The unique identifier of the organization |   
-| mobile | String | yes | The mobile number of the user |   
-| countryCode | String? | no | The country code of the user's mobile number. |   
 | page | Integer? | no | The page number of the transaction list |   
-| limit | Integer? | no | The number of transactions to fetch |   
-| orderId | String? | no | The order ID |   
-| transactionId | String? | no | The transaction ID |   
 | type | Object? | no | The transaction type |   
 | status | Object? | no | The transaction status |   
-| onlySelf | Boolean? | no | Set this flag to true to fetch transactions exclusively for your organization, excluding other organizations. |   
-| granularity | String? | no | Defines the granularity of transaction details. |  
+| limit | Integer? | no | The number of transactions to fetch |   
+| countryCode | String? | no | The country code of the user's mobile number. |   
+| mobile | String | yes | The mobile number of the user |   
+| orderId | String? | no | The order ID |   
+| transactionId | String? | no | The transaction ID |   
+| onlySelf | Boolean? | no | Set this flag to true to fetch transactions exclusively for your organization, excluding other organizations. |  
 
 
 
@@ -208,7 +207,7 @@ Success. The request has been processed successfully and the response contains t
 
 
 <details>
-<summary><i>&nbsp; GetTransactionsExample</i></summary>
+<summary><i>&nbsp; IntegrationGetTransactionsExample</i></summary>
 
 ```json
 {
@@ -231,32 +230,11 @@ Success. The request has been processed successfully and the response contains t
             "id": "ORD1234",
             "amount": 5000
           },
-          "loans": [
-            {
-              "number": "LN123456",
-              "amount": 5000,
-              "type": "EMI",
-              "dueDate": "2024-09-04T18:30:00.000Z",
-              "repaidAmount": 2600,
-              "isSettled": false,
-              "emis": [
-                {
-                  "amount": 2600,
-                  "dueDate": "2024-08-04T18:30:00.000Z",
-                  "installmentNo": 1,
-                  "repaidAmount": 2600,
-                  "isSettled": true
-                },
-                {
-                  "amount": 2550,
-                  "dueDate": "2024-09-04T18:30:00.000Z",
-                  "installmentNo": 2,
-                  "repaidAmount": 0,
-                  "isSettled": false
-                }
-              ]
-            }
-          ],
+          "loan": {
+            "number": "LN123456",
+            "amount": 5000,
+            "type": "EMI"
+          },
           "lender": {
             "name": "Bank of J Limited",
             "slug": "j-bank",
@@ -1166,25 +1144,6 @@ Success. The request has been processed successfully and the response contains t
  | number | String |  no  | Loan account number. |
  | amount | Double |  no  | Loan amount. |
  | type | String |  no  | Type of loan. |
- | dueDate | String |  no  | Due date in ISO format for the loan repayment. |
- | repaidAmount | Double |  no  | Amount that has been repaid. |
- | isSettled | Boolean |  no  | Indicates if the loan is fully settled. |
- | emis | ArrayList<[TransactionLoanEmi](#TransactionLoanEmi)>? |  yes  | EMIs associated with the loan. This information is available only if the granularity is set to 'detail' and an EMI schedule is available for this loan. |
-
----
-
-
- 
- 
- #### [TransactionLoanEmi](#TransactionLoanEmi)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | amount | Double |  no  | EMI amount. |
- | dueDate | String |  no  | Due date in ISO format for the EMI payment. |
- | installmentNo | Integer |  no  | Installment number for the EMI. |
- | repaidAmount | Double |  no  | Amount that has been repaid towards the EMI. |
- | isSettled | Boolean |  no  | Indicates if the EMI is fully settled. |
 
 ---
 
@@ -1215,11 +1174,11 @@ Success. The request has been processed successfully and the response contains t
  | status | String |  no  | Status of the transaction. |
  | settlementUtr | String? |  yes  | Settlement UTR for the transaction. |
  | refundId | String? |  yes  | Refund ID if the transaction is a refund. |
- | createdAt | String |  no  | Timestamp in ISO format when the transaction was created. |
+ | createdAt | String |  no  | Timestamp when the transaction was created. |
  | isMasked | Boolean |  no  | Indicates if the transaction details are masked. This field is true of the transaction if done on some other merchant |
  | order | [TransactionOrder](#TransactionOrder)? |  yes  |  |
  | merchant | [TransactionMerchant](#TransactionMerchant) |  no  |  |
- | loans | ArrayList<[TransactionLoan](#TransactionLoan)>? |  yes  |  |
+ | loan | [TransactionLoan](#TransactionLoan)? |  yes  |  |
  | lender | [TransactionLender](#TransactionLender)? |  yes  |  |
 
 ---

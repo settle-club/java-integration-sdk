@@ -185,11 +185,8 @@ interface CreditApiList {
     
     
     
-    
-    
-    
     @GET ("/service/integration/credit/summary/organization/{organizationId}/transactions")
-    Call<PlatformModels.GetTransactionsResponse> getTransactions(@Path("organizationId") String  organizationId , @Query("mobile") String  mobile ,  @Query("countryCode") String  countryCode ,  @Query("page") Integer  page ,  @Query("limit") Integer  limit ,  @Query("orderId") String  orderId ,  @Query("transactionId") String  transactionId ,  @Query("type") Object  type ,  @Query("status") Object  status ,  @Query("onlySelf") Boolean  onlySelf ,  @Query("granularity") String  granularity );
+    Call<PlatformModels.GetTransactionsResponse> getTransactions(@Path("organizationId") String  organizationId , @Query("page") Integer  page ,  @Query("type") Object  type ,  @Query("status") Object  status ,  @Query("limit") Integer  limit ,  @Query("countryCode") String  countryCode ,  @Query("mobile") String  mobile ,  @Query("orderId") String  orderId ,  @Query("transactionId") String  transactionId ,  @Query("onlySelf") Boolean  onlySelf );
     
 }
 
