@@ -455,8 +455,8 @@ public static class CreditService {
     
     
     
-    public PlatformModels.GetTransactionsResponse getTransactions(String organizationId , Integer page , Object type , Object status , Integer limit , String countryCode , String mobile , String orderId , String transactionId , Boolean onlySelf ) throws IOException {
-            Response<PlatformModels.GetTransactionsResponse> response = creditApiList.getTransactions(organizationId  ,page , type , status , limit , countryCode , mobile , orderId , transactionId , onlySelf ).execute();
+    public PlatformModels.GetTransactionsResponse getTransactions(String session , String organizationId , Integer page , Integer limit , String orderId , String transactionId , Object type , Object status , Boolean onlySelf , String granularity ) throws IOException {
+            Response<PlatformModels.GetTransactionsResponse> response = creditApiList.getTransactions(organizationId  ,page , limit , orderId , transactionId , type , status , onlySelf , granularity ).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

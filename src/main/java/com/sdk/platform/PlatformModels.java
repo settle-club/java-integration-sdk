@@ -9346,6 +9346,77 @@ public static class TransactionLoan {
     
     
     
+    @JsonProperty("dueDate")
+    private String dueDate;
+    
+    
+    
+    
+    @JsonProperty("repaidAmount")
+    private Double repaidAmount;
+    
+    
+    
+    
+    @JsonProperty("isSettled")
+    private Boolean isSettled;
+    
+    
+    
+    
+    @JsonProperty("emis")
+    private List<TransactionLoanEmi> emis;
+    
+    
+    
+    
+}
+
+/*
+    Model: TransactionLoanEmi
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TransactionLoanEmi {
+    
+    
+    
+    
+    @JsonProperty("amount")
+    private Double amount;
+    
+    
+    
+    
+    @JsonProperty("dueDate")
+    private String dueDate;
+    
+    
+    
+    
+    @JsonProperty("installmentNo")
+    private Integer installmentNo;
+    
+    
+    
+    
+    @JsonProperty("repaidAmount")
+    private Double repaidAmount;
+    
+    
+    
+    
+    @JsonProperty("isSettled")
+    private Boolean isSettled;
+    
+    
+    
+    
 }
 
 /*
@@ -9464,8 +9535,8 @@ public static class UserTransaction {
     
     
     
-    @JsonProperty("loan")
-    private TransactionLoan loan;
+    @JsonProperty("loans")
+    private List<TransactionLoan> loans;
     
     
     
