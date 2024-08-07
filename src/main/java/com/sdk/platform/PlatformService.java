@@ -68,7 +68,11 @@ public static class CustomerService {
     
     
     
-    public PlatformModels.CreateTransactionSuccess createTransaction(String organizationId ,PlatformModels.CreateTransaction body) throws IOException {
+    
+    
+    
+    
+    public PlatformModels.CreateTransactionSuccess createTransaction(String session , String organizationId ,PlatformModels.CreateTransaction body) throws IOException {
             Response<PlatformModels.CreateTransactionSuccess> response = customerApiList.createTransaction(organizationId  , body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
@@ -110,7 +114,11 @@ public static class CustomerService {
     
     
     
-    public PlatformModels.UnlinkAccountSuccess unlink(String organizationId ,PlatformModels.UnlinkAccount body) throws IOException {
+    
+    
+    
+    
+    public PlatformModels.UnlinkAccountSuccess unlink(String organizationId , String session ,PlatformModels.UnlinkAccount body) throws IOException {
             Response<PlatformModels.UnlinkAccountSuccess> response = customerApiList.unlink(organizationId  , body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null

@@ -83,7 +83,7 @@ Create Transaction
 
 
 ```java
-customer.createTransaction(body body) {
+customer.createTransaction( session, body body) {
   //use response
 }
 ```
@@ -92,6 +92,7 @@ customer.createTransaction(body body) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
+| session | String? | no | The user session. |   
 | organizationId | String | yes | This is organizationId |  
 | body | [CreateTransaction](#CreateTransaction) | yes | Request body |
 
@@ -207,7 +208,7 @@ Unlink account
 
 
 ```java
-customer.unlink(body body) {
+customer.unlink( session, body body) {
   //use response
 }
 ```
@@ -216,7 +217,8 @@ customer.unlink(body body) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| organizationId | String | yes | This is organizationId |  
+| organizationId | String | yes | This is organizationId |   
+| session | String | yes | This is session |  
 | body | [UnlinkAccount](#UnlinkAccount) | yes | Request body |
 
 

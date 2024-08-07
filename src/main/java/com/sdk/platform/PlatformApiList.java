@@ -22,6 +22,9 @@ interface CustomerApiList {
     
     
     
+    
+    
+    
     @POST ("/service/integration/user/authentication/{organizationId}/transaction")
     Call<PlatformModels.CreateTransactionSuccess> createTransaction(@Path("organizationId") String  organizationId ,@Body PlatformModels.CreateTransaction payload);
     
@@ -33,6 +36,9 @@ interface CustomerApiList {
     
     @POST ("/service/integration/user/authentication/{organizationId}/account/link")
     Call<PlatformModels.LinkAccountSuccess> link(@Path("organizationId") String  organizationId ,@Body PlatformModels.LinkAccount payload);
+    
+    
+    
     
     
     
