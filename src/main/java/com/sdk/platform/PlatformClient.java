@@ -18,8 +18,6 @@ public class PlatformClient {
     
     public PlatformService.MerchantService merchant;
     
-    public PlatformService.PaymentsService payments;
-    
 
     public PlatformClient(PlatformConfig config)   
     {
@@ -32,8 +30,6 @@ public class PlatformClient {
         this.multiKyc = new PlatformService.MultiKycService(config);
         
         this.merchant = new PlatformService.MerchantService(config);
-        
-        this.payments = new PlatformService.PaymentsService(config);
         
     }
 

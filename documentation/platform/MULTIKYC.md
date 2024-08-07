@@ -1812,7 +1812,6 @@ multikyc.approvedLenders() {
  | updatedAt | Object |  no  |  |
  | deletedAt | Object? |  yes  |  |
  | isDefault | Boolean? |  yes  |  |
- | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 

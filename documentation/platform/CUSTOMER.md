@@ -939,7 +939,6 @@ Success. Returns a JSON object as shown below. Refer `AddVintageResponse` for mo
  | message | String? |  yes  |  |
  | transactionId | String? |  yes  |  |
  | refundId | String? |  yes  |  |
- | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -1545,7 +1544,6 @@ Success. Returns a JSON object as shown below. Refer `AddVintageResponse` for mo
  | message | String |  no  | Message to be displayed to the user |
  | schemes | ArrayList<[SchemeResponse](#SchemeResponse)>? |  yes  | An array of possible schemes of lenders available for a transaction. |
  | limit | [LimitResponse](#LimitResponse)? |  yes  | Limit details of available and possible lenders for a transaction. |
- | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -1562,7 +1560,6 @@ Success. Returns a JSON object as shown below. Refer `AddVintageResponse` for mo
  | transactionId | String? |  yes  | A unique identifier for the transaction. This is received only if session is passed and auto capture is true in request. ASP merchants do not receive transaction ID in this response. |
  | status | String? |  yes  | Indicates transaction status in case of auto disbursal. |
  | userStatus | String? |  yes  | Represents the status of the user for transaction eligibility |
- | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -2397,7 +2394,6 @@ Success. Returns a JSON object as shown below. Refer `AddVintageResponse` for mo
  | status | String? |  yes  |  |
  | message | String? |  yes  |  |
  | errorCode | String? |  yes  |  |
- | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -2425,7 +2421,6 @@ Success. Returns a JSON object as shown below. Refer `AddVintageResponse` for mo
  | statusCode | Double |  no  |  |
  | userStatus | String? |  yes  |  |
  | errorCode | String? |  yes  |  |
- | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -2521,7 +2516,6 @@ Success. Returns a JSON object as shown below. Refer `AddVintageResponse` for mo
  | filters | ArrayList<[Filters](#Filters)> |  no  |  |
  | page | [PageResponse](#PageResponse) |  no  |  |
  | listOfUsers | ArrayList<[UserSchema](#UserSchema)> |  no  |  |
- | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -2698,7 +2692,6 @@ Success. Returns a JSON object as shown below. Refer `AddVintageResponse` for mo
  | lenderId | String? |  yes  |  |
  | loanAccountNumber | String? |  yes  |  |
  | refund | ArrayList<[RefundStatusList](#RefundStatusList)>? |  yes  |  |
- | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -2711,7 +2704,6 @@ Success. Returns a JSON object as shown below. Refer `AddVintageResponse` for mo
  | ---------- | ---- | -------- | ----------- |
  | userId | String? |  yes  |  |
  | lenders | ArrayList<[SchemeResponse](#SchemeResponse)> |  no  |  |
- | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -3042,7 +3034,6 @@ Success. Returns a JSON object as shown below. Refer `AddVintageResponse` for mo
  | message | String? |  yes  |  |
  | redirectUrl | String? |  yes  |  |
  | creditLimits | ArrayList<[CreditLimitObject](#CreditLimitObject)>? |  yes  |  |
- | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -3187,7 +3178,6 @@ Success. Returns a JSON object as shown below. Refer `AddVintageResponse` for mo
  | message | String |  no  | Response message indicating the result of the operation. |
  | meta | [IntegrationResponseMeta](#IntegrationResponseMeta) |  no  |  |
  | data | [RepaymentResponseData](#RepaymentResponseData) |  no  |  |
- | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -3254,7 +3244,6 @@ Success. Returns a JSON object as shown below. Refer `AddVintageResponse` for mo
  | mesasge | String? |  yes  |  |
  | meta | [IntegrationResponseMeta](#IntegrationResponseMeta)? |  yes  |  |
  | data | HashMap<String,Object>? |  yes  |  |
- | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 

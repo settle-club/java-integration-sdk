@@ -451,7 +451,6 @@ Success. The request has been processed successfully and the response contains t
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | eligiblePlans | ArrayList<[EligiblePlans](#EligiblePlans)>? |  yes  |  |
- | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -479,7 +478,6 @@ Success. The request has been processed successfully and the response contains t
  | transactionId | String? |  yes  |  |
  | status | String |  no  |  |
  | message | String |  no  |  |
- | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -1261,7 +1259,6 @@ Success. The request has been processed successfully and the response contains t
  | message | String |  no  | Response message indicating the result of the operation. |
  | meta | [IntegrationResponseMeta](#IntegrationResponseMeta) |  no  |  |
  | data | [GetTransactionsData](#GetTransactionsData) |  no  |  |
- | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
