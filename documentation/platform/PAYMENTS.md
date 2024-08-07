@@ -20,7 +20,7 @@ Get user outstanding details.
 
 
 ```java
-payments.getUserCreditSummary( mobile,  lenderSlugs) {
+payments.getUserCreditSummary( session,  mobile,  lenderSlugs) {
   //use response
 }
 ```
@@ -29,6 +29,7 @@ payments.getUserCreditSummary( mobile,  lenderSlugs) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
+| session | String | yes | The user session. |   
 | mobile | String | yes | mobile number of the user |   
 | organizationId | String | yes | organization id of the merchant. |   
 | lenderSlugs | List<String>? | no | This is list of lender slugs. eg. ['cashe','liquiloans'] |  
