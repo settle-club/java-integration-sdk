@@ -208,7 +208,7 @@ Unlink account
 
 
 ```java
-customer.unlink( session, body body) {
+customer.unlink(body body) {
   //use response
 }
 ```
@@ -217,8 +217,7 @@ customer.unlink( session, body body) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| organizationId | String | yes | This is organizationId |   
-| session | String | yes | This is session |  
+| organizationId | String | yes | This is organizationId |  
 | body | [UnlinkAccount](#UnlinkAccount) | yes | Request body |
 
 

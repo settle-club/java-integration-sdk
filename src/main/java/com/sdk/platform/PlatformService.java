@@ -114,11 +114,7 @@ public static class CustomerService {
     
     
     
-    
-    
-    
-    
-    public PlatformModels.UnlinkAccountSuccess unlink(String organizationId , String session ,PlatformModels.UnlinkAccount body) throws IOException {
+    public PlatformModels.UnlinkAccountSuccess unlink(String organizationId ,PlatformModels.UnlinkAccount body) throws IOException {
             Response<PlatformModels.UnlinkAccountSuccess> response = customerApiList.unlink(organizationId  , body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
@@ -463,8 +459,12 @@ public static class CreditService {
     
     
     
-    public PlatformModels.GetTransactionsResponse getTransactions(String session , String organizationId , Integer page , Integer limit , String orderId , String transactionId , Object type , Object status , Boolean onlySelf , String granularity ) throws IOException {
-            Response<PlatformModels.GetTransactionsResponse> response = creditApiList.getTransactions(organizationId  ,page , limit , orderId , transactionId , type , status , onlySelf , granularity ).execute();
+    
+    
+    
+    
+    public PlatformModels.GetTransactionsResponse getTransactions(String organizationId , String mobile , String countryCode , Integer page , Integer limit , String orderId , String transactionId , Object type , Object status , Boolean onlySelf , String granularity ) throws IOException {
+            Response<PlatformModels.GetTransactionsResponse> response = creditApiList.getTransactions(organizationId  ,mobile , countryCode , page , limit , orderId , transactionId , type , status , onlySelf , granularity ).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -725,11 +725,7 @@ public static class PaymentsService {
     
     
     
-    
-    
-    
-    
-    public PlatformModels.OutstandingDetailsResponse getUserCreditSummary(String session , String mobile , String organizationId , List<String> lenderSlugs ) throws IOException {
+    public PlatformModels.OutstandingDetailsResponse getUserCreditSummary(String mobile , String organizationId , List<String> lenderSlugs ) throws IOException {
             Response<PlatformModels.OutstandingDetailsResponse> response = paymentsApiList.getUserCreditSummary(mobile  , organizationId  ,lenderSlugs ).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null

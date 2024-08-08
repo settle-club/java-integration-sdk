@@ -166,7 +166,7 @@ Get list of user transactions
 
 
 ```java
-credit.getTransactions( session,  page,  limit,  orderId,  transactionId,  type,  status,  onlySelf,  granularity) {
+credit.getTransactions( mobile,  countryCode,  page,  limit,  orderId,  transactionId,  type,  status,  onlySelf,  granularity) {
   //use response
 }
 ```
@@ -175,8 +175,9 @@ credit.getTransactions( session,  page,  limit,  orderId,  transactionId,  type,
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| session | String | yes | The user session. |   
 | organizationId | String | yes | The unique identifier of the organization |   
+| mobile | String | yes | The mobile number of the user |   
+| countryCode | String? | no | The country code of the user's mobile number. |   
 | page | Integer? | no | The page number of the transaction list |   
 | limit | Integer? | no | The number of transactions to fetch |   
 | orderId | String? | no | The order ID |   
