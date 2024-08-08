@@ -223,7 +223,12 @@ Success. Returns a JSON object as shown below. Refer `OrderDeliveryUpdatesRespon
           "shipmentAmount": 2000,
           "processingStatus": "PROCESSED"
         }
-      ]
+      ],
+      "summary": {
+        "totalAmount": 10000,
+        "processedAmount": 7000,
+        "unprocessedAmount": 3000
+      }
     },
     "meta": {
       "timestamp": "2024-07-16T12:07:26.979Z",
