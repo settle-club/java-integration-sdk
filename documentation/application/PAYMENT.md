@@ -741,6 +741,61 @@ Success. Returns a JSON object as shown below. Refer `OutstandingDetail` for mor
 
  
  
+ #### [IntegrationResponseMeta](#IntegrationResponseMeta)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | timestamp | String |  no  | The timestamp when the response was generated. |
+ | version | String |  no  | The version of the API. |
+ | product | String |  no  | The name of the product or service. |
+ | requestId | String? |  yes  | An optional request identifier. |
+
+---
+
+
+ 
+ 
+ #### [IntegrationResponseError](#IntegrationResponseError)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | code | String |  no  | Error code representing the type of error. |
+ | message | String |  no  | A human-readable message providing more details about the error. |
+ | exception | String |  no  | The exception name or type. |
+ | field | String? |  yes  | The field associated with the error, if applicable. |
+ | location | String? |  yes  | The location of the field, such as 'query', 'param' or 'body'. |
+
+---
+
+
+ 
+ 
+ #### [IntegrationSuccessResponse](#IntegrationSuccessResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | message | String |  no  | A message indicating the success of the operation. |
+ | meta | [IntegrationResponseMeta](#IntegrationResponseMeta) |  no  |  |
+ | data | HashMap<String,Object> |  no  | The data payload of the response. The structure of this object will vary depending on the specific API endpoint. |
+
+---
+
+
+ 
+ 
+ #### [IntegrationErrorResponse](#IntegrationErrorResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | message | String |  no  | A message indicating the failure of the operation. |
+ | meta | [IntegrationResponseMeta](#IntegrationResponseMeta) |  no  |  |
+ | errors | ArrayList<[IntegrationResponseError](#IntegrationResponseError)>? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [ErrorResponse](#ErrorResponse)
 
  | Properties | Type | Nullable | Description |
@@ -936,8 +991,8 @@ Success. Returns a JSON object as shown below. Refer `OutstandingDetail` for mor
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | iconUrl | String? |  yes  |  |
- | logoUrl | String? |  yes  |  |
+ | iconUrl | String |  no  |  |
+ | logoUrl | String |  no  |  |
 
 ---
 
@@ -948,10 +1003,10 @@ Success. Returns a JSON object as shown below. Refer `OutstandingDetail` for mor
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | slug | String? |  yes  |  |
- | name | String? |  yes  |  |
- | id | String? |  yes  |  |
- | theme | [LenderTheme](#LenderTheme)? |  yes  |  |
+ | slug | String |  no  |  |
+ | name | String |  no  |  |
+ | id | String |  no  |  |
+ | theme | [LenderTheme](#LenderTheme) |  no  |  |
 
 ---
 
@@ -1122,27 +1177,13 @@ Success. Returns a JSON object as shown below. Refer `OutstandingDetail` for mor
 
  
  
- #### [MetaResponse](#MetaResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | timestamp | String? |  yes  |  |
- | version | String? |  yes  |  |
- | product | String? |  yes  |  |
- | requestId | String? |  yes  |  |
-
----
-
-
- 
- 
  #### [OutstandingData](#OutstandingData)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | lenderDetails | [LenderDetails](#LenderDetails)? |  yes  |  |
- | availableLimit | Double? |  yes  |  |
- | creditLimit | Double? |  yes  |  |
+ | availableLimit | Double |  no  |  |
+ | creditLimit | Double |  no  |  |
  | dueAmount | Double? |  yes  |  |
  | outstandingAmount | Double? |  yes  |  |
  | dueDate | String? |  yes  |  |
@@ -1156,7 +1197,7 @@ Success. Returns a JSON object as shown below. Refer `OutstandingDetail` for mor
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | outstandingDetails | ArrayList<[OutstandingData](#OutstandingData)>? |  yes  |  |
+ | outstandingDetails | ArrayList<[OutstandingData](#OutstandingData)> |  no  |  |
 
 ---
 
@@ -1167,9 +1208,9 @@ Success. Returns a JSON object as shown below. Refer `OutstandingDetail` for mor
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | mesasge | String? |  yes  |  |
- | meta | [MetaResponse](#MetaResponse)? |  yes  |  |
- | data | [OutstandingDetailsData](#OutstandingDetailsData)? |  yes  |  |
+ | message | String |  no  |  |
+ | meta | [IntegrationResponseMeta](#IntegrationResponseMeta) |  no  |  |
+ | data | [OutstandingDetailsData](#OutstandingDetailsData) |  no  |  |
 
 ---
 

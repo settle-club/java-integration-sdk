@@ -15,7 +15,7 @@ Authentication Service
 * [getSchemes](#getschemes)
 * [checkEligibility](#checkeligibility)
 * [getRepaymentLink](#getrepaymentlink)
-* [getAll](#getall)
+* [getAllCustomer](#getallcustomer)
 * [addVintageData](#addvintagedata)
 
 
@@ -24,7 +24,7 @@ Authentication Service
 
 
 ### verify
-Verify Customer
+Validate Customer
 
 
 
@@ -43,7 +43,7 @@ customer.verify(body body) {
 | body | [VerifyCustomer](#VerifyCustomer) | yes | Request body |
 
 
-Use this API to verify the customer based on  mobile number and countryCode.
+The Validate Customer API processes validity checks using customer details, order information, a redirect URL, and device data. It returns `Disabled` if the transaction cannot proceed due to reasons such as the customer's limit being unavailable, already used, the customer being blocked, the pincode not being serviceable, or the SKU/product category not being serviceable by the lender. It returns `Enabled` if the transaction is allowed.
 
 *Returned Response:*
 
@@ -58,37 +58,11 @@ Success. Returns a JSON object as shown below. Refer `VerifyCustomerSuccess` for
 
 
 <details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; VerifyCustomerEnabledResponseExample</i></summary>
+<summary><i>&nbsp; Example:</i></summary>
 
 ```json
-{
-  "value": {
-    "status": "ENABLED",
-    "userStatus": "USER_AUTHORISED",
-    "message": "Kindly proceed to complete your order"
-  }
-}
+
 ```
-</details>
-
-<details>
-<summary><i>&nbsp; VerifyCustomerDisabledResponseExample</i></summary>
-
-```json
-{
-  "value": {
-    "status": "DISABLED",
-    "userStatus": "CREDIT_EXAHUSTED",
-    "message": "Order value exceeds the available limit of ₹36,452"
-  }
-}
-```
-</details>
-
 </details>
 
 
@@ -103,13 +77,13 @@ Success. Returns a JSON object as shown below. Refer `VerifyCustomerSuccess` for
 
 
 ### createOrder
-Create Order
+Create Transaction
 
 
 
 
 ```java
-customer.createOrder(body body) {
+customer.createOrder( session, body body) {
   //use response
 }
 ```
@@ -118,11 +92,12 @@ customer.createOrder(body body) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
+| session | String? | no | The user session. |   
 | organizationId | String | yes | This is organizationId |  
 | body | [CreateTransaction](#CreateTransaction) | yes | Request body |
 
 
-Use this API to create transaction for user
+The Create Transaction API processes transactions using customer details, order information, a redirect URL, and device data. It returns `Disabled` if the transaction cannot proceed due to reasons such as the customer's limit being unavailable, already used, the customer being blocked, the pincode not being serviceable, or the SKU/product category not being serviceable by the lender. If the transaction is allowed, it returns `Enabled` along with the redirect URL and the user status as authorized.
 
 *Returned Response:*
 
@@ -286,7 +261,7 @@ true
 
 
 ### refund
-Refund customer order amount
+Refund Order
 
 
 
@@ -305,7 +280,7 @@ customer.refund(body body) {
 | body | [Refund](#Refund) | yes | Request body |
 
 
-Use this API to verify the refund customer order amount
+The Refund API processes refunds based on business arrangements and returns the corresponding status of the refund request. The possible statuses include: - SUCCESS: The refund was processed successfully. - FAILED: The refund request failed. - PENDING: The refund request is still being processed and is awaiting completion.
 
 *Returned Response:*
 
@@ -369,7 +344,7 @@ Success. Returns a JSON object as shown below. Refer `RefundResponse` for more d
 
 
 ### refundStatus
-Refund status
+Check Refund status
 
 
 
@@ -390,7 +365,7 @@ customer.refundStatus( refundId,  orderId) {
 
 
 
-Use this API to fetch the refund status
+The Refund Status API returns the current status of a refund request based on business arrangements. The possible statuses include: - SUCCESS: The refund was processed successfully. - FAILED: The refund request failed. - PENDING: The refund request is still being processed and is awaiting completion.
 
 *Returned Response:*
 
@@ -481,7 +456,7 @@ Success. Returns a JSON object as shown below. Refer `RefundStatus` for more det
 
 
 ### getSchemes
-Fetch schemes
+Get schemes
 
 
 
@@ -500,7 +475,7 @@ customer.getSchemes(body body) {
 | body | [GetSchemesRequest](#GetSchemesRequest) | yes | Request body |
 
 
-Use this API to fetch available schemes for user order.
+The Schemes API returns Buy Now, Pay Later (BNPL) and EMI plans offered by lenders for the user. It provides details on available financing options, including terms and conditions for both BNPL and EMI arrangements.
 
 *Returned Response:*
 
@@ -643,10 +618,27 @@ Success. Returns a JSON object as shown below. Refer `EligibilitySuccess` for mo
 
 
 <details>
-<summary><i>&nbsp; $ref</i></summary>
+<summary><i>&nbsp; EligibilitySuccess</i></summary>
 
 ```json
-"#/components/examples/EligibilitySuccess"
+{
+  "value": {
+    "status": "ENABLED",
+    "message": "User is eligible to transact",
+    "redirectUrl": "https://account.potlee.co.in",
+    "creditLimit": [
+      {
+        "availableLimit": 300000,
+        "possibleLimit": 500000,
+        "lender": {
+          "slug": "ugro",
+          "name": "UGRO",
+          "logo": "https://cdn.pixelbin.io/v2/potlee/original/public/ugro/ugro_logo"
+        }
+      }
+    ]
+  }
+}
 ```
 </details>
 
@@ -664,7 +656,7 @@ Success. Returns a JSON object as shown below. Refer `EligibilitySuccess` for mo
 
 
 ### getRepaymentLink
-Repayment link
+Get Repayment link
 
 
 
@@ -683,7 +675,7 @@ customer.getRepaymentLink(body body) {
 | body | [RepaymentRequest](#RepaymentRequest) | yes | Request body |
 
 
-Use this API to get repayment link. User should be redirected to this URL to complete the repayment.
+The Repayment Link API generates a repayment link based on the current outstanding balance. The URL provided allows users to make payments and settle their outstanding amounts directly.
 
 *Returned Response:*
 
@@ -734,14 +726,14 @@ Success. The request has been processed successfully and the response contains t
 ---
 
 
-### getAll
+### getAllCustomer
 Get List of Users
 
 
 
 
 ```java
-customer.getAll( page,  limit,  name,  id,  mobile) {
+customer.getAllCustomer( page,  limit,  name,  mobile) {
   //use response
 }
 ```
@@ -754,7 +746,6 @@ customer.getAll( page,  limit,  name,  id,  mobile) {
 | page | Integer | yes | This is page number |   
 | limit | Integer | yes | This is no of transaction |   
 | name | String? | no | This is name for filter |   
-| id | String? | no | This is uuid for filter |   
 | mobile | String? | no | This is Mobile Number for filter |  
 
 
@@ -778,10 +769,24 @@ Success. Returns a JSON object as shown below. Refer `UserResponse` for more det
 
 
 <details>
-<summary><i>&nbsp; $ref</i></summary>
+<summary><i>&nbsp; UserExample</i></summary>
 
 ```json
-"#/components/examples/UserExample"
+{
+  "value": {
+    "gender": "male",
+    "active": true,
+    "profilePicUrl": "https://d2co8r51m5ca2d.cloudfront.net/inapp_banners/default_profile_img.png",
+    "id": "5e68af49cfa09bf7233022f1",
+    "firstName": "Akash",
+    "lastName": "Mane",
+    "mobile": "8652523958",
+    "countryCode": 91,
+    "email": "akashmane@gofynd.com",
+    "createdAt": "2020-03-11T09:28:41.982Z",
+    "updatedAt": "2021-02-04T10:10:44.981Z"
+  }
+}
 ```
 </details>
 
@@ -799,7 +804,7 @@ Success. Returns a JSON object as shown below. Refer `UserResponse` for more det
 
 
 ### addVintageData
-Add user vintage details.
+Add user vintage details
 
 
 
@@ -837,10 +842,20 @@ Success. Returns a JSON object as shown below. Refer `AddVintageResponse` for mo
 
 
 <details>
-<summary><i>&nbsp; $ref</i></summary>
+<summary><i>&nbsp; AddVintageResponse</i></summary>
 
 ```json
-"#/components/examples/AddVintageResponse"
+{
+  "value": {
+    "message": "Request Processed Successfully.",
+    "meta": {
+      "timestamp": "2024-07-10T13:56:46.396Z",
+      "version": "v1.0",
+      "product": "Settle Checkout"
+    },
+    "data": {}
+  }
+}
 ```
 </details>
 
@@ -2032,6 +2047,7 @@ Success. Returns a JSON object as shown below. Refer `AddVintageResponse` for mo
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | title | String |  no  |  |
+ | action | [ActionSchema](#ActionSchema)? |  yes  |  |
  | page | [PageSchema](#PageSchema) |  no  |  |
  | icon | String |  no  |  |
  | activeIcon | String |  no  |  |

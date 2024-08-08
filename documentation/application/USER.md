@@ -2845,6 +2845,7 @@ Success. Check the example shown below or refer `ProfileEditSuccess` for more de
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | title | String |  no  |  |
+ | action | [ActionSchema](#ActionSchema)? |  yes  |  |
  | page | [PageSchema](#PageSchema) |  no  |  |
  | icon | String |  no  |  |
  | activeIcon | String |  no  |  |

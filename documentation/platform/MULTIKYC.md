@@ -7,7 +7,6 @@
 ## MultiKyc Methods
 Will deprecate Hawkeye
 * [approvedLenders](#approvedlenders)
-* [getLimit](#getlimit)
 
 
 
@@ -42,59 +41,6 @@ multikyc.approvedLenders() {
 
 
 [ApprovedLendersTransaction](#ApprovedLendersTransaction)
-
-
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### getLimit
-Get limit
-
-
-
-
-```java
-multikyc.getLimit(body body) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| organizationId | String | yes |  |  
-| body | [GetLimitRequest](#GetLimitRequest) | yes | Request body |
-
-
-
-
-*Returned Response:*
-
-
-
-
-[IntgrCreditLimit](#IntgrCreditLimit)
 
 
 

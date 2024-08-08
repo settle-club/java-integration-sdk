@@ -3624,6 +3624,12 @@ public static class TabsSchema {
     
     
     
+    @JsonProperty("action")
+    private ActionSchema action;
+    
+    
+    
+    
     @JsonProperty("page")
     private PageSchema page;
     
@@ -9233,6 +9239,77 @@ public static class TransactionLoan {
     
     
     
+    @JsonProperty("dueDate")
+    private String dueDate;
+    
+    
+    
+    
+    @JsonProperty("repaidAmount")
+    private Double repaidAmount;
+    
+    
+    
+    
+    @JsonProperty("isSettled")
+    private Boolean isSettled;
+    
+    
+    
+    
+    @JsonProperty("emis")
+    private List<TransactionLoanEmi> emis;
+    
+    
+    
+    
+}
+
+/*
+    Model: TransactionLoanEmi
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TransactionLoanEmi {
+    
+    
+    
+    
+    @JsonProperty("amount")
+    private Double amount;
+    
+    
+    
+    
+    @JsonProperty("dueDate")
+    private String dueDate;
+    
+    
+    
+    
+    @JsonProperty("installmentNo")
+    private Integer installmentNo;
+    
+    
+    
+    
+    @JsonProperty("repaidAmount")
+    private Double repaidAmount;
+    
+    
+    
+    
+    @JsonProperty("isSettled")
+    private Boolean isSettled;
+    
+    
+    
+    
 }
 
 /*
@@ -9351,8 +9428,8 @@ public static class UserTransaction {
     
     
     
-    @JsonProperty("loan")
-    private TransactionLoan loan;
+    @JsonProperty("loans")
+    private List<TransactionLoan> loans;
     
     
     
@@ -21012,47 +21089,6 @@ public static class AutoPayStatusResponse {
     
     @JsonProperty("status")
     private String status;
-    
-    
-    
-    
-}
-
-/*
-    Model: MetaResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class MetaResponse {
-    
-    
-    
-    
-    @JsonProperty("timestamp")
-    private String timestamp;
-    
-    
-    
-    
-    @JsonProperty("version")
-    private String version;
-    
-    
-    
-    
-    @JsonProperty("product")
-    private String product;
-    
-    
-    
-    
-    @JsonProperty("requestId")
-    private String requestId;
     
     
     

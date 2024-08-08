@@ -22,6 +22,9 @@ interface CustomerApiList {
     
     
     
+    
+    
+    
     @POST ("/service/integration/user/authentication/{organizationId}/transaction")
     Call<PlatformModels.CreateTransactionSuccess> createOrder(@Path("organizationId") String  organizationId ,@Body PlatformModels.CreateTransaction payload);
     
@@ -112,11 +115,8 @@ interface CustomerApiList {
     
     
     
-    
-    
-    
     @GET ("/service/integration/user/authentication/{organizationId}/users")
-    Call<PlatformModels.UserResponse> getAll(@Path("organizationId") String  organizationId , @Query("page") Integer  page ,  @Query("limit") Integer  limit ,  @Query("name") String  name ,  @Query("id") String  id ,  @Query("mobile") String  mobile );
+    Call<PlatformModels.UserResponse> getAllCustomer(@Path("organizationId") String  organizationId , @Query("page") Integer  page ,  @Query("limit") Integer  limit ,  @Query("name") String  name ,  @Query("mobile") String  mobile );
     
     
     
@@ -188,8 +188,11 @@ interface CreditApiList {
     
     
     
+    
+    
+    
     @GET ("/service/integration/credit/summary/organization/{organizationId}/transactions")
-    Call<PlatformModels.GetTransactionsResponse> getTransactions(@Path("organizationId") String  organizationId , @Query("page") Integer  page ,  @Query("type") Object  type ,  @Query("status") Object  status ,  @Query("limit") Integer  limit ,  @Query("countryCode") String  countryCode ,  @Query("mobile") String  mobile ,  @Query("orderId") String  orderId ,  @Query("transactionId") String  transactionId ,  @Query("onlySelf") Boolean  onlySelf );
+    Call<PlatformModels.GetTransactionsResponse> getTransactions(@Path("organizationId") String  organizationId , @Query("mobile") String  mobile ,  @Query("countryCode") String  countryCode ,  @Query("page") Integer  page ,  @Query("limit") Integer  limit ,  @Query("orderId") String  orderId ,  @Query("transactionId") String  transactionId ,  @Query("type") Object  type ,  @Query("status") Object  status ,  @Query("onlySelf") Boolean  onlySelf ,  @Query("granularity") String  granularity );
     
 }
 
@@ -203,15 +206,6 @@ interface MultiKycApiList {
     
     @GET ("/service/integration/kyc-onboarding/bre/{organizationId}/approved-lenders")
     Call<PlatformModels.ApprovedLendersTransaction> approvedLenders(@Path("organizationId") Object  organizationId );
-    
-    
-    
-    
-    
-    
-    
-    @POST ("/service/integration/kyc-onboarding/credit/{organizationId}/limit")
-    Call<PlatformModels.IntgrCreditLimit> getLimit(@Path("organizationId") String  organizationId ,@Body PlatformModels.GetLimitRequest payload);
     
 }
 
@@ -260,7 +254,7 @@ interface PaymentsApiList {
     
     
     
-    @GET ("/service/integration/payments/repayment/:mobile/:organizationId/outstanding")
-    Call<PlatformModels.OutstandingDetailsResponse> getOutStandingDetails(@Path("mobile") String  mobile , @Path("organizationId") String  organizationId , @Query("lenderSlugs") List<String>  lenderSlugs );
+    @GET ("/service/integration/payments/repayment/{mobile}/{organizationId}/outstanding")
+    Call<PlatformModels.OutstandingDetailsResponse> getUserCreditSummary(@Path("mobile") String  mobile , @Path("organizationId") String  organizationId , @Query("lenderSlugs") List<String>  lenderSlugs );
     
 }
