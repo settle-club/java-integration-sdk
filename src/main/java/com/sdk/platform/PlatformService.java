@@ -264,8 +264,8 @@ public static class CustomerService {
     
     
     
-    public PlatformModels.UserResponse getAllCustomer(String organizationId , Integer page , Integer limit , String name , String mobile ) throws IOException {
-            Response<PlatformModels.UserResponse> response = customerApiList.getAllCustomer(organizationId  ,page , limit , name , mobile ).execute();
+    public PlatformModels.UserResponse getAllCustomers(String organizationId , Integer page , Integer limit , String name , String mobile ) throws IOException {
+            Response<PlatformModels.UserResponse> response = customerApiList.getAllCustomers(organizationId  ,page , limit , name , mobile ).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

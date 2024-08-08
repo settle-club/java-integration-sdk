@@ -15,7 +15,7 @@ Authentication Service
 * [getSchemes](#getschemes)
 * [checkEligibility](#checkeligibility)
 * [getRepaymentLink](#getrepaymentlink)
-* [getAllCustomer](#getallcustomer)
+* [getAllCustomers](#getallcustomers)
 * [addVintageData](#addvintagedata)
 
 
@@ -726,14 +726,14 @@ Success. The request has been processed successfully and the response contains t
 ---
 
 
-### getAllCustomer
+### getAllCustomers
 Get List of Users
 
 
 
 
 ```java
-customer.getAllCustomer( page,  limit,  name,  mobile) {
+customer.getAllCustomers( page,  limit,  name,  mobile) {
   //use response
 }
 ```
