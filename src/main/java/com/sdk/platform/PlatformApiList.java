@@ -161,6 +161,15 @@ interface CreditApiList {
     
     
     
+    @POST ("/service/integration/credit/orders/organization/{organizationId}/delivery-updates")
+    Call<PlatformModels.OrderDeliveryUpdatesResponse> updateOrderDeliveryStatus(@Path("organizationId") String  organizationId ,@Body PlatformModels.OrderDeliveryUpdatesBody payload);
+    
+    
+    
+    
+    
+    
+    
     
     
     
