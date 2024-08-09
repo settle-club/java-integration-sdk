@@ -5433,7 +5433,7 @@ This API retruns the credit insight screen.
       {
         "title": "Tips to improve your score",
         "type": "credit_insight_tips",
-        "url": "https://www.settle.club/faq",
+        "url": "https://settle.club/faq",
         "data": [
           {
             "title": "TIP #01",
@@ -5460,11 +5460,11 @@ This API retruns the credit insight screen.
       {
         "title": "FAQs",
         "type": "credit_insight_faqs",
-        "url": "https://www.settle.club/faq",
+        "url": "https://settle.club/faq",
         "data": [
           {
             "title": "How can I get a free credit report?",
-            "subtitle": "To obtain a free credit report, you can visit the website https://www.settle.club/credit-score. This website provides access to your credit report, which is a summary of your credit history and financial activities."
+            "subtitle": "To obtain a free credit report, you can visit the website https://settle.club/credit-score. This website provides access to your credit report, which is a summary of your credit history and financial activities."
           },
           {
             "title": "What variables go into calculating credit scores?",
@@ -5483,7 +5483,7 @@ This API retruns the credit insight screen.
       {
         "title": "Learn more",
         "type": "credit_insight_learn_more",
-        "url": "https://www.settle.club/faq",
+        "url": "https://settle.club/faq",
         "data": [
           {
             "title": "What happens if I pay more than the balance on my credit card?",
@@ -10482,7 +10482,6 @@ API endpoint to create a signed URL for uploading documents to and downloading d
  | ---------- | ---- | -------- | ----------- |
  | status | String |  no  |  |
  | info | String |  no  |  |
- | number | String |  no  |  |
  | details | Object? |  yes  |  |
  | name | String? |  yes  |  |
  | headers | HashMap<String,Object>? |  yes  |  |
@@ -10763,17 +10762,6 @@ API endpoint to create a signed URL for uploading documents to and downloading d
  | ---------- | ---- | -------- | ----------- |
  | status | String |  no  |  |
  | approvedLenders | ArrayList<[BreOutput](#BreOutput)>? |  yes  |  |
-
----
-
-
- 
- 
- #### [GetKycDocsResponse](#GetKycDocsResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | documents | ArrayList<[FindDocResponse](#FindDocResponse)> |  no  |  |
 
 ---
 

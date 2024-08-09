@@ -1471,7 +1471,6 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
  | ---------- | ---- | -------- | ----------- |
  | status | String |  no  |  |
  | info | String |  no  |  |
- | number | String |  no  |  |
  | details | Object? |  yes  |  |
  | name | String? |  yes  |  |
 
@@ -1750,17 +1749,6 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
  | ---------- | ---- | -------- | ----------- |
  | status | String |  no  |  |
  | approvedLenders | ArrayList<[BreOutput](#BreOutput)>? |  yes  |  |
-
----
-
-
- 
- 
- #### [GetKycDocsResponse](#GetKycDocsResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | documents | ArrayList<[FindDocResponse](#FindDocResponse)> |  no  |  |
 
 ---
 

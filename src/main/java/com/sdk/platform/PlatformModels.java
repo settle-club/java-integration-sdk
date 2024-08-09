@@ -3575,6 +3575,59 @@ public static class UpdateTips {
 }
 
 /*
+    Model: MerchantDetailsResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class MerchantDetailsResponse {
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("website")
+    private String website;
+    
+    
+    
+    
+    @JsonProperty("businessAddress")
+    private String businessAddress;
+    
+    
+    
+    
+    @JsonProperty("pincode")
+    private String pincode;
+    
+    
+    
+    
+    @JsonProperty("logo")
+    private String logo;
+    
+    
+    
+    
+    @JsonProperty("gst")
+    private String gst;
+    
+    
+    
+    
+}
+
+/*
     Model: NavigationsMobileResponse
 */
 @AllArgsConstructor
@@ -3597,12 +3650,6 @@ public static class NavigationsMobileResponse {
     
     @JsonProperty("profileSections")
     private List<ProfileSectionSchema> profileSections;
-    
-    
-    
-    
-    @JsonProperty("footer")
-    private Object footer;
     
     
     
@@ -5461,29 +5508,6 @@ public static class GetSchemesSuccess {
     
     @JsonProperty("lenders")
     private List<SchemeResponse> lenders;
-    
-    
-    
-    
-}
-
-/*
-    Model: ActiveEntityResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ActiveEntityResponse {
-    
-    
-    
-    
-    @JsonProperty("activeEntity")
-    private Object activeEntity;
     
     
     
@@ -7612,12 +7636,6 @@ public static class Transactions {
     
     
     
-    @JsonProperty("repaymentTransactionId")
-    private String repaymentTransactionId;
-    
-    
-    
-    
     @JsonProperty("nextDueDate")
     private String nextDueDate;
     
@@ -7756,52 +7774,6 @@ public static class TransactionResponse {
     
     @JsonProperty("transactions")
     private List<Transactions> transactions;
-    
-    
-    
-    
-}
-
-/*
-    Model: MerchantTransactions
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class MerchantTransactions {
-    
-    
-    
-    
-    @JsonProperty("outstandingAmount")
-    private String outstandingAmount;
-    
-    
-    
-    
-}
-
-/*
-    Model: MerchantTransactionSummary
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class MerchantTransactionSummary {
-    
-    
-    
-    
-    @JsonProperty("merchantOutstandingSummary")
-    private MerchantTransactions merchantOutstandingSummary;
     
     
     
@@ -9230,6 +9202,417 @@ public static class LenderCustomerTransactionMetricsRequest {
 }
 
 /*
+    Model: OrderShipmentAddressGeoLocation
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OrderShipmentAddressGeoLocation {
+    
+    
+    
+    
+    @JsonProperty("latitude")
+    private Double latitude;
+    
+    
+    
+    
+    @JsonProperty("longitude")
+    private Double longitude;
+    
+    
+    
+    
+}
+
+/*
+    Model: OrderShipmentAddress
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OrderShipmentAddress {
+    
+    
+    
+    
+    @JsonProperty("line1")
+    private String line1;
+    
+    
+    
+    
+    @JsonProperty("line2")
+    private String line2;
+    
+    
+    
+    
+    @JsonProperty("city")
+    private String city;
+    
+    
+    
+    
+    @JsonProperty("state")
+    private String state;
+    
+    
+    
+    
+    @JsonProperty("country")
+    private String country;
+    
+    
+    
+    
+    @JsonProperty("pincode")
+    private String pincode;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("geoLocation")
+    private OrderShipmentAddressGeoLocation geoLocation;
+    
+    
+    
+    
+}
+
+/*
+    Model: OrderShipmentItem
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OrderShipmentItem {
+    
+    
+    
+    
+    @JsonProperty("category")
+    private String category;
+    
+    
+    
+    
+    @JsonProperty("sku")
+    private String sku;
+    
+    
+    
+    
+    @JsonProperty("rate")
+    private Double rate;
+    
+    
+    
+    
+    @JsonProperty("quantity")
+    private Double quantity;
+    
+    
+    
+    
+}
+
+/*
+    Model: OrderShipment
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OrderShipment {
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("urn")
+    private String urn;
+    
+    
+    
+    
+    @JsonProperty("amount")
+    private Double amount;
+    
+    
+    
+    
+    @JsonProperty("timestamp")
+    private String timestamp;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("remark")
+    private String remark;
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<OrderShipmentItem> items;
+    
+    
+    
+    
+    @JsonProperty("shippingAddress")
+    private OrderShipmentAddress shippingAddress;
+    
+    
+    
+    
+    @JsonProperty("billingAddress")
+    private OrderShipmentAddress billingAddress;
+    
+    
+    
+    
+}
+
+/*
+    Model: OrderDeliveryUpdatesBody
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OrderDeliveryUpdatesBody {
+    
+    
+    
+    
+    @JsonProperty("orderId")
+    private String orderId;
+    
+    
+    
+    
+    @JsonProperty("transactionId")
+    private String transactionId;
+    
+    
+    
+    
+    @JsonProperty("includeSummary")
+    private Boolean includeSummary;
+    
+    
+    
+    
+    @JsonProperty("shipments")
+    private List<OrderShipment> shipments;
+    
+    
+    
+    
+}
+
+/*
+    Model: OrderShipmentSummary
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OrderShipmentSummary {
+    
+    
+    
+    
+    @JsonProperty("totalAmount")
+    private Double totalAmount;
+    
+    
+    
+    
+    @JsonProperty("processedAmount")
+    private Double processedAmount;
+    
+    
+    
+    
+    @JsonProperty("unprocessedAmount")
+    private Double unprocessedAmount;
+    
+    
+    
+    
+}
+
+/*
+    Model: OrderShipmentResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OrderShipmentResponse {
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("urn")
+    private String urn;
+    
+    
+    
+    
+    @JsonProperty("shipmentStatus")
+    private String shipmentStatus;
+    
+    
+    
+    
+    @JsonProperty("shipmentAmount")
+    private Double shipmentAmount;
+    
+    
+    
+    
+    @JsonProperty("processingStatus")
+    private String processingStatus;
+    
+    
+    
+    
+}
+
+/*
+    Model: OrderDeliveryUpdatesData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OrderDeliveryUpdatesData {
+    
+    
+    
+    
+    @JsonProperty("orderId")
+    private String orderId;
+    
+    
+    
+    
+    @JsonProperty("transactionId")
+    private String transactionId;
+    
+    
+    
+    
+    @JsonProperty("shipments")
+    private List<OrderShipmentResponse> shipments;
+    
+    
+    
+    
+    @JsonProperty("summary")
+    private OrderShipmentSummary summary;
+    
+    
+    
+    
+}
+
+/*
+    Model: OrderDeliveryUpdatesResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OrderDeliveryUpdatesResponse {
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private IntegrationResponseMeta meta;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private OrderDeliveryUpdatesData data;
+    
+    
+    
+    
+    @JsonProperty("errors")
+    private List<IntegrationResponseError> errors;
+    
+    
+    
+    
+}
+
+/*
     Model: TransactionOrder
 */
 @AllArgsConstructor
@@ -9675,417 +10058,6 @@ public static class SummaryRequest {
     
     @JsonProperty("type")
     private String type;
-    
-    
-    
-    
-}
-
-/*
-    Model: OrderShipmentAddressGeoLocation
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OrderShipmentAddressGeoLocation {
-    
-    
-    
-    
-    @JsonProperty("latitude")
-    private Double latitude;
-    
-    
-    
-    
-    @JsonProperty("longitude")
-    private Double longitude;
-    
-    
-    
-    
-}
-
-/*
-    Model: OrderShipmentAddress
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OrderShipmentAddress {
-    
-    
-    
-    
-    @JsonProperty("line1")
-    private String line1;
-    
-    
-    
-    
-    @JsonProperty("line2")
-    private String line2;
-    
-    
-    
-    
-    @JsonProperty("city")
-    private String city;
-    
-    
-    
-    
-    @JsonProperty("state")
-    private String state;
-    
-    
-    
-    
-    @JsonProperty("country")
-    private String country;
-    
-    
-    
-    
-    @JsonProperty("pincode")
-    private String pincode;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("geoLocation")
-    private OrderShipmentAddressGeoLocation geoLocation;
-    
-    
-    
-    
-}
-
-/*
-    Model: OrderShipmentItem
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OrderShipmentItem {
-    
-    
-    
-    
-    @JsonProperty("category")
-    private String category;
-    
-    
-    
-    
-    @JsonProperty("sku")
-    private String sku;
-    
-    
-    
-    
-    @JsonProperty("rate")
-    private Double rate;
-    
-    
-    
-    
-    @JsonProperty("quantity")
-    private Double quantity;
-    
-    
-    
-    
-}
-
-/*
-    Model: OrderShipment
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OrderShipment {
-    
-    
-    
-    
-    @JsonProperty("id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("urn")
-    private String urn;
-    
-    
-    
-    
-    @JsonProperty("amount")
-    private Double amount;
-    
-    
-    
-    
-    @JsonProperty("timestamp")
-    private String timestamp;
-    
-    
-    
-    
-    @JsonProperty("status")
-    private String status;
-    
-    
-    
-    
-    @JsonProperty("remark")
-    private String remark;
-    
-    
-    
-    
-    @JsonProperty("items")
-    private List<OrderShipmentItem> items;
-    
-    
-    
-    
-    @JsonProperty("shippingAddress")
-    private OrderShipmentAddress shippingAddress;
-    
-    
-    
-    
-    @JsonProperty("billingAddress")
-    private OrderShipmentAddress billingAddress;
-    
-    
-    
-    
-}
-
-/*
-    Model: OrderDeliveryUpdatesBody
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OrderDeliveryUpdatesBody {
-    
-    
-    
-    
-    @JsonProperty("orderId")
-    private String orderId;
-    
-    
-    
-    
-    @JsonProperty("transactionId")
-    private String transactionId;
-    
-    
-    
-    
-    @JsonProperty("includeSummary")
-    private Boolean includeSummary;
-    
-    
-    
-    
-    @JsonProperty("shipments")
-    private List<OrderShipment> shipments;
-    
-    
-    
-    
-}
-
-/*
-    Model: OrderShipmentSummary
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OrderShipmentSummary {
-    
-    
-    
-    
-    @JsonProperty("totalAmount")
-    private Double totalAmount;
-    
-    
-    
-    
-    @JsonProperty("processedAmount")
-    private Double processedAmount;
-    
-    
-    
-    
-    @JsonProperty("unprocessedAmount")
-    private Double unprocessedAmount;
-    
-    
-    
-    
-}
-
-/*
-    Model: OrderShipmentResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OrderShipmentResponse {
-    
-    
-    
-    
-    @JsonProperty("id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("urn")
-    private String urn;
-    
-    
-    
-    
-    @JsonProperty("shipmentStatus")
-    private String shipmentStatus;
-    
-    
-    
-    
-    @JsonProperty("shipmentAmount")
-    private Double shipmentAmount;
-    
-    
-    
-    
-    @JsonProperty("processingStatus")
-    private String processingStatus;
-    
-    
-    
-    
-}
-
-/*
-    Model: OrderDeliveryUpdatesData
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OrderDeliveryUpdatesData {
-    
-    
-    
-    
-    @JsonProperty("orderId")
-    private String orderId;
-    
-    
-    
-    
-    @JsonProperty("transactionId")
-    private String transactionId;
-    
-    
-    
-    
-    @JsonProperty("shipments")
-    private List<OrderShipmentResponse> shipments;
-    
-    
-    
-    
-    @JsonProperty("summary")
-    private OrderShipmentSummary summary;
-    
-    
-    
-    
-}
-
-/*
-    Model: OrderDeliveryUpdatesResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OrderDeliveryUpdatesResponse {
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-    
-    @JsonProperty("meta")
-    private IntegrationResponseMeta meta;
-    
-    
-    
-    
-    @JsonProperty("data")
-    private OrderDeliveryUpdatesData data;
-    
-    
-    
-    
-    @JsonProperty("errors")
-    private List<IntegrationResponseError> errors;
     
     
     
@@ -13451,12 +13423,6 @@ public static class FindDocResponse {
     
     
     
-    @JsonProperty("number")
-    private String number;
-    
-    
-    
-    
     @JsonProperty("details")
     private Object details;
     
@@ -14347,29 +14313,6 @@ public static class BreResultStatus {
     
     @JsonProperty("approvedLenders")
     private List<BreOutput> approvedLenders;
-    
-    
-    
-    
-}
-
-/*
-    Model: GetKycDocsResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetKycDocsResponse {
-    
-    
-    
-    
-    @JsonProperty("documents")
-    private List<FindDocResponse> documents;
     
     
     
@@ -20693,12 +20636,6 @@ public static class RepaymentUsingNetbanking {
     
     
     
-    @JsonProperty("transactionId")
-    private String transactionId;
-    
-    
-    
-    
 }
 
 /*
@@ -20765,12 +20702,6 @@ public static class RepaymentUsingUPI {
     
     @JsonProperty("chargeToken")
     private String chargeToken;
-    
-    
-    
-    
-    @JsonProperty("transactionId")
-    private String transactionId;
     
     
     
@@ -21599,47 +21530,6 @@ public static class PaymentOptionsResponse {
     
     @JsonProperty("paymentOptions")
     private List<PaymentsObject> paymentOptions;
-    
-    
-    
-    
-}
-
-/*
-    Model: CheckEMandateStatusRequest
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CheckEMandateStatusRequest {
-    
-    
-    
-    
-    @JsonProperty("orderId")
-    private String orderId;
-    
-    
-    
-    
-    @JsonProperty("paymentId")
-    private String paymentId;
-    
-    
-    
-    
-    @JsonProperty("scheduledEnd")
-    private String scheduledEnd;
-    
-    
-    
-    
-    @JsonProperty("ruleAmountValue")
-    private String ruleAmountValue;
     
     
     

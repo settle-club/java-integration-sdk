@@ -2030,13 +2030,28 @@ Success. Returns a JSON object as shown below. Refer `AddVintageResponse` for mo
 
  
  
+ #### [MerchantDetailsResponse](#MerchantDetailsResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String? |  yes  | Unique identifier for the business |
+ | website | String? |  yes  | Website URL of the business |
+ | businessAddress | String? |  yes  | Physical address of the business |
+ | pincode | String? |  yes  | Pincode for the business address |
+ | logo | String? |  yes  | URL to the business logo |
+ | gst | String? |  yes  | GST number of the business, can be null |
+
+---
+
+
+ 
+ 
  #### [NavigationsMobileResponse](#NavigationsMobileResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | tabs | ArrayList<[TabsSchema](#TabsSchema)> |  no  |  |
  | profileSections | ArrayList<[ProfileSectionSchema](#ProfileSectionSchema)> |  no  |  |
- | footer | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -2705,17 +2720,6 @@ Success. Returns a JSON object as shown below. Refer `AddVintageResponse` for mo
  | ---------- | ---- | -------- | ----------- |
  | userId | String? |  yes  |  |
  | lenders | ArrayList<[SchemeResponse](#SchemeResponse)> |  no  |  |
-
----
-
-
- 
- 
- #### [ActiveEntityResponse](#ActiveEntityResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | activeEntity | HashMap<String,Object>? |  yes  |  |
 
 ---
 

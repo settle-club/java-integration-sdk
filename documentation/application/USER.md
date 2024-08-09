@@ -19,7 +19,6 @@ Authentication Service
 * [getDataFromOnboardingToken](#getdatafromonboardingtoken)
 * [getMobileNumberFromLinkingToken](#getmobilenumberfromlinkingtoken)
 * [getSessionFromLinkingToken](#getsessionfromlinkingtoken)
-* [validateTransaction](#validatetransaction)
 * [saveUserConsents](#saveuserconsents)
 * [getMobileDashboard](#getmobiledashboard)
 * [getTips](#gettips)
@@ -30,11 +29,11 @@ Authentication Service
 * [getFaqs](#getfaqs)
 * [getFaqById](#getfaqbyid)
 * [verifyMagicLink](#verifymagiclink)
+* [getMerchantDetails](#getmerchantdetails)
 * [getMobileNavigations](#getmobilenavigations)
 * [getDesktopNavigations](#getdesktopnavigations)
 * [getUserState](#getuserstate)
 * [updateProfile](#updateprofile)
-* [switchActiveEntity](#switchactiveentity)
 
 
 
@@ -852,64 +851,6 @@ Success. Returns a JSON object as shown below. Refer `SessionFromLinkingResponse
 ---
 
 
-### validateTransaction
-Verify Transaction
-
-
-
-
-```java
-user.validateTransaction(body body) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- |
-| body | [InitiateTransactions](#InitiateTransactions) | yes | Request body |
-
-
-Use this API to verify the customer based on  mobile number and countryCode.
-
-*Returned Response:*
-
-
-
-
-[ValidateCustomerSuccess](#ValidateCustomerSuccess)
-
-Success. Returns a JSON object as shown below. Refer `ValidateCustomerSuccess` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; status</i></summary>
-
-```json
-"enabled"
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
 ### saveUserConsents
 Save user consents
 
@@ -1481,6 +1422,65 @@ Success. Returns a JSON object as shown below. Refer `VerifyMagicLinkResponse` f
 ---
 
 
+### getMerchantDetails
+Get Merchant Detials
+
+
+
+
+```java
+user.getMerchantDetails( merchantId) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| merchantId | String | yes | This is merchantId |  
+
+
+
+Use this API to get merchant related details for a user.
+
+*Returned Response:*
+
+
+
+
+[MerchantDetailsResponse](#MerchantDetailsResponse)
+
+Success. Check the example shown below or refer `MerchantDetailsResponse` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; $ref</i></summary>
+
+```json
+"#/components/examples/MerchantDetailsResponseExample"
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 ### getMobileNavigations
 Get Mobile Navigations
 
@@ -1705,60 +1705,6 @@ Success. Check the example shown below or refer `ProfileEditSuccess` for more de
     }
   }
 }
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### switchActiveEntity
-Switch Entity type or create new Entity
-
-
-
-
-```java
-user.switchActiveEntity() {
-  //use response
-}
-```
-
-
-
-
-Use this API to Switch Entity type or create new Entity.
-
-*Returned Response:*
-
-
-
-
-[ActiveEntityResponse](#ActiveEntityResponse)
-
-Success. Check the example shown below or refer `ActiveEntityResponse` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; $ref</i></summary>
-
-```json
-"#/components/examples/ActiveEntityResponseExample"
 ```
 </details>
 
@@ -2453,7 +2399,6 @@ Success. Check the example shown below or refer `ActiveEntityResponse` for more 
  | message | String |  no  | Message to be displayed to the user |
  | schemes | ArrayList<[SchemeResponse](#SchemeResponse)>? |  yes  | An array of possible schemes of lenders available for a transaction. |
  | limit | [LimitResponse](#LimitResponse)? |  yes  | Limit details of available and possible lenders for a transaction. |
- | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -2942,13 +2887,29 @@ Success. Check the example shown below or refer `ActiveEntityResponse` for more 
 
  
  
+ #### [MerchantDetailsResponse](#MerchantDetailsResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String? |  yes  | Unique identifier for the business |
+ | website | String? |  yes  | Website URL of the business |
+ | businessAddress | String? |  yes  | Physical address of the business |
+ | pincode | String? |  yes  | Pincode for the business address |
+ | logo | String? |  yes  | URL to the business logo |
+ | gst | String? |  yes  | GST number of the business, can be null |
+ | headers | HashMap<String,Object>? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [NavigationsMobileResponse](#NavigationsMobileResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | tabs | ArrayList<[TabsSchema](#TabsSchema)> |  no  |  |
  | profileSections | ArrayList<[ProfileSectionSchema](#ProfileSectionSchema)> |  no  |  |
- | footer | HashMap<String,Object>? |  yes  |  |
  | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
@@ -3626,18 +3587,6 @@ Success. Check the example shown below or refer `ActiveEntityResponse` for more 
  | ---------- | ---- | -------- | ----------- |
  | userId | String? |  yes  |  |
  | lenders | ArrayList<[SchemeResponse](#SchemeResponse)> |  no  |  |
-
----
-
-
- 
- 
- #### [ActiveEntityResponse](#ActiveEntityResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | activeEntity | HashMap<String,Object>? |  yes  |  |
- | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
