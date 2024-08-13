@@ -940,6 +940,7 @@ Success. Returns a JSON object as shown below. Refer `UserResponse` for more det
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | token | String |  no  |  |
+ | intent | String? |  yes  |  |
 
 ---
 
@@ -1370,7 +1371,11 @@ Success. Returns a JSON object as shown below. Refer `UserResponse` for more det
  | businessAddress | String? |  yes  | Physical address of the business |
  | pincode | String? |  yes  | Pincode for the business address |
  | logo | String? |  yes  | URL to the business logo |
- | gst | String? |  yes  | GST number of the business, can be null |
+ | gstIn | String? |  yes  | GST number of the business, can be null |
+ | businessName | String? |  yes  | Business name of the merchant |
+ | name | String? |  yes  | Name of the merchant |
+ | supportEmail | String? |  yes  | Support email of the merchant |
+ | description | String? |  yes  | Support email of the merchant |
 
 ---
 
@@ -1856,13 +1861,40 @@ Success. Returns a JSON object as shown below. Refer `UserResponse` for more det
 
  
  
- #### [UserResponse](#UserResponse)
+ #### [UserResponseMeta](#UserResponseMeta)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | timestamp | String |  no  | The timestamp when the response was generated. |
+ | version | String |  no  | The version of the API. |
+ | product | String |  no  | The name of the product or service. |
+ | requestId | String? |  yes  | An optional request identifier. |
+
+---
+
+
+ 
+ 
+ #### [UserResponseData](#UserResponseData)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | filters | ArrayList<[Filters](#Filters)> |  no  |  |
  | page | [PageResponse](#PageResponse) |  no  |  |
  | listOfUsers | ArrayList<[UserSchema](#UserSchema)> |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [UserResponse](#UserResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | message | String |  no  | Response message indicating the result of the operation. |
+ | meta | [UserResponseMeta](#UserResponseMeta) |  no  |  |
+ | data | [UserResponseData](#UserResponseData) |  no  |  |
  | headers | HashMap<String,Object>? |  yes  |  |
 
 ---

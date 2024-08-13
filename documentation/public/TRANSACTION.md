@@ -1482,9 +1482,11 @@ Success. Returns a JSON object as shown below. Refer `UniqueCustomersInOrg` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | totalAmount | Double |  no  | The total order amount. |
- | processedAmount | Double |  no  | The total processed amount. This is the sum of the amounts of all processed shipments. |
- | unprocessedAmount | Double |  no  | The total unprocessed amount. This is calculated as totalAmount - processedAmount. |
+ | orderAmount | Double |  no  | The total order amount. |
+ | capturedAmount | Double |  no  | The total captured amount. This is the sum of the amounts of all captured shipments. |
+ | uncapturedAmount | Double |  no  | The total uncaptured amount. This is calculated as totalAmount - capturedAmount. |
+ | capturedAmountForDisbursal | Double |  no  | The total amount captured for disbursal. This represents the sum of amounts from all shipments marked for disbursal. |
+ | capturedAmountForCancellation | Double |  no  | The total amount captured for cancellation. This aggregates the amounts from all shipments identified for cancellation. |
 
 ---
 
@@ -1513,7 +1515,7 @@ Success. Returns a JSON object as shown below. Refer `UniqueCustomersInOrg` for 
  | orderId | String |  no  | The unique identifier for the order. |
  | transactionId | String |  no  | The unique identifier for the order. |
  | shipments | ArrayList<[OrderShipmentResponse](#OrderShipmentResponse)> |  no  | The list of shipments for which the status was updated. |
- | summary | [OrderShipmentSummary](#OrderShipmentSummary) |  no  | A summary object containing various amounts related to the order. |
+ | summary | [OrderShipmentSummary](#OrderShipmentSummary)? |  yes  | A summary object containing various amounts related to the order. |
 
 ---
 
