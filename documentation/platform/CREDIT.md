@@ -180,7 +180,7 @@ credit.updateOrderDeliveryStatus(body body) {
 | body | [OrderDeliveryUpdatesBody](#OrderDeliveryUpdatesBody) | yes | Request body |
 
 
-Use this API to update the delivery status of an order using order ID or transaction ID, and to trigger loan disbursals based on defined configurations.
+This API updates an order's delivery status using the order ID or transaction ID and manages loan disbursal or cancellation following delivery. It is utilized when the system configuration is set to delay loan disbursal until after delivery, indicated by the 'DELAYED' type and 'DELIVERY' event. If 'delayDays' is set to 0, disbursal occurs within an hour after delivery. Additionally, this API facilitates loan cancellation through specific shipment statuses, offering a precise method for loan management based on delivery outcomes.
 
 *Returned Response:*
 
@@ -207,27 +207,29 @@ Success. Returns a JSON object as shown below. Refer `OrderDeliveryUpdatesRespon
     "message": "The request has been processed successfully.",
     "data": {
       "orderId": "ORD1234",
-      "transactionId": "ORD1234",
+      "transactionId": "TXN1234",
       "shipments": [
         {
-          "id": "ship1234",
-          "urn": "ship1234_0",
-          "shipmentStatus": "DELIVERED",
-          "shipmentAmount": 5000,
-          "processingStatus": "PROCESSED"
+          "id": "ship12345",
+          "urn": "ship12345_0",
+          "shipmentStatus": "CANCELLED",
+          "shipmentAmount": 100,
+          "processingStatus": "CAPTURED"
         },
         {
-          "id": "ship3245",
-          "urn": "ship3245_1",
-          "shipmentStatus": "CANCELLED",
-          "shipmentAmount": 2000,
-          "processingStatus": "PROCESSED"
+          "id": "ship12345",
+          "urn": "ship12345_1",
+          "shipmentStatus": "DELIVERED",
+          "shipmentAmount": 500,
+          "processingStatus": "CAPTURED"
         }
       ],
       "summary": {
-        "totalAmount": 10000,
-        "processedAmount": 7000,
-        "unprocessedAmount": 3000
+        "orderAmount": 600,
+        "capturedAmount": 600,
+        "uncapturedAmount": 0,
+        "capturedAmountForDisbursal": 500,
+        "capturedAmountForCancellation": 100
       }
     },
     "meta": {
@@ -1308,9 +1310,11 @@ Success. The request has been processed successfully and the response contains t
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | totalAmount | Double |  no  | The total order amount. |
- | processedAmount | Double |  no  | The total processed amount. This is the sum of the amounts of all processed shipments. |
- | unprocessedAmount | Double |  no  | The total unprocessed amount. This is calculated as totalAmount - processedAmount. |
+ | orderAmount | Double |  no  | The total order amount. |
+ | capturedAmount | Double |  no  | The total captured amount. This is the sum of the amounts of all captured shipments. |
+ | uncapturedAmount | Double |  no  | The total uncaptured amount. This is calculated as totalAmount - capturedAmount. |
+ | capturedAmountForDisbursal | Double |  no  | The total amount captured for disbursal. This represents the sum of amounts from all shipments marked for disbursal. |
+ | capturedAmountForCancellation | Double |  no  | The total amount captured for cancellation. This aggregates the amounts from all shipments identified for cancellation. |
 
 ---
 

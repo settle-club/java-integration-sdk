@@ -9487,20 +9487,32 @@ public static class OrderShipmentSummary {
     
     
     
-    @JsonProperty("totalAmount")
-    private Double totalAmount;
+    @JsonProperty("orderAmount")
+    private Double orderAmount;
     
     
     
     
-    @JsonProperty("processedAmount")
-    private Double processedAmount;
+    @JsonProperty("capturedAmount")
+    private Double capturedAmount;
     
     
     
     
-    @JsonProperty("unprocessedAmount")
-    private Double unprocessedAmount;
+    @JsonProperty("uncapturedAmount")
+    private Double uncapturedAmount;
+    
+    
+    
+    
+    @JsonProperty("capturedAmountForDisbursal")
+    private Double capturedAmountForDisbursal;
+    
+    
+    
+    
+    @JsonProperty("capturedAmountForCancellation")
+    private Double capturedAmountForCancellation;
     
     
     
@@ -18326,6 +18338,12 @@ public static class FinancialDetails {
     
     @JsonProperty("email")
     private String email;
+    
+    
+    
+    
+    @JsonProperty("supportEmail")
+    private String supportEmail;
     
     
     

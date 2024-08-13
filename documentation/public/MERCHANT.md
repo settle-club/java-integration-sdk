@@ -2761,6 +2761,7 @@ Success. Returns a JSON object as shown below. Refer `PaymentLinkResponse` for m
  | b2C | Boolean? |  yes  |  |
  | businessName | String? |  yes  |  |
  | email | String? |  yes  |  |
+ | supportEmail | String? |  yes  |  |
  | businessAddress | String? |  yes  |  |
  | pincode | String? |  yes  |  |
  | documents | ArrayList<[Documents](#Documents)>? |  yes  |  |

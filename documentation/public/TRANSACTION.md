@@ -1482,9 +1482,11 @@ Success. Returns a JSON object as shown below. Refer `UniqueCustomersInOrg` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | totalAmount | Double |  no  | The total order amount. |
- | processedAmount | Double |  no  | The total processed amount. This is the sum of the amounts of all processed shipments. |
- | unprocessedAmount | Double |  no  | The total unprocessed amount. This is calculated as totalAmount - processedAmount. |
+ | orderAmount | Double |  no  | The total order amount. |
+ | capturedAmount | Double |  no  | The total captured amount. This is the sum of the amounts of all captured shipments. |
+ | uncapturedAmount | Double |  no  | The total uncaptured amount. This is calculated as totalAmount - capturedAmount. |
+ | capturedAmountForDisbursal | Double |  no  | The total amount captured for disbursal. This represents the sum of amounts from all shipments marked for disbursal. |
+ | capturedAmountForCancellation | Double |  no  | The total amount captured for cancellation. This aggregates the amounts from all shipments identified for cancellation. |
 
 ---
 
