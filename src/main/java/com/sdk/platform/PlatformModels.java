@@ -3625,8 +3625,8 @@ public static class MerchantDetailsResponse {
     
     
     
-    @JsonProperty("gst")
-    private String gst;
+    @JsonProperty("gstIn")
+    private String gstIn;
     
     
     
@@ -3645,6 +3645,12 @@ public static class MerchantDetailsResponse {
     
     @JsonProperty("supportEmail")
     private String supportEmail;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
     
     
     
@@ -4935,7 +4941,7 @@ public static class PageResponse {
 }
 
 /*
-    Model: UserResponse
+    Model: UserResponseMeta
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -4944,7 +4950,48 @@ public static class PageResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UserResponse {
+public static class UserResponseMeta {
+    
+    
+    
+    
+    @JsonProperty("timestamp")
+    private String timestamp;
+    
+    
+    
+    
+    @JsonProperty("version")
+    private String version;
+    
+    
+    
+    
+    @JsonProperty("product")
+    private String product;
+    
+    
+    
+    
+    @JsonProperty("requestId")
+    private String requestId;
+    
+    
+    
+    
+}
+
+/*
+    Model: UserResponseData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UserResponseData {
     
     
     
@@ -4963,6 +5010,41 @@ public static class UserResponse {
     
     @JsonProperty("listOfUsers")
     private List<UserSchema> listOfUsers;
+    
+    
+    
+    
+}
+
+/*
+    Model: UserResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UserResponse {
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private UserResponseMeta meta;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private UserResponseData data;
     
     
     
@@ -18048,6 +18130,12 @@ public static class CreateOrganization {
     
     
     
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
     @JsonProperty("businessAddress")
     private String businessAddress;
     
@@ -18344,6 +18432,12 @@ public static class FinancialDetails {
     
     @JsonProperty("supportEmail")
     private String supportEmail;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
     
     
     

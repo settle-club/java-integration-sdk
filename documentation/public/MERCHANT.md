@@ -2655,6 +2655,7 @@ Success. Returns a JSON object as shown below. Refer `PaymentLinkResponse` for m
  | businessName | String? |  yes  |  |
  | email | String? |  yes  |  |
  | supportEmail | String? |  yes  |  |
+ | description | String? |  yes  |  |
  | businessAddress | String? |  yes  |  |
  | pincode | String? |  yes  |  |
  | b2B | Boolean? |  yes  |  |
@@ -2762,6 +2763,7 @@ Success. Returns a JSON object as shown below. Refer `PaymentLinkResponse` for m
  | businessName | String? |  yes  |  |
  | email | String? |  yes  |  |
  | supportEmail | String? |  yes  |  |
+ | description | String? |  yes  |  |
  | businessAddress | String? |  yes  |  |
  | pincode | String? |  yes  |  |
  | documents | ArrayList<[Documents](#Documents)>? |  yes  |  |

@@ -1515,7 +1515,7 @@ Success. Returns a JSON object as shown below. Refer `UniqueCustomersInOrg` for 
  | orderId | String |  no  | The unique identifier for the order. |
  | transactionId | String |  no  | The unique identifier for the order. |
  | shipments | ArrayList<[OrderShipmentResponse](#OrderShipmentResponse)> |  no  | The list of shipments for which the status was updated. |
- | summary | [OrderShipmentSummary](#OrderShipmentSummary) |  no  | A summary object containing various amounts related to the order. |
+ | summary | [OrderShipmentSummary](#OrderShipmentSummary)? |  yes  | A summary object containing various amounts related to the order. |
 
 ---
 
