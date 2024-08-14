@@ -184,7 +184,7 @@ Success. Returns a JSON object as shown below. Refer `UserResponse` for more det
 <summary><i>&nbsp; $ref</i></summary>
 
 ```json
-"#/components/examples/UserExample"
+"#/components/examples/UserResponseExample"
 ```
 </details>
 
@@ -1861,20 +1861,6 @@ Success. Returns a JSON object as shown below. Refer `UserResponse` for more det
 
  
  
- #### [UserResponseMeta](#UserResponseMeta)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | timestamp | String |  no  | The timestamp when the response was generated. |
- | version | String |  no  | The version of the API. |
- | product | String |  no  | The name of the product or service. |
- | requestId | String? |  yes  | An optional request identifier. |
-
----
-
-
- 
- 
  #### [UserResponseData](#UserResponseData)
 
  | Properties | Type | Nullable | Description |
@@ -1893,7 +1879,7 @@ Success. Returns a JSON object as shown below. Refer `UserResponse` for more det
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | message | String |  no  | Response message indicating the result of the operation. |
- | meta | [UserResponseMeta](#UserResponseMeta) |  no  |  |
+ | meta | [IntegrationResponseMeta](#IntegrationResponseMeta) |  no  |  |
  | data | [UserResponseData](#UserResponseData) |  no  |  |
  | headers | HashMap<String,Object>? |  yes  |  |
 

@@ -3396,20 +3396,6 @@ Success. Check the example shown below or refer `ProfileEditSuccess` for more de
 
  
  
- #### [UserResponseMeta](#UserResponseMeta)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | timestamp | String |  no  | The timestamp when the response was generated. |
- | version | String |  no  | The version of the API. |
- | product | String |  no  | The name of the product or service. |
- | requestId | String? |  yes  | An optional request identifier. |
-
----
-
-
- 
- 
  #### [UserResponseData](#UserResponseData)
 
  | Properties | Type | Nullable | Description |
@@ -3428,7 +3414,7 @@ Success. Check the example shown below or refer `ProfileEditSuccess` for more de
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | message | String |  no  | Response message indicating the result of the operation. |
- | meta | [UserResponseMeta](#UserResponseMeta) |  no  |  |
+ | meta | [IntegrationResponseMeta](#IntegrationResponseMeta) |  no  |  |
  | data | [UserResponseData](#UserResponseData) |  no  |  |
 
 ---

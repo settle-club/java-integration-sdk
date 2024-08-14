@@ -4941,47 +4941,6 @@ public static class PageResponse {
 }
 
 /*
-    Model: UserResponseMeta
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UserResponseMeta {
-    
-    
-    
-    
-    @JsonProperty("timestamp")
-    private String timestamp;
-    
-    
-    
-    
-    @JsonProperty("version")
-    private String version;
-    
-    
-    
-    
-    @JsonProperty("product")
-    private String product;
-    
-    
-    
-    
-    @JsonProperty("requestId")
-    private String requestId;
-    
-    
-    
-    
-}
-
-/*
     Model: UserResponseData
 */
 @AllArgsConstructor
@@ -5038,7 +4997,7 @@ public static class UserResponse {
     
     
     @JsonProperty("meta")
-    private UserResponseMeta meta;
+    private IntegrationResponseMeta meta;
     
     
     
