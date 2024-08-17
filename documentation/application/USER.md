@@ -2901,7 +2901,7 @@ Success. Check the example shown below or refer `ProfileEditSuccess` for more de
  | businessName | String? |  yes  | Business name of the merchant |
  | name | String? |  yes  | Name of the merchant |
  | supportEmail | String? |  yes  | Support email of the merchant |
- | description | String? |  yes  | Support email of the merchant |
+ | description | String? |  yes  | Description of the Merchant. |
  | headers | HashMap<String,Object>? |  yes  |  |
 
 ---

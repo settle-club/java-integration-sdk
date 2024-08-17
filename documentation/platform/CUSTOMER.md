@@ -2093,7 +2093,7 @@ Success. Returns a JSON object as shown below. Refer `AddVintageResponse` for mo
  | businessName | String? |  yes  | Business name of the merchant |
  | name | String? |  yes  | Name of the merchant |
  | supportEmail | String? |  yes  | Support email of the merchant |
- | description | String? |  yes  | Support email of the merchant |
+ | description | String? |  yes  | Description of the Merchant. |
 
 ---
 
