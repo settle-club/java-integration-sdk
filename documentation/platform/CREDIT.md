@@ -252,6 +252,37 @@ Success. Returns a JSON object as shown below. Refer `OrderDeliveryUpdatesRespon
 
 
 
+[OrderDeliveryUpdatesPartialResponse](#OrderDeliveryUpdatesPartialResponse)
+
+Partial Success. The request was successfully processed for some shipments, but not for others. The response includes detailed information about which parts of the request were successful and which were not.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; OrderDeliveryUpdatesPartialExample</i></summary>
+
+```json
+{
+  "$ref": "#/components/examples/OrderDeliveryUpdatesPartialExample"
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
 ---
 
 
@@ -1357,7 +1388,33 @@ Success. The request has been processed successfully and the response contains t
  | message | String |  no  | Response message indicating the result of the operation. |
  | meta | [IntegrationResponseMeta](#IntegrationResponseMeta) |  no  |  |
  | data | [OrderDeliveryUpdatesData](#OrderDeliveryUpdatesData) |  no  |  |
- | errors | ArrayList<[IntegrationResponseError](#IntegrationResponseError)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [OrderDeliveryUpdatesPartialResponse](#OrderDeliveryUpdatesPartialResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | message | String |  no  | Response message indicating the result of the operation. |
+ | meta | [IntegrationResponseMeta](#IntegrationResponseMeta) |  no  |  |
+ | data | [OrderDeliveryUpdatesData](#OrderDeliveryUpdatesData) |  no  |  |
+ | errors | ArrayList<[OrderDeliveryUpdatesError](#OrderDeliveryUpdatesError)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [OrderDeliveryUpdatesError](#OrderDeliveryUpdatesError)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | code | String |  no  | Error code representing the type of error. |
+ | message | String |  no  | A human-readable message providing more details about the error. |
+ | exception | String |  no  | The exception name or type. |
 
 ---
 
@@ -1505,6 +1562,62 @@ Success. The request has been processed successfully and the response contains t
  | endDate | String? |  yes  |  |
  | merchantId | String? |  yes  |  |
  | type | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [RegisterTransaction](#RegisterTransaction)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | intent | String? |  yes  |  |
+ | disbursalData | HashMap<String,Object>? |  yes  |  |
+ | token | String |  no  |  |
+ | remark | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [RegisterTransactionResponseData](#RegisterTransactionResponseData)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | isExistingOrder | Boolean? |  yes  | Indicates whether the order already exists. |
+ | transaction | Object? |  yes  | The transaction details, which is unkown. |
+ | action | Boolean? |  yes  |  |
+ | status | String? |  yes  | The status of the transaction. |
+ | message | String? |  yes  | A message related to the transaction status. |
+
+---
+
+
+ 
+ 
+ #### [RegisterTransactionResponseResult](#RegisterTransactionResponseResult)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | redirectUrl | String? |  yes  | URL to redirect the user to, if applicable. |
+
+---
+
+
+ 
+ 
+ #### [RegisterTransactionResponse](#RegisterTransactionResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | result | [RegisterTransactionResponseResult](#RegisterTransactionResponseResult)? |  yes  |  |
+ | action | HashMap<String,Object>? |  yes  | An object for future use, currently empty. |
+ | data | [RegisterTransactionResponseData](#RegisterTransactionResponseData)? |  yes  |  |
+ | transactionId | String? |  yes  | The unique identifier of the transaction. |
+ | status | String? |  yes  | The status of the user related to the payment process. |
+ | message | String? |  yes  | A message related to the user status. |
 
 ---
 

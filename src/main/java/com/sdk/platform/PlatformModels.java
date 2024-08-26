@@ -9681,8 +9681,78 @@ public static class OrderDeliveryUpdatesResponse {
     
     
     
+}
+
+/*
+    Model: OrderDeliveryUpdatesPartialResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OrderDeliveryUpdatesPartialResponse {
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private IntegrationResponseMeta meta;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private OrderDeliveryUpdatesData data;
+    
+    
+    
+    
     @JsonProperty("errors")
-    private List<IntegrationResponseError> errors;
+    private List<OrderDeliveryUpdatesError> errors;
+    
+    
+    
+    
+}
+
+/*
+    Model: OrderDeliveryUpdatesError
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OrderDeliveryUpdatesError {
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("exception")
+    private String exception;
     
     
     
@@ -10135,6 +10205,170 @@ public static class SummaryRequest {
     
     @JsonProperty("type")
     private String type;
+    
+    
+    
+    
+}
+
+/*
+    Model: RegisterTransaction
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RegisterTransaction {
+    
+    
+    
+    
+    @JsonProperty("intent")
+    private String intent;
+    
+    
+    
+    
+    @JsonProperty("disbursalData")
+    private HashMap<String,Object> disbursalData;
+    
+    
+    
+    
+    @JsonProperty("token")
+    private String token;
+    
+    
+    
+    
+    @JsonProperty("remark")
+    private String remark;
+    
+    
+    
+    
+}
+
+/*
+    Model: RegisterTransactionResponseData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RegisterTransactionResponseData {
+    
+    
+    
+    
+    @JsonProperty("isExistingOrder")
+    private Boolean isExistingOrder;
+    
+    
+    
+    
+    @JsonProperty("transaction")
+    private Object transaction;
+    
+    
+    
+    
+    @JsonProperty("action")
+    private Boolean action;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+}
+
+/*
+    Model: RegisterTransactionResponseResult
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RegisterTransactionResponseResult {
+    
+    
+    
+    
+    @JsonProperty("redirectUrl")
+    private String redirectUrl;
+    
+    
+    
+    
+}
+
+/*
+    Model: RegisterTransactionResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RegisterTransactionResponse {
+    
+    
+    
+    
+    @JsonProperty("result")
+    private RegisterTransactionResponseResult result;
+    
+    
+    
+    
+    @JsonProperty("action")
+    private Object action;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private RegisterTransactionResponseData data;
+    
+    
+    
+    
+    @JsonProperty("transactionId")
+    private String transactionId;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
     
     
     
@@ -13255,6 +13489,41 @@ public static class RetriggerLenderOnboardRequest {
     
     @JsonProperty("stepId")
     private String stepId;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private Object data;
+    
+    
+    
+    
+}
+
+/*
+    Model: RetriggerLenderOnboardRequestV2
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RetriggerLenderOnboardRequestV2 {
+    
+    
+    
+    
+    @JsonProperty("lenderUserId")
+    private String lenderUserId;
+    
+    
+    
+    
+    @JsonProperty("stepName")
+    private String stepName;
     
     
     
@@ -20737,6 +21006,12 @@ public static class RepaymentUsingNetbanking {
     
     
     
+    @JsonProperty("transactionId")
+    private String transactionId;
+    
+    
+    
+    
 }
 
 /*
@@ -20803,6 +21078,12 @@ public static class RepaymentUsingUPI {
     
     @JsonProperty("chargeToken")
     private String chargeToken;
+    
+    
+    
+    
+    @JsonProperty("transactionId")
+    private String transactionId;
     
     
     
@@ -21631,6 +21912,47 @@ public static class PaymentOptionsResponse {
     
     @JsonProperty("paymentOptions")
     private List<PaymentsObject> paymentOptions;
+    
+    
+    
+    
+}
+
+/*
+    Model: CheckEMandateStatusRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CheckEMandateStatusRequest {
+    
+    
+    
+    
+    @JsonProperty("orderId")
+    private String orderId;
+    
+    
+    
+    
+    @JsonProperty("paymentId")
+    private String paymentId;
+    
+    
+    
+    
+    @JsonProperty("scheduledEnd")
+    private String scheduledEnd;
+    
+    
+    
+    
+    @JsonProperty("ruleAmountValue")
+    private String ruleAmountValue;
     
     
     
