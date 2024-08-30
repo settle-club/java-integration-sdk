@@ -792,6 +792,85 @@ Success. Returns a JSON object as shown below. Refer `UniqueCustomersInOrg` for 
 
  
  
+ #### [GroupedEmiLoanAccount](#GroupedEmiLoanAccount)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | loanAccountNumber | String |  no  |  |
+ | kfs | String? |  yes  |  |
+ | sanctionLetter | String? |  yes  |  |
+ | remark | String? |  yes  |  |
+ | createdAt | String |  no  |  |
+ | updatedAt | String |  no  |  |
+ | amount | Double |  no  |  |
+ | repaidAmount | Double |  no  |  |
+ | paid | Boolean |  no  |  |
+ | overdue | Boolean |  no  |  |
+ | repaymentDate | String? |  yes  |  |
+ | paidPercent | Double |  no  |  |
+ | lenderDetail | ArrayList<[LenderDetail](#LenderDetail)> |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [GroupedEmi](#GroupedEmi)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String? |  yes  |  |
+ | installmentno | Double? |  yes  |  |
+ | amount | Double? |  yes  |  |
+ | dueDate | String? |  yes  |  |
+ | referenceTransactionId | String? |  yes  |  |
+ | createdAt | String? |  yes  |  |
+ | updatedAt | String? |  yes  |  |
+ | paid | Boolean? |  yes  |  |
+ | overdue | Boolean? |  yes  |  |
+ | repaymentDate | String? |  yes  |  |
+ | paidPercent | Double? |  yes  |  |
+ | loanAccounts | [GroupedEmiLoanAccount](#GroupedEmiLoanAccount)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [TransactionDetails](#TransactionDetails)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String |  no  |  |
+ | userId | String |  no  |  |
+ | partnerId | String |  no  |  |
+ | partner | String |  no  |  |
+ | partnerLogo | String |  no  |  |
+ | status | String |  no  |  |
+ | type | String? |  yes  |  |
+ | remark | String? |  yes  |  |
+ | amount | Double |  no  |  |
+ | loanAccountNumber | String? |  yes  |  |
+ | kfs | String? |  yes  |  |
+ | utr | String? |  yes  |  |
+ | sanctionLetter | String? |  yes  |  |
+ | orderId | String? |  yes  |  |
+ | refundId | String? |  yes  |  |
+ | createdAt | String |  no  |  |
+ | lenderId | String? |  yes  |  |
+ | lenderName | String? |  yes  |  |
+ | lenderLogo | String? |  yes  |  |
+ | loanType | String? |  yes  |  |
+ | nextDueDate | String? |  yes  |  |
+ | paidPercent | Double? |  yes  |  |
+ | lenderDetail | [LenderDetail](#LenderDetail)? |  yes  |  |
+ | emis | ArrayList<[GroupedEmi](#GroupedEmi)>? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [LenderDetail](#LenderDetail)
 
  | Properties | Type | Nullable | Description |
@@ -1529,7 +1608,47 @@ Success. Returns a JSON object as shown below. Refer `UniqueCustomersInOrg` for 
  | message | String |  no  | Response message indicating the result of the operation. |
  | meta | [IntegrationResponseMeta](#IntegrationResponseMeta) |  no  |  |
  | data | [OrderDeliveryUpdatesData](#OrderDeliveryUpdatesData) |  no  |  |
- | errors | ArrayList<[IntegrationResponseError](#IntegrationResponseError)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [OrderDeliveryUpdatesPartialResponse](#OrderDeliveryUpdatesPartialResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | message | String |  no  | Response message indicating the result of the operation. |
+ | meta | [IntegrationResponseMeta](#IntegrationResponseMeta) |  no  |  |
+ | data | [OrderDeliveryUpdatesData](#OrderDeliveryUpdatesData) |  no  |  |
+ | errors | ArrayList<[OrderDeliveryUpdatesError](#OrderDeliveryUpdatesError)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [OrderDeliveryUpdatesError](#OrderDeliveryUpdatesError)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | code | String |  no  | Error code representing the type of error. |
+ | message | String |  no  | A human-readable message providing more details about the error. |
+ | exception | String |  no  | The exception name or type. |
+
+---
+
+
+ 
+ 
+ #### [TransactionOrderSummary](#TransactionOrderSummary)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | capturedAmount | Double |  no  | The total captured amount. This is the sum of the amounts of all captured shipments. |
+ | uncapturedAmount | Double |  no  | The total uncaptured amount. This is calculated as totalAmount - capturedAmount. |
+ | capturedAmountForDisbursal | Double |  no  | The total amount captured for disbursal. This represents the sum of amounts from all shipments marked for disbursal. |
+ | capturedAmountForCancellation | Double |  no  | The total amount captured for cancellation. This aggregates the amounts from all shipments identified for cancellation. |
 
 ---
 
@@ -1542,6 +1661,7 @@ Success. Returns a JSON object as shown below. Refer `UniqueCustomersInOrg` for 
  | ---------- | ---- | -------- | ----------- |
  | id | String |  no  | Unique identifier of the order. |
  | amount | Double |  no  | Total amount of the order. |
+ | summary | [TransactionOrderSummary](#TransactionOrderSummary)? |  yes  |  |
 
 ---
 
@@ -1677,6 +1797,62 @@ Success. Returns a JSON object as shown below. Refer `UniqueCustomersInOrg` for 
  | endDate | String? |  yes  |  |
  | merchantId | String? |  yes  |  |
  | type | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [RegisterTransaction](#RegisterTransaction)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | intent | String? |  yes  |  |
+ | disbursalData | HashMap<String,Object>? |  yes  |  |
+ | token | String |  no  |  |
+ | remark | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [RegisterTransactionResponseData](#RegisterTransactionResponseData)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | isExistingOrder | Boolean? |  yes  | Indicates whether the order already exists. |
+ | transaction | Object? |  yes  | The transaction details, which is unkown. |
+ | action | Boolean? |  yes  |  |
+ | status | String? |  yes  | The status of the transaction. |
+ | message | String? |  yes  | A message related to the transaction status. |
+
+---
+
+
+ 
+ 
+ #### [RegisterTransactionResponseResult](#RegisterTransactionResponseResult)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | redirectUrl | String? |  yes  | URL to redirect the user to, if applicable. |
+
+---
+
+
+ 
+ 
+ #### [RegisterTransactionResponse](#RegisterTransactionResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | result | [RegisterTransactionResponseResult](#RegisterTransactionResponseResult)? |  yes  |  |
+ | action | HashMap<String,Object>? |  yes  | An object for future use, currently empty. |
+ | data | [RegisterTransactionResponseData](#RegisterTransactionResponseData)? |  yes  |  |
+ | transactionId | String? |  yes  | The unique identifier of the transaction. |
+ | status | String? |  yes  | The status of the user related to the payment process. |
+ | message | String? |  yes  | A message related to the user status. |
 
 ---
 

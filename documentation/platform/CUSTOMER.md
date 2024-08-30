@@ -769,22 +769,71 @@ Success. Returns a JSON object as shown below. Refer `UserResponse` for more det
 
 
 <details>
-<summary><i>&nbsp; UserExample</i></summary>
+<summary><i>&nbsp; UserResponseExample</i></summary>
 
 ```json
 {
-  "value": {
-    "gender": "male",
-    "active": true,
-    "profilePicUrl": "https://d2co8r51m5ca2d.cloudfront.net/inapp_banners/default_profile_img.png",
-    "id": "5e68af49cfa09bf7233022f1",
-    "firstName": "Akash",
-    "lastName": "Mane",
-    "mobile": "8652523958",
-    "countryCode": 91,
-    "email": "akashmane@gofynd.com",
-    "createdAt": "2020-03-11T09:28:41.982Z",
-    "updatedAt": "2021-02-04T10:10:44.981Z"
+  "message": "The request has been processed successfully.",
+  "data": {
+    "listOfUsers": [
+      {
+        "id": "07c5e487-e017-43b7-9c4e-e8f4010b4f88",
+        "firstName": "Avula",
+        "lastName": "Josh",
+        "gender": "male",
+        "dob": "2004-05-08",
+        "email": "1020d1b57b16aa0d4edcbe7e97557ada4eb7b015b448073bc8c684dffc7a4db6",
+        "mobile": "df20c2fc3c0a4df8429a598c61975a04",
+        "profilePictureUrl": null,
+        "active": true,
+        "createdAt": "2024-06-23T09:12:05.274Z",
+        "updatedAt": "2024-06-23T10:06:26.258Z"
+      }
+    ],
+    "page": {
+      "type": "number",
+      "current": 1,
+      "hasPrevious": false,
+      "hasNext": false,
+      "size": null,
+      "itemTotal": 178
+    },
+    "filters": [
+      {
+        "key": {
+          "display": "Search",
+          "name": "search",
+          "kind": "multivalued"
+        },
+        "values": [
+          {
+            "display": "Name",
+            "isSelected": false,
+            "value": "FIRSTNAME"
+          },
+          {
+            "display": "Name",
+            "isSelected": false,
+            "value": "LASTNAME"
+          },
+          {
+            "display": "Id",
+            "isSelected": false,
+            "value": "ID"
+          },
+          {
+            "display": "Mobile",
+            "isSelected": false,
+            "value": "MOBILE"
+          }
+        ]
+      }
+    ]
+  },
+  "meta": {
+    "timestamp": "2024-08-14T05:23:51.794Z",
+    "version": "v1.0",
+    "product": "Settle Checkout"
   }
 }
 ```
@@ -2044,7 +2093,7 @@ Success. Returns a JSON object as shown below. Refer `AddVintageResponse` for mo
  | businessName | String? |  yes  | Business name of the merchant |
  | name | String? |  yes  | Name of the merchant |
  | supportEmail | String? |  yes  | Support email of the merchant |
- | description | String? |  yes  | Support email of the merchant |
+ | description | String? |  yes  | Description of the Merchant. |
 
 ---
 
@@ -2530,20 +2579,6 @@ Success. Returns a JSON object as shown below. Refer `AddVintageResponse` for mo
 
  
  
- #### [UserResponseMeta](#UserResponseMeta)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | timestamp | String |  no  | The timestamp when the response was generated. |
- | version | String |  no  | The version of the API. |
- | product | String |  no  | The name of the product or service. |
- | requestId | String? |  yes  | An optional request identifier. |
-
----
-
-
- 
- 
  #### [UserResponseData](#UserResponseData)
 
  | Properties | Type | Nullable | Description |
@@ -2562,7 +2597,7 @@ Success. Returns a JSON object as shown below. Refer `AddVintageResponse` for mo
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | message | String |  no  | Response message indicating the result of the operation. |
- | meta | [UserResponseMeta](#UserResponseMeta) |  no  |  |
+ | meta | [IntegrationResponseMeta](#IntegrationResponseMeta) |  no  |  |
  | data | [UserResponseData](#UserResponseData) |  no  |  |
 
 ---
