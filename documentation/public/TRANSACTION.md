@@ -100,7 +100,7 @@ Get List of transactions
 
 
 ```java
-transaction.getAllTransactionsCSV( status,  page,  type,  limit,  id,  orderId,  name,  mobile,  userId) {
+transaction.getAllTransactionsCSV( status,  type,  id,  orderId,  startDate,  endDate) {
   //use response
 }
 ```
@@ -110,15 +110,12 @@ transaction.getAllTransactionsCSV( status,  page,  type,  limit,  id,  orderId, 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
 | status | Double? | no | This is page number |   
-| page | Double? | no | This is page number |   
 | type | List<String>? | no | This is transaction type |   
-| limit | Double? | no | This is no of transaction |   
 | organizationId | String | yes | This is the organization ID |   
 | id | String? | no | This is the search term |   
 | orderId | String? | no | This is the search term |   
-| name | String? | no | This is the search term |   
-| mobile | String? | no | This is the search term |   
-| userId | String? | no | This is the user id |  
+| startDate | String? | no | This is used to filter from date |   
+| endDate | String? | no | This is used to filter till date |  
 
 
 

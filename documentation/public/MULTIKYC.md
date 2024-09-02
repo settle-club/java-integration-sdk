@@ -240,7 +240,7 @@ Get available limit
 
 
 ```java
-multikyc.getAvailableLimit( lenderSlug,  entityId) {
+multikyc.getAvailableLimit( lenderSlug,  entityId,  merchantId) {
   //use response
 }
 ```
@@ -250,7 +250,8 @@ multikyc.getAvailableLimit( lenderSlug,  entityId) {
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
 | lenderSlug | String | yes |  |   
-| entityId | String | yes |  |  
+| entityId | String | yes |  |   
+| merchantId | String? | no |  |  
 
 
 

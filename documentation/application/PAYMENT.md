@@ -18,6 +18,7 @@ KYC Service
 * [repaymentUsingUPI](#repaymentusingupi)
 * [checkPaymentStatus](#checkpaymentstatus)
 * [getOutstandingAmount](#getoutstandingamount)
+* [getOutstandingAmountByEntityMapId](#getoutstandingamountbyentitymapid)
 
 
 
@@ -697,6 +698,63 @@ payment.getOutstandingAmount( lenderSlug,  viewType,  leadId) {
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
 | lenderSlug | String | yes | This is lender slug |   
+| viewType | String | yes | This is lender slug |   
+| leadId | String? | no | This is TRXN Id, to be used for single TRXN repayment |  
+
+
+
+Use this API to get Outstanding amount for repayment
+
+*Returned Response:*
+
+
+
+
+[OutstandingDetail](#OutstandingDetail)
+
+Success. Returns a JSON object as shown below. Refer `OutstandingDetail` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
+  "outstanding": "100"
+}
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getOutstandingAmountByEntityMapId
+Get Outstanding amount for repayment
+
+
+
+
+```java
+payment.getOutstandingAmountByEntityMapId( entityMapId,  viewType,  leadId) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| entityMapId | String | yes | This is entity map id |   
 | viewType | String | yes | This is lender slug |   
 | leadId | String? | no | This is TRXN Id, to be used for single TRXN repayment |  
 
