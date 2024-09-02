@@ -1368,19 +1368,6 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
 
  
  
- #### [RetriggerLenderOnboardRequestV2](#RetriggerLenderOnboardRequestV2)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | lenderUserId | String |  no  |  |
- | stepName | String |  no  |  |
- | data | Object |  no  |  |
-
----
-
-
- 
- 
  #### [BusinessDetail](#BusinessDetail)
 
  | Properties | Type | Nullable | Description |
