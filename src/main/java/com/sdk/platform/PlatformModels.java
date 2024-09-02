@@ -7728,351 +7728,6 @@ public static class Transactions {
 }
 
 /*
-    Model: GroupedEmiLoanAccount
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GroupedEmiLoanAccount {
-    
-    
-    
-    
-    @JsonProperty("loanAccountNumber")
-    private String loanAccountNumber;
-    
-    
-    
-    
-    @JsonProperty("kfs")
-    private String kfs;
-    
-    
-    
-    
-    @JsonProperty("sanctionLetter")
-    private String sanctionLetter;
-    
-    
-    
-    
-    @JsonProperty("remark")
-    private String remark;
-    
-    
-    
-    
-    @JsonProperty("createdAt")
-    private String createdAt;
-    
-    
-    
-    
-    @JsonProperty("updatedAt")
-    private String updatedAt;
-    
-    
-    
-    
-    @JsonProperty("amount")
-    private Double amount;
-    
-    
-    
-    
-    @JsonProperty("repaidAmount")
-    private Double repaidAmount;
-    
-    
-    
-    
-    @JsonProperty("paid")
-    private Boolean paid;
-    
-    
-    
-    
-    @JsonProperty("overdue")
-    private Boolean overdue;
-    
-    
-    
-    
-    @JsonProperty("repaymentDate")
-    private String repaymentDate;
-    
-    
-    
-    
-    @JsonProperty("paidPercent")
-    private Double paidPercent;
-    
-    
-    
-    
-    @JsonProperty("lenderDetail")
-    private LenderDetail lenderDetail;
-    
-    
-    
-    
-}
-
-/*
-    Model: GroupedEmi
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GroupedEmi {
-    
-    
-    
-    
-    @JsonProperty("id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("installmentno")
-    private Double installmentno;
-    
-    
-    
-    
-    @JsonProperty("amount")
-    private Double amount;
-    
-    
-    
-    
-    @JsonProperty("dueDate")
-    private String dueDate;
-    
-    
-    
-    
-    @JsonProperty("referenceTransactionId")
-    private String referenceTransactionId;
-    
-    
-    
-    
-    @JsonProperty("createdAt")
-    private String createdAt;
-    
-    
-    
-    
-    @JsonProperty("updatedAt")
-    private String updatedAt;
-    
-    
-    
-    
-    @JsonProperty("paid")
-    private Boolean paid;
-    
-    
-    
-    
-    @JsonProperty("overdue")
-    private Boolean overdue;
-    
-    
-    
-    
-    @JsonProperty("repaymentDate")
-    private String repaymentDate;
-    
-    
-    
-    
-    @JsonProperty("paidPercent")
-    private Double paidPercent;
-    
-    
-    
-    
-    @JsonProperty("loanAccounts")
-    private List<GroupedEmiLoanAccount> loanAccounts;
-    
-    
-    
-    
-}
-
-/*
-    Model: TransactionDetails
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TransactionDetails {
-    
-    
-    
-    
-    @JsonProperty("id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("userId")
-    private String userId;
-    
-    
-    
-    
-    @JsonProperty("partnerId")
-    private String partnerId;
-    
-    
-    
-    
-    @JsonProperty("partner")
-    private String partner;
-    
-    
-    
-    
-    @JsonProperty("partnerLogo")
-    private String partnerLogo;
-    
-    
-    
-    
-    @JsonProperty("status")
-    private String status;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("remark")
-    private String remark;
-    
-    
-    
-    
-    @JsonProperty("amount")
-    private Double amount;
-    
-    
-    
-    
-    @JsonProperty("loanAccountNumber")
-    private String loanAccountNumber;
-    
-    
-    
-    
-    @JsonProperty("kfs")
-    private String kfs;
-    
-    
-    
-    
-    @JsonProperty("utr")
-    private String utr;
-    
-    
-    
-    
-    @JsonProperty("sanctionLetter")
-    private String sanctionLetter;
-    
-    
-    
-    
-    @JsonProperty("orderId")
-    private String orderId;
-    
-    
-    
-    
-    @JsonProperty("refundId")
-    private String refundId;
-    
-    
-    
-    
-    @JsonProperty("createdAt")
-    private String createdAt;
-    
-    
-    
-    
-    @JsonProperty("lenderId")
-    private String lenderId;
-    
-    
-    
-    
-    @JsonProperty("lenderName")
-    private String lenderName;
-    
-    
-    
-    
-    @JsonProperty("lenderLogo")
-    private String lenderLogo;
-    
-    
-    
-    
-    @JsonProperty("loanType")
-    private String loanType;
-    
-    
-    
-    
-    @JsonProperty("nextDueDate")
-    private String nextDueDate;
-    
-    
-    
-    
-    @JsonProperty("paidPercent")
-    private Double paidPercent;
-    
-    
-    
-    
-    @JsonProperty("lenderDetail")
-    private LenderDetail lenderDetail;
-    
-    
-    
-    
-    @JsonProperty("emis")
-    private List<GroupedEmi> emis;
-    
-    
-    
-    
-}
-
-/*
     Model: LenderDetail
 */
 @AllArgsConstructor
@@ -10105,47 +9760,6 @@ public static class OrderDeliveryUpdatesError {
 }
 
 /*
-    Model: TransactionOrderSummary
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TransactionOrderSummary {
-    
-    
-    
-    
-    @JsonProperty("capturedAmount")
-    private Double capturedAmount;
-    
-    
-    
-    
-    @JsonProperty("uncapturedAmount")
-    private Double uncapturedAmount;
-    
-    
-    
-    
-    @JsonProperty("capturedAmountForDisbursal")
-    private Double capturedAmountForDisbursal;
-    
-    
-    
-    
-    @JsonProperty("capturedAmountForCancellation")
-    private Double capturedAmountForCancellation;
-    
-    
-    
-    
-}
-
-/*
     Model: TransactionOrder
 */
 @AllArgsConstructor
@@ -10168,12 +9782,6 @@ public static class TransactionOrder {
     
     @JsonProperty("amount")
     private Double amount;
-    
-    
-    
-    
-    @JsonProperty("summary")
-    private TransactionOrderSummary summary;
     
     
     
@@ -10747,12 +10355,6 @@ public static class RegisterTransaction {
     
     
     
-    @JsonProperty("disbursalData")
-    private HashMap<String,Object> disbursalData;
-    
-    
-    
-    
     @JsonProperty("token")
     private String token;
     
@@ -10848,6 +10450,94 @@ public static class RegisterTransactionResponseResult {
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class RegisterTransactionResponse {
+    
+    
+    
+    
+    @JsonProperty("result")
+    private RegisterTransactionResponseResult result;
+    
+    
+    
+    
+    @JsonProperty("action")
+    private Object action;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private RegisterTransactionResponseData data;
+    
+    
+    
+    
+    @JsonProperty("transactionId")
+    private String transactionId;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+}
+
+/*
+    Model: UpdateTransactionRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UpdateTransactionRequest {
+    
+    
+    
+    
+    @JsonProperty("intent")
+    private String intent;
+    
+    
+    
+    
+    @JsonProperty("token")
+    private String token;
+    
+    
+    
+    
+    @JsonProperty("remark")
+    private String remark;
+    
+    
+    
+    
+}
+
+/*
+    Model: UpdateTransactionResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UpdateTransactionResponse {
     
     
     
@@ -14010,47 +13700,6 @@ public static class RetriggerLenderOnboardRequest {
     
     @JsonProperty("data")
     private Object data;
-    
-    
-    
-    
-}
-
-/*
-    Model: RetriggerLenderOnboardRequestV2
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RetriggerLenderOnboardRequestV2 {
-    
-    
-    
-    
-    @JsonProperty("lenderUserId")
-    private String lenderUserId;
-    
-    
-    
-    
-    @JsonProperty("stepName")
-    private String stepName;
-    
-    
-    
-    
-    @JsonProperty("data")
-    private Object data;
-    
-    
-    
-    
-    @JsonProperty("entityMapId")
-    private String entityMapId;
     
     
     

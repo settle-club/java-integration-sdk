@@ -109,7 +109,7 @@ transaction.getAllTransactionsCSV( status,  type,  id,  orderId,  startDate,  en
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| status | Double? | no | This is page number |   
+| status | List<String>? | no | This is transaction status |   
 | type | List<String>? | no | This is transaction type |   
 | organizationId | String | yes | This is the organization ID |   
 | id | String? | no | This is the search term |   
@@ -784,85 +784,6 @@ Success. Returns a JSON object as shown below. Refer `UniqueCustomersInOrg` for 
  | paidPercent | Double? |  yes  |  |
  | lenderDetail | [LenderDetail](#LenderDetail)? |  yes  |  |
  | emis | ArrayList<[Emi](#Emi)>? |  yes  |  |
-
----
-
-
- 
- 
- #### [GroupedEmiLoanAccount](#GroupedEmiLoanAccount)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | loanAccountNumber | String |  no  |  |
- | kfs | String? |  yes  |  |
- | sanctionLetter | String? |  yes  |  |
- | remark | String? |  yes  |  |
- | createdAt | String |  no  |  |
- | updatedAt | String |  no  |  |
- | amount | Double |  no  |  |
- | repaidAmount | Double |  no  |  |
- | paid | Boolean |  no  |  |
- | overdue | Boolean |  no  |  |
- | repaymentDate | String? |  yes  |  |
- | paidPercent | Double |  no  |  |
- | lenderDetail | [LenderDetail](#LenderDetail) |  no  |  |
-
----
-
-
- 
- 
- #### [GroupedEmi](#GroupedEmi)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | id | String? |  yes  |  |
- | installmentno | Double? |  yes  |  |
- | amount | Double? |  yes  |  |
- | dueDate | String? |  yes  |  |
- | referenceTransactionId | String? |  yes  |  |
- | createdAt | String? |  yes  |  |
- | updatedAt | String? |  yes  |  |
- | paid | Boolean? |  yes  |  |
- | overdue | Boolean? |  yes  |  |
- | repaymentDate | String? |  yes  |  |
- | paidPercent | Double? |  yes  |  |
- | loanAccounts | ArrayList<[GroupedEmiLoanAccount](#GroupedEmiLoanAccount)>? |  yes  |  |
-
----
-
-
- 
- 
- #### [TransactionDetails](#TransactionDetails)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | id | String |  no  |  |
- | userId | String |  no  |  |
- | partnerId | String |  no  |  |
- | partner | String |  no  |  |
- | partnerLogo | String |  no  |  |
- | status | String |  no  |  |
- | type | String? |  yes  |  |
- | remark | String? |  yes  |  |
- | amount | Double |  no  |  |
- | loanAccountNumber | String? |  yes  |  |
- | kfs | String? |  yes  |  |
- | utr | String? |  yes  |  |
- | sanctionLetter | String? |  yes  |  |
- | orderId | String? |  yes  |  |
- | refundId | String? |  yes  |  |
- | createdAt | String |  no  |  |
- | lenderId | String? |  yes  |  |
- | lenderName | String? |  yes  |  |
- | lenderLogo | String? |  yes  |  |
- | loanType | String? |  yes  |  |
- | nextDueDate | String? |  yes  |  |
- | paidPercent | Double? |  yes  |  |
- | lenderDetail | [LenderDetail](#LenderDetail)? |  yes  |  |
- | emis | ArrayList<[GroupedEmi](#GroupedEmi)>? |  yes  |  |
 
 ---
 
@@ -1639,27 +1560,12 @@ Success. Returns a JSON object as shown below. Refer `UniqueCustomersInOrg` for 
 
  
  
- #### [TransactionOrderSummary](#TransactionOrderSummary)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | capturedAmount | Double |  no  | The total captured amount. This is the sum of the amounts of all captured shipments. |
- | uncapturedAmount | Double |  no  | The total uncaptured amount. This is calculated as totalAmount - capturedAmount. |
- | capturedAmountForDisbursal | Double |  no  | The total amount captured for disbursal. This represents the sum of amounts from all shipments marked for disbursal. |
- | capturedAmountForCancellation | Double |  no  | The total amount captured for cancellation. This aggregates the amounts from all shipments identified for cancellation. |
-
----
-
-
- 
- 
  #### [TransactionOrder](#TransactionOrder)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | id | String |  no  | Unique identifier of the order. |
  | amount | Double |  no  | Total amount of the order. |
- | summary | [TransactionOrderSummary](#TransactionOrderSummary)? |  yes  |  |
 
 ---
 
@@ -1848,7 +1754,6 @@ Success. Returns a JSON object as shown below. Refer `UniqueCustomersInOrg` for 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | intent | String? |  yes  |  |
- | disbursalData | HashMap<String,Object>? |  yes  |  |
  | token | String |  no  |  |
  | remark | String? |  yes  |  |
 
@@ -1884,6 +1789,35 @@ Success. Returns a JSON object as shown below. Refer `UniqueCustomersInOrg` for 
  
  
  #### [RegisterTransactionResponse](#RegisterTransactionResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | result | [RegisterTransactionResponseResult](#RegisterTransactionResponseResult)? |  yes  |  |
+ | action | HashMap<String,Object>? |  yes  | An object for future use, currently empty. |
+ | data | [RegisterTransactionResponseData](#RegisterTransactionResponseData)? |  yes  |  |
+ | transactionId | String? |  yes  | The unique identifier of the transaction. |
+ | status | String? |  yes  | The status of the user related to the payment process. |
+ | message | String? |  yes  | A message related to the user status. |
+
+---
+
+
+ 
+ 
+ #### [UpdateTransactionRequest](#UpdateTransactionRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | intent | String |  no  |  |
+ | token | String |  no  |  |
+ | remark | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [UpdateTransactionResponse](#UpdateTransactionResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
