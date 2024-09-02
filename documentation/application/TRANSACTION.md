@@ -10,7 +10,6 @@ Transaction Service
 * [plans](#plans)
 * [kfs](#kfs)
 * [registerTransaction](#registertransaction)
-* [updateTransaction](#updatetransaction)
 * [listOfTransactions](#listoftransactions)
 * [loadTransactionById](#loadtransactionbyid)
 
@@ -254,64 +253,6 @@ true
 ---
 
 
-### updateTransaction
-Store Transaction & Order in DB
-
-
-
-
-```java
-transaction.updateTransaction(body body) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- |
-| body | [UpdateTransactionRequest](#UpdateTransactionRequest) | yes | Request body |
-
-
-Use this API to update Transaction & Order in FAILED | CANCELLED states.
-
-*Returned Response:*
-
-
-
-
-[UpdateTransactionResponse](#UpdateTransactionResponse)
-
-Success. Returns a JSON object as shown below. Refer `UpdateTransactionResponse` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; success</i></summary>
-
-```json
-true
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
 ### listOfTransactions
 Get List of transactions
 
@@ -377,7 +318,7 @@ Success. Returns a JSON object as shown below. Refer `TransactionResponse` for m
 
 
 ### loadTransactionById
-Get List of transactions
+Get transaction details
 
 
 
@@ -396,16 +337,16 @@ transaction.loadTransactionById( transactionId) {
 
 
 
-Use this API to get list of user's transaction.
+Use this API to get transaction details by transaction id.
 
 *Returned Response:*
 
 
 
 
-[Transactions](#Transactions)
+[TransactionDetails](#TransactionDetails)
 
-Success. Returns a JSON object as shown below. Refer `Transactions` for more details.
+Success. Returns a JSON object as shown below. Refer `TransactionDetails` for more details.
 
 
 
@@ -652,6 +593,85 @@ Success. Returns a JSON object as shown below. Refer `Transactions` for more det
  | paidPercent | Double? |  yes  |  |
  | lenderDetail | [LenderDetail](#LenderDetail)? |  yes  |  |
  | emis | ArrayList<[Emi](#Emi)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [GroupedEmiLoanAccount](#GroupedEmiLoanAccount)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | loanAccountNumber | String |  no  |  |
+ | kfs | String? |  yes  |  |
+ | sanctionLetter | String? |  yes  |  |
+ | remark | String? |  yes  |  |
+ | createdAt | String |  no  |  |
+ | updatedAt | String |  no  |  |
+ | amount | Double |  no  |  |
+ | repaidAmount | Double |  no  |  |
+ | paid | Boolean |  no  |  |
+ | overdue | Boolean |  no  |  |
+ | repaymentDate | String? |  yes  |  |
+ | paidPercent | Double |  no  |  |
+ | lenderDetail | [LenderDetail](#LenderDetail) |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [GroupedEmi](#GroupedEmi)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String? |  yes  |  |
+ | installmentno | Double? |  yes  |  |
+ | amount | Double? |  yes  |  |
+ | dueDate | String? |  yes  |  |
+ | referenceTransactionId | String? |  yes  |  |
+ | createdAt | String? |  yes  |  |
+ | updatedAt | String? |  yes  |  |
+ | paid | Boolean? |  yes  |  |
+ | overdue | Boolean? |  yes  |  |
+ | repaymentDate | String? |  yes  |  |
+ | paidPercent | Double? |  yes  |  |
+ | loanAccounts | ArrayList<[GroupedEmiLoanAccount](#GroupedEmiLoanAccount)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [TransactionDetails](#TransactionDetails)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String |  no  |  |
+ | userId | String |  no  |  |
+ | partnerId | String |  no  |  |
+ | partner | String |  no  |  |
+ | partnerLogo | String |  no  |  |
+ | status | String |  no  |  |
+ | type | String? |  yes  |  |
+ | remark | String? |  yes  |  |
+ | amount | Double |  no  |  |
+ | loanAccountNumber | String? |  yes  |  |
+ | kfs | String? |  yes  |  |
+ | utr | String? |  yes  |  |
+ | sanctionLetter | String? |  yes  |  |
+ | orderId | String? |  yes  |  |
+ | refundId | String? |  yes  |  |
+ | createdAt | String |  no  |  |
+ | lenderId | String? |  yes  |  |
+ | lenderName | String? |  yes  |  |
+ | lenderLogo | String? |  yes  |  |
+ | loanType | String? |  yes  |  |
+ | nextDueDate | String? |  yes  |  |
+ | paidPercent | Double? |  yes  |  |
+ | lenderDetail | [LenderDetail](#LenderDetail)? |  yes  |  |
+ | emis | ArrayList<[GroupedEmi](#GroupedEmi)>? |  yes  |  |
  | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
@@ -1424,12 +1444,27 @@ Success. Returns a JSON object as shown below. Refer `Transactions` for more det
 
  
  
+ #### [TransactionOrderSummary](#TransactionOrderSummary)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | capturedAmount | Double |  no  | The total captured amount. This is the sum of the amounts of all captured shipments. |
+ | uncapturedAmount | Double |  no  | The total uncaptured amount. This is calculated as totalAmount - capturedAmount. |
+ | capturedAmountForDisbursal | Double |  no  | The total amount captured for disbursal. This represents the sum of amounts from all shipments marked for disbursal. |
+ | capturedAmountForCancellation | Double |  no  | The total amount captured for cancellation. This aggregates the amounts from all shipments identified for cancellation. |
+
+---
+
+
+ 
+ 
  #### [TransactionOrder](#TransactionOrder)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | id | String |  no  | Unique identifier of the order. |
  | amount | Double |  no  | Total amount of the order. |
+ | summary | [TransactionOrderSummary](#TransactionOrderSummary)? |  yes  |  |
 
 ---
 
@@ -1557,6 +1592,48 @@ Success. Returns a JSON object as shown below. Refer `Transactions` for more det
 
  
  
+ #### [SettlementTransactions](#SettlementTransactions)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String? |  yes  | Unique identifier for the transaction. |
+ | utr | String? |  yes  | Unique transaction reference number. |
+ | amount | Double? |  yes  | The amount involved in the transaction. |
+ | settlementStatus | String? |  yes  | Status of the transaction. |
+ | orderId | String? |  yes  | Identifier for the associated order. |
+ | createdAt | String? |  yes  | The time the transaction occurred |
+ | settlementTime | String? |  yes  | The time the transaction settles and transaction status updated |
+
+---
+
+
+ 
+ 
+ #### [GetSettlementTransactionsData](#GetSettlementTransactionsData)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | transactions | ArrayList<[SettlementTransactions](#SettlementTransactions)> |  no  |  |
+ | page | [Pagination](#Pagination) |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [GetSettlementTransactionsResponse](#GetSettlementTransactionsResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | message | String |  no  | Response message indicating the result of the operation. |
+ | meta | [IntegrationResponseMeta](#IntegrationResponseMeta) |  no  |  |
+ | data | [GetSettlementTransactionsData](#GetSettlementTransactionsData) |  no  |  |
+
+---
+
+
+ 
+ 
  #### [SummaryRequest](#SummaryRequest)
 
  | Properties | Type | Nullable | Description |
@@ -1576,8 +1653,8 @@ Success. Returns a JSON object as shown below. Refer `Transactions` for more det
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | intent | String? |  yes  |  |
- | onboardingToken | String? |  yes  |  |
- | chargeToken | String? |  yes  |  |
+ | disbursalData | HashMap<String,Object>? |  yes  |  |
+ | token | String |  no  |  |
  | remark | String? |  yes  |  |
 
 ---
@@ -1612,36 +1689,6 @@ Success. Returns a JSON object as shown below. Refer `Transactions` for more det
  
  
  #### [RegisterTransactionResponse](#RegisterTransactionResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | result | [RegisterTransactionResponseResult](#RegisterTransactionResponseResult)? |  yes  |  |
- | action | HashMap<String,Object>? |  yes  | An object for future use, currently empty. |
- | data | [RegisterTransactionResponseData](#RegisterTransactionResponseData)? |  yes  |  |
- | transactionId | String? |  yes  | The unique identifier of the transaction. |
- | status | String? |  yes  | The status of the user related to the payment process. |
- | message | String? |  yes  | A message related to the user status. |
- | headers | HashMap<String,Object>? |  yes  |  |
-
----
-
-
- 
- 
- #### [UpdateTransactionRequest](#UpdateTransactionRequest)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | intent | String |  no  |  |
- | token | String |  no  |  |
- | remark | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [UpdateTransactionResponse](#UpdateTransactionResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |

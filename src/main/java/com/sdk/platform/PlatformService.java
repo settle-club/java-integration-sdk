@@ -495,6 +495,51 @@ public static class CreditService {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.GetSettlementTransactionsResponse getSettledTransactions(String organizationId , Integer page , Integer limit , String orderId , String transactionId , String startDate , String endDate ) throws IOException {
+            Response<PlatformModels.GetSettlementTransactionsResponse> response = creditApiList.getSettledTransactions(organizationId  ,page , limit , orderId , transactionId , startDate , endDate ).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+    }
+    
+    
+    
 
 
 public class ApplicationClient {
@@ -510,6 +555,8 @@ public class ApplicationClient {
         this.organizationId = this.platformConfig.getOrganizationId();
     }
 
+    
+    
     
     
     
