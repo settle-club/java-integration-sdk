@@ -7903,6 +7903,12 @@ public static class GroupedEmi {
     
     
     
+    @JsonProperty("repaidAmount")
+    private Double repaidAmount;
+    
+    
+    
+    
     @JsonProperty("loanAccounts")
     private List<GroupedEmiLoanAccount> loanAccounts;
     

@@ -696,6 +696,7 @@ Success. Returns a JSON object as shown below. Refer `TransactionDetails` for mo
  | overdue | Boolean? |  yes  |  |
  | repaymentDate | String? |  yes  |  |
  | paidPercent | Double? |  yes  |  |
+ | repaidAmount | Double? |  yes  |  |
  | loanAccounts | ArrayList<[GroupedEmiLoanAccount](#GroupedEmiLoanAccount)>? |  yes  |  |
 
 ---

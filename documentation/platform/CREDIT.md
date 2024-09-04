@@ -797,6 +797,7 @@ Success. The request has been processed successfully and the response contains t
  | overdue | Boolean? |  yes  |  |
  | repaymentDate | String? |  yes  |  |
  | paidPercent | Double? |  yes  |  |
+ | repaidAmount | Double? |  yes  |  |
  | loanAccounts | ArrayList<[GroupedEmiLoanAccount](#GroupedEmiLoanAccount)>? |  yes  |  |
 
 ---
