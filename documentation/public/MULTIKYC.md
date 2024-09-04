@@ -240,7 +240,7 @@ Get available limit
 
 
 ```java
-multikyc.getAvailableLimit( lenderSlug,  entityId) {
+multikyc.getAvailableLimit( lenderSlug,  entityId,  merchantId) {
   //use response
 }
 ```
@@ -250,7 +250,8 @@ multikyc.getAvailableLimit( lenderSlug,  entityId) {
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
 | lenderSlug | String | yes |  |   
-| entityId | String | yes |  |  
+| entityId | String | yes |  |   
+| merchantId | String? | no |  |  
 
 
 
@@ -1362,6 +1363,20 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
  | ---------- | ---- | -------- | ----------- |
  | stepId | String |  no  |  |
  | data | Object |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [RetriggerLenderOnboardRequestV2](#RetriggerLenderOnboardRequestV2)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | lenderUserId | String |  no  |  |
+ | stepName | String |  no  |  |
+ | data | Object |  no  |  |
+ | entityMapId | String |  no  |  |
 
 ---
 
