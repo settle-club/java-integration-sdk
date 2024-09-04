@@ -1848,7 +1848,6 @@ Success. Returns a JSON object as shown below. Refer `UniqueCustomersInOrg` for 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | intent | String? |  yes  |  |
- | disbursalData | HashMap<String,Object>? |  yes  |  |
  | token | String |  no  |  |
  | remark | String? |  yes  |  |
 
@@ -1884,6 +1883,35 @@ Success. Returns a JSON object as shown below. Refer `UniqueCustomersInOrg` for 
  
  
  #### [RegisterTransactionResponse](#RegisterTransactionResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | result | [RegisterTransactionResponseResult](#RegisterTransactionResponseResult)? |  yes  |  |
+ | action | HashMap<String,Object>? |  yes  | An object for future use, currently empty. |
+ | data | [RegisterTransactionResponseData](#RegisterTransactionResponseData)? |  yes  |  |
+ | transactionId | String? |  yes  | The unique identifier of the transaction. |
+ | status | String? |  yes  | The status of the user related to the payment process. |
+ | message | String? |  yes  | A message related to the user status. |
+
+---
+
+
+ 
+ 
+ #### [UpdateTransactionRequest](#UpdateTransactionRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | intent | String |  no  |  |
+ | token | String |  no  |  |
+ | remark | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [UpdateTransactionResponse](#UpdateTransactionResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |

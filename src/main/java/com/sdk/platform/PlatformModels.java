@@ -10747,12 +10747,6 @@ public static class RegisterTransaction {
     
     
     
-    @JsonProperty("disbursalData")
-    private HashMap<String,Object> disbursalData;
-    
-    
-    
-    
     @JsonProperty("token")
     private String token;
     
@@ -10848,6 +10842,94 @@ public static class RegisterTransactionResponseResult {
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class RegisterTransactionResponse {
+    
+    
+    
+    
+    @JsonProperty("result")
+    private RegisterTransactionResponseResult result;
+    
+    
+    
+    
+    @JsonProperty("action")
+    private Object action;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private RegisterTransactionResponseData data;
+    
+    
+    
+    
+    @JsonProperty("transactionId")
+    private String transactionId;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+}
+
+/*
+    Model: UpdateTransactionRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UpdateTransactionRequest {
+    
+    
+    
+    
+    @JsonProperty("intent")
+    private String intent;
+    
+    
+    
+    
+    @JsonProperty("token")
+    private String token;
+    
+    
+    
+    
+    @JsonProperty("remark")
+    private String remark;
+    
+    
+    
+    
+}
+
+/*
+    Model: UpdateTransactionResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UpdateTransactionResponse {
     
     
     

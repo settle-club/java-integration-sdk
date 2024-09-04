@@ -10,6 +10,7 @@ Transaction Service
 * [plans](#plans)
 * [kfs](#kfs)
 * [registerTransaction](#registertransaction)
+* [updateTransaction](#updatetransaction)
 * [listOfTransactions](#listoftransactions)
 * [loadTransactionById](#loadtransactionbyid)
 
@@ -224,6 +225,64 @@ Use this API to store Transaction & Order in PENDING | FAILED | CANCELLED states
 [RegisterTransactionResponse](#RegisterTransactionResponse)
 
 Success. Returns a JSON object as shown below. Refer `RegisterTransactionResponse` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; success</i></summary>
+
+```json
+true
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### updateTransaction
+Store Transaction & Order in DB
+
+
+
+
+```java
+transaction.updateTransaction(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- |
+| body | [UpdateTransactionRequest](#UpdateTransactionRequest) | yes | Request body |
+
+
+Use this API to update Transaction & Order in FAILED | CANCELLED states.
+
+*Returned Response:*
+
+
+
+
+[UpdateTransactionResponse](#UpdateTransactionResponse)
+
+Success. Returns a JSON object as shown below. Refer `UpdateTransactionResponse` for more details.
 
 
 
@@ -1653,7 +1712,6 @@ Success. Returns a JSON object as shown below. Refer `TransactionDetails` for mo
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | intent | String? |  yes  |  |
- | disbursalData | HashMap<String,Object>? |  yes  |  |
  | token | String |  no  |  |
  | remark | String? |  yes  |  |
 
@@ -1689,6 +1747,36 @@ Success. Returns a JSON object as shown below. Refer `TransactionDetails` for mo
  
  
  #### [RegisterTransactionResponse](#RegisterTransactionResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | result | [RegisterTransactionResponseResult](#RegisterTransactionResponseResult)? |  yes  |  |
+ | action | HashMap<String,Object>? |  yes  | An object for future use, currently empty. |
+ | data | [RegisterTransactionResponseData](#RegisterTransactionResponseData)? |  yes  |  |
+ | transactionId | String? |  yes  | The unique identifier of the transaction. |
+ | status | String? |  yes  | The status of the user related to the payment process. |
+ | message | String? |  yes  | A message related to the user status. |
+ | headers | HashMap<String,Object>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [UpdateTransactionRequest](#UpdateTransactionRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | intent | String |  no  |  |
+ | token | String |  no  |  |
+ | remark | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [UpdateTransactionResponse](#UpdateTransactionResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
