@@ -8076,6 +8076,134 @@ public static class TransactionDetails {
     
     
     
+    @JsonProperty("summary")
+    private TransactionSummary summary;
+    
+    
+    
+    
+}
+
+/*
+    Model: TransactionSummary
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TransactionSummary {
+    
+    
+    
+    
+    @JsonProperty("capturedAmount")
+    private Double capturedAmount;
+    
+    
+    
+    
+    @JsonProperty("uncapturedAmount")
+    private Double uncapturedAmount;
+    
+    
+    
+    
+    @JsonProperty("capturedAmountForDisbursal")
+    private Double capturedAmountForDisbursal;
+    
+    
+    
+    
+    @JsonProperty("capturedAmountForCancellation")
+    private Double capturedAmountForCancellation;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private List<TransactionSummaryData> data;
+    
+    
+    
+    
+}
+
+/*
+    Model: TransactionSummaryData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TransactionSummaryData {
+    
+    
+    
+    
+    @JsonProperty("display")
+    private TransactionSummaryDataDisplay display;
+    
+    
+    
+    
+}
+
+/*
+    Model: TransactionSummaryDataDisplay
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TransactionSummaryDataDisplay {
+    
+    
+    
+    
+    @JsonProperty("primary")
+    private TransactionSummaryDataDisplayType primary;
+    
+    
+    
+    
+    @JsonProperty("secondary")
+    private TransactionSummaryDataDisplayType secondary;
+    
+    
+    
+    
+}
+
+/*
+    Model: TransactionSummaryDataDisplayType
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TransactionSummaryDataDisplayType {
+    
+    
+    
+    
+    @JsonProperty("text")
+    private String text;
+    
+    
+    
+    
 }
 
 /*
