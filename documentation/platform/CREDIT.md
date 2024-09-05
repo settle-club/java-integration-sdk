@@ -1812,7 +1812,6 @@ Success. The request has been processed successfully and the response contains t
  | ---------- | ---- | -------- | ----------- |
  | intent | String? |  yes  |  |
  | token | String |  no  |  |
- | remark | String? |  yes  |  |
 
 ---
 
@@ -1867,7 +1866,6 @@ Success. The request has been processed successfully and the response contains t
  | ---------- | ---- | -------- | ----------- |
  | intent | String |  no  |  |
  | token | String |  no  |  |
- | remark | String? |  yes  |  |
 
 ---
 

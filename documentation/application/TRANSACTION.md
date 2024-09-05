@@ -197,7 +197,7 @@ true
 
 
 ### registerTransaction
-Store Transaction & Order in DB
+Registers a transaction against an order.
 
 
 
@@ -215,7 +215,7 @@ transaction.registerTransaction(body body) {
 | body | [RegisterTransaction](#RegisterTransaction) | yes | Request body |
 
 
-Use this API to store Transaction & Order in PENDING | FAILED | CANCELLED states.
+This endpoint uses ONBOARDING TOKEN responsible for creating a new transaction record in the database with states such as PENDING or CANCELLED, based on the provided details.
 
 *Returned Response:*
 
@@ -230,17 +230,11 @@ Success. Returns a JSON object as shown below. Refer `RegisterTransactionRespons
 
 
 <details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; success</i></summary>
+<summary><i>&nbsp; Example:</i></summary>
 
 ```json
-true
-```
-</details>
 
+```
 </details>
 
 
@@ -255,7 +249,7 @@ true
 
 
 ### updateTransaction
-Store Transaction & Order in DB
+Updates a transaction's status to CANCELLED in the database.
 
 
 
@@ -273,7 +267,7 @@ transaction.updateTransaction(body body) {
 | body | [UpdateTransactionRequest](#UpdateTransactionRequest) | yes | Request body |
 
 
-Use this API to update Transaction & Order in FAILED | CANCELLED states.
+This endpoint uses CHARGE_TOKEN to update the status of a transaction and its associated order to CANCELLED, effectively marking the transaction as void.
 
 *Returned Response:*
 
@@ -282,23 +276,17 @@ Use this API to update Transaction & Order in FAILED | CANCELLED states.
 
 [UpdateTransactionResponse](#UpdateTransactionResponse)
 
-Success. Returns a JSON object as shown below. Refer `UpdateTransactionResponse` for more details.
+Transaction updated successfully. Refer `UpdateTransactionResponse` schema for response format.
 
 
 
 
 <details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; success</i></summary>
+<summary><i>&nbsp; Example:</i></summary>
 
 ```json
-true
-```
-</details>
 
+```
 </details>
 
 
@@ -1714,7 +1702,6 @@ Success. Returns a JSON object as shown below. Refer `TransactionDetails` for mo
  | ---------- | ---- | -------- | ----------- |
  | intent | String? |  yes  |  |
  | token | String |  no  |  |
- | remark | String? |  yes  |  |
 
 ---
 
@@ -1770,7 +1757,6 @@ Success. Returns a JSON object as shown below. Refer `TransactionDetails` for mo
  | ---------- | ---- | -------- | ----------- |
  | intent | String |  no  |  |
  | token | String |  no  |  |
- | remark | String? |  yes  |  |
 
 ---
 

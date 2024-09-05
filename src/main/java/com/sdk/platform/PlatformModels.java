@@ -10759,12 +10759,6 @@ public static class RegisterTransaction {
     
     
     
-    @JsonProperty("remark")
-    private String remark;
-    
-    
-    
-    
 }
 
 /*
@@ -10913,12 +10907,6 @@ public static class UpdateTransactionRequest {
     
     @JsonProperty("token")
     private String token;
-    
-    
-    
-    
-    @JsonProperty("remark")
-    private String remark;
     
     
     

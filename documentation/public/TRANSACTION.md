@@ -1850,7 +1850,6 @@ Success. Returns a JSON object as shown below. Refer `UniqueCustomersInOrg` for 
  | ---------- | ---- | -------- | ----------- |
  | intent | String? |  yes  |  |
  | token | String |  no  |  |
- | remark | String? |  yes  |  |
 
 ---
 
@@ -1905,7 +1904,6 @@ Success. Returns a JSON object as shown below. Refer `UniqueCustomersInOrg` for 
  | ---------- | ---- | -------- | ----------- |
  | intent | String |  no  |  |
  | token | String |  no  |  |
- | remark | String? |  yes  |  |
 
 ---
 
