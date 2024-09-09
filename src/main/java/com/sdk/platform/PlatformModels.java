@@ -14193,6 +14193,47 @@ public static class RetriggerLenderOnboardRequest {
 }
 
 /*
+    Model: RetriggerLenderOnboardRequestV2
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RetriggerLenderOnboardRequestV2 {
+    
+    
+    
+    
+    @JsonProperty("lenderUserId")
+    private String lenderUserId;
+    
+    
+    
+    
+    @JsonProperty("stepName")
+    private String stepName;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private Object data;
+    
+    
+    
+    
+    @JsonProperty("entityMapId")
+    private String entityMapId;
+    
+    
+    
+    
+}
+
+/*
     Model: BusinessDetail
 */
 @AllArgsConstructor
