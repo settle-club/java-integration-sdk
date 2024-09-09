@@ -11034,6 +11034,12 @@ public static class SplitTransactionResponse {
     
     
     
+    @JsonProperty("lenderDownpaymentTransactionId")
+    private String lenderDownpaymentTransactionId;
+    
+    
+    
+    
     @JsonProperty("loanAmount")
     private Double loanAmount;
     
@@ -11042,6 +11048,18 @@ public static class SplitTransactionResponse {
     
     @JsonProperty("downpaymentAmount")
     private Double downpaymentAmount;
+    
+    
+    
+    
+    @JsonProperty("lenderDownpaymentAmount")
+    private Double lenderDownpaymentAmount;
+    
+    
+    
+    
+    @JsonProperty("totalAmount")
+    private Double totalAmount;
     
     
     
@@ -20124,7 +20142,7 @@ public static class WebhookCatgeory {
 }
 
 /*
-    Model: WebhookCatgeories
+    Model: WebhookCategories
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20133,13 +20151,48 @@ public static class WebhookCatgeory {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class WebhookCatgeories {
+public static class WebhookCategories {
+    
+    
+    
+    
+    @JsonProperty("allCategories")
+    private List<WebhookCatgeory> allCategories;
+    
+    
+    
+    
+}
+
+/*
+    Model: WebhookCategoriesResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class WebhookCategoriesResponse {
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private IntegrationResponseMeta meta;
     
     
     
     
     @JsonProperty("data")
-    private List<WebhookCatgeory> data;
+    private WebhookCategories data;
     
     
     

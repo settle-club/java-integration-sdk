@@ -292,6 +292,15 @@ interface MerchantApiList {
     @GET ("/service/integration/staff/organization/{organizationId}/api-hook")
     Call<PlatformModels.ApiHookDetailsResponse> getOrganizationApiHookDetails(@Path("organizationId") String  organizationId );
     
+    
+    
+    
+    
+    
+    
+    @GET ("/service/integration/staff/organization/{organizationId}/webhook-category-events")
+    Call<PlatformModels.WebhookCategoriesResponse> getWebhookActiveCategories(@Path("organizationId") String  organizationId );
+    
 }
 
 interface PaymentsApiList {

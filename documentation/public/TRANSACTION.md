@@ -1946,8 +1946,11 @@ Success. Returns a JSON object as shown below. Refer `UniqueCustomersInOrg` for 
  | parentTransactionId | String? |  yes  |  |
  | loanTransactionId | String? |  yes  |  |
  | downpaymentTransactionId | String? |  yes  |  |
+ | lenderDownpaymentTransactionId | String? |  yes  |  |
  | loanAmount | Double? |  yes  |  |
  | downpaymentAmount | Double? |  yes  |  |
+ | lenderDownpaymentAmount | Double? |  yes  |  |
+ | totalAmount | Double? |  yes  |  |
 
 ---
 

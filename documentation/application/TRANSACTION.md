@@ -376,6 +376,22 @@ Success. Returns a JSON object as shown below. Refer `SplitTransactionResponse` 
 </details>
 
 <details>
+<summary><i>&nbsp; lenderDownpaymentTransactionId</i></summary>
+
+```json
+"TXNss5d35f7favw88h3530897yug7f354"
+```
+</details>
+
+<details>
+<summary><i>&nbsp; lenderDownpaymentAmount</i></summary>
+
+```json
+2000
+```
+</details>
+
+<details>
 <summary><i>&nbsp; loanAmount</i></summary>
 
 ```json
@@ -388,6 +404,14 @@ Success. Returns a JSON object as shown below. Refer `SplitTransactionResponse` 
 
 ```json
 20000
+```
+</details>
+
+<details>
+<summary><i>&nbsp; totalAmount</i></summary>
+
+```json
+32000
 ```
 </details>
 
@@ -1904,8 +1928,11 @@ Success. Returns a JSON object as shown below. Refer `TransactionDetails` for mo
  | parentTransactionId | String? |  yes  |  |
  | loanTransactionId | String? |  yes  |  |
  | downpaymentTransactionId | String? |  yes  |  |
+ | lenderDownpaymentTransactionId | String? |  yes  |  |
  | loanAmount | Double? |  yes  |  |
  | downpaymentAmount | Double? |  yes  |  |
+ | lenderDownpaymentAmount | Double? |  yes  |  |
+ | totalAmount | Double? |  yes  |  |
  | headers | HashMap<String,Object>? |  yes  |  |
 
 ---

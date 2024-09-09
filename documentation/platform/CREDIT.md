@@ -1908,8 +1908,11 @@ Success. The request has been processed successfully and the response contains t
  | parentTransactionId | String? |  yes  |  |
  | loanTransactionId | String? |  yes  |  |
  | downpaymentTransactionId | String? |  yes  |  |
+ | lenderDownpaymentTransactionId | String? |  yes  |  |
  | loanAmount | Double? |  yes  |  |
  | downpaymentAmount | Double? |  yes  |  |
+ | lenderDownpaymentAmount | Double? |  yes  |  |
+ | totalAmount | Double? |  yes  |  |
 
 ---
 

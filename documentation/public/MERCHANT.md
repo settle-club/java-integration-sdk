@@ -650,9 +650,9 @@ Use this API to get active webhook category details
 
 
 
-[WebhookCatgeories](#WebhookCatgeories)
+[WebhookCategoriesResponse](#WebhookCategoriesResponse)
 
-Success. Returns a JSON object as shown below. Refer `WebhookCatgeories` for more details.
+Success. Returns a JSON object as shown below. Refer `WebhookCategoriesResponse` for more details.
 
 
 
@@ -663,7 +663,7 @@ Success. Returns a JSON object as shown below. Refer `WebhookCatgeories` for mor
 ```json
 {
   "value": {
-    "data": [
+    "allCategories": [
       {
         "id": "de1a6c9d-e124-4a31-816d-258954fd7cd2",
         "name": "disburse",
@@ -3107,11 +3107,24 @@ Success. Returns a JSON object as shown below. Refer `PaymentLinkResponse` for m
 
  
  
- #### [WebhookCatgeories](#WebhookCatgeories)
+ #### [WebhookCategories](#WebhookCategories)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | data | ArrayList<[WebhookCatgeory](#WebhookCatgeory)>? |  yes  |  |
+ | allCategories | ArrayList<[WebhookCatgeory](#WebhookCatgeory)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [WebhookCategoriesResponse](#WebhookCategoriesResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | message | String |  no  | Response message indicating the result of the operation. |
+ | meta | [IntegrationResponseMeta](#IntegrationResponseMeta) |  no  |  |
+ | data | [WebhookCategories](#WebhookCategories) |  no  |  |
  | headers | HashMap<String,Object>? |  yes  |  |
 
 ---

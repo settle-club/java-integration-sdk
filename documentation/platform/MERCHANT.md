@@ -11,6 +11,7 @@ Authentication Service
 * [validateCredentials](#validatecredentials)
 * [updateTransactionApiHookOfOrganization](#updatetransactionapihookoforganization)
 * [getOrganizationApiHookDetails](#getorganizationapihookdetails)
+* [getWebhookActiveCategories](#getwebhookactivecategories)
 
 
 
@@ -381,6 +382,95 @@ Success. Returns a JSON object as shown below. Refer `ApiHookDetails` for more d
 ```
 </details>
 
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getWebhookActiveCategories
+Get all active webhook category with events
+
+
+
+
+```java
+merchant.getWebhookActiveCategories() {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| organizationId | String | yes | This is organization Id |  
+
+
+
+Use this API to get active webhook category details
+
+*Returned Response:*
+
+
+
+
+[WebhookCategoriesResponse](#WebhookCategoriesResponse)
+
+Success. Returns a JSON object as shown below. Refer `WebhookCategoriesResponse` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
+  "value": {
+    "allCategories": [
+      {
+        "id": "de1a6c9d-e124-4a31-816d-258954fd7cd2",
+        "name": "disburse",
+        "slug": "disburse",
+        "description": "payment webhook category",
+        "active": true,
+        "meta": {
+          "x-data": "xxx"
+        },
+        "createdAt": "2024-08-29T13:53:05.127Z",
+        "updatedAt": "2024-08-29T13:53:05.127Z",
+        "deletedAt": null,
+        "webhookEvents": [
+          {
+            "id": "e21443b0-eca3-4701-ad32-335a48c1bb78",
+            "name": "disburse start",
+            "slug": "start-disburse-test",
+            "description": "this webhook is called when disburse start",
+            "active": true,
+            "webhookCategoryId": "de1a6c9d-e124-4a31-816d-258954fd7cd2",
+            "webhookCategorySlug": "disburse",
+            "isWebhookCategoryActive": true,
+            "meta": {
+              "x-data": "xxx"
+            },
+            "createdAt": "2024-08-29T13:53:05.150Z",
+            "updatedAt": "2024-08-29T13:53:05.150Z",
+            "deletedAt": null
+          }
+        ]
+      }
+    ]
+  }
+}
+```
 </details>
 
 
@@ -1198,11 +1288,24 @@ Success. Returns a JSON object as shown below. Refer `ApiHookDetails` for more d
 
  
  
- #### [WebhookCatgeories](#WebhookCatgeories)
+ #### [WebhookCategories](#WebhookCategories)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | data | ArrayList<[WebhookCatgeory](#WebhookCatgeory)>? |  yes  |  |
+ | allCategories | ArrayList<[WebhookCatgeory](#WebhookCatgeory)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [WebhookCategoriesResponse](#WebhookCategoriesResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | message | String |  no  | Response message indicating the result of the operation. |
+ | meta | [IntegrationResponseMeta](#IntegrationResponseMeta) |  no  |  |
+ | data | [WebhookCategories](#WebhookCategories) |  no  |  |
 
 ---
 
