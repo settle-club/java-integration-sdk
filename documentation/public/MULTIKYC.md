@@ -240,7 +240,7 @@ Get available limit
 
 
 ```java
-multikyc.getAvailableLimit( lenderSlug,  entityId) {
+multikyc.getAvailableLimit( lenderSlug,  entityId,  merchantId) {
   //use response
 }
 ```
@@ -250,7 +250,8 @@ multikyc.getAvailableLimit( lenderSlug,  entityId) {
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
 | lenderSlug | String | yes |  |   
-| entityId | String | yes |  |  
+| entityId | String | yes |  |   
+| merchantId | String? | no |  |  
 
 
 
@@ -1368,6 +1369,20 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
 
  
  
+ #### [RetriggerLenderOnboardRequestV2](#RetriggerLenderOnboardRequestV2)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | lenderUserId | String |  no  |  |
+ | stepName | String |  no  |  |
+ | data | Object |  no  |  |
+ | entityMapId | String |  no  |  |
+
+---
+
+
+ 
+ 
  #### [BusinessDetail](#BusinessDetail)
 
  | Properties | Type | Nullable | Description |
@@ -1836,6 +1851,10 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
  | id | String |  no  |  |
  | name | String |  no  |  |
  | active | Boolean |  no  |  |
+ | baseUrl | String? |  yes  |  |
+ | config | Object? |  yes  |  |
+ | paymentOptions | ArrayList<Object>? |  yes  |  |
+ | credentialsSchema | Object? |  yes  |  |
 
 ---
 
@@ -1853,6 +1872,8 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
  | lenderId | String |  no  |  |
  | pgId | String |  no  |  |
  | active | Boolean |  no  |  |
+ | config | Object? |  yes  |  |
+ | paymentOptions | ArrayList<Object>? |  yes  |  |
 
 ---
 

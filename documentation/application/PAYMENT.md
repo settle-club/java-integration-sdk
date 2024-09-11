@@ -10,14 +10,15 @@ KYC Service
 * [downpaymentUsingNetbanking](#downpaymentusingnetbanking)
 * [downpaymentUsingUPI](#downpaymentusingupi)
 * [checkDownpaymentStatus](#checkdownpaymentstatus)
-* [paymentOptions](#paymentoptions)
-* [autoPayStatus](#autopaystatus)
-* [repaymentUsingNetbanking](#repaymentusingnetbanking)
-* [repaymentUsingUPI](#repaymentusingupi)
 * [registerUPIMandate](#registerupimandate)
 * [mandateStatusCheck](#mandatestatuscheck)
+* [autoPayStatus](#autopaystatus)
+* [paymentOptions](#paymentoptions)
+* [repaymentUsingNetbanking](#repaymentusingnetbanking)
+* [repaymentUsingUPI](#repaymentusingupi)
 * [checkPaymentStatus](#checkpaymentstatus)
 * [getOutstandingAmount](#getoutstandingamount)
+* [getOutstandingAmountByEntityMapId](#getoutstandingamountbyentitymapid)
 
 
 
@@ -271,6 +272,168 @@ Success. Returns a success message as shown below. Refer `TransactionStatusRespo
 ---
 
 
+### registerUPIMandate
+MandateRegistration
+
+
+
+
+```java
+payment.registerUPIMandate( lenderSlug, body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| lenderSlug | String | yes | This is lender slug |  
+| body | [RegisterUPIMandateRequest](#RegisterUPIMandateRequest) | yes | Request body |
+
+
+Use this API to register upi mandate for user.
+
+*Returned Response:*
+
+
+
+
+[RegisterUPIMandateResponse](#RegisterUPIMandateResponse)
+
+Success. Returns a success message as shown below. Refer `RegisterUPIMandateResponse` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
+  "transactionId": "10322234354461670000",
+  "expiry": 180,
+  "interval": 5
+}
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### mandateStatusCheck
+Repayment
+
+
+
+
+```java
+payment.mandateStatusCheck( lenderSlug, body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| lenderSlug | String | yes | This is lender slug |  
+| body | [RegisterUPIMandateStatusCheckRequest](#RegisterUPIMandateStatusCheckRequest) | yes | Request body |
+
+
+Use this API to repayment for user.
+
+*Returned Response:*
+
+
+
+
+[RegisterMandateStatusCheckResponse](#RegisterMandateStatusCheckResponse)
+
+Success. Returns a success message as shown below. Refer `RegisterMandateStatusCheckResponse` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
+  "status": "INITIATED"
+}
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### autoPayStatus
+Get status of AutoPay
+
+
+
+
+```java
+payment.autoPayStatus() {
+  //use response
+}
+```
+
+
+
+
+Use this API to get status of AutoPay
+
+*Returned Response:*
+
+
+
+
+[AutoPayStatusResponse](#AutoPayStatusResponse)
+
+Success. Returns a JSON object as shown below. Refer `AutoPayStatusResponse` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
+  "status": "PENDING"
+}
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 ### paymentOptions
 Get List of Payment Options Available
 
@@ -340,56 +503,6 @@ Success. Returns a JSON object as shown below. Refer `PaymentOptionsResponse` fo
       ]
     }
   ]
-}
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### autoPayStatus
-Get status of AutoPay
-
-
-
-
-```java
-payment.autoPayStatus() {
-  //use response
-}
-```
-
-
-
-
-Use this API to get status of AutoPay
-
-*Returned Response:*
-
-
-
-
-[AutoPayStatusResponse](#AutoPayStatusResponse)
-
-Success. Returns a JSON object as shown below. Refer `AutoPayStatusResponse` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-{
-  "status": "PENDING"
 }
 ```
 </details>
@@ -515,118 +628,6 @@ Success. Returns a success message as shown below. Refer `RepaymentUsingUPIRespo
 ---
 
 
-### registerUPIMandate
-MandateRegistration
-
-
-
-
-```java
-payment.registerUPIMandate( lenderSlug, body body) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| lenderSlug | String | yes | This is lender slug |  
-| body | [RegisterUPIMandateRequest](#RegisterUPIMandateRequest) | yes | Request body |
-
-
-Use this API to register upi mandate for user.
-
-*Returned Response:*
-
-
-
-
-[RegisterUPIMandateResponse](#RegisterUPIMandateResponse)
-
-Success. Returns a success message as shown below. Refer `RegisterUPIMandateResponse` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-{
-  "transactionId": "10322234354461670000",
-  "expiry": 180,
-  "interval": 5
-}
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### mandateStatusCheck
-Repayment
-
-
-
-
-```java
-payment.mandateStatusCheck( lenderSlug, body body) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| lenderSlug | String | yes | This is lender slug |  
-| body | [RegisterUPIMandateStatusCheckRequest](#RegisterUPIMandateStatusCheckRequest) | yes | Request body |
-
-
-Use this API to repayment for user.
-
-*Returned Response:*
-
-
-
-
-[RegisterMandateStatusCheckResponse](#RegisterMandateStatusCheckResponse)
-
-Success. Returns a success message as shown below. Refer `RegisterMandateStatusCheckResponse` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-{
-  "status": "INITIATED"
-}
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
 ### checkPaymentStatus
 Check payment status
 
@@ -687,7 +688,7 @@ Get Outstanding amount for repayment
 
 
 ```java
-payment.getOutstandingAmount( lenderSlug,  viewType) {
+payment.getOutstandingAmount( lenderSlug,  viewType,  leadId) {
   //use response
 }
 ```
@@ -697,7 +698,65 @@ payment.getOutstandingAmount( lenderSlug,  viewType) {
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
 | lenderSlug | String | yes | This is lender slug |   
-| viewType | String | yes | This is lender slug |  
+| viewType | String | yes | This is lender slug |   
+| leadId | String? | no | This is TRXN Id, to be used for single TRXN repayment |  
+
+
+
+Use this API to get Outstanding amount for repayment
+
+*Returned Response:*
+
+
+
+
+[OutstandingDetail](#OutstandingDetail)
+
+Success. Returns a JSON object as shown below. Refer `OutstandingDetail` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
+  "outstanding": "100"
+}
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getOutstandingAmountByEntityMapId
+Get Outstanding amount for repayment
+
+
+
+
+```java
+payment.getOutstandingAmountByEntityMapId( entityMapId,  viewType,  leadId) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| entityMapId | String | yes | This is entity map id |   
+| viewType | String | yes | This is lender slug |   
+| leadId | String? | no | This is TRXN Id, to be used for single TRXN repayment |  
 
 
 
@@ -819,6 +878,7 @@ Success. Returns a JSON object as shown below. Refer `OutstandingDetail` for mor
  | bankId | String |  no  |  |
  | bankName | String |  no  |  |
  | chargeToken | String? |  yes  |  |
+ | transactionId | String? |  yes  |  |
 
 ---
 
@@ -846,6 +906,7 @@ Success. Returns a JSON object as shown below. Refer `OutstandingDetail` for mor
  | amount | Double |  no  |  |
  | vpa | String |  no  |  |
  | chargeToken | String? |  yes  |  |
+ | transactionId | String? |  yes  |  |
 
 ---
 
@@ -1159,6 +1220,20 @@ Success. Returns a JSON object as shown below. Refer `OutstandingDetail` for mor
  | ---------- | ---- | -------- | ----------- |
  | paymentOptions | ArrayList<[PaymentsObject](#PaymentsObject)>? |  yes  |  |
  | headers | HashMap<String,Object>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [CheckEMandateStatusRequest](#CheckEMandateStatusRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | orderId | String? |  yes  |  |
+ | paymentId | String? |  yes  |  |
+ | scheduledEnd | String? |  yes  |  |
+ | ruleAmountValue | String? |  yes  |  |
 
 ---
 

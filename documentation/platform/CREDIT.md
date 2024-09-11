@@ -8,7 +8,9 @@
 Transaction Service
 * [getOrderStatus](#getorderstatus)
 * [getEligiblePlans](#geteligibleplans)
+* [updateOrderDeliveryStatus](#updateorderdeliverystatus)
 * [getTransactions](#gettransactions)
+* [getSettledTransactions](#getsettledtransactions)
 
 
 
@@ -159,6 +161,132 @@ true
 ---
 
 
+### updateOrderDeliveryStatus
+Update delivery status for an order
+
+
+
+
+```java
+credit.updateOrderDeliveryStatus(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| organizationId | String | yes | This is organization id |  
+| body | [OrderDeliveryUpdatesBody](#OrderDeliveryUpdatesBody) | yes | Request body |
+
+
+This API updates an order's delivery status using the order ID or transaction ID and manages loan disbursal or cancellation following delivery. It is utilized when the system configuration is set to delay loan disbursal until after delivery, indicated by the 'DELAYED' type and 'DELIVERY' event. If 'delayDays' is set to 0, disbursal occurs within an hour after delivery. Additionally, this API facilitates loan cancellation through specific shipment statuses, offering a precise method for loan management based on delivery outcomes.
+
+*Returned Response:*
+
+
+
+
+[OrderDeliveryUpdatesResponse](#OrderDeliveryUpdatesResponse)
+
+Success. Returns a JSON object as shown below. Refer `OrderDeliveryUpdatesResponse` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; OrderDeliveryUpdatesResponseExample</i></summary>
+
+```json
+{
+  "value": {
+    "message": "The request has been processed successfully.",
+    "data": {
+      "orderId": "ORD1234",
+      "transactionId": "TXN1234",
+      "shipments": [
+        {
+          "id": "ship12345",
+          "urn": "ship12345_0",
+          "shipmentStatus": "CANCELLED",
+          "shipmentAmount": 100,
+          "processingStatus": "CAPTURED"
+        },
+        {
+          "id": "ship12345",
+          "urn": "ship12345_1",
+          "shipmentStatus": "DELIVERED",
+          "shipmentAmount": 500,
+          "processingStatus": "CAPTURED"
+        }
+      ],
+      "summary": {
+        "orderAmount": 600,
+        "capturedAmount": 600,
+        "uncapturedAmount": 0,
+        "capturedAmountForDisbursal": 500,
+        "capturedAmountForCancellation": 100
+      }
+    },
+    "meta": {
+      "timestamp": "2024-07-16T12:07:26.979Z",
+      "version": "v1.0",
+      "product": "Settle Checkout"
+    }
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+[OrderDeliveryUpdatesPartialResponse](#OrderDeliveryUpdatesPartialResponse)
+
+Partial Success. The request was successfully processed for some shipments, but not for others. The response includes detailed information about which parts of the request were successful and which were not.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; OrderDeliveryUpdatesPartialExample</i></summary>
+
+```json
+{
+  "$ref": "#/components/examples/OrderDeliveryUpdatesPartialExample"
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 ### getTransactions
 Get list of user transactions
 
@@ -229,7 +357,13 @@ Success. The request has been processed successfully and the response contains t
           },
           "order": {
             "id": "ORD1234",
-            "amount": 5000
+            "amount": 5000,
+            "summary": {
+              "uncapturedAmount": 2000,
+              "capturedAmount": 3000,
+              "capturedAmountForDisbursal": 1800,
+              "capturedAmountForCancellation": 1200
+            }
           },
           "loans": [
             {
@@ -290,6 +424,100 @@ Success. The request has been processed successfully and the response contains t
     },
     "meta": {
       "timestamp": "2024-07-10T13:56:46.396Z",
+      "version": "v1.0",
+      "product": "Settle Checkout"
+    }
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getSettledTransactions
+Get list of settled transactions
+
+
+
+
+```java
+credit.getSettledTransactions( page,  limit,  orderId,  transactionId,  startDate,  endDate) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| organizationId | String | yes | The unique identifier of the organization |   
+| page | Integer? | no | The page number of the transaction list |   
+| limit | Integer? | no | The number of transactions to fetch |   
+| orderId | String? | no | The order ID |   
+| transactionId | String? | no | The transaction ID |   
+| startDate | String? | no | This is used to filter from date |   
+| endDate | String? | no | This is used to filter till date |  
+
+
+
+Retrieves a paginated list of Settled transactions associated with a specific organization, sorted from the latest to the oldest. This endpoint allows filtering transactions based on various criteria and supports pagination.
+
+*Returned Response:*
+
+
+
+
+[GetSettlementTransactionsResponse](#GetSettlementTransactionsResponse)
+
+Success. The request has been processed successfully and the response contains the requested data.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; GetSettlemetTransactionsExample</i></summary>
+
+```json
+{
+  "value": {
+    "message": "The request has been processed successfully.",
+    "data": {
+      "transactions": [
+        {
+          "id": "TXN",
+          "amount": 10000,
+          "createdAt": "2024-08-20T06:37:27.150Z",
+          "orderId": "DEMO-TRANSACTIOn",
+          "settlementStatus": "PENDING",
+          "settlementTime": "2024-08-22T15:20:02.274Z"
+        }
+      ],
+      "page": {
+        "type": "number",
+        "current": 1,
+        "hasPrevious": false,
+        "hasNext": false,
+        "size": 100,
+        "itemTotal": null
+      }
+    },
+    "meta": {
+      "timestamp": "2024-08-30T10:48:01.915Z",
       "version": "v1.0",
       "product": "Settle Checkout"
     }
@@ -525,6 +753,136 @@ Success. The request has been processed successfully and the response contains t
  | paidPercent | Double? |  yes  |  |
  | lenderDetail | [LenderDetail](#LenderDetail)? |  yes  |  |
  | emis | ArrayList<[Emi](#Emi)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [GroupedEmiLoanAccount](#GroupedEmiLoanAccount)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | loanAccountNumber | String |  no  |  |
+ | kfs | String? |  yes  |  |
+ | sanctionLetter | String? |  yes  |  |
+ | remark | String? |  yes  |  |
+ | createdAt | String |  no  |  |
+ | updatedAt | String |  no  |  |
+ | amount | Double |  no  |  |
+ | repaidAmount | Double |  no  |  |
+ | paid | Boolean |  no  |  |
+ | overdue | Boolean |  no  |  |
+ | repaymentDate | String? |  yes  |  |
+ | paidPercent | Double |  no  |  |
+ | lenderDetail | [LenderDetail](#LenderDetail) |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [GroupedEmi](#GroupedEmi)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String? |  yes  |  |
+ | installmentno | Double? |  yes  |  |
+ | amount | Double? |  yes  |  |
+ | dueDate | String? |  yes  |  |
+ | referenceTransactionId | String? |  yes  |  |
+ | createdAt | String? |  yes  |  |
+ | updatedAt | String? |  yes  |  |
+ | paid | Boolean? |  yes  |  |
+ | overdue | Boolean? |  yes  |  |
+ | repaymentDate | String? |  yes  |  |
+ | paidPercent | Double? |  yes  |  |
+ | repaidAmount | Double? |  yes  |  |
+ | loanAccounts | ArrayList<[GroupedEmiLoanAccount](#GroupedEmiLoanAccount)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [TransactionDetails](#TransactionDetails)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String |  no  |  |
+ | userId | String |  no  |  |
+ | partnerId | String |  no  |  |
+ | partner | String |  no  |  |
+ | partnerLogo | String |  no  |  |
+ | status | String |  no  |  |
+ | type | String? |  yes  |  |
+ | remark | String? |  yes  |  |
+ | amount | Double |  no  |  |
+ | loanAccountNumber | String? |  yes  |  |
+ | kfs | String? |  yes  |  |
+ | utr | String? |  yes  |  |
+ | sanctionLetter | String? |  yes  |  |
+ | orderId | String? |  yes  |  |
+ | refundId | String? |  yes  |  |
+ | createdAt | String |  no  |  |
+ | lenderId | String? |  yes  |  |
+ | lenderName | String? |  yes  |  |
+ | lenderLogo | String? |  yes  |  |
+ | loanType | String? |  yes  |  |
+ | nextDueDate | String? |  yes  |  |
+ | paidPercent | Double? |  yes  |  |
+ | lenderDetail | [LenderDetail](#LenderDetail)? |  yes  |  |
+ | emis | ArrayList<[GroupedEmi](#GroupedEmi)>? |  yes  |  |
+ | summary | [TransactionSummary](#TransactionSummary)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [TransactionSummary](#TransactionSummary)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | capturedAmount | Double |  no  | The total captured amount. This is the sum of the amounts of all captured shipments. |
+ | uncapturedAmount | Double |  no  | The total uncaptured amount. This is calculated as totalAmount - capturedAmount. |
+ | capturedAmountForDisbursal | Double |  no  | The total amount captured for disbursal. This represents the sum of amounts from all shipments marked for disbursal. |
+ | capturedAmountForCancellation | Double |  no  | The total amount captured for cancellation. This aggregates the amounts from all shipments identified for cancellation. |
+ | data | ArrayList<[TransactionSummaryData](#TransactionSummaryData)> |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [TransactionSummaryData](#TransactionSummaryData)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | display | [TransactionSummaryDataDisplay](#TransactionSummaryDataDisplay)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [TransactionSummaryDataDisplay](#TransactionSummaryDataDisplay)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | primary | [TransactionSummaryDataDisplayType](#TransactionSummaryDataDisplayType)? |  yes  |  |
+ | secondary | [TransactionSummaryDataDisplayType](#TransactionSummaryDataDisplayType)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [TransactionSummaryDataDisplayType](#TransactionSummaryDataDisplayType)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | text | String? |  yes  |  |
 
 ---
 
@@ -1133,12 +1491,188 @@ Success. The request has been processed successfully and the response contains t
 
  
  
+ #### [OrderShipmentAddressGeoLocation](#OrderShipmentAddressGeoLocation)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | latitude | Double |  no  | The latitude of the location. |
+ | longitude | Double |  no  | The longitude of the location. |
+
+---
+
+
+ 
+ 
+ #### [OrderShipmentAddress](#OrderShipmentAddress)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | line1 | String? |  yes  | The first line of the address. |
+ | line2 | String? |  yes  | The second line of the address. |
+ | city | String? |  yes  | The city of the address. |
+ | state | String? |  yes  | The state of the address. |
+ | country | String? |  yes  | The country of the address. |
+ | pincode | String? |  yes  | The postal code of the address. |
+ | type | String? |  yes  | The type of address (e.g., residential, business). |
+ | geoLocation | [OrderShipmentAddressGeoLocation](#OrderShipmentAddressGeoLocation)? |  yes  | The geographical location of the address. |
+
+---
+
+
+ 
+ 
+ #### [OrderShipmentItem](#OrderShipmentItem)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | category | String? |  yes  | The category of the item. |
+ | sku | String? |  yes  | The stock keeping unit for the item. |
+ | rate | Double? |  yes  | The price of a single item. |
+ | quantity | Double? |  yes  | The quantity of the item. |
+
+---
+
+
+ 
+ 
+ #### [OrderShipment](#OrderShipment)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String |  no  | The identifier for the shipment. |
+ | urn | String? |  yes  | A unique reference number for the shipment. This is optional; the system will generate a URN if not provided. There can be multiple shipment objects with the same shipment ID, making the URN a unique identifier within the system. |
+ | amount | Double |  no  | The amount corresponding to the shipment that is subject to the status update. |
+ | timestamp | String |  no  | The timestamp when the status of the shipment was updated. |
+ | status | String |  no  | The current status of the shipment. |
+ | remark | String? |  yes  | Any remarks regarding the shipment. |
+ | items | ArrayList<[OrderShipmentItem](#OrderShipmentItem)>? |  yes  | The list of items in the shipment. |
+ | shippingAddress | [OrderShipmentAddress](#OrderShipmentAddress)? |  yes  | The shipping address for the shipment. |
+ | billingAddress | [OrderShipmentAddress](#OrderShipmentAddress)? |  yes  | The billing address for the shipment. |
+
+---
+
+
+ 
+ 
+ #### [OrderDeliveryUpdatesBody](#OrderDeliveryUpdatesBody)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | orderId | String? |  yes  | The unique identifier for the order. Required if transactionId is not provided. |
+ | transactionId | String? |  yes  | The unique identifier for the transaction. Required if orderId is not provided. |
+ | includeSummary | Boolean? |  yes  | A flag to include a summary object in the response, containing data like processed amount and unprocessed amount. |
+ | shipments | ArrayList<[OrderShipment](#OrderShipment)> |  no  | The list of shipments for which the status needs to be updated. Only include shipments requiring a status change. |
+
+---
+
+
+ 
+ 
+ #### [OrderShipmentSummary](#OrderShipmentSummary)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | orderAmount | Double |  no  | The total order amount. |
+ | capturedAmount | Double |  no  | The total captured amount. This is the sum of the amounts of all captured shipments. |
+ | uncapturedAmount | Double |  no  | The total uncaptured amount. This is calculated as totalAmount - capturedAmount. |
+ | capturedAmountForDisbursal | Double |  no  | The total amount captured for disbursal. This represents the sum of amounts from all shipments marked for disbursal. |
+ | capturedAmountForCancellation | Double |  no  | The total amount captured for cancellation. This aggregates the amounts from all shipments identified for cancellation. |
+
+---
+
+
+ 
+ 
+ #### [OrderShipmentResponse](#OrderShipmentResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String |  no  | The unique identifier of the shipment. |
+ | urn | String |  no  | A unique resource identifier for the shipment. |
+ | shipmentStatus | String |  no  | The status of the shipment. |
+ | shipmentAmount | Double |  no  | The total amount associated with the shipment. |
+ | processingStatus | String |  no  | The processing status of the order shipment. |
+
+---
+
+
+ 
+ 
+ #### [OrderDeliveryUpdatesData](#OrderDeliveryUpdatesData)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | orderId | String |  no  | The unique identifier for the order. |
+ | transactionId | String |  no  | The unique identifier for the order. |
+ | shipments | ArrayList<[OrderShipmentResponse](#OrderShipmentResponse)> |  no  | The list of shipments for which the status was updated. |
+ | summary | [OrderShipmentSummary](#OrderShipmentSummary)? |  yes  | A summary object containing various amounts related to the order. |
+
+---
+
+
+ 
+ 
+ #### [OrderDeliveryUpdatesResponse](#OrderDeliveryUpdatesResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | message | String |  no  | Response message indicating the result of the operation. |
+ | meta | [IntegrationResponseMeta](#IntegrationResponseMeta) |  no  |  |
+ | data | [OrderDeliveryUpdatesData](#OrderDeliveryUpdatesData) |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [OrderDeliveryUpdatesPartialResponse](#OrderDeliveryUpdatesPartialResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | message | String |  no  | Response message indicating the result of the operation. |
+ | meta | [IntegrationResponseMeta](#IntegrationResponseMeta) |  no  |  |
+ | data | [OrderDeliveryUpdatesData](#OrderDeliveryUpdatesData) |  no  |  |
+ | errors | ArrayList<[OrderDeliveryUpdatesError](#OrderDeliveryUpdatesError)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [OrderDeliveryUpdatesError](#OrderDeliveryUpdatesError)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | code | String |  no  | Error code representing the type of error. |
+ | message | String |  no  | A human-readable message providing more details about the error. |
+ | exception | String |  no  | The exception name or type. |
+
+---
+
+
+ 
+ 
+ #### [TransactionOrderSummary](#TransactionOrderSummary)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | capturedAmount | Double |  no  | The total captured amount. This is the sum of the amounts of all captured shipments. |
+ | uncapturedAmount | Double |  no  | The total uncaptured amount. This is calculated as totalAmount - capturedAmount. |
+ | capturedAmountForDisbursal | Double |  no  | The total amount captured for disbursal. This represents the sum of amounts from all shipments marked for disbursal. |
+ | capturedAmountForCancellation | Double |  no  | The total amount captured for cancellation. This aggregates the amounts from all shipments identified for cancellation. |
+
+---
+
+
+ 
+ 
  #### [TransactionOrder](#TransactionOrder)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | id | String |  no  | Unique identifier of the order. |
  | amount | Double |  no  | Total amount of the order. |
+ | summary | [TransactionOrderSummary](#TransactionOrderSummary)? |  yes  |  |
 
 ---
 
@@ -1266,6 +1800,48 @@ Success. The request has been processed successfully and the response contains t
 
  
  
+ #### [SettlementTransactions](#SettlementTransactions)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String? |  yes  | Unique identifier for the transaction. |
+ | utr | String? |  yes  | Unique transaction reference number. |
+ | amount | Double? |  yes  | The amount involved in the transaction. |
+ | settlementStatus | String? |  yes  | Status of the transaction. |
+ | orderId | String? |  yes  | Identifier for the associated order. |
+ | createdAt | String? |  yes  | The time the transaction occurred |
+ | settlementTime | String? |  yes  | The time the transaction settles and transaction status updated |
+
+---
+
+
+ 
+ 
+ #### [GetSettlementTransactionsData](#GetSettlementTransactionsData)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | transactions | ArrayList<[SettlementTransactions](#SettlementTransactions)> |  no  |  |
+ | page | [Pagination](#Pagination) |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [GetSettlementTransactionsResponse](#GetSettlementTransactionsResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | message | String |  no  | Response message indicating the result of the operation. |
+ | meta | [IntegrationResponseMeta](#IntegrationResponseMeta) |  no  |  |
+ | data | [GetSettlementTransactionsData](#GetSettlementTransactionsData) |  no  |  |
+
+---
+
+
+ 
+ 
  #### [SummaryRequest](#SummaryRequest)
 
  | Properties | Type | Nullable | Description |
@@ -1274,6 +1850,88 @@ Success. The request has been processed successfully and the response contains t
  | endDate | String? |  yes  |  |
  | merchantId | String? |  yes  |  |
  | type | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [RegisterTransaction](#RegisterTransaction)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | intent | String? |  yes  |  |
+ | token | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [RegisterTransactionResponseData](#RegisterTransactionResponseData)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | isExistingOrder | Boolean? |  yes  | Indicates whether the order already exists. |
+ | transaction | Object? |  yes  | The transaction details, which is unkown. |
+ | action | Boolean? |  yes  |  |
+ | status | String? |  yes  | The status of the transaction. |
+ | message | String? |  yes  | A message related to the transaction status. |
+
+---
+
+
+ 
+ 
+ #### [RegisterTransactionResponseResult](#RegisterTransactionResponseResult)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | redirectUrl | String? |  yes  | URL to redirect the user to, if applicable. |
+
+---
+
+
+ 
+ 
+ #### [RegisterTransactionResponse](#RegisterTransactionResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | result | [RegisterTransactionResponseResult](#RegisterTransactionResponseResult)? |  yes  |  |
+ | action | HashMap<String,Object>? |  yes  | An object for future use, currently empty. |
+ | data | [RegisterTransactionResponseData](#RegisterTransactionResponseData)? |  yes  |  |
+ | transactionId | String? |  yes  | The unique identifier of the transaction. |
+ | status | String? |  yes  | The status of the user related to the payment process. |
+ | message | String? |  yes  | A message related to the user status. |
+
+---
+
+
+ 
+ 
+ #### [UpdateTransactionRequest](#UpdateTransactionRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | intent | String |  no  |  |
+ | token | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [UpdateTransactionResponse](#UpdateTransactionResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | result | [RegisterTransactionResponseResult](#RegisterTransactionResponseResult)? |  yes  |  |
+ | action | HashMap<String,Object>? |  yes  | An object for future use, currently empty. |
+ | data | [RegisterTransactionResponseData](#RegisterTransactionResponseData)? |  yes  |  |
+ | transactionId | String? |  yes  | The unique identifier of the transaction. |
+ | status | String? |  yes  | The status of the user related to the payment process. |
+ | message | String? |  yes  | A message related to the user status. |
 
 ---
 

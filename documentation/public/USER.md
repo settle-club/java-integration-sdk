@@ -184,7 +184,7 @@ Success. Returns a JSON object as shown below. Refer `UserResponse` for more det
 <summary><i>&nbsp; $ref</i></summary>
 
 ```json
-"#/components/examples/UserExample"
+"#/components/examples/UserResponseExample"
 ```
 </details>
 
@@ -940,6 +940,7 @@ Success. Returns a JSON object as shown below. Refer `UserResponse` for more det
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | token | String |  no  |  |
+ | intent | String? |  yes  |  |
 
 ---
 
@@ -1355,6 +1356,26 @@ Success. Returns a JSON object as shown below. Refer `UserResponse` for more det
  | action | HashMap<String,Object>? |  yes  |  |
  | sequence | Integer? |  yes  |  |
  | active | Boolean? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [MerchantDetailsResponse](#MerchantDetailsResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String? |  yes  | Unique identifier for the business |
+ | website | String? |  yes  | Website URL of the business |
+ | businessAddress | String? |  yes  | Physical address of the business |
+ | pincode | String? |  yes  | Pincode for the business address |
+ | logo | String? |  yes  | URL to the business logo |
+ | gstIn | String? |  yes  | GST number of the business, can be null |
+ | businessName | String? |  yes  | Business name of the merchant |
+ | name | String? |  yes  | Name of the merchant |
+ | supportEmail | String? |  yes  | Support email of the merchant |
+ | description | String? |  yes  | Description of the Merchant. |
 
 ---
 
@@ -1840,13 +1861,26 @@ Success. Returns a JSON object as shown below. Refer `UserResponse` for more det
 
  
  
- #### [UserResponse](#UserResponse)
+ #### [UserResponseData](#UserResponseData)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | filters | ArrayList<[Filters](#Filters)> |  no  |  |
  | page | [PageResponse](#PageResponse) |  no  |  |
  | listOfUsers | ArrayList<[UserSchema](#UserSchema)> |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [UserResponse](#UserResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | message | String |  no  | Response message indicating the result of the operation. |
+ | meta | [IntegrationResponseMeta](#IntegrationResponseMeta) |  no  |  |
+ | data | [UserResponseData](#UserResponseData) |  no  |  |
  | headers | HashMap<String,Object>? |  yes  |  |
 
 ---

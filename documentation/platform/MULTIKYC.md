@@ -1055,6 +1055,20 @@ multikyc.approvedLenders() {
 
  
  
+ #### [RetriggerLenderOnboardRequestV2](#RetriggerLenderOnboardRequestV2)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | lenderUserId | String |  no  |  |
+ | stepName | String |  no  |  |
+ | data | Object |  no  |  |
+ | entityMapId | String |  no  |  |
+
+---
+
+
+ 
+ 
  #### [BusinessDetail](#BusinessDetail)
 
  | Properties | Type | Nullable | Description |
@@ -1523,6 +1537,10 @@ multikyc.approvedLenders() {
  | id | String |  no  |  |
  | name | String |  no  |  |
  | active | Boolean |  no  |  |
+ | baseUrl | String? |  yes  |  |
+ | config | Object? |  yes  |  |
+ | paymentOptions | ArrayList<Object>? |  yes  |  |
+ | credentialsSchema | Object? |  yes  |  |
 
 ---
 
@@ -1540,6 +1558,8 @@ multikyc.approvedLenders() {
  | lenderId | String |  no  |  |
  | pgId | String |  no  |  |
  | active | Boolean |  no  |  |
+ | config | Object? |  yes  |  |
+ | paymentOptions | ArrayList<Object>? |  yes  |  |
 
 ---
 

@@ -161,6 +161,15 @@ interface CreditApiList {
     
     
     
+    @POST ("/service/integration/credit/orders/organization/{organizationId}/delivery-updates")
+    Call<PlatformModels.OrderDeliveryUpdatesResponse> updateOrderDeliveryStatus(@Path("organizationId") String  organizationId ,@Body PlatformModels.OrderDeliveryUpdatesBody payload);
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -193,6 +202,33 @@ interface CreditApiList {
     
     @GET ("/service/integration/credit/summary/organization/{organizationId}/transactions")
     Call<PlatformModels.GetTransactionsResponse> getTransactions(@Path("organizationId") String  organizationId , @Query("mobile") String  mobile ,  @Query("countryCode") String  countryCode ,  @Query("page") Integer  page ,  @Query("limit") Integer  limit ,  @Query("orderId") String  orderId ,  @Query("transactionId") String  transactionId ,  @Query("type") Object  type ,  @Query("status") Object  status ,  @Query("onlySelf") Boolean  onlySelf ,  @Query("granularity") String  granularity );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/integration/credit/summary/organization/{organizationId}/settled/transactions")
+    Call<PlatformModels.GetSettlementTransactionsResponse> getSettledTransactions(@Path("organizationId") String  organizationId , @Query("page") Integer  page ,  @Query("limit") Integer  limit ,  @Query("orderId") String  orderId ,  @Query("transactionId") String  transactionId ,  @Query("startDate") String  startDate ,  @Query("endDate") String  endDate );
     
 }
 
