@@ -7903,6 +7903,12 @@ public static class GroupedEmi {
     
     
     
+    @JsonProperty("repaidAmount")
+    private Double repaidAmount;
+    
+    
+    
+    
     @JsonProperty("loanAccounts")
     private List<GroupedEmiLoanAccount> loanAccounts;
     
@@ -8066,6 +8072,134 @@ public static class TransactionDetails {
     
     @JsonProperty("emis")
     private List<GroupedEmi> emis;
+    
+    
+    
+    
+    @JsonProperty("summary")
+    private TransactionSummary summary;
+    
+    
+    
+    
+}
+
+/*
+    Model: TransactionSummary
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TransactionSummary {
+    
+    
+    
+    
+    @JsonProperty("capturedAmount")
+    private Double capturedAmount;
+    
+    
+    
+    
+    @JsonProperty("uncapturedAmount")
+    private Double uncapturedAmount;
+    
+    
+    
+    
+    @JsonProperty("capturedAmountForDisbursal")
+    private Double capturedAmountForDisbursal;
+    
+    
+    
+    
+    @JsonProperty("capturedAmountForCancellation")
+    private Double capturedAmountForCancellation;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private List<TransactionSummaryData> data;
+    
+    
+    
+    
+}
+
+/*
+    Model: TransactionSummaryData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TransactionSummaryData {
+    
+    
+    
+    
+    @JsonProperty("display")
+    private TransactionSummaryDataDisplay display;
+    
+    
+    
+    
+}
+
+/*
+    Model: TransactionSummaryDataDisplay
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TransactionSummaryDataDisplay {
+    
+    
+    
+    
+    @JsonProperty("primary")
+    private TransactionSummaryDataDisplayType primary;
+    
+    
+    
+    
+    @JsonProperty("secondary")
+    private TransactionSummaryDataDisplayType secondary;
+    
+    
+    
+    
+}
+
+/*
+    Model: TransactionSummaryDataDisplayType
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TransactionSummaryDataDisplayType {
+    
+    
+    
+    
+    @JsonProperty("text")
+    private String text;
     
     
     
@@ -10753,12 +10887,6 @@ public static class RegisterTransaction {
     
     
     
-    @JsonProperty("remark")
-    private String remark;
-    
-    
-    
-    
 }
 
 /*
@@ -10911,12 +11039,6 @@ public static class UpdateTransactionRequest {
     
     
     
-    @JsonProperty("remark")
-    private String remark;
-    
-    
-    
-    
 }
 
 /*
@@ -11002,6 +11124,29 @@ public static class SplitTransactionRequest {
 }
 
 /*
+    Model: TransactionInSplitTransactionResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TransactionInSplitTransactionResponse {
+    
+    
+    
+    
+    @JsonProperty("parentTransaction")
+    private Object parentTransaction;
+    
+    
+    
+    
+}
+
+/*
     Model: SplitTransactionResponse
 */
 @AllArgsConstructor
@@ -11016,50 +11161,26 @@ public static class SplitTransactionResponse {
     
     
     
-    @JsonProperty("parentTransactionId")
-    private String parentTransactionId;
+    @JsonProperty("parentTransaction")
+    private TransactionInSplitTransactionResponse parentTransaction;
     
     
     
     
-    @JsonProperty("loanTransactionId")
-    private String loanTransactionId;
+    @JsonProperty("loanTransaction")
+    private TransactionInSplitTransactionResponse loanTransaction;
     
     
     
     
-    @JsonProperty("downpaymentTransactionId")
-    private String downpaymentTransactionId;
+    @JsonProperty("downpaymentTransaction")
+    private TransactionInSplitTransactionResponse downpaymentTransaction;
     
     
     
     
-    @JsonProperty("lenderDownpaymentTransactionId")
-    private String lenderDownpaymentTransactionId;
-    
-    
-    
-    
-    @JsonProperty("loanAmount")
-    private Double loanAmount;
-    
-    
-    
-    
-    @JsonProperty("downpaymentAmount")
-    private Double downpaymentAmount;
-    
-    
-    
-    
-    @JsonProperty("lenderDownpaymentAmount")
-    private Double lenderDownpaymentAmount;
-    
-    
-    
-    
-    @JsonProperty("totalAmount")
-    private Double totalAmount;
+    @JsonProperty("lenderDownpaymentTransaction")
+    private TransactionInSplitTransactionResponse lenderDownpaymentTransaction;
     
     
     
@@ -20551,6 +20672,12 @@ public static class WebhookList {
     
     @JsonProperty("active")
     private Boolean active;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private Object meta;
     
     
     

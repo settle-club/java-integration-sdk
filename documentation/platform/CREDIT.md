@@ -797,6 +797,7 @@ Success. The request has been processed successfully and the response contains t
  | overdue | Boolean? |  yes  |  |
  | repaymentDate | String? |  yes  |  |
  | paidPercent | Double? |  yes  |  |
+ | repaidAmount | Double? |  yes  |  |
  | loanAccounts | ArrayList<[GroupedEmiLoanAccount](#GroupedEmiLoanAccount)>? |  yes  |  |
 
 ---
@@ -832,6 +833,56 @@ Success. The request has been processed successfully and the response contains t
  | paidPercent | Double? |  yes  |  |
  | lenderDetail | [LenderDetail](#LenderDetail)? |  yes  |  |
  | emis | ArrayList<[GroupedEmi](#GroupedEmi)>? |  yes  |  |
+ | summary | [TransactionSummary](#TransactionSummary)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [TransactionSummary](#TransactionSummary)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | capturedAmount | Double |  no  | The total captured amount. This is the sum of the amounts of all captured shipments. |
+ | uncapturedAmount | Double |  no  | The total uncaptured amount. This is calculated as totalAmount - capturedAmount. |
+ | capturedAmountForDisbursal | Double |  no  | The total amount captured for disbursal. This represents the sum of amounts from all shipments marked for disbursal. |
+ | capturedAmountForCancellation | Double |  no  | The total amount captured for cancellation. This aggregates the amounts from all shipments identified for cancellation. |
+ | data | ArrayList<[TransactionSummaryData](#TransactionSummaryData)> |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [TransactionSummaryData](#TransactionSummaryData)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | display | [TransactionSummaryDataDisplay](#TransactionSummaryDataDisplay)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [TransactionSummaryDataDisplay](#TransactionSummaryDataDisplay)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | primary | [TransactionSummaryDataDisplayType](#TransactionSummaryDataDisplayType)? |  yes  |  |
+ | secondary | [TransactionSummaryDataDisplayType](#TransactionSummaryDataDisplayType)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [TransactionSummaryDataDisplayType](#TransactionSummaryDataDisplayType)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | text | String? |  yes  |  |
 
 ---
 
@@ -1811,7 +1862,6 @@ Success. The request has been processed successfully and the response contains t
  | ---------- | ---- | -------- | ----------- |
  | intent | String? |  yes  |  |
  | token | String |  no  |  |
- | remark | String? |  yes  |  |
 
 ---
 
@@ -1866,7 +1916,6 @@ Success. The request has been processed successfully and the response contains t
  | ---------- | ---- | -------- | ----------- |
  | intent | String |  no  |  |
  | token | String |  no  |  |
- | remark | String? |  yes  |  |
 
 ---
 
@@ -1901,18 +1950,25 @@ Success. The request has been processed successfully and the response contains t
 
  
  
+ #### [TransactionInSplitTransactionResponse](#TransactionInSplitTransactionResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | parentTransaction | Object? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [SplitTransactionResponse](#SplitTransactionResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | parentTransactionId | String? |  yes  |  |
- | loanTransactionId | String? |  yes  |  |
- | downpaymentTransactionId | String? |  yes  |  |
- | lenderDownpaymentTransactionId | String? |  yes  |  |
- | loanAmount | Double? |  yes  |  |
- | downpaymentAmount | Double? |  yes  |  |
- | lenderDownpaymentAmount | Double? |  yes  |  |
- | totalAmount | Double? |  yes  |  |
+ | parentTransaction | [TransactionInSplitTransactionResponse](#TransactionInSplitTransactionResponse)? |  yes  |  |
+ | loanTransaction | [TransactionInSplitTransactionResponse](#TransactionInSplitTransactionResponse)? |  yes  |  |
+ | downpaymentTransaction | [TransactionInSplitTransactionResponse](#TransactionInSplitTransactionResponse)? |  yes  |  |
+ | lenderDownpaymentTransaction | [TransactionInSplitTransactionResponse](#TransactionInSplitTransactionResponse)? |  yes  |  |
 
 ---
 

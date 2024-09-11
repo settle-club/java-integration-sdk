@@ -198,7 +198,7 @@ true
 
 
 ### registerTransaction
-Store Transaction & Order in DB
+Registers a transaction against an order.
 
 
 
@@ -216,7 +216,7 @@ transaction.registerTransaction(body body) {
 | body | [RegisterTransaction](#RegisterTransaction) | yes | Request body |
 
 
-Use this API to store Transaction & Order in PENDING | FAILED | CANCELLED states.
+This endpoint uses ONBOARDING TOKEN responsible for creating a new transaction record in the database with states such as PENDING or CANCELLED, based on the provided details.
 
 *Returned Response:*
 
@@ -231,17 +231,11 @@ Success. Returns a JSON object as shown below. Refer `RegisterTransactionRespons
 
 
 <details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; success</i></summary>
+<summary><i>&nbsp; Example:</i></summary>
 
 ```json
-true
-```
-</details>
 
+```
 </details>
 
 
@@ -256,7 +250,7 @@ true
 
 
 ### updateTransaction
-Store Transaction & Order in DB
+Updates a transaction's status to CANCELLED in the database.
 
 
 
@@ -274,7 +268,7 @@ transaction.updateTransaction(body body) {
 | body | [UpdateTransactionRequest](#UpdateTransactionRequest) | yes | Request body |
 
 
-Use this API to update Transaction & Order in FAILED | CANCELLED states.
+This endpoint uses CHARGE_TOKEN to update the status of a transaction and its associated order to CANCELLED, effectively marking the transaction as void.
 
 *Returned Response:*
 
@@ -283,23 +277,17 @@ Use this API to update Transaction & Order in FAILED | CANCELLED states.
 
 [UpdateTransactionResponse](#UpdateTransactionResponse)
 
-Success. Returns a JSON object as shown below. Refer `UpdateTransactionResponse` for more details.
+Transaction updated successfully. Refer `UpdateTransactionResponse` schema for response format.
 
 
 
 
 <details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; success</i></summary>
+<summary><i>&nbsp; Example:</i></summary>
 
 ```json
-true
-```
-</details>
 
+```
 </details>
 
 
@@ -352,66 +340,50 @@ Success. Returns a JSON object as shown below. Refer `SplitTransactionResponse` 
 
 
 <details>
-<summary><i>&nbsp; parentTransactionId</i></summary>
+<summary><i>&nbsp; parentTransaction</i></summary>
 
 ```json
-"TXN213wesrdty76890ipjoklmnhgbfde"
+{
+  "id": "transaction.id",
+  "amount": "transaction.amount",
+  "status": "transaction.status"
+}
 ```
 </details>
 
 <details>
-<summary><i>&nbsp; loanTransactionId</i></summary>
+<summary><i>&nbsp; loanTransaction</i></summary>
 
 ```json
-"TXN213wesrdty76890ipds0sksmd7ude"
+{
+  "id": "loanTransaction.id",
+  "amount": "loanTransaction.amount",
+  "status": "loanTransaction.status"
+}
 ```
 </details>
 
 <details>
-<summary><i>&nbsp; downpaymentTransactionId</i></summary>
+<summary><i>&nbsp; downpaymentTransaction</i></summary>
 
 ```json
-"TXNsa5d46f7gugy88h9090897yug7f564"
+{
+  "id": "downpaymentTransaction.id",
+  "amount": "downpaymentTransaction.amount",
+  "status": "downpaymentTransaction.status"
+}
 ```
 </details>
 
 <details>
-<summary><i>&nbsp; lenderDownpaymentTransactionId</i></summary>
+<summary><i>&nbsp; lenderDownpaymentTransaction</i></summary>
 
 ```json
-"TXNss5d35f7favw88h3530897yug7f354"
-```
-</details>
-
-<details>
-<summary><i>&nbsp; lenderDownpaymentAmount</i></summary>
-
-```json
-2000
-```
-</details>
-
-<details>
-<summary><i>&nbsp; loanAmount</i></summary>
-
-```json
-10000
-```
-</details>
-
-<details>
-<summary><i>&nbsp; downpaymentAmount</i></summary>
-
-```json
-20000
-```
-</details>
-
-<details>
-<summary><i>&nbsp; totalAmount</i></summary>
-
-```json
-32000
+{
+  "id": "lenderDownpaymentTransaction.id",
+  "amount": "lenderDownpaymentTransaction.amount",
+  "status": "lenderDownpaymentTransaction.status"
+}
 ```
 </details>
 
@@ -812,6 +784,7 @@ Success. Returns a JSON object as shown below. Refer `TransactionDetails` for mo
  | overdue | Boolean? |  yes  |  |
  | repaymentDate | String? |  yes  |  |
  | paidPercent | Double? |  yes  |  |
+ | repaidAmount | Double? |  yes  |  |
  | loanAccounts | ArrayList<[GroupedEmiLoanAccount](#GroupedEmiLoanAccount)>? |  yes  |  |
 
 ---
@@ -847,7 +820,57 @@ Success. Returns a JSON object as shown below. Refer `TransactionDetails` for mo
  | paidPercent | Double? |  yes  |  |
  | lenderDetail | [LenderDetail](#LenderDetail)? |  yes  |  |
  | emis | ArrayList<[GroupedEmi](#GroupedEmi)>? |  yes  |  |
+ | summary | [TransactionSummary](#TransactionSummary)? |  yes  |  |
  | headers | HashMap<String,Object>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [TransactionSummary](#TransactionSummary)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | capturedAmount | Double |  no  | The total captured amount. This is the sum of the amounts of all captured shipments. |
+ | uncapturedAmount | Double |  no  | The total uncaptured amount. This is calculated as totalAmount - capturedAmount. |
+ | capturedAmountForDisbursal | Double |  no  | The total amount captured for disbursal. This represents the sum of amounts from all shipments marked for disbursal. |
+ | capturedAmountForCancellation | Double |  no  | The total amount captured for cancellation. This aggregates the amounts from all shipments identified for cancellation. |
+ | data | ArrayList<[TransactionSummaryData](#TransactionSummaryData)> |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [TransactionSummaryData](#TransactionSummaryData)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | display | [TransactionSummaryDataDisplay](#TransactionSummaryDataDisplay)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [TransactionSummaryDataDisplay](#TransactionSummaryDataDisplay)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | primary | [TransactionSummaryDataDisplayType](#TransactionSummaryDataDisplayType)? |  yes  |  |
+ | secondary | [TransactionSummaryDataDisplayType](#TransactionSummaryDataDisplayType)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [TransactionSummaryDataDisplayType](#TransactionSummaryDataDisplayType)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | text | String? |  yes  |  |
 
 ---
 
@@ -1829,7 +1852,6 @@ Success. Returns a JSON object as shown below. Refer `TransactionDetails` for mo
  | ---------- | ---- | -------- | ----------- |
  | intent | String? |  yes  |  |
  | token | String |  no  |  |
- | remark | String? |  yes  |  |
 
 ---
 
@@ -1885,7 +1907,6 @@ Success. Returns a JSON object as shown below. Refer `TransactionDetails` for mo
  | ---------- | ---- | -------- | ----------- |
  | intent | String |  no  |  |
  | token | String |  no  |  |
- | remark | String? |  yes  |  |
 
 ---
 
@@ -1921,18 +1942,25 @@ Success. Returns a JSON object as shown below. Refer `TransactionDetails` for mo
 
  
  
+ #### [TransactionInSplitTransactionResponse](#TransactionInSplitTransactionResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | parentTransaction | Object? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [SplitTransactionResponse](#SplitTransactionResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | parentTransactionId | String? |  yes  |  |
- | loanTransactionId | String? |  yes  |  |
- | downpaymentTransactionId | String? |  yes  |  |
- | lenderDownpaymentTransactionId | String? |  yes  |  |
- | loanAmount | Double? |  yes  |  |
- | downpaymentAmount | Double? |  yes  |  |
- | lenderDownpaymentAmount | Double? |  yes  |  |
- | totalAmount | Double? |  yes  |  |
+ | parentTransaction | [TransactionInSplitTransactionResponse](#TransactionInSplitTransactionResponse)? |  yes  |  |
+ | loanTransaction | [TransactionInSplitTransactionResponse](#TransactionInSplitTransactionResponse)? |  yes  |  |
+ | downpaymentTransaction | [TransactionInSplitTransactionResponse](#TransactionInSplitTransactionResponse)? |  yes  |  |
+ | lenderDownpaymentTransaction | [TransactionInSplitTransactionResponse](#TransactionInSplitTransactionResponse)? |  yes  |  |
  | headers | HashMap<String,Object>? |  yes  |  |
 
 ---

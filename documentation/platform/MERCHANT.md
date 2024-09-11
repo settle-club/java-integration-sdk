@@ -1409,6 +1409,7 @@ Success. Returns a JSON object as shown below. Refer `WebhookCategoriesResponse`
  | customHeaders | HashMap<String,Object>? |  yes  |  |
  | alertEmail | String? |  yes  |  |
  | active | Boolean |  no  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
  | webHookSubscriptionEvents | ArrayList<[WebHookSubscriptionEvent](#WebHookSubscriptionEvent)>? |  yes  |  |
 
 ---
