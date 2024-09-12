@@ -11,6 +11,7 @@ Transaction Service
 * [kfs](#kfs)
 * [registerTransaction](#registertransaction)
 * [updateTransaction](#updatetransaction)
+* [split](#split)
 * [listOfTransactions](#listoftransactions)
 * [loadTransactionById](#loadtransactionbyid)
 
@@ -287,6 +288,105 @@ Transaction updated successfully. Refer `UpdateTransactionResponse` schema for r
 ```json
 
 ```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### split
+Split transaction.
+
+
+
+
+```java
+transaction.split( lenderSlug, body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| lenderSlug | String | yes | This is lender slug |  
+| body | [SplitTransactionRequest](#SplitTransactionRequest) | yes | Request body |
+
+
+Use this API to perform split transaction
+
+*Returned Response:*
+
+
+
+
+[SplitTransactionResponse](#SplitTransactionResponse)
+
+Success. Returns a JSON object as shown below. Refer `SplitTransactionResponse` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; parentTransaction</i></summary>
+
+```json
+{
+  "id": "transaction.id",
+  "amount": "transaction.amount",
+  "status": "transaction.status"
+}
+```
+</details>
+
+<details>
+<summary><i>&nbsp; loanTransaction</i></summary>
+
+```json
+{
+  "id": "loanTransaction.id",
+  "amount": "loanTransaction.amount",
+  "status": "loanTransaction.status"
+}
+```
+</details>
+
+<details>
+<summary><i>&nbsp; downpaymentTransaction</i></summary>
+
+```json
+{
+  "id": "downpaymentTransaction.id",
+  "amount": "downpaymentTransaction.amount",
+  "status": "downpaymentTransaction.status"
+}
+```
+</details>
+
+<details>
+<summary><i>&nbsp; lenderDownpaymentTransaction</i></summary>
+
+```json
+{
+  "id": "lenderDownpaymentTransaction.id",
+  "amount": "lenderDownpaymentTransaction.amount",
+  "status": "lenderDownpaymentTransaction.status"
+}
+```
+</details>
+
 </details>
 
 
@@ -1823,6 +1923,44 @@ Success. Returns a JSON object as shown below. Refer `TransactionDetails` for mo
  | transactionId | String? |  yes  | The unique identifier of the transaction. |
  | status | String? |  yes  | The status of the user related to the payment process. |
  | message | String? |  yes  | A message related to the user status. |
+ | headers | HashMap<String,Object>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [SplitTransactionRequest](#SplitTransactionRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | token | String |  no  | It contains all the mercahant and order details. |
+ | emiTenure | Double |  no  | This will contain the EMI tenure |
+
+---
+
+
+ 
+ 
+ #### [TransactionInSplitTransactionResponse](#TransactionInSplitTransactionResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | parentTransaction | Object? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [SplitTransactionResponse](#SplitTransactionResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | parentTransaction | [TransactionInSplitTransactionResponse](#TransactionInSplitTransactionResponse)? |  yes  |  |
+ | loanTransaction | [TransactionInSplitTransactionResponse](#TransactionInSplitTransactionResponse)? |  yes  |  |
+ | downpaymentTransaction | [TransactionInSplitTransactionResponse](#TransactionInSplitTransactionResponse)? |  yes  |  |
+ | lenderDownpaymentTransaction | [TransactionInSplitTransactionResponse](#TransactionInSplitTransactionResponse)? |  yes  |  |
  | headers | HashMap<String,Object>? |  yes  |  |
 
 ---

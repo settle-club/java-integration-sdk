@@ -11094,6 +11094,99 @@ public static class UpdateTransactionResponse {
     
 }
 
+/*
+    Model: SplitTransactionRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SplitTransactionRequest {
+    
+    
+    
+    
+    @JsonProperty("token")
+    private String token;
+    
+    
+    
+    
+    @JsonProperty("emiTenure")
+    private Double emiTenure;
+    
+    
+    
+    
+}
+
+/*
+    Model: TransactionInSplitTransactionResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TransactionInSplitTransactionResponse {
+    
+    
+    
+    
+    @JsonProperty("parentTransaction")
+    private Object parentTransaction;
+    
+    
+    
+    
+}
+
+/*
+    Model: SplitTransactionResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SplitTransactionResponse {
+    
+    
+    
+    
+    @JsonProperty("parentTransaction")
+    private TransactionInSplitTransactionResponse parentTransaction;
+    
+    
+    
+    
+    @JsonProperty("loanTransaction")
+    private TransactionInSplitTransactionResponse loanTransaction;
+    
+    
+    
+    
+    @JsonProperty("downpaymentTransaction")
+    private TransactionInSplitTransactionResponse downpaymentTransaction;
+    
+    
+    
+    
+    @JsonProperty("lenderDownpaymentTransaction")
+    private TransactionInSplitTransactionResponse lenderDownpaymentTransaction;
+    
+    
+    
+    
+}
+
 
 
 
@@ -15513,6 +15606,18 @@ public static class LenderState {
     
     
     
+    @JsonProperty("meta")
+    private Object meta;
+    
+    
+    
+    
+    @JsonProperty("display")
+    private Object display;
+    
+    
+    
+    
 }
 
 /*
@@ -15738,6 +15843,30 @@ public static class Pg {
     
     
     
+    @JsonProperty("baseUrl")
+    private String baseUrl;
+    
+    
+    
+    
+    @JsonProperty("config")
+    private Object config;
+    
+    
+    
+    
+    @JsonProperty("paymentOptions")
+    private List<Object> paymentOptions;
+    
+    
+    
+    
+    @JsonProperty("credentialsSchema")
+    private Object credentialsSchema;
+    
+    
+    
+    
 }
 
 /*
@@ -15793,6 +15922,18 @@ public static class LenderPgConfig {
     
     @JsonProperty("active")
     private Boolean active;
+    
+    
+    
+    
+    @JsonProperty("config")
+    private Object config;
+    
+    
+    
+    
+    @JsonProperty("paymentOptions")
+    private List<Object> paymentOptions;
     
     
     

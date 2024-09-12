@@ -1936,4 +1936,41 @@ Success. The request has been processed successfully and the response contains t
 ---
 
 
+ 
+ 
+ #### [SplitTransactionRequest](#SplitTransactionRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | token | String |  no  | It contains all the mercahant and order details. |
+ | emiTenure | Double |  no  | This will contain the EMI tenure |
+
+---
+
+
+ 
+ 
+ #### [TransactionInSplitTransactionResponse](#TransactionInSplitTransactionResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | parentTransaction | Object? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [SplitTransactionResponse](#SplitTransactionResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | parentTransaction | [TransactionInSplitTransactionResponse](#TransactionInSplitTransactionResponse)? |  yes  |  |
+ | loanTransaction | [TransactionInSplitTransactionResponse](#TransactionInSplitTransactionResponse)? |  yes  |  |
+ | downpaymentTransaction | [TransactionInSplitTransactionResponse](#TransactionInSplitTransactionResponse)? |  yes  |  |
+ | lenderDownpaymentTransaction | [TransactionInSplitTransactionResponse](#TransactionInSplitTransactionResponse)? |  yes  |  |
+
+---
+
+
 

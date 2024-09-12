@@ -109,7 +109,7 @@ transaction.getAllTransactionsCSV( status,  type,  id,  orderId,  startDate,  en
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| status | Double? | no | This is page number |   
+| status | List<String>? | no | This is transaction status |   
 | type | List<String>? | no | This is transaction type |   
 | organizationId | String | yes | This is the organization ID |   
 | id | String? | no | This is the search term |   
@@ -1970,6 +1970,43 @@ Success. Returns a JSON object as shown below. Refer `UniqueCustomersInOrg` for 
  | transactionId | String? |  yes  | The unique identifier of the transaction. |
  | status | String? |  yes  | The status of the user related to the payment process. |
  | message | String? |  yes  | A message related to the user status. |
+
+---
+
+
+ 
+ 
+ #### [SplitTransactionRequest](#SplitTransactionRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | token | String |  no  | It contains all the mercahant and order details. |
+ | emiTenure | Double |  no  | This will contain the EMI tenure |
+
+---
+
+
+ 
+ 
+ #### [TransactionInSplitTransactionResponse](#TransactionInSplitTransactionResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | parentTransaction | Object? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [SplitTransactionResponse](#SplitTransactionResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | parentTransaction | [TransactionInSplitTransactionResponse](#TransactionInSplitTransactionResponse)? |  yes  |  |
+ | loanTransaction | [TransactionInSplitTransactionResponse](#TransactionInSplitTransactionResponse)? |  yes  |  |
+ | downpaymentTransaction | [TransactionInSplitTransactionResponse](#TransactionInSplitTransactionResponse)? |  yes  |  |
+ | lenderDownpaymentTransaction | [TransactionInSplitTransactionResponse](#TransactionInSplitTransactionResponse)? |  yes  |  |
 
 ---
 
