@@ -257,10 +257,24 @@ Success. Returns a JSON object as shown below. Refer `ValidateCredentialsRespons
 
 
 <details>
-<summary><i>&nbsp; $ref</i></summary>
+<summary><i>&nbsp; ValidateCredentialsResponseExample</i></summary>
 
 ```json
-"#/components/examples/ValidateCredentialsResponseExample"
+{
+  "value": {
+    "message": "The request has been processed successfully.",
+    "data": {
+      "success": true,
+      "organizationId": "d5a2db76-499d-45fc-af67-435481af9a87",
+      "organizationName": "Settle Organization"
+    },
+    "meta": {
+      "timestamp": "2024-07-15T12:57:06.818Z",
+      "version": "v1.0",
+      "product": "Settle Checkout"
+    }
+  }
+}
 ```
 </details>
 
@@ -316,10 +330,22 @@ Success. Returns a JSON object as shown below. Refer `ValidateCredentialsRespons
 
 
 <details>
-<summary><i>&nbsp; $ref</i></summary>
+<summary><i>&nbsp; UpdateApiHookResponseExample</i></summary>
 
 ```json
-"#/components/examples/UpdateApiHookResponseExample"
+{
+  "value": {
+    "message": "The request has been processed successfully.",
+    "data": {
+      "success": true
+    },
+    "meta": {
+      "timestamp": "2024-08-29T14:33:33.627Z",
+      "version": "v1.0",
+      "product": "Settle Checkout"
+    }
+  }
+}
 ```
 </details>
 
@@ -375,10 +401,69 @@ Success. Returns a JSON object as shown below. Refer `ApiHookDetails` for more d
 
 
 <details>
-<summary><i>&nbsp; $ref</i></summary>
+<summary><i>&nbsp; ApiHookDetailsExample</i></summary>
 
 ```json
-"#/components/examples/ApiHookDetailsExample"
+{
+  "value": {
+    "message": "The request has been processed successfully.",
+    "data": {
+      "apiHookData": [
+        {
+          "id": "4d26567c-3926-40a3-9590-22f310c808e6",
+          "organizationId": "8d29dca7-73c6-438a-aee0-58b361e32abc",
+          "url": "https://www.google.com",
+          "customHeaders": null,
+          "createdAt": "2024-08-29T14:11:46.793Z",
+          "updatedAt": "2024-08-29T14:16:31.489Z",
+          "deletedAt": null,
+          "meta": null,
+          "alertEmail": null,
+          "active": true,
+          "organizationWebhookEvents": [
+            {
+              "id": "995fce47-3d64-4ec4-b04c-223b0207113f",
+              "organizationApiHookDetailsId": "4d26567c-3926-40a3-9590-22f310c808e6",
+              "webhookCategoryId": "de1a6c9d-e124-4a31-816d-258954fd7cd2",
+              "webhookCategorySlug": "disburse",
+              "isWebhookCategoryActive": true,
+              "webhookEventId": "e21443b0-eca3-4701-ad32-335a48c1bb78",
+              "webhookEventSlug": "start-disburse-test",
+              "isWebhookEventActive": true,
+              "meta": {
+                "test": 123
+              },
+              "createdAt": "2024-08-29T14:16:31.499Z",
+              "updatedAt": "2024-08-29T14:16:31.499Z",
+              "deletedAt": null
+            },
+            {
+              "id": "fb12cfbb-634c-458f-8094-37dcf3450b20",
+              "organizationApiHookDetailsId": "4d26567c-3926-40a3-9590-22f310c808e6",
+              "webhookCategoryId": "84508f95-eb90-467f-9a41-d2f96bd7cd19",
+              "webhookCategorySlug": "payment",
+              "isWebhookCategoryActive": true,
+              "webhookEventId": "2c2ebfc4-e95f-428f-a4ca-b1b58716f635",
+              "webhookEventSlug": "end-payment-test",
+              "isWebhookEventActive": true,
+              "meta": {
+                "test2": 46
+              },
+              "createdAt": "2024-08-29T14:16:31.506Z",
+              "updatedAt": "2024-08-29T14:16:31.506Z",
+              "deletedAt": null
+            }
+          ]
+        }
+      ]
+    },
+    "meta": {
+      "timestamp": "2024-08-30T11:18:00.481Z",
+      "version": "v1.0",
+      "product": "Settle Checkout"
+    }
+  }
+}
 ```
 </details>
 
@@ -430,7 +515,11 @@ Success. Returns a JSON object as shown below. Refer `WebhookCategoriesResponse`
 
 
 <details>
-<summary><i>&nbsp; Example:</i></summary>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; WebhookCatgeoriesExample</i></summary>
 
 ```json
 {
@@ -471,6 +560,8 @@ Success. Returns a JSON object as shown below. Refer `WebhookCategoriesResponse`
   }
 }
 ```
+</details>
+
 </details>
 
 
