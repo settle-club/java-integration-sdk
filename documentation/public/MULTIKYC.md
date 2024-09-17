@@ -1792,6 +1792,8 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
  | iconUrl | String? |  yes  |  |
  | isInteractive | Boolean |  no  |  |
  | schema | Object? |  yes  |  |
+ | meta | Object? |  yes  |  |
+ | display | Object? |  yes  |  |
 
 ---
 
@@ -1851,6 +1853,10 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
  | id | String |  no  |  |
  | name | String |  no  |  |
  | active | Boolean |  no  |  |
+ | baseUrl | String? |  yes  |  |
+ | config | Object? |  yes  |  |
+ | paymentOptions | ArrayList<Object>? |  yes  |  |
+ | credentialsSchema | Object? |  yes  |  |
 
 ---
 
@@ -1868,6 +1874,8 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
  | lenderId | String |  no  |  |
  | pgId | String |  no  |  |
  | active | Boolean |  no  |  |
+ | config | Object? |  yes  |  |
+ | paymentOptions | ArrayList<Object>? |  yes  |  |
 
 ---
 

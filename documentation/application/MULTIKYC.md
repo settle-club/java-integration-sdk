@@ -10804,6 +10804,8 @@ API endpoint to create a signed URL for uploading documents to and downloading d
  | iconUrl | String? |  yes  |  |
  | isInteractive | Boolean |  no  |  |
  | schema | Object? |  yes  |  |
+ | meta | Object? |  yes  |  |
+ | display | Object? |  yes  |  |
 
 ---
 
@@ -10863,6 +10865,10 @@ API endpoint to create a signed URL for uploading documents to and downloading d
  | id | String |  no  |  |
  | name | String |  no  |  |
  | active | Boolean |  no  |  |
+ | baseUrl | String? |  yes  |  |
+ | config | Object? |  yes  |  |
+ | paymentOptions | ArrayList<Object>? |  yes  |  |
+ | credentialsSchema | Object? |  yes  |  |
 
 ---
 
@@ -10880,6 +10886,8 @@ API endpoint to create a signed URL for uploading documents to and downloading d
  | lenderId | String |  no  |  |
  | pgId | String |  no  |  |
  | active | Boolean |  no  |  |
+ | config | Object? |  yes  |  |
+ | paymentOptions | ArrayList<Object>? |  yes  |  |
 
 ---
 

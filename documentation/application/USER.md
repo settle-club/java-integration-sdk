@@ -2488,6 +2488,7 @@ Success. Check the example shown below or refer `ProfileEditSuccess` for more de
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | token | String |  no  |  |
+ | type | String? |  yes  |  |
 
 ---
 

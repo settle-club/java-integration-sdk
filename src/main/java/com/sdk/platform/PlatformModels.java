@@ -2344,6 +2344,12 @@ public static class GetDataFromToken {
     
     
     
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
 }
 
 /*
@@ -15606,6 +15612,18 @@ public static class LenderState {
     
     
     
+    @JsonProperty("meta")
+    private Object meta;
+    
+    
+    
+    
+    @JsonProperty("display")
+    private Object display;
+    
+    
+    
+    
 }
 
 /*
@@ -15831,6 +15849,30 @@ public static class Pg {
     
     
     
+    @JsonProperty("baseUrl")
+    private String baseUrl;
+    
+    
+    
+    
+    @JsonProperty("config")
+    private Object config;
+    
+    
+    
+    
+    @JsonProperty("paymentOptions")
+    private List<Object> paymentOptions;
+    
+    
+    
+    
+    @JsonProperty("credentialsSchema")
+    private Object credentialsSchema;
+    
+    
+    
+    
 }
 
 /*
@@ -15886,6 +15928,18 @@ public static class LenderPgConfig {
     
     @JsonProperty("active")
     private Boolean active;
+    
+    
+    
+    
+    @JsonProperty("config")
+    private Object config;
+    
+    
+    
+    
+    @JsonProperty("paymentOptions")
+    private List<Object> paymentOptions;
     
     
     
