@@ -1682,6 +1682,7 @@ Success. Returns a JSON object as shown below. Refer `AddVintageResponse` for mo
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | token | String |  no  |  |
+ | type | String? |  yes  |  |
 
 ---
 

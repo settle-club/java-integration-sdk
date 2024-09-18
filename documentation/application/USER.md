@@ -16,7 +16,7 @@ Authentication Service
 * [getSupportCategories](#getsupportcategories)
 * [initiateTransaction](#initiatetransaction)
 * [getMobileNumberFromOnboardingToken](#getmobilenumberfromonboardingtoken)
-* [getDataFromOnboardingToken](#getdatafromonboardingtoken)
+* [getTokenData](#gettokendata)
 * [getMobileNumberFromLinkingToken](#getmobilenumberfromlinkingtoken)
 * [getSessionFromLinkingToken](#getsessionfromlinkingtoken)
 * [saveUserConsents](#saveuserconsents)
@@ -653,14 +653,14 @@ Success. Returns a JSON object as shown below. Refer `RetrieveMobileFromToken` f
 ---
 
 
-### getDataFromOnboardingToken
+### getTokenData
 Get mobile number from onboarding token
 
 
 
 
 ```java
-user.getDataFromOnboardingToken(body body) {
+user.getTokenData(body body) {
   //use response
 }
 ```
@@ -2488,6 +2488,7 @@ Success. Check the example shown below or refer `ProfileEditSuccess` for more de
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | token | String |  no  |  |
+ | type | String? |  yes  |  |
 
 ---
 

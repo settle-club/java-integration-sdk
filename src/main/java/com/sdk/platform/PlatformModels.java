@@ -2344,6 +2344,12 @@ public static class GetDataFromToken {
     
     
     
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
 }
 
 /*
@@ -15013,6 +15019,12 @@ public static class LenderFilters {
     
     @JsonProperty("allowDisabledLender")
     private Object allowDisabledLender;
+    
+    
+    
+    
+    @JsonProperty("merchantIds")
+    private List<Object> merchantIds;
     
     
     

@@ -1301,6 +1301,7 @@ multikyc.approvedLenders() {
  | includeStatus | ArrayList<Object>? |  yes  |  |
  | excludeStatus | ArrayList<Object>? |  yes  |  |
  | allowDisabledLender | Object? |  yes  |  |
+ | merchantIds | ArrayList<Object>? |  yes  |  |
 
 ---
 
