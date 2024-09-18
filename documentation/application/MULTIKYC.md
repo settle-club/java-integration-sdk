@@ -10626,7 +10626,7 @@ API endpoint to create a signed URL for uploading documents to and downloading d
  | includeStatus | ArrayList<Object>? |  yes  |  |
  | excludeStatus | ArrayList<Object>? |  yes  |  |
  | allowDisabledLender | Object? |  yes  |  |
- | merchantId | ArrayList<Object>? |  yes  |  |
+ | merchantIds | ArrayList<Object>? |  yes  |  |
 
 ---
 

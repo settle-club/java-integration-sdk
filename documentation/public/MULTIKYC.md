@@ -1615,7 +1615,7 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
  | includeStatus | ArrayList<Object>? |  yes  |  |
  | excludeStatus | ArrayList<Object>? |  yes  |  |
  | allowDisabledLender | Object? |  yes  |  |
- | merchantId | ArrayList<Object>? |  yes  |  |
+ | merchantIds | ArrayList<Object>? |  yes  |  |
 
 ---
 

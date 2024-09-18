@@ -15023,8 +15023,8 @@ public static class LenderFilters {
     
     
     
-    @JsonProperty("merchantId")
-    private List<Object> merchantId;
+    @JsonProperty("merchantIds")
+    private List<Object> merchantIds;
     
     
     
