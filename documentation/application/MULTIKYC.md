@@ -11651,7 +11651,7 @@ API endpoint to create a signed URL for uploading documents to and downloading d
 
  
  
- #### [KycDetailsReponse](#KycDetailsReponse)
+ #### [KycDetailsResponse](#KycDetailsResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
@@ -11805,7 +11805,7 @@ API endpoint to create a signed URL for uploading documents to and downloading d
 
  
  
- #### [CustomerKycDetailsReponse](#CustomerKycDetailsReponse)
+ #### [CustomerKycDetailsResponse](#CustomerKycDetailsResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |

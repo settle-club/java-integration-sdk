@@ -317,7 +317,7 @@ multikyc.getUserKycDetails( enitityMap,  entityId) {
 
 
 
-[CustomerKycDetailsReponse](#CustomerKycDetailsReponse)
+[CustomerKycDetailsResponse](#CustomerKycDetailsResponse)
 
 
 
@@ -2648,7 +2648,7 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
 
  
  
- #### [KycDetailsReponse](#KycDetailsReponse)
+ #### [KycDetailsResponse](#KycDetailsResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
@@ -2799,7 +2799,7 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
 
  
  
- #### [CustomerKycDetailsReponse](#CustomerKycDetailsReponse)
+ #### [CustomerKycDetailsResponse](#CustomerKycDetailsResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |

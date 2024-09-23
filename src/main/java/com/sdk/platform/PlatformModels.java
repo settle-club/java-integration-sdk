@@ -11145,7 +11145,7 @@ public static class TransactionInSplitTransactionResponse {
     
     
     @JsonProperty("parentTransaction")
-    private Object parentTransaction;
+    private  parentTransaction;
     
     
     
@@ -17948,7 +17948,7 @@ public static class CreditReportResponse {
 }
 
 /*
-    Model: KycDetailsReponse
+    Model: KycDetailsResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17957,7 +17957,7 @@ public static class CreditReportResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class KycDetailsReponse {
+public static class KycDetailsResponse {
     
     
     
@@ -18338,7 +18338,7 @@ public static class ManualKycResponse {
 }
 
 /*
-    Model: CustomerKycDetailsReponse
+    Model: CustomerKycDetailsResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18347,7 +18347,7 @@ public static class ManualKycResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CustomerKycDetailsReponse {
+public static class CustomerKycDetailsResponse {
     
     
     

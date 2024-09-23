@@ -1992,7 +1992,7 @@ Success. Returns a JSON object as shown below. Refer `UniqueCustomersInOrg` for 
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | parentTransaction | Object? |  yes  |  |
+ | parentTransaction | ? |  yes  |  |
 
 ---
 
