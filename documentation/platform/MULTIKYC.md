@@ -319,6 +319,7 @@ multikyc.approvedLenders() {
  | creditType | String? |  yes  |  |
  | userId | String |  no  |  |
  | entityId | String |  no  |  |
+ | isDefault | Boolean? |  yes  |  |
 
 ---
 
@@ -2310,7 +2311,7 @@ multikyc.approvedLenders() {
 
  
  
- #### [KycDetailsReponse](#KycDetailsReponse)
+ #### [KycDetailsResponse](#KycDetailsResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
@@ -2461,7 +2462,7 @@ multikyc.approvedLenders() {
 
  
  
- #### [CustomerKycDetailsReponse](#CustomerKycDetailsReponse)
+ #### [CustomerKycDetailsResponse](#CustomerKycDetailsResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |

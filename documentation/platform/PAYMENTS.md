@@ -188,6 +188,7 @@ Success. Returns a JSON object as shown below. Refer `PaymentLinkResponse` for m
  | bankName | String |  no  |  |
  | chargeToken | String? |  yes  |  |
  | transactionId | String? |  yes  |  |
+ | entityMapId | String? |  yes  |  |
 
 ---
 
@@ -215,6 +216,7 @@ Success. Returns a JSON object as shown below. Refer `PaymentLinkResponse` for m
  | vpa | String |  no  |  |
  | chargeToken | String? |  yes  |  |
  | transactionId | String? |  yes  |  |
+ | entityMapId | String? |  yes  |  |
 
 ---
 

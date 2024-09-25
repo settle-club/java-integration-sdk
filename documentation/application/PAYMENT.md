@@ -879,6 +879,7 @@ Success. Returns a JSON object as shown below. Refer `OutstandingDetail` for mor
  | bankName | String |  no  |  |
  | chargeToken | String? |  yes  |  |
  | transactionId | String? |  yes  |  |
+ | entityMapId | String? |  yes  |  |
 
 ---
 
@@ -907,6 +908,7 @@ Success. Returns a JSON object as shown below. Refer `OutstandingDetail` for mor
  | vpa | String |  no  |  |
  | chargeToken | String? |  yes  |  |
  | transactionId | String? |  yes  |  |
+ | entityMapId | String? |  yes  |  |
 
 ---
 

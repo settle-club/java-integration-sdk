@@ -11144,8 +11144,32 @@ public static class TransactionInSplitTransactionResponse {
     
     
     
-    @JsonProperty("parentTransaction")
-    private Object parentTransaction;
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("amount")
+    private Double amount;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("subtype")
+    private String subtype;
     
     
     
@@ -12198,6 +12222,12 @@ public static class EntityMapDto {
     
     @JsonProperty("entityId")
     private String entityId;
+    
+    
+    
+    
+    @JsonProperty("isDefault")
+    private Boolean isDefault;
     
     
     
@@ -17948,7 +17978,7 @@ public static class CreditReportResponse {
 }
 
 /*
-    Model: KycDetailsReponse
+    Model: KycDetailsResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17957,7 +17987,7 @@ public static class CreditReportResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class KycDetailsReponse {
+public static class KycDetailsResponse {
     
     
     
@@ -18338,7 +18368,7 @@ public static class ManualKycResponse {
 }
 
 /*
-    Model: CustomerKycDetailsReponse
+    Model: CustomerKycDetailsResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18347,7 +18377,7 @@ public static class ManualKycResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CustomerKycDetailsReponse {
+public static class CustomerKycDetailsResponse {
     
     
     
@@ -21890,6 +21920,12 @@ public static class RepaymentUsingNetbanking {
     
     
     
+    @JsonProperty("entityMapId")
+    private String entityMapId;
+    
+    
+    
+    
 }
 
 /*
@@ -21962,6 +21998,12 @@ public static class RepaymentUsingUPI {
     
     @JsonProperty("transactionId")
     private String transactionId;
+    
+    
+    
+    
+    @JsonProperty("entityMapId")
+    private String entityMapId;
     
     
     

@@ -502,6 +502,7 @@ Success. The request has been processed successfully and the response contains t
           "id": "TXN",
           "amount": 10000,
           "createdAt": "2024-08-20T06:37:27.150Z",
+          "utr": "ASCE124353H",
           "orderId": "DEMO-TRANSACTIOn",
           "settlementStatus": "PENDING",
           "settlementTime": "2024-08-22T15:20:02.274Z"
@@ -1954,7 +1955,11 @@ Success. The request has been processed successfully and the response contains t
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | parentTransaction | Object? |  yes  |  |
+ | id | String? |  yes  |  |
+ | amount | Double? |  yes  |  |
+ | status | String? |  yes  |  |
+ | type | String? |  yes  |  |
+ | subtype | String? |  yes  |  |
 
 ---
 

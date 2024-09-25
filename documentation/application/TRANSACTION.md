@@ -346,7 +346,9 @@ Success. Returns a JSON object as shown below. Refer `SplitTransactionResponse` 
 {
   "id": "transaction.id",
   "amount": "transaction.amount",
-  "status": "transaction.status"
+  "status": "transaction.status",
+  "type": "DEBIT",
+  "subtype": "SPLIT_TRANSACTION"
 }
 ```
 </details>
@@ -358,7 +360,9 @@ Success. Returns a JSON object as shown below. Refer `SplitTransactionResponse` 
 {
   "id": "loanTransaction.id",
   "amount": "loanTransaction.amount",
-  "status": "loanTransaction.status"
+  "status": "loanTransaction.status",
+  "type": "DEBIT",
+  "subtype": "DEBIT"
 }
 ```
 </details>
@@ -370,7 +374,9 @@ Success. Returns a JSON object as shown below. Refer `SplitTransactionResponse` 
 {
   "id": "downpaymentTransaction.id",
   "amount": "downpaymentTransaction.amount",
-  "status": "downpaymentTransaction.status"
+  "status": "downpaymentTransaction.status",
+  "type": "DEBIT",
+  "subtype": "MERCHANT_DP"
 }
 ```
 </details>
@@ -382,7 +388,9 @@ Success. Returns a JSON object as shown below. Refer `SplitTransactionResponse` 
 {
   "id": "lenderDownpaymentTransaction.id",
   "amount": "lenderDownpaymentTransaction.amount",
-  "status": "lenderDownpaymentTransaction.status"
+  "status": "lenderDownpaymentTransaction.status",
+  "type": "DEBIT",
+  "subtype": "LENDER_DP"
 }
 ```
 </details>
@@ -1946,7 +1954,11 @@ Success. Returns a JSON object as shown below. Refer `TransactionDetails` for mo
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | parentTransaction | Object? |  yes  |  |
+ | id | String? |  yes  |  |
+ | amount | Double? |  yes  |  |
+ | status | String? |  yes  |  |
+ | type | String? |  yes  |  |
+ | subtype | String? |  yes  |  |
 
 ---
 
