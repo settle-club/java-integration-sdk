@@ -9543,7 +9543,11 @@ API endpoint to create a signed URL for uploading documents to and downloading d
  | formId | String? |  yes  |  |
  | merchantId | String? |  yes  |  |
  | form | [Form](#Form) |  no  |  |
- | docSchema | Object |  no  |  |
+ | docSchema | Object? |  yes  |  |
+ | isOptional | Boolean? |  yes  |  |
+ | isInternal | Boolean? |  yes  |  |
+ | optionalWorkflow | String? |  yes  |  |
+ | internalWorkflow | String? |  yes  |  |
 
 ---
 
@@ -10808,6 +10812,10 @@ API endpoint to create a signed URL for uploading documents to and downloading d
  | schema | Object? |  yes  |  |
  | meta | Object? |  yes  |  |
  | display | Object? |  yes  |  |
+ | isOptional | Boolean? |  yes  |  |
+ | optionalWorkflow | String? |  yes  |  |
+ | isInternal | Boolean? |  yes  |  |
+ | internalWorkflow | String? |  yes  |  |
 
 ---
 

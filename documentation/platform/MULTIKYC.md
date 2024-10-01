@@ -219,7 +219,11 @@ multikyc.approvedLenders() {
  | formId | String? |  yes  |  |
  | merchantId | String? |  yes  |  |
  | form | [Form](#Form) |  no  |  |
- | docSchema | Object |  no  |  |
+ | docSchema | Object? |  yes  |  |
+ | isOptional | Boolean? |  yes  |  |
+ | isInternal | Boolean? |  yes  |  |
+ | optionalWorkflow | String? |  yes  |  |
+ | internalWorkflow | String? |  yes  |  |
 
 ---
 
@@ -1482,6 +1486,10 @@ multikyc.approvedLenders() {
  | schema | Object? |  yes  |  |
  | meta | Object? |  yes  |  |
  | display | Object? |  yes  |  |
+ | isOptional | Boolean? |  yes  |  |
+ | optionalWorkflow | String? |  yes  |  |
+ | isInternal | Boolean? |  yes  |  |
+ | internalWorkflow | String? |  yes  |  |
 
 ---
 

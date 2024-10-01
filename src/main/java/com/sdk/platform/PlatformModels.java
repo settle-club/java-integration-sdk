@@ -11847,6 +11847,30 @@ public static class LenderKycStepMap {
     
     
     
+    @JsonProperty("isOptional")
+    private Boolean isOptional;
+    
+    
+    
+    
+    @JsonProperty("isInternal")
+    private Boolean isInternal;
+    
+    
+    
+    
+    @JsonProperty("optionalWorkflow")
+    private String optionalWorkflow;
+    
+    
+    
+    
+    @JsonProperty("internalWorkflow")
+    private String internalWorkflow;
+    
+    
+    
+    
 }
 
 /*
@@ -15656,6 +15680,30 @@ public static class LenderState {
     
     @JsonProperty("display")
     private Object display;
+    
+    
+    
+    
+    @JsonProperty("isOptional")
+    private Boolean isOptional;
+    
+    
+    
+    
+    @JsonProperty("optionalWorkflow")
+    private String optionalWorkflow;
+    
+    
+    
+    
+    @JsonProperty("isInternal")
+    private Boolean isInternal;
+    
+    
+    
+    
+    @JsonProperty("internalWorkflow")
+    private String internalWorkflow;
     
     
     
