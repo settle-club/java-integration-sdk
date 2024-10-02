@@ -2069,6 +2069,7 @@ multikyc.approvedLenders() {
  | slug | String |  no  |  |
  | isDefault | Boolean |  no  |  |
  | logoUrl | String |  no  |  |
+ | merchantId | String? |  yes  |  |
 
 ---
 

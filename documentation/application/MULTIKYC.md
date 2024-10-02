@@ -11407,6 +11407,7 @@ API endpoint to create a signed URL for uploading documents to and downloading d
  | slug | String |  no  |  |
  | isDefault | Boolean |  no  |  |
  | logoUrl | String |  no  |  |
+ | merchantId | String? |  yes  |  |
 
 ---
 

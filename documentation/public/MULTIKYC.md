@@ -2404,6 +2404,7 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
  | slug | String |  no  |  |
  | isDefault | Boolean |  no  |  |
  | logoUrl | String |  no  |  |
+ | merchantId | String? |  yes  |  |
 
 ---
 

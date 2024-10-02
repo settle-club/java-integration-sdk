@@ -17419,6 +17419,12 @@ public static class IntgrAvailableCreditLimit {
     
     
     
+    @JsonProperty("merchantId")
+    private String merchantId;
+    
+    
+    
+    
 }
 
 /*
