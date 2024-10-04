@@ -9515,7 +9515,7 @@ API endpoint to create a signed URL for uploading documents to and downloading d
  | action | String? |  yes  |  |
  | form | Object? |  yes  |  |
  | uiSchema | Object? |  yes  |  |
- | workflowId | String? |  yes  |  |
+ | validationWorkflow | String? |  yes  |  |
 
 ---
 

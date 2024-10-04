@@ -42,6 +42,7 @@ Authentication Service
 * [generatePaymentLink](#generatepaymentlink)
 * [updateProfile](#updateprofile)
 * [getOutStandingDetails](#getoutstandingdetails)
+* [getOutStandingAmountDetails](#getoutstandingamountdetails)
 
 
 
@@ -2303,6 +2304,86 @@ merchant.getOutStandingDetails( userId,  lenderSlugs) {
 | --------- | -----  | -------- | ----------- | 
 | organizationId | String | yes | This is organizationId |   
 | userId | String | yes | This is userId |   
+| lenderSlugs | List<String>? | no | This list of lender slugs. eg. ['cashe','liquiloans'] |  
+
+
+
+This api is for getting outstanding details for the user with all the lenders.
+
+*Returned Response:*
+
+
+
+
+[OutstandingDetailsResponse](#OutstandingDetailsResponse)
+
+Success. Returns a JSON object as shown below. Refer `PaymentLinkResponse` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; default</i></summary>
+
+```json
+{
+  "outstandingDetails": [
+    {
+      "lenderDetails": {
+        "slug": "cashe",
+        "id": "f162ae3e-cc7c-4b96-85d1-19c3e0f7e780",
+        "name": "Bhanix",
+        "theme": {
+          "logoUrl": "",
+          "iconUrl": ""
+        }
+      },
+      "availableLimit": 40000,
+      "crediLimit": 40000,
+      "dueAmount": 0,
+      "outstandingAmount": 0,
+      "dueDate": null
+    }
+  ]
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getOutStandingAmountDetails
+Get user outstanding details.
+
+
+
+
+```java
+merchant.getOutStandingAmountDetails( entityMapId,  lenderSlugs) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| organizationId | String | yes | This is organizationId |   
+| entityMapId | String | yes | This is entityMapId |   
 | lenderSlugs | List<String>? | no | This list of lender slugs. eg. ['cashe','liquiloans'] |  
 
 

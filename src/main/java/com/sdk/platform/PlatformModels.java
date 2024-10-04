@@ -11716,8 +11716,8 @@ public static class Form {
     
     
     
-    @JsonProperty("workflowId")
-    private String workflowId;
+    @JsonProperty("validationWorkflow")
+    private String validationWorkflow;
     
     
     

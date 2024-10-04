@@ -191,7 +191,7 @@ multikyc.approvedLenders() {
  | action | String? |  yes  |  |
  | form | Object? |  yes  |  |
  | uiSchema | Object? |  yes  |  |
- | workflowId | String? |  yes  |  |
+ | validationWorkflow | String? |  yes  |  |
 
 ---
 
