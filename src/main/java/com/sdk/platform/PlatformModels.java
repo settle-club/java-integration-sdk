@@ -14621,6 +14621,35 @@ public static class KycCountByStatus {
 }
 
 /*
+    Model: CreateUserLenderAssociationRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CreateUserLenderAssociationRequest {
+    
+    
+    
+    
+    @JsonProperty("organizationId")
+    private String organizationId;
+    
+    
+    
+    
+    @JsonProperty("role")
+    private String role;
+    
+    
+    
+    
+}
+
+/*
     Model: FindDocResponse
 */
 @AllArgsConstructor

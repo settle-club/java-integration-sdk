@@ -1485,6 +1485,18 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
 
  
  
+ #### [CreateUserLenderAssociationRequest](#CreateUserLenderAssociationRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | organizationId | String |  no  |  |
+ | role | String |  no  |  |
+
+---
+
+
+ 
+ 
  #### [FindDocResponse](#FindDocResponse)
 
  | Properties | Type | Nullable | Description |
