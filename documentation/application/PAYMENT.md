@@ -4,7 +4,7 @@
 
 ##### [Back to Application docs](./README.md)
 
-## Payments Methods
+## Payment Methods
 KYC Service
 * [downpaymentOptions](#downpaymentoptions)
 * [downpaymentUsingNetbanking](#downpaymentusingnetbanking)
@@ -32,7 +32,7 @@ Get List of Payment Options Available
 
 
 ```java
-payments.downpaymentOptions( merchantSlug) {
+payment.downpaymentOptions( merchantSlug) {
   //use response
 }
 ```
@@ -116,7 +116,7 @@ Downpayment
 
 
 ```java
-payments.downpaymentUsingNetbanking( merchantSlug, body body) {
+payment.downpaymentUsingNetbanking( merchantSlug, body body) {
   //use response
 }
 ```
@@ -171,7 +171,7 @@ Downpayment
 
 
 ```java
-payments.downpaymentUsingUPI( merchantSlug, body body) {
+payment.downpaymentUsingUPI( merchantSlug, body body) {
   //use response
 }
 ```
@@ -226,7 +226,7 @@ Check payment status
 
 
 ```java
-payments.checkDownpaymentStatus( merchantSlug, body body) {
+payment.checkDownpaymentStatus( merchantSlug, body body) {
   //use response
 }
 ```
@@ -279,7 +279,7 @@ MandateRegistration
 
 
 ```java
-payments.registerUPIMandate( lenderSlug, body body) {
+payment.registerUPIMandate( lenderSlug, body body) {
   //use response
 }
 ```
@@ -336,7 +336,7 @@ Repayment
 
 
 ```java
-payments.mandateStatusCheck( lenderSlug, body body) {
+payment.mandateStatusCheck( lenderSlug, body body) {
   //use response
 }
 ```
@@ -391,7 +391,7 @@ Get status of AutoPay
 
 
 ```java
-payments.autoPayStatus() {
+payment.autoPayStatus() {
   //use response
 }
 ```
@@ -441,7 +441,7 @@ Get List of Payment Options Available
 
 
 ```java
-payments.paymentOptions( lenderSlug) {
+payment.paymentOptions( lenderSlug) {
   //use response
 }
 ```
@@ -525,7 +525,7 @@ Repayment
 
 
 ```java
-payments.repaymentUsingNetbanking( lenderSlug, body body) {
+payment.repaymentUsingNetbanking( lenderSlug, body body) {
   //use response
 }
 ```
@@ -580,7 +580,7 @@ Repayment
 
 
 ```java
-payments.repaymentUsingUPI( lenderSlug, body body) {
+payment.repaymentUsingUPI( lenderSlug, body body) {
   //use response
 }
 ```
@@ -635,7 +635,7 @@ Check payment status
 
 
 ```java
-payments.checkPaymentStatus( lenderSlug, body body) {
+payment.checkPaymentStatus( lenderSlug, body body) {
   //use response
 }
 ```
@@ -688,7 +688,7 @@ Get Outstanding amount for repayment
 
 
 ```java
-payments.getOutstandingAmount( lenderSlug,  viewType,  leadId) {
+payment.getOutstandingAmount( lenderSlug,  viewType,  leadId) {
   //use response
 }
 ```
@@ -745,7 +745,7 @@ Get Outstanding amount for repayment
 
 
 ```java
-payments.getOutstandingAmountByEntityMapId( entityMapId,  viewType,  leadId) {
+payment.getOutstandingAmountByEntityMapId( entityMapId,  viewType,  leadId) {
   //use response
 }
 ```
