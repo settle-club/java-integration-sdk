@@ -736,8 +736,8 @@ public static class MerchantService {
     
     
     
-    public PlatformModels.UpdateApiHookResponse updateTransactionApiHookOfOrganization(String organizationId ,PlatformModels.UpdateApiHook body) throws IOException {
-            Response<PlatformModels.UpdateApiHookResponse> response = merchantApiList.updateTransactionApiHookOfOrganization(organizationId  , body).execute();
+    public PlatformModels.UpdateApiHookResponse updateWebhook(String organizationId ,PlatformModels.UpdateApiHook body) throws IOException {
+            Response<PlatformModels.UpdateApiHookResponse> response = merchantApiList.updateWebhook(organizationId  , body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -757,8 +757,8 @@ public static class MerchantService {
     
     
     
-    public PlatformModels.ApiHookDetailsResponse getOrganizationApiHookDetails(String organizationId ) throws IOException {
-            Response<PlatformModels.ApiHookDetailsResponse> response = merchantApiList.getOrganizationApiHookDetails(organizationId  ).execute();
+    public PlatformModels.ApiHookDetailsResponse getWebhook(String organizationId ) throws IOException {
+            Response<PlatformModels.ApiHookDetailsResponse> response = merchantApiList.getWebhook(organizationId  ).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -778,8 +778,8 @@ public static class MerchantService {
     
     
     
-    public PlatformModels.WebhookCategoriesResponse getWebhookActiveCategories(String organizationId ) throws IOException {
-            Response<PlatformModels.WebhookCategoriesResponse> response = merchantApiList.getWebhookActiveCategories(organizationId  ).execute();
+    public PlatformModels.WebhookCategoriesResponse getAllWebhookCategoriesAndEvents(String organizationId ) throws IOException {
+            Response<PlatformModels.WebhookCategoriesResponse> response = merchantApiList.getAllWebhookCategoriesAndEvents(organizationId  ).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

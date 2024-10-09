@@ -17,6 +17,7 @@ KYC Service
 * [repaymentUsingNetbanking](#repaymentusingnetbanking)
 * [repaymentUsingUPI](#repaymentusingupi)
 * [checkPaymentStatus](#checkpaymentstatus)
+* [verifyUpiId](#verifyupiid)
 * [getOutstandingAmount](#getoutstandingamount)
 * [getOutstandingAmountByEntityMapId](#getoutstandingamountbyentitymapid)
 
@@ -66,7 +67,7 @@ Success. Returns a JSON object as shown below. Refer `PaymentOptionsResponse` fo
 {
   "paymentOptions": [
     {
-      "title": "UPI ID",
+      "title": "UPI",
       "kind": "upiID",
       "options": null
     },
@@ -475,7 +476,7 @@ Success. Returns a JSON object as shown below. Refer `PaymentOptionsResponse` fo
 {
   "paymentOptions": [
     {
-      "title": "UPI ID",
+      "title": "UPI",
       "kind": "upiID",
       "options": null
     },
@@ -658,6 +659,58 @@ Use this API to check status of the transaction.
 [TransactionStatusResponse](#TransactionStatusResponse)
 
 Success. Returns a success message as shown below. Refer `TransactionStatusResponse` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### verifyUpiId
+Verify UPI ID
+
+
+
+
+```java
+payment.verifyUpiId(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- |
+| body | [VerifyUPIRequest](#VerifyUPIRequest) | yes | Request body |
+
+
+This API verifies the validity of a UPI ID.
+
+*Returned Response:*
+
+
+
+
+[UPIValidationSuccessResponse](#UPIValidationSuccessResponse)
+
+UPI ID validation success
 
 
 
@@ -1288,6 +1341,31 @@ Success. Returns a JSON object as shown below. Refer `OutstandingDetail` for mor
  | message | String |  no  |  |
  | meta | [IntegrationResponseMeta](#IntegrationResponseMeta) |  no  |  |
  | data | [OutstandingDetailsData](#OutstandingDetailsData) |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [VerifyUPIRequest](#VerifyUPIRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | vpa | String |  no  | The Virtual Payment Address (VPA) for UPI. |
+ | lenderSlug | String? |  yes  | The lender slug associated with the request. Optional parameter. |
+
+---
+
+
+ 
+ 
+ #### [UPIValidationSuccessResponse](#UPIValidationSuccessResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | status | String? |  yes  |  |
+ | name | String? |  yes  |  |
+ | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 

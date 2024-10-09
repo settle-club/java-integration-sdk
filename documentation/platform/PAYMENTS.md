@@ -593,4 +593,28 @@ Success. Returns a JSON object as shown below. Refer `PaymentLinkResponse` for m
 ---
 
 
+ 
+ 
+ #### [VerifyUPIRequest](#VerifyUPIRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | vpa | String |  no  | The Virtual Payment Address (VPA) for UPI. |
+ | lenderSlug | String? |  yes  | The lender slug associated with the request. Optional parameter. |
+
+---
+
+
+ 
+ 
+ #### [UPIValidationSuccessResponse](#UPIValidationSuccessResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | status | String? |  yes  |  |
+ | name | String? |  yes  |  |
+
+---
+
+
 

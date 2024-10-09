@@ -281,7 +281,7 @@ interface MerchantApiList {
     
     
     @POST ("/service/integration/staff/organization/{organizationId}/api-hook")
-    Call<PlatformModels.UpdateApiHookResponse> updateTransactionApiHookOfOrganization(@Path("organizationId") String  organizationId ,@Body PlatformModels.UpdateApiHook payload);
+    Call<PlatformModels.UpdateApiHookResponse> updateWebhook(@Path("organizationId") String  organizationId ,@Body PlatformModels.UpdateApiHook payload);
     
     
     
@@ -290,7 +290,7 @@ interface MerchantApiList {
     
     
     @GET ("/service/integration/staff/organization/{organizationId}/api-hook")
-    Call<PlatformModels.ApiHookDetailsResponse> getOrganizationApiHookDetails(@Path("organizationId") String  organizationId );
+    Call<PlatformModels.ApiHookDetailsResponse> getWebhook(@Path("organizationId") String  organizationId );
     
     
     
@@ -299,7 +299,7 @@ interface MerchantApiList {
     
     
     @GET ("/service/integration/staff/organization/{organizationId}/webhook-category-events")
-    Call<PlatformModels.WebhookCategoriesResponse> getWebhookActiveCategories(@Path("organizationId") String  organizationId );
+    Call<PlatformModels.WebhookCategoriesResponse> getAllWebhookCategoriesAndEvents(@Path("organizationId") String  organizationId );
     
 }
 
