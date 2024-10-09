@@ -9,9 +9,9 @@ Authentication Service
 * [getAccessToken](#getaccesstoken)
 * [renewAccessToken](#renewaccesstoken)
 * [validateCredentials](#validatecredentials)
-* [updateTransactionApiHookOfOrganization](#updatetransactionapihookoforganization)
-* [getOrganizationApiHookDetails](#getorganizationapihookdetails)
-* [getWebhookActiveCategories](#getwebhookactivecategories)
+* [updateWebhook](#updatewebhook)
+* [getWebhook](#getwebhook)
+* [getAllWebhookCategoriesAndEvents](#getallwebhookcategoriesandevents)
 
 
 
@@ -291,14 +291,14 @@ Success. Returns a JSON object as shown below. Refer `ValidateCredentialsRespons
 ---
 
 
-### updateTransactionApiHookOfOrganization
-add or update api webhook details of organization
+### updateWebhook
+Add or Update webhook details
 
 
 
 
 ```java
-merchant.updateTransactionApiHookOfOrganization(body body) {
+merchant.updateWebhook(body body) {
   //use response
 }
 ```
@@ -362,14 +362,14 @@ Success. Returns a JSON object as shown below. Refer `ValidateCredentialsRespons
 ---
 
 
-### getOrganizationApiHookDetails
-Get Organization API hook details
+### getWebhook
+Get Webhook Details
 
 
 
 
 ```java
-merchant.getOrganizationApiHookDetails() {
+merchant.getWebhook() {
   //use response
 }
 ```
@@ -480,14 +480,14 @@ Success. Returns a JSON object as shown below. Refer `ApiHookDetails` for more d
 ---
 
 
-### getWebhookActiveCategories
-Get all active webhook category with events
+### getAllWebhookCategoriesAndEvents
+Get all active webhook categories with their associated events.
 
 
 
 
 ```java
-merchant.getWebhookActiveCategories() {
+merchant.getAllWebhookCategoriesAndEvents() {
   //use response
 }
 ```
@@ -524,39 +524,47 @@ Success. Returns a JSON object as shown below. Refer `WebhookCategoriesResponse`
 ```json
 {
   "value": {
-    "allCategories": [
-      {
-        "id": "de1a6c9d-e124-4a31-816d-258954fd7cd2",
-        "name": "disburse",
-        "slug": "disburse",
-        "description": "payment webhook category",
-        "active": true,
-        "meta": {
-          "x-data": "xxx"
-        },
-        "createdAt": "2024-08-29T13:53:05.127Z",
-        "updatedAt": "2024-08-29T13:53:05.127Z",
-        "deletedAt": null,
-        "webhookEvents": [
-          {
-            "id": "e21443b0-eca3-4701-ad32-335a48c1bb78",
-            "name": "disburse start",
-            "slug": "start-disburse-test",
-            "description": "this webhook is called when disburse start",
-            "active": true,
-            "webhookCategoryId": "de1a6c9d-e124-4a31-816d-258954fd7cd2",
-            "webhookCategorySlug": "disburse",
-            "isWebhookCategoryActive": true,
-            "meta": {
-              "x-data": "xxx"
-            },
-            "createdAt": "2024-08-29T13:53:05.150Z",
-            "updatedAt": "2024-08-29T13:53:05.150Z",
-            "deletedAt": null
-          }
-        ]
-      }
-    ]
+    "message": "The request has been processed successfully.",
+    "data": {
+      "allCategories": [
+        {
+          "id": "de1a6c9d-e124-4a31-816d-258954fd7cd2",
+          "name": "disburse",
+          "slug": "disburse",
+          "description": "payment webhook category",
+          "active": true,
+          "meta": {
+            "x-data": "xxx"
+          },
+          "createdAt": "2024-08-29T13:53:05.127Z",
+          "updatedAt": "2024-08-29T13:53:05.127Z",
+          "deletedAt": null,
+          "webhookEvents": [
+            {
+              "id": "e21443b0-eca3-4701-ad32-335a48c1bb78",
+              "name": "disburse start",
+              "slug": "start-disburse-test",
+              "description": "this webhook is called when disburse start",
+              "active": true,
+              "webhookCategoryId": "de1a6c9d-e124-4a31-816d-258954fd7cd2",
+              "webhookCategorySlug": "disburse",
+              "isWebhookCategoryActive": true,
+              "meta": {
+                "x-data": "xxx"
+              },
+              "createdAt": "2024-08-29T13:53:05.150Z",
+              "updatedAt": "2024-08-29T13:53:05.150Z",
+              "deletedAt": null
+            }
+          ]
+        }
+      ]
+    },
+    "meta": {
+      "timestamp": "2024-08-29T14:33:33.627Z",
+      "version": "v1.0",
+      "product": "Settle Checkout"
+    }
   }
 }
 ```
@@ -1501,7 +1509,7 @@ Success. Returns a JSON object as shown below. Refer `WebhookCategoriesResponse`
  | alertEmail | String? |  yes  |  |
  | active | Boolean |  no  |  |
  | meta | HashMap<String,Object>? |  yes  |  |
- | webHookSubscriptionEvents | ArrayList<[WebHookSubscriptionEvent](#WebHookSubscriptionEvent)>? |  yes  |  |
+ | webHookSubscriptionEvents | ArrayList<[WebHookSubscriptionEvent](#WebHookSubscriptionEvent)> |  no  |  |
 
 ---
 
