@@ -17448,6 +17448,18 @@ public static class IntgrAvailableCreditLimit {
     
     
     
+    @JsonProperty("lenderLogo")
+    private String lenderLogo;
+    
+    
+    
+    
+    @JsonProperty("merchantLogo")
+    private String merchantLogo;
+    
+    
+    
+    
     @JsonProperty("merchantId")
     private String merchantId;
     
