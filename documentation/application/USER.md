@@ -3940,6 +3940,7 @@ Success. Check the example shown below or refer `ProfileEditSuccess` for more de
  | device | [Device](#Device) |  no  |  |
  | meta | HashMap<String,Object>? |  yes  |  |
  | fetchLimitOptions | Boolean? |  yes  |  |
+ | callbackUrl | String? |  yes  |  |
 
 ---
 

@@ -6598,6 +6598,12 @@ public static class CheckEligibilityRequest {
     
     
     
+    @JsonProperty("callbackUrl")
+    private String callbackUrl;
+    
+    
+    
+    
 }
 
 /*
