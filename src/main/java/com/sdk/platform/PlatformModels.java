@@ -20495,6 +20495,158 @@ public static class WebhookCatgeory {
 }
 
 /*
+    Model: WebhookPage
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class WebhookPage {
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("current")
+    private Double current;
+    
+    
+    
+    
+    @JsonProperty("hasPrevious")
+    private Boolean hasPrevious;
+    
+    
+    
+    
+    @JsonProperty("hasNext")
+    private Boolean hasNext;
+    
+    
+    
+    
+    @JsonProperty("size")
+    private Double size;
+    
+    
+    
+    
+    @JsonProperty("itemTotal")
+    private Double itemTotal;
+    
+    
+    
+    
+}
+
+/*
+    Model: WebhookCategoryFilterKeys
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class WebhookCategoryFilterKeys {
+    
+    
+    
+    
+    @JsonProperty("display")
+    private String display;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("kind")
+    private String kind;
+    
+    
+    
+    
+}
+
+/*
+    Model: WebhookCategoryFilterValues
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class WebhookCategoryFilterValues {
+    
+    
+    
+    
+    @JsonProperty("display")
+    private String display;
+    
+    
+    
+    
+    @JsonProperty("isSelected")
+    private Boolean isSelected;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private String value;
+    
+    
+    
+    
+}
+
+/*
+    Model: WebhookCategoryFilters
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class WebhookCategoryFilters {
+    
+    
+    
+    
+    @JsonProperty("key")
+    private WebhookCategoryFilterKeys key;
+    
+    
+    
+    
+    @JsonProperty("values")
+    private List<WebhookCategoryFilterValues> values;
+    
+    
+    
+    
+}
+
+/*
     Model: WebhookCategories
 */
 @AllArgsConstructor
@@ -20511,6 +20663,18 @@ public static class WebhookCategories {
     
     @JsonProperty("allCategories")
     private List<WebhookCatgeory> allCategories;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private WebhookPage page;
+    
+    
+    
+    
+    @JsonProperty("filters")
+    private List<WebhookCategoryFilters> filters;
     
     
     

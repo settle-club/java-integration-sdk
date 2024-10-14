@@ -298,8 +298,20 @@ interface MerchantApiList {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     @GET ("/service/integration/staff/organization/{organizationId}/webhook-category-events")
-    Call<PlatformModels.WebhookCategoriesResponse> getAllWebhookCategoriesAndEvents(@Path("organizationId") String  organizationId );
+    Call<PlatformModels.WebhookCategoriesResponse> getAllWebhookCategoriesAndEvents(@Path("organizationId") String  organizationId , @Query("size") Double  size ,  @Query("page") Double  page ,  @Query("name") String  name ,  @Query("slug") List<String>  slug );
     
 }
 

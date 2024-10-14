@@ -778,8 +778,24 @@ public static class MerchantService {
     
     
     
-    public PlatformModels.WebhookCategoriesResponse getAllWebhookCategoriesAndEvents(String organizationId ) throws IOException {
-            Response<PlatformModels.WebhookCategoriesResponse> response = merchantApiList.getAllWebhookCategoriesAndEvents(organizationId  ).execute();
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.WebhookCategoriesResponse getAllWebhookCategoriesAndEvents(String organizationId , Double size , Double page , String name , List<String> slug ) throws IOException {
+            Response<PlatformModels.WebhookCategoriesResponse> response = merchantApiList.getAllWebhookCategoriesAndEvents(organizationId  ,size , page , name , slug ).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

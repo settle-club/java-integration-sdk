@@ -636,11 +636,19 @@ Get all active webhook categories with their associated events.
 
 
 ```java
-merchant.getAllWebhookCategoriesAndEvents() {
+merchant.getAllWebhookCategoriesAndEvents( size,  page,  name,  slug) {
   //use response
 }
 ```
 
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| size | Double? | no | Max number of records per page for pagination |   
+| page | Double? | no | Page number for pagination |   
+| name | String? | no | Filter by event name (case-insensitive) |   
+| slug | List<String>? | no | Filter by one or more event slugs (case-insensitive) |  
 
 
 
@@ -699,6 +707,35 @@ Success. Returns a JSON object as shown below. Refer `WebhookCategoriesResponse`
               "createdAt": "2024-08-29T13:53:05.150Z",
               "updatedAt": "2024-08-29T13:53:05.150Z",
               "deletedAt": null
+            }
+          ]
+        }
+      ],
+      "page": {
+        "type": "page",
+        "current": 1,
+        "hasPrevious": false,
+        "hasNext": false,
+        "size": 10,
+        "itemTotal": 1
+      },
+      "filters": [
+        {
+          "key": {
+            "display": "Search",
+            "name": "search",
+            "kind": "multivalued"
+          },
+          "values": [
+            {
+              "display": "Name",
+              "isSelected": true,
+              "value": "WEBHOOKEVENTNAME"
+            },
+            {
+              "display": "Slug",
+              "isSelected": true,
+              "value": "WEBHOOKEVENTSLUG"
             }
           ]
         }
@@ -3273,11 +3310,67 @@ Success. Returns a JSON object as shown below. Refer `PaymentLinkResponse` for m
 
  
  
+ #### [WebhookPage](#WebhookPage)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | type | String? |  yes  | The type of pagination being used (e.g., 'page'). |
+ | current | Double? |  yes  | The current page number being displayed. |
+ | hasPrevious | Boolean? |  yes  | Indicates if there are pages available before the current page. |
+ | hasNext | Boolean? |  yes  | Indicates if there are more pages available after the current page. |
+ | size | Double? |  yes  | The number of items per page. |
+ | itemTotal | Double? |  yes  | The total number of items available. |
+
+---
+
+
+ 
+ 
+ #### [WebhookCategoryFilterKeys](#WebhookCategoryFilterKeys)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | display | String? |  yes  |  |
+ | name | String? |  yes  |  |
+ | kind | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [WebhookCategoryFilterValues](#WebhookCategoryFilterValues)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | display | String? |  yes  |  |
+ | isSelected | Boolean? |  yes  |  |
+ | value | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [WebhookCategoryFilters](#WebhookCategoryFilters)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | key | [WebhookCategoryFilterKeys](#WebhookCategoryFilterKeys)? |  yes  |  |
+ | values | ArrayList<[WebhookCategoryFilterValues](#WebhookCategoryFilterValues)>? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [WebhookCategories](#WebhookCategories)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | allCategories | ArrayList<[WebhookCatgeory](#WebhookCatgeory)>? |  yes  |  |
+ | page | [WebhookPage](#WebhookPage)? |  yes  |  |
+ | filters | ArrayList<[WebhookCategoryFilters](#WebhookCategoryFilters)>? |  yes  |  |
 
 ---
 
