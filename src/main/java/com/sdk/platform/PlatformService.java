@@ -805,6 +805,69 @@ public static class MerchantService {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.OrganizationIpDetailsResponse getWhitelistedIp(String organizationId ) throws IOException {
+            Response<PlatformModels.OrganizationIpDetailsResponse> response = merchantApiList.getWhitelistedIp(organizationId  ).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.OrganizationIpDetailsResponse whitelistIp(String organizationId ,PlatformModels.AddOrganizationIpDetails body) throws IOException {
+            Response<PlatformModels.OrganizationIpDetailsResponse> response = merchantApiList.whitelistIp(organizationId  , body).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.DeleteOrganizationIpResponse removeWhitelistedIp(String organizationId ,PlatformModels.DeleteOrganizationIpDetails body) throws IOException {
+            Response<PlatformModels.DeleteOrganizationIpResponse> response = merchantApiList.removeWhitelistedIp(organizationId  , body).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+    }
+    
+    
+    
 
 
 public class ApplicationClient {
@@ -820,6 +883,12 @@ public class ApplicationClient {
         this.organizationId = this.platformConfig.getOrganizationId();
     }
 
+    
+    
+    
+    
+    
+    
     
     
     

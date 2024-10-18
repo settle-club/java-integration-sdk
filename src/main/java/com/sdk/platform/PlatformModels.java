@@ -21377,6 +21377,12 @@ public static class OrganizationIp {
     
     
     
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
 }
 
 /*
@@ -21400,8 +21406,25 @@ public static class AddOrganizationIpDetails {
     
     
     
-    @JsonProperty("delete")
-    private String delete;
+}
+
+/*
+    Model: DeleteOrganizationIpDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DeleteOrganizationIpDetails {
+    
+    
+    
+    
+    @JsonProperty("deleteIp")
+    private String deleteIp;
     
     
     
@@ -22133,6 +22156,12 @@ public static class OrganizationIpResponse {
     
     
     
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
     @JsonProperty("organizationId")
     private String organizationId;
     
@@ -22141,6 +22170,12 @@ public static class OrganizationIpResponse {
     
     @JsonProperty("ip")
     private String ip;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
     
     
     
@@ -22157,16 +22192,10 @@ public static class OrganizationIpResponse {
     
     
     
-    @JsonProperty("id")
-    private String id;
-    
-    
-    
-    
 }
 
 /*
-    Model: OrganizationIpDetails
+    Model: OrganizationIpData
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22175,13 +22204,106 @@ public static class OrganizationIpResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OrganizationIpDetails {
+public static class OrganizationIpData {
     
     
     
     
     @JsonProperty("organizationIps")
     private List<OrganizationIpResponse> organizationIps;
+    
+    
+    
+    
+}
+
+/*
+    Model: OrganizationIpDetailsResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OrganizationIpDetailsResponse {
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private IntegrationResponseMeta meta;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private OrganizationIpData data;
+    
+    
+    
+    
+}
+
+/*
+    Model: DeleteOrganizationIpData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DeleteOrganizationIpData {
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+}
+
+/*
+    Model: DeleteOrganizationIpResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DeleteOrganizationIpResponse {
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private IntegrationResponseMeta meta;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private DeleteOrganizationIpData data;
     
     
     

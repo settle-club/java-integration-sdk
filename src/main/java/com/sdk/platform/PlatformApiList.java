@@ -313,6 +313,33 @@ interface MerchantApiList {
     @GET ("/service/integration/staff/organization/{organizationId}/webhook-category-events")
     Call<PlatformModels.WebhookCategoriesResponse> getAllWebhookCategoriesAndEvents(@Path("organizationId") String  organizationId , @Query("size") Double  size ,  @Query("page") Double  page ,  @Query("name") String  name ,  @Query("slug") List<String>  slug );
     
+    
+    
+    
+    
+    
+    
+    @GET ("/service/integration/staff/organization/{organizationId}/ip")
+    Call<PlatformModels.OrganizationIpDetailsResponse> getWhitelistedIp(@Path("organizationId") String  organizationId );
+    
+    
+    
+    
+    
+    
+    
+    @PUT ("/service/integration/staff/organization/{organizationId}/ip")
+    Call<PlatformModels.OrganizationIpDetailsResponse> whitelistIp(@Path("organizationId") String  organizationId ,@Body PlatformModels.AddOrganizationIpDetails payload);
+    
+    
+    
+    
+    
+    
+    
+    @DELETE ("/service/integration/staff/organization/{organizationId}/ip")
+    Call<PlatformModels.DeleteOrganizationIpResponse> removeWhitelistedIp(@Path("organizationId") String  organizationId ,@Body PlatformModels.DeleteOrganizationIpDetails payload);
+    
 }
 
 interface PaymentsApiList {
