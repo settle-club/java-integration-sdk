@@ -12,6 +12,9 @@ Authentication Service
 * [updateWebhook](#updatewebhook)
 * [getWebhook](#getwebhook)
 * [getAllWebhookCategoriesAndEvents](#getallwebhookcategoriesandevents)
+* [getWhitelistedIp](#getwhitelistedip)
+* [whitelistIp](#whitelistip)
+* [removeWhitelistedIp](#removewhitelistedip)
 
 
 
@@ -487,7 +490,7 @@ Get all active webhook categories with their associated events.
 
 
 ```java
-merchant.getAllWebhookCategoriesAndEvents() {
+merchant.getAllWebhookCategoriesAndEvents( size,  page,  name,  slug) {
   //use response
 }
 ```
@@ -496,7 +499,11 @@ merchant.getAllWebhookCategoriesAndEvents() {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| organizationId | String | yes | This is organization Id |  
+| organizationId | String | yes | This is organization Id |   
+| size | Double? | no | Max number of records per page for pagination |   
+| page | Double? | no | Page number for pagination |   
+| name | String? | no | Filter by event name (case-insensitive) |   
+| slug | List<String>? | no | Filter by one or more event slugs (case-insensitive) |  
 
 
 
@@ -558,10 +565,290 @@ Success. Returns a JSON object as shown below. Refer `WebhookCategoriesResponse`
             }
           ]
         }
+      ],
+      "page": {
+        "type": "page",
+        "current": 1,
+        "hasPrevious": false,
+        "hasNext": false,
+        "size": 10,
+        "itemTotal": 1
+      },
+      "filters": [
+        {
+          "key": {
+            "display": "Search",
+            "name": "search",
+            "kind": "multivalued"
+          },
+          "values": [
+            {
+              "display": "Name",
+              "isSelected": true,
+              "value": "WEBHOOKEVENTNAME"
+            },
+            {
+              "display": "Slug",
+              "isSelected": true,
+              "value": "WEBHOOKEVENTSLUG"
+            }
+          ]
+        }
       ]
     },
     "meta": {
       "timestamp": "2024-08-29T14:33:33.627Z",
+      "version": "v1.0",
+      "product": "Settle Checkout"
+    }
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getWhitelistedIp
+Get all whitelisted Ip for organization
+
+
+
+
+```java
+merchant.getWhitelistedIp() {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| organizationId | String | yes | This is the organization ID |  
+
+
+
+Use this API to get list of whitelisted ips related to organization
+
+*Returned Response:*
+
+
+
+
+[OrganizationIpDetailsResponse](#OrganizationIpDetailsResponse)
+
+Success. Returns a JSON object as shown below. Refer `OrganizationIpDetailsResponse` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; OrganizationIpDetailsResponseExample</i></summary>
+
+```json
+{
+  "value": {
+    "message": "The request has been processed successfully.",
+    "data": {
+      "organizationIps": [
+        {
+          "id": "b1983cc9-48e4-4f6f-8a3b-499edac45083",
+          "organizationId": "8d29dca7-73c6-438a-aee0-58b361e32abc",
+          "ip": "123.123.12.4",
+          "description": "Ip of the server",
+          "active": true,
+          "createdAt": "2024-10-16T10:19:38.243Z",
+          "updatedAt": "2024-10-16T10:19:38.243Z"
+        },
+        {
+          "id": "607e814b-6aa7-4910-8d69-1032a6502583",
+          "organizationId": "8d29dca7-73c6-438a-aee0-58b361e32abc",
+          "ip": "123.123.112.1",
+          "description": "Ip of the another server",
+          "active": true,
+          "createdAt": "2024-10-16T12:06:12.905Z",
+          "updatedAt": "2024-10-16T12:11:18.727Z"
+        }
+      ]
+    },
+    "meta": {
+      "timestamp": "2024-10-16T12:18:51.201Z",
+      "version": "v1.0",
+      "product": "Settle Checkout"
+    }
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### whitelistIp
+Add or Update ip to be whitelisted for Organization
+
+
+
+
+```java
+merchant.whitelistIp(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| organizationId | String | yes | This is organizationId |  
+| body | [AddOrganizationIpDetails](#AddOrganizationIpDetails) | yes | Request body |
+
+
+Use this API to add or update ip to whitelist for organization.
+
+*Returned Response:*
+
+
+
+
+[OrganizationIpDetailsResponse](#OrganizationIpDetailsResponse)
+
+Success. Returns a JSON object as shown below. Refer `OrganizationIpDetailsResponse` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; OrganizationIpDetailsResponseExample</i></summary>
+
+```json
+{
+  "value": {
+    "message": "The request has been processed successfully.",
+    "data": {
+      "organizationIps": [
+        {
+          "id": "b1983cc9-48e4-4f6f-8a3b-499edac45083",
+          "organizationId": "8d29dca7-73c6-438a-aee0-58b361e32abc",
+          "ip": "123.123.12.4",
+          "description": "Ip of the server",
+          "active": true,
+          "createdAt": "2024-10-16T10:19:38.243Z",
+          "updatedAt": "2024-10-16T10:19:38.243Z"
+        },
+        {
+          "id": "607e814b-6aa7-4910-8d69-1032a6502583",
+          "organizationId": "8d29dca7-73c6-438a-aee0-58b361e32abc",
+          "ip": "123.123.112.1",
+          "description": "Ip of the another server",
+          "active": true,
+          "createdAt": "2024-10-16T12:06:12.905Z",
+          "updatedAt": "2024-10-16T12:11:18.727Z"
+        }
+      ]
+    },
+    "meta": {
+      "timestamp": "2024-10-16T12:18:51.201Z",
+      "version": "v1.0",
+      "product": "Settle Checkout"
+    }
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### removeWhitelistedIp
+Remove the whitelisted IP address for the organization.
+
+
+
+
+```java
+merchant.removeWhitelistedIp(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| organizationId | String | yes | This is organizationId |  
+| body | [DeleteOrganizationIpDetails](#DeleteOrganizationIpDetails) | yes | Request body |
+
+
+Use this API to remove whitelisted ip for the organization.
+
+*Returned Response:*
+
+
+
+
+[DeleteOrganizationIpResponse](#DeleteOrganizationIpResponse)
+
+Success. Returns a JSON object as shown below. Refer `DeleteOrganizationIpResponse` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; DeleteIpResponseExample</i></summary>
+
+```json
+{
+  "value": {
+    "message": "The request has been processed successfully.",
+    "data": {
+      "message": "123.123.112.1 deleted"
+    },
+    "meta": {
+      "timestamp": "2024-10-16T12:19:42.959Z",
       "version": "v1.0",
       "product": "Settle Checkout"
     }
@@ -1387,11 +1674,67 @@ Success. Returns a JSON object as shown below. Refer `WebhookCategoriesResponse`
 
  
  
+ #### [WebhookPage](#WebhookPage)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | type | String? |  yes  | The type of pagination being used (e.g., 'page'). |
+ | current | Double? |  yes  | The current page number being displayed. |
+ | hasPrevious | Boolean? |  yes  | Indicates if there are pages available before the current page. |
+ | hasNext | Boolean? |  yes  | Indicates if there are more pages available after the current page. |
+ | size | Double? |  yes  | The number of items per page. |
+ | itemTotal | Double? |  yes  | The total number of items available. |
+
+---
+
+
+ 
+ 
+ #### [WebhookCategoryFilterKeys](#WebhookCategoryFilterKeys)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | display | String? |  yes  |  |
+ | name | String? |  yes  |  |
+ | kind | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [WebhookCategoryFilterValues](#WebhookCategoryFilterValues)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | display | String? |  yes  |  |
+ | isSelected | Boolean? |  yes  |  |
+ | value | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [WebhookCategoryFilters](#WebhookCategoryFilters)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | key | [WebhookCategoryFilterKeys](#WebhookCategoryFilterKeys)? |  yes  |  |
+ | values | ArrayList<[WebhookCategoryFilterValues](#WebhookCategoryFilterValues)>? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [WebhookCategories](#WebhookCategories)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | allCategories | ArrayList<[WebhookCatgeory](#WebhookCatgeory)>? |  yes  |  |
+ | page | [WebhookPage](#WebhookPage)? |  yes  |  |
+ | filters | ArrayList<[WebhookCategoryFilters](#WebhookCategoryFilters)>? |  yes  |  |
 
 ---
 
@@ -1623,6 +1966,7 @@ Success. Returns a JSON object as shown below. Refer `WebhookCategoriesResponse`
  | ---------- | ---- | -------- | ----------- |
  | id | String? |  yes  |  |
  | ip | String |  no  |  |
+ | description | String? |  yes  |  |
 
 ---
 
@@ -1634,7 +1978,17 @@ Success. Returns a JSON object as shown below. Refer `WebhookCategoriesResponse`
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | organizationIps | ArrayList<[OrganizationIp](#OrganizationIp)>? |  yes  |  |
- | delete | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [DeleteOrganizationIpDetails](#DeleteOrganizationIpDetails)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | deleteIp | String |  no  |  |
 
 ---
 
@@ -1878,22 +2232,60 @@ Success. Returns a JSON object as shown below. Refer `WebhookCategoriesResponse`
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | id | String |  no  |  |
  | organizationId | String |  no  |  |
  | ip | String |  no  |  |
+ | description | String? |  yes  |  |
  | createdAt | String? |  yes  |  |
  | updatedAt | String? |  yes  |  |
- | id | String |  no  |  |
 
 ---
 
 
  
  
- #### [OrganizationIpDetails](#OrganizationIpDetails)
+ #### [OrganizationIpData](#OrganizationIpData)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | organizationIps | ArrayList<[OrganizationIpResponse](#OrganizationIpResponse)>? |  yes  |  |
+ | organizationIps | ArrayList<[OrganizationIpResponse](#OrganizationIpResponse)> |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [OrganizationIpDetailsResponse](#OrganizationIpDetailsResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | message | String |  no  | Response message indicating the result of the operation. |
+ | meta | [IntegrationResponseMeta](#IntegrationResponseMeta) |  no  |  |
+ | data | [OrganizationIpData](#OrganizationIpData) |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [DeleteOrganizationIpData](#DeleteOrganizationIpData)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | message | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [DeleteOrganizationIpResponse](#DeleteOrganizationIpResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | message | String |  no  | Response message indicating the result of the operation. |
+ | meta | [IntegrationResponseMeta](#IntegrationResponseMeta) |  no  |  |
+ | data | [DeleteOrganizationIpData](#DeleteOrganizationIpData) |  no  |  |
 
 ---
 

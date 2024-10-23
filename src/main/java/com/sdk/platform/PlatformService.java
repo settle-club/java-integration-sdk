@@ -778,8 +778,87 @@ public static class MerchantService {
     
     
     
-    public PlatformModels.WebhookCategoriesResponse getAllWebhookCategoriesAndEvents(String organizationId ) throws IOException {
-            Response<PlatformModels.WebhookCategoriesResponse> response = merchantApiList.getAllWebhookCategoriesAndEvents(organizationId  ).execute();
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.WebhookCategoriesResponse getAllWebhookCategoriesAndEvents(String organizationId , Double size , Double page , String name , List<String> slug ) throws IOException {
+            Response<PlatformModels.WebhookCategoriesResponse> response = merchantApiList.getAllWebhookCategoriesAndEvents(organizationId  ,size , page , name , slug ).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.OrganizationIpDetailsResponse getWhitelistedIp(String organizationId ) throws IOException {
+            Response<PlatformModels.OrganizationIpDetailsResponse> response = merchantApiList.getWhitelistedIp(organizationId  ).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.OrganizationIpDetailsResponse whitelistIp(String organizationId ,PlatformModels.AddOrganizationIpDetails body) throws IOException {
+            Response<PlatformModels.OrganizationIpDetailsResponse> response = merchantApiList.whitelistIp(organizationId  , body).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.DeleteOrganizationIpResponse removeWhitelistedIp(String organizationId ,PlatformModels.DeleteOrganizationIpDetails body) throws IOException {
+            Response<PlatformModels.DeleteOrganizationIpResponse> response = merchantApiList.removeWhitelistedIp(organizationId  , body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -804,6 +883,12 @@ public class ApplicationClient {
         this.organizationId = this.platformConfig.getOrganizationId();
     }
 
+    
+    
+    
+    
+    
+    
     
     
     
