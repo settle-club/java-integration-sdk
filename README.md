@@ -70,6 +70,7 @@ public class Example {
 
             // Use this API to create transaction for user.
             PlatformModels.CreateTransactionSuccess createTransactionSuccess = platformClient.customer.createTransaction(
+                    "",
                     platformConfig.getOrganizationId(),
                     createTransaction
             );
