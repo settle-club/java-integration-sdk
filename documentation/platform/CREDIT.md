@@ -9,6 +9,7 @@ Transaction Service
 * [getOrderStatus](#getorderstatus)
 * [getEligiblePlans](#geteligibleplans)
 * [updateOrderDeliveryStatus](#updateorderdeliverystatus)
+* [refund](#refund)
 * [getTransactions](#gettransactions)
 * [getSettledTransactions](#getsettledtransactions)
 
@@ -270,6 +271,80 @@ Partial Success. The request was successfully processed for some shipments, but 
 ```json
 {
   "$ref": "#/components/examples/OrderDeliveryUpdatesPartialExample"
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### refund
+Refund an order
+
+
+
+
+```java
+credit.refund(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| organizationId | String | yes | This is organization id |  
+| body | [RefundRequest](#RefundRequest) | yes | Request body |
+
+
+This API processes a refund for a specific order.
+
+*Returned Response:*
+
+
+
+
+[RefundResponse](#RefundResponse)
+
+Success. Returns a JSON object with refund details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; RefundResponseExample</i></summary>
+
+```json
+{
+  "value": {
+    "message": "The request has been processed successfully.",
+    "data": {
+      "status": "SUCCESS",
+      "message": "Refund processed successfully",
+      "refundId": "REF67890",
+      "transactionId": "TXN987654321"
+    },
+    "meta": {
+      "timestamp": "2024-07-16T12:07:26.979Z",
+      "version": "v1.0",
+      "product": "Settle Checkout"
+    }
+  }
 }
 ```
 </details>
@@ -1974,6 +2049,61 @@ Success. The request has been processed successfully and the response contains t
  | loanTransaction | [TransactionInSplitTransactionResponse](#TransactionInSplitTransactionResponse)? |  yes  |  |
  | downpaymentTransaction | [TransactionInSplitTransactionResponse](#TransactionInSplitTransactionResponse)? |  yes  |  |
  | lenderDownpaymentTransaction | [TransactionInSplitTransactionResponse](#TransactionInSplitTransactionResponse)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [RefundRequest](#RefundRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | orderId | String |  no  | The unique identifier for the order |
+ | refundId | String |  no  | The unique identifier for the refund |
+ | refundAmount | Double |  no  | The total amount to be refunded |
+ | refundItems | ArrayList<[RefundItem](#RefundItem)>? |  yes  | Items to be refunded |
+
+---
+
+
+ 
+ 
+ #### [RefundItem](#RefundItem)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | category | String |  no  | The category of the refunded item |
+ | sku | String |  no  | The Stock Keeping Unit (SKU) of the refunded item |
+ | rate | Double |  no  | The price per unit of the refunded item |
+ | quantity | Integer |  no  | The quantity of the refunded item |
+
+---
+
+
+ 
+ 
+ #### [RefundResponse](#RefundResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | message | String |  no  | Response message indicating the result of the operation. |
+ | meta | [IntegrationResponseMeta](#IntegrationResponseMeta) |  no  |  |
+ | data | [RefundResponseData](#RefundResponseData) |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [RefundResponseData](#RefundResponseData)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | status | String |  no  | The status of the refund request |
+ | message | String |  no  | A message describing the result of the refund operation |
+ | refundId | String |  no  | The unique identifier for the refund |
+ | transactionId | String |  no  | The unique identifier for the refund transaction |
 
 ---
 

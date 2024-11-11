@@ -444,6 +444,27 @@ public static class CreditService {
     
     
     
+    public PlatformModels.RefundResponse refund(String organizationId ,PlatformModels.RefundRequest body) throws IOException {
+            Response<PlatformModels.RefundResponse> response = creditApiList.refund(organizationId  , body).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -555,6 +576,8 @@ public class ApplicationClient {
         this.organizationId = this.platformConfig.getOrganizationId();
     }
 
+    
+    
     
     
     

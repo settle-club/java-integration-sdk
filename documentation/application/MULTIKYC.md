@@ -9660,7 +9660,6 @@ API endpoint to create a signed URL for uploading documents to and downloading d
  | ---------- | ---- | -------- | ----------- |
  | id | String |  no  |  |
  | type | String? |  yes  |  |
- | address | String? |  yes  |  |
  | name | String? |  yes  |  |
  | gender | String? |  yes  |  |
  | dob | String? |  yes  |  |
@@ -9686,7 +9685,6 @@ API endpoint to create a signed URL for uploading documents to and downloading d
  | disbursementIfsc | String? |  yes  |  |
  | createdBy | String? |  yes  |  |
  | active | Boolean? |  yes  |  |
- | category | String? |  yes  |  |
  | createdAt | String? |  yes  |  |
  | updatedAt | String? |  yes  |  |
  | deletedAt | String? |  yes  |  |
@@ -10500,7 +10498,7 @@ API endpoint to create a signed URL for uploading documents to and downloading d
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | organizationId | String |  no  |  |
- | role | String |  no  |  |
+ | roleHierarchyLevel | Double |  no  |  |
 
 ---
 

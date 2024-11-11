@@ -11223,6 +11223,129 @@ public static class SplitTransactionResponse {
     
 }
 
+/*
+    Model: RefundRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RefundRequest {
+    
+    
+    
+    
+    @JsonProperty("orderId")
+    private String orderId;
+    
+    
+    
+    
+    @JsonProperty("refundId")
+    private String refundId;
+    
+    
+    
+    
+    @JsonProperty("refundAmount")
+    private Double refundAmount;
+    
+    
+    
+    
+    @JsonProperty("refundItems")
+    private List<RefundItem> refundItems;
+    
+    
+    
+    
+}
+
+/*
+    Model: RefundItem
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RefundItem {
+    
+    
+    
+    
+    @JsonProperty("category")
+    private String category;
+    
+    
+    
+    
+    @JsonProperty("sku")
+    private String sku;
+    
+    
+    
+    
+    @JsonProperty("rate")
+    private Double rate;
+    
+    
+    
+    
+    @JsonProperty("quantity")
+    private Integer quantity;
+    
+    
+    
+    
+}
+
+/*
+    Model: RefundResponseData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RefundResponseData {
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("refundId")
+    private String refundId;
+    
+    
+    
+    
+    @JsonProperty("transactionId")
+    private String transactionId;
+    
+    
+    
+    
+}
+
 
 
 
@@ -12291,12 +12414,6 @@ public static class EntityDto {
     
     
     
-    @JsonProperty("address")
-    private String address;
-    
-    
-    
-    
     @JsonProperty("name")
     private String name;
     
@@ -12400,12 +12517,6 @@ public static class MerchantSchema {
     
     @JsonProperty("active")
     private Boolean active;
-    
-    
-    
-    
-    @JsonProperty("category")
-    private String category;
     
     
     
@@ -14647,8 +14758,8 @@ public static class CreateUserLenderAssociationRequest {
     
     
     
-    @JsonProperty("role")
-    private String role;
+    @JsonProperty("roleHierarchyLevel")
+    private Double roleHierarchyLevel;
     
     
     
@@ -22345,29 +22456,6 @@ public static class RefundSuccess {
     
     @JsonProperty("refundId")
     private String refundId;
-    
-    
-    
-    
-}
-
-/*
-    Model: RefundItem
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RefundItem {
-    
-    
-    
-    
-    @JsonProperty("items")
-    private List<Object> items;
     
     
     

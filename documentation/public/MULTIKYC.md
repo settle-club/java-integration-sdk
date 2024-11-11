@@ -650,7 +650,6 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
  | ---------- | ---- | -------- | ----------- |
  | id | String |  no  |  |
  | type | String? |  yes  |  |
- | address | String? |  yes  |  |
  | name | String? |  yes  |  |
  | gender | String? |  yes  |  |
  | dob | String? |  yes  |  |
@@ -676,7 +675,6 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
  | disbursementIfsc | String? |  yes  |  |
  | createdBy | String? |  yes  |  |
  | active | Boolean? |  yes  |  |
- | category | String? |  yes  |  |
  | createdAt | String? |  yes  |  |
  | updatedAt | String? |  yes  |  |
  | deletedAt | String? |  yes  |  |
@@ -1490,7 +1488,7 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | organizationId | String |  no  |  |
- | role | String |  no  |  |
+ | roleHierarchyLevel | Double |  no  |  |
 
 ---
 

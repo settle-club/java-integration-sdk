@@ -170,6 +170,15 @@ interface CreditApiList {
     
     
     
+    @POST ("/service/integration/credit/orders/organization/{organizationId}/refund")
+    Call<PlatformModels.RefundResponse> refund(@Path("organizationId") String  organizationId ,@Body PlatformModels.RefundRequest payload);
+    
+    
+    
+    
+    
+    
+    
     
     
     
