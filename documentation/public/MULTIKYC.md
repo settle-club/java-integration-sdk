@@ -317,7 +317,7 @@ multikyc.getUserKycDetails( enitityMap,  entityId) {
 
 
 
-[CustomerKycDetailsReponse](#CustomerKycDetailsReponse)
+[CustomerKycDetailsResponse](#CustomerKycDetailsResponse)
 
 
 
@@ -464,7 +464,7 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
  | action | String? |  yes  |  |
  | form | Object? |  yes  |  |
  | uiSchema | Object? |  yes  |  |
- | workflowId | String? |  yes  |  |
+ | validationWorkflow | String? |  yes  |  |
 
 ---
 
@@ -492,7 +492,11 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
  | formId | String? |  yes  |  |
  | merchantId | String? |  yes  |  |
  | form | [Form](#Form) |  no  |  |
- | docSchema | Object |  no  |  |
+ | docSchema | Object? |  yes  |  |
+ | isOptional | Boolean? |  yes  |  |
+ | isInternal | Boolean? |  yes  |  |
+ | optionalWorkflow | String? |  yes  |  |
+ | internalWorkflow | String? |  yes  |  |
 
 ---
 
@@ -633,6 +637,7 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
  | creditType | String? |  yes  |  |
  | userId | String |  no  |  |
  | entityId | String |  no  |  |
+ | isDefault | Boolean? |  yes  |  |
 
 ---
 
@@ -645,7 +650,6 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
  | ---------- | ---- | -------- | ----------- |
  | id | String |  no  |  |
  | type | String? |  yes  |  |
- | address | String? |  yes  |  |
  | name | String? |  yes  |  |
  | gender | String? |  yes  |  |
  | dob | String? |  yes  |  |
@@ -671,7 +675,6 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
  | disbursementIfsc | String? |  yes  |  |
  | createdBy | String? |  yes  |  |
  | active | Boolean? |  yes  |  |
- | category | String? |  yes  |  |
  | createdAt | String? |  yes  |  |
  | updatedAt | String? |  yes  |  |
  | deletedAt | String? |  yes  |  |
@@ -1480,6 +1483,18 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
 
  
  
+ #### [CreateUserLenderAssociationRequest](#CreateUserLenderAssociationRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | organizationId | String |  no  |  |
+ | role | String |  no  |  |
+
+---
+
+
+ 
+ 
  #### [FindDocResponse](#FindDocResponse)
 
  | Properties | Type | Nullable | Description |
@@ -1615,6 +1630,7 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
  | includeStatus | ArrayList<Object>? |  yes  |  |
  | excludeStatus | ArrayList<Object>? |  yes  |  |
  | allowDisabledLender | Object? |  yes  |  |
+ | merchantIds | ArrayList<Object>? |  yes  |  |
 
 ---
 
@@ -1792,6 +1808,12 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
  | iconUrl | String? |  yes  |  |
  | isInteractive | Boolean |  no  |  |
  | schema | Object? |  yes  |  |
+ | meta | Object? |  yes  |  |
+ | display | Object? |  yes  |  |
+ | isOptional | Boolean? |  yes  |  |
+ | optionalWorkflow | String? |  yes  |  |
+ | isInternal | Boolean? |  yes  |  |
+ | internalWorkflow | String? |  yes  |  |
 
 ---
 
@@ -2392,6 +2414,9 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
  | slug | String |  no  |  |
  | isDefault | Boolean |  no  |  |
  | logoUrl | String |  no  |  |
+ | lenderLogo | String? |  yes  |  |
+ | merchantLogo | String? |  yes  |  |
+ | merchantId | String? |  yes  |  |
 
 ---
 
@@ -2645,7 +2670,7 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
 
  
  
- #### [KycDetailsReponse](#KycDetailsReponse)
+ #### [KycDetailsResponse](#KycDetailsResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
@@ -2796,7 +2821,7 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
 
  
  
- #### [CustomerKycDetailsReponse](#CustomerKycDetailsReponse)
+ #### [CustomerKycDetailsResponse](#CustomerKycDetailsResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |

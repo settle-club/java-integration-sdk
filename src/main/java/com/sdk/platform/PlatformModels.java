@@ -2344,6 +2344,12 @@ public static class GetDataFromToken {
     
     
     
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
 }
 
 /*
@@ -6588,6 +6594,12 @@ public static class CheckEligibilityRequest {
     
     @JsonProperty("fetchLimitOptions")
     private Boolean fetchLimitOptions;
+    
+    
+    
+    
+    @JsonProperty("callbackUrl")
+    private String callbackUrl;
     
     
     
@@ -11094,6 +11106,123 @@ public static class UpdateTransactionResponse {
     
 }
 
+/*
+    Model: SplitTransactionRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SplitTransactionRequest {
+    
+    
+    
+    
+    @JsonProperty("token")
+    private String token;
+    
+    
+    
+    
+    @JsonProperty("emiTenure")
+    private Double emiTenure;
+    
+    
+    
+    
+}
+
+/*
+    Model: TransactionInSplitTransactionResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TransactionInSplitTransactionResponse {
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("amount")
+    private Double amount;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("subtype")
+    private String subtype;
+    
+    
+    
+    
+}
+
+/*
+    Model: SplitTransactionResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SplitTransactionResponse {
+    
+    
+    
+    
+    @JsonProperty("parentTransaction")
+    private TransactionInSplitTransactionResponse parentTransaction;
+    
+    
+    
+    
+    @JsonProperty("loanTransaction")
+    private TransactionInSplitTransactionResponse loanTransaction;
+    
+    
+    
+    
+    @JsonProperty("downpaymentTransaction")
+    private TransactionInSplitTransactionResponse downpaymentTransaction;
+    
+    
+    
+    
+    @JsonProperty("lenderDownpaymentTransaction")
+    private TransactionInSplitTransactionResponse lenderDownpaymentTransaction;
+    
+    
+    
+    
+}
+
 
 
 
@@ -11593,8 +11722,8 @@ public static class Form {
     
     
     
-    @JsonProperty("workflowId")
-    private String workflowId;
+    @JsonProperty("validationWorkflow")
+    private String validationWorkflow;
     
     
     
@@ -11720,6 +11849,30 @@ public static class LenderKycStepMap {
     
     @JsonProperty("docSchema")
     private Object docSchema;
+    
+    
+    
+    
+    @JsonProperty("isOptional")
+    private Boolean isOptional;
+    
+    
+    
+    
+    @JsonProperty("isInternal")
+    private Boolean isInternal;
+    
+    
+    
+    
+    @JsonProperty("optionalWorkflow")
+    private String optionalWorkflow;
+    
+    
+    
+    
+    @JsonProperty("internalWorkflow")
+    private String internalWorkflow;
     
     
     
@@ -12103,6 +12256,12 @@ public static class EntityMapDto {
     
     
     
+    @JsonProperty("isDefault")
+    private Boolean isDefault;
+    
+    
+    
+    
 }
 
 /*
@@ -12128,12 +12287,6 @@ public static class EntityDto {
     
     @JsonProperty("type")
     private String type;
-    
-    
-    
-    
-    @JsonProperty("address")
-    private String address;
     
     
     
@@ -12241,12 +12394,6 @@ public static class MerchantSchema {
     
     @JsonProperty("active")
     private Boolean active;
-    
-    
-    
-    
-    @JsonProperty("category")
-    private String category;
     
     
     
@@ -14468,6 +14615,35 @@ public static class KycCountByStatus {
 }
 
 /*
+    Model: CreateUserLenderAssociationRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CreateUserLenderAssociationRequest {
+    
+    
+    
+    
+    @JsonProperty("organizationId")
+    private String organizationId;
+    
+    
+    
+    
+    @JsonProperty("role")
+    private String role;
+    
+    
+    
+    
+}
+
+/*
     Model: FindDocResponse
 */
 @AllArgsConstructor
@@ -14920,6 +15096,12 @@ public static class LenderFilters {
     
     @JsonProperty("allowDisabledLender")
     private Object allowDisabledLender;
+    
+    
+    
+    
+    @JsonProperty("merchantIds")
+    private List<Object> merchantIds;
     
     
     
@@ -15509,6 +15691,42 @@ public static class LenderState {
     
     @JsonProperty("schema")
     private Object schema;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private Object meta;
+    
+    
+    
+    
+    @JsonProperty("display")
+    private Object display;
+    
+    
+    
+    
+    @JsonProperty("isOptional")
+    private Boolean isOptional;
+    
+    
+    
+    
+    @JsonProperty("optionalWorkflow")
+    private String optionalWorkflow;
+    
+    
+    
+    
+    @JsonProperty("isInternal")
+    private Boolean isInternal;
+    
+    
+    
+    
+    @JsonProperty("internalWorkflow")
+    private String internalWorkflow;
     
     
     
@@ -17224,6 +17442,24 @@ public static class IntgrAvailableCreditLimit {
     
     
     
+    @JsonProperty("lenderLogo")
+    private String lenderLogo;
+    
+    
+    
+    
+    @JsonProperty("merchantLogo")
+    private String merchantLogo;
+    
+    
+    
+    
+    @JsonProperty("merchantId")
+    private String merchantId;
+    
+    
+    
+    
 }
 
 /*
@@ -17831,7 +18067,7 @@ public static class CreditReportResponse {
 }
 
 /*
-    Model: KycDetailsReponse
+    Model: KycDetailsResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17840,7 +18076,7 @@ public static class CreditReportResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class KycDetailsReponse {
+public static class KycDetailsResponse {
     
     
     
@@ -18221,7 +18457,7 @@ public static class ManualKycResponse {
 }
 
 /*
-    Model: CustomerKycDetailsReponse
+    Model: CustomerKycDetailsResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18230,7 +18466,7 @@ public static class ManualKycResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CustomerKycDetailsReponse {
+public static class CustomerKycDetailsResponse {
     
     
     
@@ -20087,6 +20323,717 @@ public static class ApiKey {
 }
 
 /*
+    Model: WebHookEvent
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class WebHookEvent {
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("active")
+    private Boolean active;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private Object meta;
+    
+    
+    
+    
+    @JsonProperty("webhookCategoryId")
+    private String webhookCategoryId;
+    
+    
+    
+    
+    @JsonProperty("webhookCategorySlug")
+    private String webhookCategorySlug;
+    
+    
+    
+    
+    @JsonProperty("isWebhookCategoryActive")
+    private Boolean isWebhookCategoryActive;
+    
+    
+    
+    
+    @JsonProperty("createdAt")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("updatedAt")
+    private String updatedAt;
+    
+    
+    
+    
+    @JsonProperty("deletedAt")
+    private String deletedAt;
+    
+    
+    
+    
+}
+
+/*
+    Model: WebhookCatgeory
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class WebhookCatgeory {
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("active")
+    private Boolean active;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private Object meta;
+    
+    
+    
+    
+    @JsonProperty("createdAt")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("updatedAt")
+    private String updatedAt;
+    
+    
+    
+    
+    @JsonProperty("webhookEvents")
+    private List<WebHookEvent> webhookEvents;
+    
+    
+    
+    
+}
+
+/*
+    Model: WebhookPage
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class WebhookPage {
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("current")
+    private Double current;
+    
+    
+    
+    
+    @JsonProperty("hasPrevious")
+    private Boolean hasPrevious;
+    
+    
+    
+    
+    @JsonProperty("hasNext")
+    private Boolean hasNext;
+    
+    
+    
+    
+    @JsonProperty("size")
+    private Double size;
+    
+    
+    
+    
+    @JsonProperty("itemTotal")
+    private Double itemTotal;
+    
+    
+    
+    
+}
+
+/*
+    Model: WebhookCategoryFilterKeys
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class WebhookCategoryFilterKeys {
+    
+    
+    
+    
+    @JsonProperty("display")
+    private String display;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("kind")
+    private String kind;
+    
+    
+    
+    
+}
+
+/*
+    Model: WebhookCategoryFilterValues
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class WebhookCategoryFilterValues {
+    
+    
+    
+    
+    @JsonProperty("display")
+    private String display;
+    
+    
+    
+    
+    @JsonProperty("isSelected")
+    private Boolean isSelected;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private String value;
+    
+    
+    
+    
+}
+
+/*
+    Model: WebhookCategoryFilters
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class WebhookCategoryFilters {
+    
+    
+    
+    
+    @JsonProperty("key")
+    private WebhookCategoryFilterKeys key;
+    
+    
+    
+    
+    @JsonProperty("values")
+    private List<WebhookCategoryFilterValues> values;
+    
+    
+    
+    
+}
+
+/*
+    Model: WebhookCategories
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class WebhookCategories {
+    
+    
+    
+    
+    @JsonProperty("allCategories")
+    private List<WebhookCatgeory> allCategories;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private WebhookPage page;
+    
+    
+    
+    
+    @JsonProperty("filters")
+    private List<WebhookCategoryFilters> filters;
+    
+    
+    
+    
+}
+
+/*
+    Model: WebhookCategoriesResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class WebhookCategoriesResponse {
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private IntegrationResponseMeta meta;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private WebhookCategories data;
+    
+    
+    
+    
+}
+
+/*
+    Model: DeleteWebhookEventData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DeleteWebhookEventData {
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+}
+
+/*
+    Model: UpdateWebhookCategoryEvent
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UpdateWebhookCategoryEvent {
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("active")
+    private Boolean active;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private Object meta;
+    
+    
+    
+    
+}
+
+/*
+    Model: UpdateWebhookCategory
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UpdateWebhookCategory {
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("active")
+    private Boolean active;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private Object meta;
+    
+    
+    
+    
+    @JsonProperty("eventList")
+    private List<UpdateWebhookCategoryEvent> eventList;
+    
+    
+    
+    
+    @JsonProperty("deletedEventList")
+    private List<DeleteWebhookEventData> deletedEventList;
+    
+    
+    
+    
+}
+
+/*
+    Model: UpdateWebhookCategoryResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UpdateWebhookCategoryResponse {
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("active")
+    private Boolean active;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private Object meta;
+    
+    
+    
+    
+    @JsonProperty("createdAt")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("updatedAt")
+    private String updatedAt;
+    
+    
+    
+    
+    @JsonProperty("updatedEventList")
+    private List<WebHookEvent> updatedEventList;
+    
+    
+    
+    
+}
+
+/*
+    Model: DeleteWebhookCatgeory
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DeleteWebhookCatgeory {
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+}
+
+/*
+    Model: WebHookSubscriptionEvent
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class WebHookSubscriptionEvent {
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("webhookEventId")
+    private String webhookEventId;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private Object meta;
+    
+    
+    
+    
+}
+
+/*
+    Model: WebhookList
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class WebhookList {
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("url")
+    private String url;
+    
+    
+    
+    
+    @JsonProperty("customHeaders")
+    private Object customHeaders;
+    
+    
+    
+    
+    @JsonProperty("alertEmail")
+    private String alertEmail;
+    
+    
+    
+    
+    @JsonProperty("active")
+    private Boolean active;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private Object meta;
+    
+    
+    
+    
+    @JsonProperty("webHookSubscriptionEvents")
+    private List<WebHookSubscriptionEvent> webHookSubscriptionEvents;
+    
+    
+    
+    
+}
+
+/*
     Model: UpdateApiHook
 */
 @AllArgsConstructor
@@ -20101,20 +21048,14 @@ public static class UpdateApiHook {
     
     
     
-    @JsonProperty("apiKey")
-    private String apiKey;
+    @JsonProperty("webhookList")
+    private List<WebhookList> webhookList;
     
     
     
     
-    @JsonProperty("url")
-    private String url;
-    
-    
-    
-    
-    @JsonProperty("customHeaders")
-    private Object customHeaders;
+    @JsonProperty("removedWebhookIdList")
+    private List<String> removedWebhookIdList;
     
     
     
@@ -20122,7 +21063,7 @@ public static class UpdateApiHook {
 }
 
 /*
-    Model: ApiHookDetails
+    Model: OrganizationWebhookEventItem
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20131,25 +21072,61 @@ public static class UpdateApiHook {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ApiHookDetails {
+public static class OrganizationWebhookEventItem {
     
     
     
     
-    @JsonProperty("apiKey")
-    private String apiKey;
+    @JsonProperty("id")
+    private String id;
     
     
     
     
-    @JsonProperty("url")
-    private String url;
+    @JsonProperty("organizationApiHookDetailsId")
+    private String organizationApiHookDetailsId;
     
     
     
     
-    @JsonProperty("customHeaders")
-    private Object customHeaders;
+    @JsonProperty("webhookCategoryId")
+    private String webhookCategoryId;
+    
+    
+    
+    
+    @JsonProperty("webhookCategorySlug")
+    private String webhookCategorySlug;
+    
+    
+    
+    
+    @JsonProperty("isWebhookCategoryActive")
+    private Boolean isWebhookCategoryActive;
+    
+    
+    
+    
+    @JsonProperty("webhookEventId")
+    private String webhookEventId;
+    
+    
+    
+    
+    @JsonProperty("webhookEventSlug")
+    private String webhookEventSlug;
+    
+    
+    
+    
+    @JsonProperty("isWebhookEventActive")
+    private Boolean isWebhookEventActive;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private Object meta;
     
     
     
@@ -20162,6 +21139,164 @@ public static class ApiHookDetails {
     
     @JsonProperty("updatedAt")
     private String updatedAt;
+    
+    
+    
+    
+}
+
+/*
+    Model: ApiHookDetailsItem
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ApiHookDetailsItem {
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("organizationId")
+    private String organizationId;
+    
+    
+    
+    
+    @JsonProperty("url")
+    private String url;
+    
+    
+    
+    
+    @JsonProperty("customHeaders")
+    private Object customHeaders;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private Object meta;
+    
+    
+    
+    
+    @JsonProperty("alertEmail")
+    private String alertEmail;
+    
+    
+    
+    
+    @JsonProperty("active")
+    private Boolean active;
+    
+    
+    
+    
+    @JsonProperty("createdAt")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("updatedAt")
+    private String updatedAt;
+    
+    
+    
+    
+    @JsonProperty("organizationWebhookEvents")
+    private List<OrganizationWebhookEventItem> organizationWebhookEvents;
+    
+    
+    
+    
+}
+
+/*
+    Model: ApiHookDetailsData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ApiHookDetailsData {
+    
+    
+    
+    
+    @JsonProperty("apiHookData")
+    private List<ApiHookDetailsItem> apiHookData;
+    
+    
+    
+    
+}
+
+/*
+    Model: ApiHookDetailsResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ApiHookDetailsResponse {
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private IntegrationResponseMeta meta;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private ApiHookDetailsData data;
+    
+    
+    
+    
+}
+
+/*
+    Model: UpdateApiHookResponseData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UpdateApiHookResponseData {
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
     
     
     
@@ -20183,8 +21318,20 @@ public static class UpdateApiHookResponse {
     
     
     
-    @JsonProperty("success")
-    private Boolean success;
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private IntegrationResponseMeta meta;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private UpdateApiHookResponseData data;
     
     
     
@@ -20218,6 +21365,12 @@ public static class OrganizationIp {
     
     
     
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
 }
 
 /*
@@ -20241,8 +21394,25 @@ public static class AddOrganizationIpDetails {
     
     
     
-    @JsonProperty("delete")
-    private String delete;
+}
+
+/*
+    Model: DeleteOrganizationIpDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DeleteOrganizationIpDetails {
+    
+    
+    
+    
+    @JsonProperty("deleteIp")
+    private String deleteIp;
     
     
     
@@ -20974,6 +22144,12 @@ public static class OrganizationIpResponse {
     
     
     
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
     @JsonProperty("organizationId")
     private String organizationId;
     
@@ -20982,6 +22158,12 @@ public static class OrganizationIpResponse {
     
     @JsonProperty("ip")
     private String ip;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
     
     
     
@@ -20998,16 +22180,10 @@ public static class OrganizationIpResponse {
     
     
     
-    @JsonProperty("id")
-    private String id;
-    
-    
-    
-    
 }
 
 /*
-    Model: OrganizationIpDetails
+    Model: OrganizationIpData
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21016,13 +22192,106 @@ public static class OrganizationIpResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OrganizationIpDetails {
+public static class OrganizationIpData {
     
     
     
     
     @JsonProperty("organizationIps")
     private List<OrganizationIpResponse> organizationIps;
+    
+    
+    
+    
+}
+
+/*
+    Model: OrganizationIpDetailsResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OrganizationIpDetailsResponse {
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private IntegrationResponseMeta meta;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private OrganizationIpData data;
+    
+    
+    
+    
+}
+
+/*
+    Model: DeleteOrganizationIpData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DeleteOrganizationIpData {
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+}
+
+/*
+    Model: DeleteOrganizationIpResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DeleteOrganizationIpResponse {
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private IntegrationResponseMeta meta;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private DeleteOrganizationIpData data;
     
     
     
@@ -21773,6 +23042,12 @@ public static class RepaymentUsingNetbanking {
     
     
     
+    @JsonProperty("entityMapId")
+    private String entityMapId;
+    
+    
+    
+    
 }
 
 /*
@@ -21845,6 +23120,12 @@ public static class RepaymentUsingUPI {
     
     @JsonProperty("transactionId")
     private String transactionId;
+    
+    
+    
+    
+    @JsonProperty("entityMapId")
+    private String entityMapId;
     
     
     
@@ -22760,6 +24041,64 @@ public static class OutstandingDetailsData {
     
     @JsonProperty("outstandingDetails")
     private List<OutstandingData> outstandingDetails;
+    
+    
+    
+    
+}
+
+/*
+    Model: VerifyUPIRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class VerifyUPIRequest {
+    
+    
+    
+    
+    @JsonProperty("vpa")
+    private String vpa;
+    
+    
+    
+    
+    @JsonProperty("lenderSlug")
+    private String lenderSlug;
+    
+    
+    
+    
+}
+
+/*
+    Model: UPIValidationSuccessResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UPIValidationSuccessResponse {
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
     
     
     

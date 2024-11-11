@@ -963,6 +963,7 @@ Success. Returns a JSON object as shown below. Refer `UserResponse` for more det
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | token | String |  no  |  |
+ | type | String? |  yes  |  |
 
 ---
 
@@ -2404,6 +2405,7 @@ Success. Returns a JSON object as shown below. Refer `UserResponse` for more det
  | device | [Device](#Device) |  no  |  |
  | meta | HashMap<String,Object>? |  yes  |  |
  | fetchLimitOptions | Boolean? |  yes  |  |
+ | callbackUrl | String? |  yes  |  |
 
 ---
 

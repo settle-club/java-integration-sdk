@@ -1682,6 +1682,7 @@ Success. Returns a JSON object as shown below. Refer `AddVintageResponse` for mo
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | token | String |  no  |  |
+ | type | String? |  yes  |  |
 
 ---
 
@@ -3121,6 +3122,7 @@ Success. Returns a JSON object as shown below. Refer `AddVintageResponse` for mo
  | device | [Device](#Device) |  no  |  |
  | meta | HashMap<String,Object>? |  yes  |  |
  | fetchLimitOptions | Boolean? |  yes  |  |
+ | callbackUrl | String? |  yes  |  |
 
 ---
 

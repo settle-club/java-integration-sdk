@@ -9,6 +9,12 @@ Authentication Service
 * [getAccessToken](#getaccesstoken)
 * [renewAccessToken](#renewaccesstoken)
 * [validateCredentials](#validatecredentials)
+* [updateWebhook](#updatewebhook)
+* [getWebhook](#getwebhook)
+* [getAllWebhookCategoriesAndEvents](#getallwebhookcategoriesandevents)
+* [getWhitelistedIp](#getwhitelistedip)
+* [whitelistIp](#whitelistip)
+* [removeWhitelistedIp](#removewhitelistedip)
 
 
 
@@ -254,10 +260,600 @@ Success. Returns a JSON object as shown below. Refer `ValidateCredentialsRespons
 
 
 <details>
-<summary><i>&nbsp; $ref</i></summary>
+<summary><i>&nbsp; ValidateCredentialsResponseExample</i></summary>
 
 ```json
-"#/components/schemas/ValidateCredentialsResponseExample"
+{
+  "value": {
+    "message": "The request has been processed successfully.",
+    "data": {
+      "success": true,
+      "organizationId": "d5a2db76-499d-45fc-af67-435481af9a87",
+      "organizationName": "Settle Organization"
+    },
+    "meta": {
+      "timestamp": "2024-07-15T12:57:06.818Z",
+      "version": "v1.0",
+      "product": "Settle Checkout"
+    }
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### updateWebhook
+Add or Update webhook details
+
+
+
+
+```java
+merchant.updateWebhook(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| organizationId | String | yes | This is organizationId |  
+| body | [UpdateApiHook](#UpdateApiHook) | yes | Request body |
+
+
+Use this API to update API webhook details of organization.
+
+*Returned Response:*
+
+
+
+
+[UpdateApiHookResponse](#UpdateApiHookResponse)
+
+Success. Returns a JSON object as shown below. Refer `ValidateCredentialsResponse` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; UpdateApiHookResponseExample</i></summary>
+
+```json
+{
+  "value": {
+    "message": "The request has been processed successfully.",
+    "data": {
+      "success": true
+    },
+    "meta": {
+      "timestamp": "2024-08-29T14:33:33.627Z",
+      "version": "v1.0",
+      "product": "Settle Checkout"
+    }
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getWebhook
+Get Webhook Details
+
+
+
+
+```java
+merchant.getWebhook() {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| organizationId | String | yes | This is organization Id |  
+
+
+
+Use this API to get API webhook details of organization.
+
+*Returned Response:*
+
+
+
+
+[ApiHookDetailsResponse](#ApiHookDetailsResponse)
+
+Success. Returns a JSON object as shown below. Refer `ApiHookDetails` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; ApiHookDetailsExample</i></summary>
+
+```json
+{
+  "value": {
+    "message": "The request has been processed successfully.",
+    "data": {
+      "apiHookData": [
+        {
+          "id": "4d26567c-3926-40a3-9590-22f310c808e6",
+          "organizationId": "8d29dca7-73c6-438a-aee0-58b361e32abc",
+          "url": "https://www.google.com",
+          "customHeaders": null,
+          "createdAt": "2024-08-29T14:11:46.793Z",
+          "updatedAt": "2024-08-29T14:16:31.489Z",
+          "deletedAt": null,
+          "meta": null,
+          "alertEmail": null,
+          "active": true,
+          "organizationWebhookEvents": [
+            {
+              "id": "995fce47-3d64-4ec4-b04c-223b0207113f",
+              "organizationApiHookDetailsId": "4d26567c-3926-40a3-9590-22f310c808e6",
+              "webhookCategoryId": "de1a6c9d-e124-4a31-816d-258954fd7cd2",
+              "webhookCategorySlug": "disburse",
+              "isWebhookCategoryActive": true,
+              "webhookEventId": "e21443b0-eca3-4701-ad32-335a48c1bb78",
+              "webhookEventSlug": "start-disburse-test",
+              "isWebhookEventActive": true,
+              "meta": {
+                "test": 123
+              },
+              "createdAt": "2024-08-29T14:16:31.499Z",
+              "updatedAt": "2024-08-29T14:16:31.499Z",
+              "deletedAt": null
+            },
+            {
+              "id": "fb12cfbb-634c-458f-8094-37dcf3450b20",
+              "organizationApiHookDetailsId": "4d26567c-3926-40a3-9590-22f310c808e6",
+              "webhookCategoryId": "84508f95-eb90-467f-9a41-d2f96bd7cd19",
+              "webhookCategorySlug": "payment",
+              "isWebhookCategoryActive": true,
+              "webhookEventId": "2c2ebfc4-e95f-428f-a4ca-b1b58716f635",
+              "webhookEventSlug": "end-payment-test",
+              "isWebhookEventActive": true,
+              "meta": {
+                "test2": 46
+              },
+              "createdAt": "2024-08-29T14:16:31.506Z",
+              "updatedAt": "2024-08-29T14:16:31.506Z",
+              "deletedAt": null
+            }
+          ]
+        }
+      ]
+    },
+    "meta": {
+      "timestamp": "2024-08-30T11:18:00.481Z",
+      "version": "v1.0",
+      "product": "Settle Checkout"
+    }
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getAllWebhookCategoriesAndEvents
+Get all active webhook categories with their associated events.
+
+
+
+
+```java
+merchant.getAllWebhookCategoriesAndEvents( size,  page,  name,  slug) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| organizationId | String | yes | This is organization Id |   
+| size | Double? | no | Max number of records per page for pagination |   
+| page | Double? | no | Page number for pagination |   
+| name | String? | no | Filter by event name (case-insensitive) |   
+| slug | List<String>? | no | Filter by one or more event slugs (case-insensitive) |  
+
+
+
+Use this API to get active webhook category details
+
+*Returned Response:*
+
+
+
+
+[WebhookCategoriesResponse](#WebhookCategoriesResponse)
+
+Success. Returns a JSON object as shown below. Refer `WebhookCategoriesResponse` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; WebhookCatgeoriesExample</i></summary>
+
+```json
+{
+  "value": {
+    "message": "The request has been processed successfully.",
+    "data": {
+      "allCategories": [
+        {
+          "id": "de1a6c9d-e124-4a31-816d-258954fd7cd2",
+          "name": "disburse",
+          "slug": "disburse",
+          "description": "payment webhook category",
+          "active": true,
+          "meta": {
+            "x-data": "xxx"
+          },
+          "createdAt": "2024-08-29T13:53:05.127Z",
+          "updatedAt": "2024-08-29T13:53:05.127Z",
+          "deletedAt": null,
+          "webhookEvents": [
+            {
+              "id": "e21443b0-eca3-4701-ad32-335a48c1bb78",
+              "name": "disburse start",
+              "slug": "start-disburse-test",
+              "description": "this webhook is called when disburse start",
+              "active": true,
+              "webhookCategoryId": "de1a6c9d-e124-4a31-816d-258954fd7cd2",
+              "webhookCategorySlug": "disburse",
+              "isWebhookCategoryActive": true,
+              "meta": {
+                "x-data": "xxx"
+              },
+              "createdAt": "2024-08-29T13:53:05.150Z",
+              "updatedAt": "2024-08-29T13:53:05.150Z",
+              "deletedAt": null
+            }
+          ]
+        }
+      ],
+      "page": {
+        "type": "page",
+        "current": 1,
+        "hasPrevious": false,
+        "hasNext": false,
+        "size": 10,
+        "itemTotal": 1
+      },
+      "filters": [
+        {
+          "key": {
+            "display": "Search",
+            "name": "search",
+            "kind": "multivalued"
+          },
+          "values": [
+            {
+              "display": "Name",
+              "isSelected": true,
+              "value": "WEBHOOKEVENTNAME"
+            },
+            {
+              "display": "Slug",
+              "isSelected": true,
+              "value": "WEBHOOKEVENTSLUG"
+            }
+          ]
+        }
+      ]
+    },
+    "meta": {
+      "timestamp": "2024-08-29T14:33:33.627Z",
+      "version": "v1.0",
+      "product": "Settle Checkout"
+    }
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getWhitelistedIp
+Get all whitelisted Ip for organization
+
+
+
+
+```java
+merchant.getWhitelistedIp() {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| organizationId | String | yes | This is the organization ID |  
+
+
+
+Use this API to get list of whitelisted ips related to organization
+
+*Returned Response:*
+
+
+
+
+[OrganizationIpDetailsResponse](#OrganizationIpDetailsResponse)
+
+Success. Returns a JSON object as shown below. Refer `OrganizationIpDetailsResponse` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; OrganizationIpDetailsResponseExample</i></summary>
+
+```json
+{
+  "value": {
+    "message": "The request has been processed successfully.",
+    "data": {
+      "organizationIps": [
+        {
+          "id": "b1983cc9-48e4-4f6f-8a3b-499edac45083",
+          "organizationId": "8d29dca7-73c6-438a-aee0-58b361e32abc",
+          "ip": "123.123.12.4",
+          "description": "Ip of the server",
+          "active": true,
+          "createdAt": "2024-10-16T10:19:38.243Z",
+          "updatedAt": "2024-10-16T10:19:38.243Z"
+        },
+        {
+          "id": "607e814b-6aa7-4910-8d69-1032a6502583",
+          "organizationId": "8d29dca7-73c6-438a-aee0-58b361e32abc",
+          "ip": "123.123.112.1",
+          "description": "Ip of the another server",
+          "active": true,
+          "createdAt": "2024-10-16T12:06:12.905Z",
+          "updatedAt": "2024-10-16T12:11:18.727Z"
+        }
+      ]
+    },
+    "meta": {
+      "timestamp": "2024-10-16T12:18:51.201Z",
+      "version": "v1.0",
+      "product": "Settle Checkout"
+    }
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### whitelistIp
+Add or Update ip to be whitelisted for Organization
+
+
+
+
+```java
+merchant.whitelistIp(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| organizationId | String | yes | This is organizationId |  
+| body | [AddOrganizationIpDetails](#AddOrganizationIpDetails) | yes | Request body |
+
+
+Use this API to add or update ip to whitelist for organization.
+
+*Returned Response:*
+
+
+
+
+[OrganizationIpDetailsResponse](#OrganizationIpDetailsResponse)
+
+Success. Returns a JSON object as shown below. Refer `OrganizationIpDetailsResponse` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; OrganizationIpDetailsResponseExample</i></summary>
+
+```json
+{
+  "value": {
+    "message": "The request has been processed successfully.",
+    "data": {
+      "organizationIps": [
+        {
+          "id": "b1983cc9-48e4-4f6f-8a3b-499edac45083",
+          "organizationId": "8d29dca7-73c6-438a-aee0-58b361e32abc",
+          "ip": "123.123.12.4",
+          "description": "Ip of the server",
+          "active": true,
+          "createdAt": "2024-10-16T10:19:38.243Z",
+          "updatedAt": "2024-10-16T10:19:38.243Z"
+        },
+        {
+          "id": "607e814b-6aa7-4910-8d69-1032a6502583",
+          "organizationId": "8d29dca7-73c6-438a-aee0-58b361e32abc",
+          "ip": "123.123.112.1",
+          "description": "Ip of the another server",
+          "active": true,
+          "createdAt": "2024-10-16T12:06:12.905Z",
+          "updatedAt": "2024-10-16T12:11:18.727Z"
+        }
+      ]
+    },
+    "meta": {
+      "timestamp": "2024-10-16T12:18:51.201Z",
+      "version": "v1.0",
+      "product": "Settle Checkout"
+    }
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### removeWhitelistedIp
+Remove the whitelisted IP address for the organization.
+
+
+
+
+```java
+merchant.removeWhitelistedIp(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| organizationId | String | yes | This is organizationId |  
+| body | [DeleteOrganizationIpDetails](#DeleteOrganizationIpDetails) | yes | Request body |
+
+
+Use this API to remove whitelisted ip for the organization.
+
+*Returned Response:*
+
+
+
+
+[DeleteOrganizationIpResponse](#DeleteOrganizationIpResponse)
+
+Success. Returns a JSON object as shown below. Refer `DeleteOrganizationIpResponse` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; DeleteIpResponseExample</i></summary>
+
+```json
+{
+  "value": {
+    "message": "The request has been processed successfully.",
+    "data": {
+      "message": "123.123.112.1 deleted"
+    },
+    "meta": {
+      "timestamp": "2024-10-16T12:19:42.959Z",
+      "version": "v1.0",
+      "product": "Settle Checkout"
+    }
+  }
+}
 ```
 </details>
 
@@ -1037,28 +1633,314 @@ Success. Returns a JSON object as shown below. Refer `ValidateCredentialsRespons
 
  
  
- #### [UpdateApiHook](#UpdateApiHook)
+ #### [WebHookEvent](#WebHookEvent)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | apiKey | String |  no  |  |
- | url | String |  no  |  |
- | customHeaders | HashMap<String,Object>? |  yes  |  |
+ | id | String? |  yes  |  |
+ | name | String? |  yes  |  |
+ | slug | String? |  yes  |  |
+ | description | String? |  yes  |  |
+ | active | Boolean? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
+ | webhookCategoryId | String? |  yes  |  |
+ | webhookCategorySlug | String? |  yes  |  |
+ | isWebhookCategoryActive | Boolean? |  yes  |  |
+ | createdAt | String? |  yes  |  |
+ | updatedAt | String? |  yes  |  |
+ | deletedAt | String? |  yes  |  |
 
 ---
 
 
  
  
- #### [ApiHookDetails](#ApiHookDetails)
+ #### [WebhookCatgeory](#WebhookCatgeory)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | apiKey | String |  no  |  |
- | url | String |  no  |  |
- | customHeaders | HashMap<String,Object>? |  yes  |  |
+ | id | String? |  yes  |  |
+ | name | String? |  yes  |  |
+ | slug | String? |  yes  |  |
+ | description | String? |  yes  |  |
+ | active | Boolean? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
  | createdAt | String? |  yes  |  |
  | updatedAt | String? |  yes  |  |
+ | webhookEvents | ArrayList<[WebHookEvent](#WebHookEvent)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [WebhookPage](#WebhookPage)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | type | String? |  yes  | The type of pagination being used (e.g., 'page'). |
+ | current | Double? |  yes  | The current page number being displayed. |
+ | hasPrevious | Boolean? |  yes  | Indicates if there are pages available before the current page. |
+ | hasNext | Boolean? |  yes  | Indicates if there are more pages available after the current page. |
+ | size | Double? |  yes  | The number of items per page. |
+ | itemTotal | Double? |  yes  | The total number of items available. |
+
+---
+
+
+ 
+ 
+ #### [WebhookCategoryFilterKeys](#WebhookCategoryFilterKeys)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | display | String? |  yes  |  |
+ | name | String? |  yes  |  |
+ | kind | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [WebhookCategoryFilterValues](#WebhookCategoryFilterValues)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | display | String? |  yes  |  |
+ | isSelected | Boolean? |  yes  |  |
+ | value | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [WebhookCategoryFilters](#WebhookCategoryFilters)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | key | [WebhookCategoryFilterKeys](#WebhookCategoryFilterKeys)? |  yes  |  |
+ | values | ArrayList<[WebhookCategoryFilterValues](#WebhookCategoryFilterValues)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [WebhookCategories](#WebhookCategories)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | allCategories | ArrayList<[WebhookCatgeory](#WebhookCatgeory)>? |  yes  |  |
+ | page | [WebhookPage](#WebhookPage)? |  yes  |  |
+ | filters | ArrayList<[WebhookCategoryFilters](#WebhookCategoryFilters)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [WebhookCategoriesResponse](#WebhookCategoriesResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | message | String |  no  | Response message indicating the result of the operation. |
+ | meta | [IntegrationResponseMeta](#IntegrationResponseMeta) |  no  |  |
+ | data | [WebhookCategories](#WebhookCategories) |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [DeleteWebhookEventData](#DeleteWebhookEventData)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [UpdateWebhookCategoryEvent](#UpdateWebhookCategoryEvent)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String? |  yes  |  |
+ | name | String |  no  |  |
+ | slug | String |  no  |  |
+ | description | String? |  yes  |  |
+ | active | Boolean |  no  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [UpdateWebhookCategory](#UpdateWebhookCategory)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String? |  yes  |  |
+ | name | String |  no  |  |
+ | slug | String |  no  |  |
+ | description | String? |  yes  |  |
+ | active | Boolean |  no  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
+ | eventList | ArrayList<[UpdateWebhookCategoryEvent](#UpdateWebhookCategoryEvent)>? |  yes  |  |
+ | deletedEventList | ArrayList<[DeleteWebhookEventData](#DeleteWebhookEventData)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [UpdateWebhookCategoryResponse](#UpdateWebhookCategoryResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String? |  yes  |  |
+ | name | String? |  yes  |  |
+ | slug | String? |  yes  |  |
+ | description | String? |  yes  |  |
+ | active | Boolean? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
+ | createdAt | String? |  yes  |  |
+ | updatedAt | String? |  yes  |  |
+ | updatedEventList | ArrayList<[WebHookEvent](#WebHookEvent)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [DeleteWebhookCatgeory](#DeleteWebhookCatgeory)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | success | Boolean? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [WebHookSubscriptionEvent](#WebHookSubscriptionEvent)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String? |  yes  |  |
+ | webhookEventId | String |  no  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [WebhookList](#WebhookList)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String? |  yes  |  |
+ | url | String |  no  |  |
+ | customHeaders | HashMap<String,Object>? |  yes  |  |
+ | alertEmail | String? |  yes  |  |
+ | active | Boolean |  no  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
+ | webHookSubscriptionEvents | ArrayList<[WebHookSubscriptionEvent](#WebHookSubscriptionEvent)> |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [UpdateApiHook](#UpdateApiHook)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | webhookList | ArrayList<[WebhookList](#WebhookList)> |  no  |  |
+ | removedWebhookIdList | ArrayList<String>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [OrganizationWebhookEventItem](#OrganizationWebhookEventItem)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String? |  yes  |  |
+ | organizationApiHookDetailsId | String? |  yes  |  |
+ | webhookCategoryId | String? |  yes  |  |
+ | webhookCategorySlug | String? |  yes  |  |
+ | isWebhookCategoryActive | Boolean? |  yes  |  |
+ | webhookEventId | String? |  yes  |  |
+ | webhookEventSlug | String? |  yes  |  |
+ | isWebhookEventActive | Boolean? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
+ | createdAt | String? |  yes  |  |
+ | updatedAt | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ApiHookDetailsItem](#ApiHookDetailsItem)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String? |  yes  |  |
+ | organizationId | String? |  yes  |  |
+ | url | String? |  yes  |  |
+ | customHeaders | HashMap<String,Object>? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
+ | alertEmail | String? |  yes  |  |
+ | active | Boolean? |  yes  |  |
+ | createdAt | String? |  yes  |  |
+ | updatedAt | String? |  yes  |  |
+ | organizationWebhookEvents | ArrayList<[OrganizationWebhookEventItem](#OrganizationWebhookEventItem)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ApiHookDetailsData](#ApiHookDetailsData)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | apiHookData | ArrayList<[ApiHookDetailsItem](#ApiHookDetailsItem)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ApiHookDetailsResponse](#ApiHookDetailsResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | message | String |  no  | Response message indicating the result of the operation. |
+ | meta | [IntegrationResponseMeta](#IntegrationResponseMeta) |  no  |  |
+ | data | [ApiHookDetailsData](#ApiHookDetailsData) |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [UpdateApiHookResponseData](#UpdateApiHookResponseData)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | success | Boolean? |  yes  |  |
 
 ---
 
@@ -1069,7 +1951,9 @@ Success. Returns a JSON object as shown below. Refer `ValidateCredentialsRespons
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | success | Boolean? |  yes  |  |
+ | message | String |  no  | Response message indicating the result of the operation. |
+ | meta | [IntegrationResponseMeta](#IntegrationResponseMeta) |  no  |  |
+ | data | [UpdateApiHookResponseData](#UpdateApiHookResponseData) |  no  |  |
 
 ---
 
@@ -1082,6 +1966,7 @@ Success. Returns a JSON object as shown below. Refer `ValidateCredentialsRespons
  | ---------- | ---- | -------- | ----------- |
  | id | String? |  yes  |  |
  | ip | String |  no  |  |
+ | description | String? |  yes  |  |
 
 ---
 
@@ -1093,7 +1978,17 @@ Success. Returns a JSON object as shown below. Refer `ValidateCredentialsRespons
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | organizationIps | ArrayList<[OrganizationIp](#OrganizationIp)>? |  yes  |  |
- | delete | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [DeleteOrganizationIpDetails](#DeleteOrganizationIpDetails)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | deleteIp | String |  no  |  |
 
 ---
 
@@ -1337,22 +2232,60 @@ Success. Returns a JSON object as shown below. Refer `ValidateCredentialsRespons
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | id | String |  no  |  |
  | organizationId | String |  no  |  |
  | ip | String |  no  |  |
+ | description | String? |  yes  |  |
  | createdAt | String? |  yes  |  |
  | updatedAt | String? |  yes  |  |
- | id | String |  no  |  |
 
 ---
 
 
  
  
- #### [OrganizationIpDetails](#OrganizationIpDetails)
+ #### [OrganizationIpData](#OrganizationIpData)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | organizationIps | ArrayList<[OrganizationIpResponse](#OrganizationIpResponse)>? |  yes  |  |
+ | organizationIps | ArrayList<[OrganizationIpResponse](#OrganizationIpResponse)> |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [OrganizationIpDetailsResponse](#OrganizationIpDetailsResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | message | String |  no  | Response message indicating the result of the operation. |
+ | meta | [IntegrationResponseMeta](#IntegrationResponseMeta) |  no  |  |
+ | data | [OrganizationIpData](#OrganizationIpData) |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [DeleteOrganizationIpData](#DeleteOrganizationIpData)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | message | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [DeleteOrganizationIpResponse](#DeleteOrganizationIpResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | message | String |  no  | Response message indicating the result of the operation. |
+ | meta | [IntegrationResponseMeta](#IntegrationResponseMeta) |  no  |  |
+ | data | [DeleteOrganizationIpData](#DeleteOrganizationIpData) |  no  |  |
 
 ---
 

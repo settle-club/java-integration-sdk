@@ -188,6 +188,7 @@ Success. Returns a JSON object as shown below. Refer `PaymentLinkResponse` for m
  | bankName | String |  no  |  |
  | chargeToken | String? |  yes  |  |
  | transactionId | String? |  yes  |  |
+ | entityMapId | String? |  yes  |  |
 
 ---
 
@@ -215,6 +216,7 @@ Success. Returns a JSON object as shown below. Refer `PaymentLinkResponse` for m
  | vpa | String |  no  |  |
  | chargeToken | String? |  yes  |  |
  | transactionId | String? |  yes  |  |
+ | entityMapId | String? |  yes  |  |
 
 ---
 
@@ -587,6 +589,30 @@ Success. Returns a JSON object as shown below. Refer `PaymentLinkResponse` for m
  | message | String |  no  |  |
  | meta | [IntegrationResponseMeta](#IntegrationResponseMeta) |  no  |  |
  | data | [OutstandingDetailsData](#OutstandingDetailsData) |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [VerifyUPIRequest](#VerifyUPIRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | vpa | String |  no  | The Virtual Payment Address (VPA) for UPI. |
+ | lenderSlug | String? |  yes  | The lender slug associated with the request. Optional parameter. |
+
+---
+
+
+ 
+ 
+ #### [UPIValidationSuccessResponse](#UPIValidationSuccessResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | status | String? |  yes  |  |
+ | name | String? |  yes  |  |
 
 ---
 

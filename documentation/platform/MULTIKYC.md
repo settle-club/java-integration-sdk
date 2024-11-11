@@ -191,7 +191,7 @@ multikyc.approvedLenders() {
  | action | String? |  yes  |  |
  | form | Object? |  yes  |  |
  | uiSchema | Object? |  yes  |  |
- | workflowId | String? |  yes  |  |
+ | validationWorkflow | String? |  yes  |  |
 
 ---
 
@@ -219,7 +219,11 @@ multikyc.approvedLenders() {
  | formId | String? |  yes  |  |
  | merchantId | String? |  yes  |  |
  | form | [Form](#Form) |  no  |  |
- | docSchema | Object |  no  |  |
+ | docSchema | Object? |  yes  |  |
+ | isOptional | Boolean? |  yes  |  |
+ | isInternal | Boolean? |  yes  |  |
+ | optionalWorkflow | String? |  yes  |  |
+ | internalWorkflow | String? |  yes  |  |
 
 ---
 
@@ -319,6 +323,7 @@ multikyc.approvedLenders() {
  | creditType | String? |  yes  |  |
  | userId | String |  no  |  |
  | entityId | String |  no  |  |
+ | isDefault | Boolean? |  yes  |  |
 
 ---
 
@@ -331,7 +336,6 @@ multikyc.approvedLenders() {
  | ---------- | ---- | -------- | ----------- |
  | id | String |  no  |  |
  | type | String? |  yes  |  |
- | address | String? |  yes  |  |
  | name | String? |  yes  |  |
  | gender | String? |  yes  |  |
  | dob | String? |  yes  |  |
@@ -357,7 +361,6 @@ multikyc.approvedLenders() {
  | disbursementIfsc | String? |  yes  |  |
  | createdBy | String? |  yes  |  |
  | active | Boolean? |  yes  |  |
- | category | String? |  yes  |  |
  | createdAt | String? |  yes  |  |
  | updatedAt | String? |  yes  |  |
  | deletedAt | String? |  yes  |  |
@@ -1166,6 +1169,18 @@ multikyc.approvedLenders() {
 
  
  
+ #### [CreateUserLenderAssociationRequest](#CreateUserLenderAssociationRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | organizationId | String |  no  |  |
+ | role | String |  no  |  |
+
+---
+
+
+ 
+ 
  #### [FindDocResponse](#FindDocResponse)
 
  | Properties | Type | Nullable | Description |
@@ -1301,6 +1316,7 @@ multikyc.approvedLenders() {
  | includeStatus | ArrayList<Object>? |  yes  |  |
  | excludeStatus | ArrayList<Object>? |  yes  |  |
  | allowDisabledLender | Object? |  yes  |  |
+ | merchantIds | ArrayList<Object>? |  yes  |  |
 
 ---
 
@@ -1478,6 +1494,12 @@ multikyc.approvedLenders() {
  | iconUrl | String? |  yes  |  |
  | isInteractive | Boolean |  no  |  |
  | schema | Object? |  yes  |  |
+ | meta | Object? |  yes  |  |
+ | display | Object? |  yes  |  |
+ | isOptional | Boolean? |  yes  |  |
+ | optionalWorkflow | String? |  yes  |  |
+ | isInternal | Boolean? |  yes  |  |
+ | internalWorkflow | String? |  yes  |  |
 
 ---
 
@@ -2057,6 +2079,9 @@ multikyc.approvedLenders() {
  | slug | String |  no  |  |
  | isDefault | Boolean |  no  |  |
  | logoUrl | String |  no  |  |
+ | lenderLogo | String? |  yes  |  |
+ | merchantLogo | String? |  yes  |  |
+ | merchantId | String? |  yes  |  |
 
 ---
 
@@ -2307,7 +2332,7 @@ multikyc.approvedLenders() {
 
  
  
- #### [KycDetailsReponse](#KycDetailsReponse)
+ #### [KycDetailsResponse](#KycDetailsResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
@@ -2458,7 +2483,7 @@ multikyc.approvedLenders() {
 
  
  
- #### [CustomerKycDetailsReponse](#CustomerKycDetailsReponse)
+ #### [CustomerKycDetailsResponse](#CustomerKycDetailsResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |

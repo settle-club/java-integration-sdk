@@ -502,6 +502,7 @@ Success. The request has been processed successfully and the response contains t
           "id": "TXN",
           "amount": 10000,
           "createdAt": "2024-08-20T06:37:27.150Z",
+          "utr": "ASCE124353H",
           "orderId": "DEMO-TRANSACTIOn",
           "settlementStatus": "PENDING",
           "settlementTime": "2024-08-22T15:20:02.274Z"
@@ -1932,6 +1933,47 @@ Success. The request has been processed successfully and the response contains t
  | transactionId | String? |  yes  | The unique identifier of the transaction. |
  | status | String? |  yes  | The status of the user related to the payment process. |
  | message | String? |  yes  | A message related to the user status. |
+
+---
+
+
+ 
+ 
+ #### [SplitTransactionRequest](#SplitTransactionRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | token | String |  no  | It contains all the mercahant and order details. |
+ | emiTenure | Double |  no  | This will contain the EMI tenure |
+
+---
+
+
+ 
+ 
+ #### [TransactionInSplitTransactionResponse](#TransactionInSplitTransactionResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String? |  yes  |  |
+ | amount | Double? |  yes  |  |
+ | status | String? |  yes  |  |
+ | type | String? |  yes  |  |
+ | subtype | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [SplitTransactionResponse](#SplitTransactionResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | parentTransaction | [TransactionInSplitTransactionResponse](#TransactionInSplitTransactionResponse)? |  yes  |  |
+ | loanTransaction | [TransactionInSplitTransactionResponse](#TransactionInSplitTransactionResponse)? |  yes  |  |
+ | downpaymentTransaction | [TransactionInSplitTransactionResponse](#TransactionInSplitTransactionResponse)? |  yes  |  |
+ | lenderDownpaymentTransaction | [TransactionInSplitTransactionResponse](#TransactionInSplitTransactionResponse)? |  yes  |  |
 
 ---
 
