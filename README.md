@@ -16,7 +16,7 @@ Get started with the Java Development SDK for Settle, Compatible with Java 8
 <dependency>
     <groupId>com.github.settle-finance</groupId>
     <artifactId>java-integration-sdk</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.3</version>
 </dependency>
 ```
 
