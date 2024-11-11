@@ -7,8 +7,7 @@ Settle client for Java language
 
 
 ## Getting Started
-Get started with the Java Development SDK for Potlee, Compatible with Java 8
-
+Get started with the Java Development SDK for Settle, Compatible with Java 8
 
 # Usage
 
