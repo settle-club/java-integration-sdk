@@ -58,10 +58,10 @@ public class Example {
 
             PlatformModels.Order order =  PlatformModels.Order.builder().valueInPaise(100000).uid("123").build();
 
-            PlatformModels.VerifyCustomer verifyCustomer = PlatformModels.VerifyCustomer.builder().customer(customer).order(order).device(device).build();
+            PlatformModels.ValidateCustomer validateCustomer = PlatformModels.ValidateCustomer.builder().customer(customer).order(order).device(device).build();
 
             // Use this API to verify the customer.
-            PlatformModels.VerifyCustomerSuccess verifyCustomerSuccess = platformClient.customer.verify(
+            PlatformModels.VerifyCustomerSuccess verifyCustomerSuccess = platformClient.customer.validate(
                     platformConfig.getOrganizationId(),
                     verifyCustomer
             );
@@ -69,7 +69,7 @@ public class Example {
             PlatformModels.CreateTransaction createTransaction = PlatformModels.CreateTransaction.builder().customer(customer).order(order).redirectUrl("https://www.google.com").build();
 
             // Use this API to create transaction for user.
-            PlatformModels.CreateTransactionSuccess createTransactionSuccess = platformClient.customer.createOrder(
+            PlatformModels.CreateTransactionSuccess createTransactionSuccess = platformClient.customer.createTransaction(
                     platformConfig.getOrganizationId(),
                     createTransaction
             );
