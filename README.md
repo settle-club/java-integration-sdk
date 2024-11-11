@@ -45,7 +45,7 @@ public class Example {
                     "API_KEY",
                     "API_SECRET",
                     "API_TOKEN",
-                    "https://api.potleez5.de",
+                    "https://api.settle.club",
                     false
             );
 
