@@ -18580,29 +18580,6 @@ public static class ManualKycResponse {
 }
 
 /*
-    Model: CustomerKycDetailsResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CustomerKycDetailsResponse {
-    
-    
-    
-    
-    @JsonProperty("data")
-    private UserKycLenderStepMap data;
-    
-    
-    
-    
-}
-
-/*
     Model: PlatformFees
 */
 @AllArgsConstructor
@@ -18648,6 +18625,434 @@ public static class CommercialResponse {
     
     @JsonProperty("data")
     private Commercial data;
+    
+    
+    
+    
+}
+
+/*
+    Model: ResponseMeta
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ResponseMeta {
+    
+    
+    
+    
+    @JsonProperty("timestamp")
+    private String timestamp;
+    
+    
+    
+    
+    @JsonProperty("version")
+    private String version;
+    
+    
+    
+    
+    @JsonProperty("product")
+    private String product;
+    
+    
+    
+    
+    @JsonProperty("requestId")
+    private String requestId;
+    
+    
+    
+    
+}
+
+/*
+    Model: BaseResponseV2
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BaseResponseV2 {
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private ResponseMeta meta;
+    
+    
+    
+    
+}
+
+/*
+    Model: ErrorDetail
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ErrorDetail {
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
+    
+    
+    
+    
+    @JsonProperty("exception")
+    private String exception;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+}
+
+/*
+    Model: ValidationErrorDetail
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ValidationErrorDetail {
+    
+    
+    
+    
+    @JsonProperty("field")
+    private String field;
+    
+    
+    
+    
+    @JsonProperty("location")
+    private String location;
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
+    
+    
+    
+    
+    @JsonProperty("exception")
+    private String exception;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+}
+
+/*
+    Model: ValidationErrorResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ValidationErrorResponse {
+    
+    
+    
+    
+    @JsonProperty("errors")
+    private List<ValidationErrorDetail> errors;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private ResponseMeta meta;
+    
+    
+    
+    
+}
+
+/*
+    Model: LenderThemeResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class LenderThemeResponse {
+    
+    
+    
+    
+    @JsonProperty("logoUrl")
+    private String logoUrl;
+    
+    
+    
+    
+    @JsonProperty("iconUrl")
+    private String iconUrl;
+    
+    
+    
+    
+    @JsonProperty("landscapeBgUrl")
+    private String landscapeBgUrl;
+    
+    
+    
+    
+    @JsonProperty("portraitBgUrl")
+    private String portraitBgUrl;
+    
+    
+    
+    
+    @JsonProperty("shortName")
+    private String shortName;
+    
+    
+    
+    
+    @JsonProperty("bannerBgColor")
+    private String bannerBgColor;
+    
+    
+    
+    
+}
+
+/*
+    Model: KycStepResponseData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class KycStepResponseData {
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("dscription")
+    private String dscription;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("active")
+    private String active;
+    
+    
+    
+    
+    @JsonProperty("userId")
+    private String userId;
+    
+    
+    
+    
+    @JsonProperty("createdAt")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("updatedAt")
+    private String updatedAt;
+    
+    
+    
+    
+    @JsonProperty("remark")
+    private String remark;
+    
+    
+    
+    
+    @JsonProperty("attempts")
+    private Object attempts;
+    
+    
+    
+    
+}
+
+/*
+    Model: LenderWithKycSteps
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class LenderWithKycSteps {
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("theme")
+    private LenderThemeResponse theme;
+    
+    
+    
+    
+    @JsonProperty("onboardingStatus")
+    private String onboardingStatus;
+    
+    
+    
+    
+    @JsonProperty("steps")
+    private List<KycStepResponseData> steps;
+    
+    
+    
+    
+}
+
+/*
+    Model: LendersWithCustomerKycStepsResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class LendersWithCustomerKycStepsResponse {
+    
+    
+    
+    
+    @JsonProperty("data")
+    private LenderWithKycSteps data;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private ResponseMeta meta;
+    
+    
+    
+    
+}
+
+/*
+    Model: CustomerKycStepsResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CustomerKycStepsResponse {
+    
+    
+    
+    
+    @JsonProperty("data")
+    private LenderWithKycSteps data;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private ResponseMeta meta;
     
     
     

@@ -252,6 +252,21 @@ interface MultiKycApiList {
     @GET ("/service/integration/kyc-onboarding/bre/{organizationId}/approved-lenders")
     Call<PlatformModels.ApprovedLendersTransaction> approvedLenders(@Path("organizationId") Object  organizationId );
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/integration/kyc-onboarding/user/{userMobile}/organization/{organizationId}/kyc-details")
+    Call<PlatformModels.LendersWithCustomerKycStepsResponse> getUserKycDetails(@Path("userMobile") String  userMobile , @Path("organizationId") String  organizationId , @Query("lenderSlug") String  lenderSlug );
+    
 }
 
 interface MerchantApiList {

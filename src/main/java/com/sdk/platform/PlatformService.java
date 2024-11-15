@@ -639,6 +639,35 @@ public static class MultiKycService {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.LendersWithCustomerKycStepsResponse getUserKycDetails(String userMobile , String organizationId , String lenderSlug ) throws IOException {
+            Response<PlatformModels.LendersWithCustomerKycStepsResponse> response = multikycApiList.getUserKycDetails(userMobile  , organizationId  ,lenderSlug ).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+    }
+    
+    
+    
 
 
 public class ApplicationClient {
@@ -654,6 +683,8 @@ public class ApplicationClient {
         this.organizationId = this.platformConfig.getOrganizationId();
     }
 
+    
+    
     
     
     

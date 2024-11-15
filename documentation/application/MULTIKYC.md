@@ -11827,17 +11827,6 @@ API endpoint to create a signed URL for uploading documents to and downloading d
 
  
  
- #### [CustomerKycDetailsResponse](#CustomerKycDetailsResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | data | [UserKycLenderStepMap](#UserKycLenderStepMap) |  no  |  |
-
----
-
-
- 
- 
  #### [PlatformFees](#PlatformFees)
 
  | Properties | Type | Nullable | Description |
@@ -11855,6 +11844,162 @@ API endpoint to create a signed URL for uploading documents to and downloading d
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | data | [Commercial](#Commercial) |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [ResponseMeta](#ResponseMeta)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | timestamp | String |  no  |  |
+ | version | String |  no  |  |
+ | product | String |  no  |  |
+ | requestId | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [BaseResponseV2](#BaseResponseV2)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | message | String |  no  |  |
+ | meta | [ResponseMeta](#ResponseMeta) |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [ErrorDetail](#ErrorDetail)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | code | String |  no  |  |
+ | exception | String |  no  |  |
+ | message | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [ErrorResponse](#ErrorResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | errors | ArrayList<[ErrorDetail](#ErrorDetail)> |  no  |  |
+ | message | String |  no  |  |
+ | meta | [ResponseMeta](#ResponseMeta) |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [ValidationErrorDetail](#ValidationErrorDetail)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | field | String |  no  |  |
+ | location | String |  no  |  |
+ | code | String |  no  |  |
+ | exception | String |  no  |  |
+ | message | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [ValidationErrorResponse](#ValidationErrorResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | errors | ArrayList<[ValidationErrorDetail](#ValidationErrorDetail)> |  no  |  |
+ | message | String |  no  |  |
+ | meta | [ResponseMeta](#ResponseMeta) |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [LenderThemeResponse](#LenderThemeResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | logoUrl | String |  no  |  |
+ | iconUrl | String |  no  |  |
+ | landscapeBgUrl | String |  no  |  |
+ | portraitBgUrl | String |  no  |  |
+ | shortName | String |  no  |  |
+ | bannerBgColor | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [KycStepResponseData](#KycStepResponseData)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | name | String |  no  |  |
+ | dscription | String |  no  |  |
+ | status | String |  no  |  |
+ | active | String |  no  |  |
+ | userId | String |  no  |  |
+ | createdAt | String |  no  |  |
+ | updatedAt | String |  no  |  |
+ | remark | String? |  yes  |  |
+ | attempts | Object? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [LenderWithKycSteps](#LenderWithKycSteps)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | name | String |  no  |  |
+ | slug | String |  no  |  |
+ | theme | [LenderThemeResponse](#LenderThemeResponse) |  no  |  |
+ | onboardingStatus | String |  no  |  |
+ | steps | ArrayList<[KycStepResponseData](#KycStepResponseData)> |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [LendersWithCustomerKycStepsResponse](#LendersWithCustomerKycStepsResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | data | [LenderWithKycSteps](#LenderWithKycSteps) |  no  |  |
+ | message | String |  no  |  |
+ | meta | [ResponseMeta](#ResponseMeta) |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [CustomerKycStepsResponse](#CustomerKycStepsResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | data | [LenderWithKycSteps](#LenderWithKycSteps) |  no  |  |
+ | message | String |  no  |  |
+ | meta | [ResponseMeta](#ResponseMeta) |  no  |  |
 
 ---
 

@@ -295,7 +295,7 @@ Get user kyc details
 
 
 ```java
-multikyc.getUserKycDetails( enitityMap,  entityId) {
+multikyc.getUserKycDetails( enitityMap) {
   //use response
 }
 ```
@@ -304,20 +304,18 @@ multikyc.getUserKycDetails( enitityMap,  entityId) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| organizationId | String | yes |  |   
-| enitityMap | String | yes |  |   
-| entityId | String | yes |  |  
+| enitityMap | String | yes |  |  
 
 
 
-
+A comprehensive list of all KYC steps based on available lenders for the user.
 
 *Returned Response:*
 
 
 
 
-[CustomerKycDetailsResponse](#CustomerKycDetailsResponse)
+[CustomerKycStepsResponse](#CustomerKycStepsResponse)
 
 
 
@@ -325,11 +323,78 @@ multikyc.getUserKycDetails( enitityMap,  entityId) {
 
 
 <details>
-<summary><i>&nbsp; Example:</i></summary>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; Ok</i></summary>
 
 ```json
-
+{
+  "value": {
+    "message": "The request has been processed successfully.",
+    "data": {
+      "customerKycStepsWithLender": {
+        "name": "Bhanix Finance and Investment Limited",
+        "slug": "cashe",
+        "theme": {
+          "logoUrl": "https://cdn.pixelbin.io/v2/potlee/original/public/lenders/lenderLogo/v2/512h-logo/cashe-logo.png",
+          "iconUrl": "https://cdn.pixelbin.io/v2/potlee/original/public/lenders/lenderLogo/v2/512h-logo/cashe-icon.png",
+          "landscapeBgUrl": "https://cdn.pixelbin.io/v2/potlee/original/public/lenders/lenderBackground/landscape/Cashe_Background.png",
+          "portraitBgUrl": "https://cdn.pixelbin.io/v2/potlee/original/public/lenders/lenderBackground/portrait/Cashe_Background_min.png",
+          "shortName": "CASHe",
+          "bannerBgColor": "linear-gradient(180deg, #FFF7D9 0%, #FFC48C 100%)"
+        },
+        "onboardingStatus": "SUCCESS",
+        "steps": [
+          {
+            "name": "ONBOARD",
+            "stepIndex": 115,
+            "dscription": null,
+            "status": "SUCCESS",
+            "active": true,
+            "attempts": 1,
+            "userId": "41e8b509-04d4-4549-b751-ddc635edd07f",
+            "createdAt": "2024-10-22T13:47:08.896Z",
+            "updatedAt": "2024-10-22T13:47:08.931Z"
+          },
+          {
+            "name": "BANKING DETAILS",
+            "stepIndex": 175,
+            "dscription": null,
+            "status": "SUCCESS",
+            "active": true,
+            "remark": "Document is a valid document",
+            "attempts": 1,
+            "userId": "41e8b509-04d4-4549-b751-ddc635edd07f",
+            "createdAt": "2024-10-22T13:47:08.927Z",
+            "updatedAt": "2024-10-22T13:47:24.776Z"
+          },
+          {
+            "name": "INDENTITY VERIFICATION",
+            "stepIndex": 200,
+            "dscription": null,
+            "status": "SUCCESS",
+            "active": true,
+            "remark": "",
+            "attempts": 1,
+            "userId": "41e8b509-04d4-4549-b751-ddc635edd07f",
+            "createdAt": "2024-10-22T13:47:24.792Z",
+            "updatedAt": "2024-10-22T13:47:34.417Z"
+          }
+        ]
+      }
+    },
+    "meta": {
+      "timestamp": "2024-11-13T10:07:04.691Z",
+      "version": "v1.0",
+      "product": "Settle Checkout"
+    }
+  }
+}
 ```
+</details>
+
 </details>
 
 
@@ -2821,18 +2886,6 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
 
  
  
- #### [CustomerKycDetailsResponse](#CustomerKycDetailsResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | data | [UserKycLenderStepMap](#UserKycLenderStepMap) |  no  |  |
- | headers | HashMap<String,Object>? |  yes  |  |
-
----
-
-
- 
- 
  #### [PlatformFees](#PlatformFees)
 
  | Properties | Type | Nullable | Description |
@@ -2850,6 +2903,163 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | data | [Commercial](#Commercial) |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [ResponseMeta](#ResponseMeta)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | timestamp | String |  no  |  |
+ | version | String |  no  |  |
+ | product | String |  no  |  |
+ | requestId | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [BaseResponseV2](#BaseResponseV2)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | message | String |  no  |  |
+ | meta | [ResponseMeta](#ResponseMeta) |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [ErrorDetail](#ErrorDetail)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | code | String |  no  |  |
+ | exception | String |  no  |  |
+ | message | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [ErrorResponse](#ErrorResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | errors | ArrayList<[ErrorDetail](#ErrorDetail)> |  no  |  |
+ | message | String |  no  |  |
+ | meta | [ResponseMeta](#ResponseMeta) |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [ValidationErrorDetail](#ValidationErrorDetail)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | field | String |  no  |  |
+ | location | String |  no  |  |
+ | code | String |  no  |  |
+ | exception | String |  no  |  |
+ | message | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [ValidationErrorResponse](#ValidationErrorResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | errors | ArrayList<[ValidationErrorDetail](#ValidationErrorDetail)> |  no  |  |
+ | message | String |  no  |  |
+ | meta | [ResponseMeta](#ResponseMeta) |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [LenderThemeResponse](#LenderThemeResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | logoUrl | String |  no  |  |
+ | iconUrl | String |  no  |  |
+ | landscapeBgUrl | String |  no  |  |
+ | portraitBgUrl | String |  no  |  |
+ | shortName | String |  no  |  |
+ | bannerBgColor | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [KycStepResponseData](#KycStepResponseData)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | name | String |  no  |  |
+ | dscription | String |  no  |  |
+ | status | String |  no  |  |
+ | active | String |  no  |  |
+ | userId | String |  no  |  |
+ | createdAt | String |  no  |  |
+ | updatedAt | String |  no  |  |
+ | remark | String? |  yes  |  |
+ | attempts | Object? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [LenderWithKycSteps](#LenderWithKycSteps)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | name | String |  no  |  |
+ | slug | String |  no  |  |
+ | theme | [LenderThemeResponse](#LenderThemeResponse) |  no  |  |
+ | onboardingStatus | String |  no  |  |
+ | steps | ArrayList<[KycStepResponseData](#KycStepResponseData)> |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [LendersWithCustomerKycStepsResponse](#LendersWithCustomerKycStepsResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | data | [LenderWithKycSteps](#LenderWithKycSteps) |  no  |  |
+ | message | String |  no  |  |
+ | meta | [ResponseMeta](#ResponseMeta) |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [CustomerKycStepsResponse](#CustomerKycStepsResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | data | [LenderWithKycSteps](#LenderWithKycSteps) |  no  |  |
+ | message | String |  no  |  |
+ | meta | [ResponseMeta](#ResponseMeta) |  no  |  |
+ | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
