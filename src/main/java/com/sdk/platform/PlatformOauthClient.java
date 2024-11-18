@@ -114,7 +114,7 @@ public class PlatformOauthClient {
                 + "&redirect_uri=" + redirectUri + "&state=" + state + "&access_mode=" + accessMode
                 + "&response_type=code";
 
-        var queryString = config.getDomain() + URI + config.getApiKey() + "/authorize?" + query;
+        String queryString = config.getDomain() + URI + config.getApiKey() + "/authorize?" + query;
         Request request = new Request.Builder().url(queryString)
                 .get()
                 .build();
