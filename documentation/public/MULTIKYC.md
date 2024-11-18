@@ -295,7 +295,7 @@ Get user kyc details
 
 
 ```java
-multikyc.getUserKycDetails( enitityMap) {
+multikyc.getUserKycDetails( entityMapId) {
   //use response
 }
 ```
@@ -304,7 +304,8 @@ multikyc.getUserKycDetails( enitityMap) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| enitityMap | String | yes |  |  
+| organizationId | String | yes |  |   
+| entityMapId | String | yes |  |  
 
 
 
