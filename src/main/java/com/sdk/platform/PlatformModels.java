@@ -18990,6 +18990,29 @@ public static class LenderWithKycSteps {
 }
 
 /*
+    Model: CustomerKycStepsWithLender
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CustomerKycStepsWithLender {
+    
+    
+    
+    
+    @JsonProperty("customerKycStepsWithLender")
+    private List<LenderWithKycSteps> customerKycStepsWithLender;
+    
+    
+    
+    
+}
+
+/*
     Model: LendersWithCustomerKycStepsResponse
 */
 @AllArgsConstructor
@@ -19005,7 +19028,7 @@ public static class LendersWithCustomerKycStepsResponse {
     
     
     @JsonProperty("data")
-    private LenderWithKycSteps data;
+    private CustomerKycStepsWithLender data;
     
     
     
@@ -19018,6 +19041,29 @@ public static class LendersWithCustomerKycStepsResponse {
     
     @JsonProperty("meta")
     private ResponseMeta meta;
+    
+    
+    
+    
+}
+
+/*
+    Model: CustomerKycStepsResponseData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CustomerKycStepsResponseData {
+    
+    
+    
+    
+    @JsonProperty("customerKycStepsWithLender")
+    private List<LenderWithKycSteps> customerKycStepsWithLender;
     
     
     
@@ -19040,7 +19086,7 @@ public static class CustomerKycStepsResponse {
     
     
     @JsonProperty("data")
-    private LenderWithKycSteps data;
+    private CustomerKycStepsResponseData data;
     
     
     

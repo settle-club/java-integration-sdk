@@ -11980,13 +11980,35 @@ API endpoint to create a signed URL for uploading documents to and downloading d
 
  
  
+ #### [CustomerKycStepsWithLender](#CustomerKycStepsWithLender)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | customerKycStepsWithLender | ArrayList<[LenderWithKycSteps](#LenderWithKycSteps)> |  no  |  |
+
+---
+
+
+ 
+ 
  #### [LendersWithCustomerKycStepsResponse](#LendersWithCustomerKycStepsResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | data | [LenderWithKycSteps](#LenderWithKycSteps) |  no  |  |
+ | data | [CustomerKycStepsWithLender](#CustomerKycStepsWithLender) |  no  |  |
  | message | String |  no  |  |
  | meta | [ResponseMeta](#ResponseMeta) |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [CustomerKycStepsResponseData](#CustomerKycStepsResponseData)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | customerKycStepsWithLender | ArrayList<[LenderWithKycSteps](#LenderWithKycSteps)> |  no  |  |
 
 ---
 
@@ -11997,7 +12019,7 @@ API endpoint to create a signed URL for uploading documents to and downloading d
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | data | [LenderWithKycSteps](#LenderWithKycSteps) |  no  |  |
+ | data | [CustomerKycStepsResponseData](#CustomerKycStepsResponseData) |  no  |  |
  | message | String |  no  |  |
  | meta | [ResponseMeta](#ResponseMeta) |  no  |  |
 

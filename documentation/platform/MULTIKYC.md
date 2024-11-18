@@ -2761,13 +2761,35 @@ A comprehensive list of all KYC steps based on available lenders for the user.
 
  
  
+ #### [CustomerKycStepsWithLender](#CustomerKycStepsWithLender)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | customerKycStepsWithLender | ArrayList<[LenderWithKycSteps](#LenderWithKycSteps)> |  no  |  |
+
+---
+
+
+ 
+ 
  #### [LendersWithCustomerKycStepsResponse](#LendersWithCustomerKycStepsResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | data | [LenderWithKycSteps](#LenderWithKycSteps) |  no  |  |
+ | data | [CustomerKycStepsWithLender](#CustomerKycStepsWithLender) |  no  |  |
  | message | String |  no  |  |
  | meta | [ResponseMeta](#ResponseMeta) |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [CustomerKycStepsResponseData](#CustomerKycStepsResponseData)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | customerKycStepsWithLender | ArrayList<[LenderWithKycSteps](#LenderWithKycSteps)> |  no  |  |
 
 ---
 
@@ -2778,7 +2800,7 @@ A comprehensive list of all KYC steps based on available lenders for the user.
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | data | [LenderWithKycSteps](#LenderWithKycSteps) |  no  |  |
+ | data | [CustomerKycStepsResponseData](#CustomerKycStepsResponseData) |  no  |  |
  | message | String |  no  |  |
  | meta | [ResponseMeta](#ResponseMeta) |  no  |  |
 
