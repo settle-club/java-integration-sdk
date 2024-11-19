@@ -444,6 +444,27 @@ public static class CreditService {
     
     
     
+    public PlatformModels.RefundResponse refund(String organizationId ,PlatformModels.RefundRequest body) throws IOException {
+            Response<PlatformModels.RefundResponse> response = creditApiList.refund(organizationId  , body).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -566,6 +587,8 @@ public class ApplicationClient {
     
     
     
+    
+    
 
 }
 
@@ -616,6 +639,35 @@ public static class MultiKycService {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.UserKycDetailsResponse getUserKycDetails(String userMobile , String organizationId , String lenderSlug ) throws IOException {
+            Response<PlatformModels.UserKycDetailsResponse> response = multikycApiList.getUserKycDetails(userMobile  , organizationId  ,lenderSlug ).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+    }
+    
+    
+    
 
 
 public class ApplicationClient {
@@ -631,6 +683,8 @@ public class ApplicationClient {
         this.organizationId = this.platformConfig.getOrganizationId();
     }
 
+    
+    
     
     
     

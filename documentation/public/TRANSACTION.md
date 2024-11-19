@@ -2015,4 +2015,59 @@ Success. Returns a JSON object as shown below. Refer `UniqueCustomersInOrg` for 
 ---
 
 
+ 
+ 
+ #### [RefundRequest](#RefundRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | orderId | String |  no  | The unique identifier for the order |
+ | refundId | String |  no  | The unique identifier for the refund |
+ | refundAmount | Double |  no  | The total amount to be refunded |
+ | refundItems | ArrayList<[RefundItem](#RefundItem)>? |  yes  | Items to be refunded |
+
+---
+
+
+ 
+ 
+ #### [RefundItem](#RefundItem)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | category | String |  no  | The category of the refunded item |
+ | sku | String |  no  | The Stock Keeping Unit (SKU) of the refunded item |
+ | rate | Double |  no  | The price per unit of the refunded item |
+ | quantity | Integer |  no  | The quantity of the refunded item |
+
+---
+
+
+ 
+ 
+ #### [RefundResponse](#RefundResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | message | String |  no  | Response message indicating the result of the operation. |
+ | meta | [IntegrationResponseMeta](#IntegrationResponseMeta) |  no  |  |
+ | data | [RefundResponseData](#RefundResponseData) |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [RefundResponseData](#RefundResponseData)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | status | String |  no  | The status of the refund request |
+ | message | String |  no  | A message describing the result of the refund operation |
+ | refundId | String |  no  | The unique identifier for the refund |
+ | transactionId | String |  no  | The unique identifier for the refund transaction |
+
+---
+
+
 

@@ -9,7 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.HttpServerErrorException;
-
+import java.io.UnsupportedEncodingException;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import java.io.IOException;
@@ -23,7 +23,9 @@ import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class RequestSigner {
 
     private Request request;
@@ -31,10 +33,10 @@ public class RequestSigner {
     private String nowDateTime;
     private boolean signQuery;
 
-    static final List<String> HEADERS_TO_IGNORE = List.of("authorization", "connection", "x-amzn-trace-id",
+    static final List<String> HEADERS_TO_IGNORE = Arrays.asList("authorization", "connection", "x-amzn-trace-id",
             "user-agent", "expect", "presigned-expires", "range");
 
-    static final List<String> HEADERS_TO_INCLUDE = List.of("x-ptl-.*", "host");
+    static final List<String> HEADERS_TO_INCLUDE = Arrays.asList("x-ptl-.*", "host");
 
     public RequestSigner(Request request) {
         this.request = request;
@@ -169,10 +171,14 @@ public class RequestSigner {
         return encodedPathPieces.toString();
     }
 
-    private void addQueryParam(String encodedQueryName, StringBuilder encodedQueryPieces) {
-        updatedReq.url().queryParameterValues(URLDecoder.decode(encodedQueryName, StandardCharsets.UTF_8)).stream()
-                .sorted().forEach(queryValue -> includeQueryValue(queryValue, encodedQueryName, encodedQueryPieces));
-    }
+     private void addQueryParam(String encodedQueryName, StringBuilder encodedQueryPieces) {
+            try {
+                updatedReq.url().queryParameterValues(URLDecoder.decode(encodedQueryName, StandardCharsets.UTF_8.name())).stream()
+                        .sorted().forEach(queryValue -> includeQueryValue(queryValue, encodedQueryName, encodedQueryPieces));
+            } catch (UnsupportedEncodingException e) {
+                log.error("Exception in adding query param", e);
+            }
+        }
 
     private void includeQueryValue(String queryValue, String encodedQueryName, StringBuilder encodedQueryPieces) {
         String query = encodedQueryName + "=" + queryValue;
@@ -184,8 +190,14 @@ public class RequestSigner {
     }
 
     private String encode(String parameter) {
-        return URLEncoder.encode(parameter, StandardCharsets.UTF_8);
-    }
+            try {
+                return URLEncoder.encode(parameter, StandardCharsets.UTF_8.name());
+            } catch (UnsupportedEncodingException e) {
+                // Log the exception if needed
+                log.error("Error in encoding", e);
+                return ""; // Return an empty string in case of an exception
+            }
+        }
 
     private void addHeaderValues(String headerName, StringBuilder canonicalHeader) {
         updatedReq.headers().values(headerName).forEach(headerValue -> {

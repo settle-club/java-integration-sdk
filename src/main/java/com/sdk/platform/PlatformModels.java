@@ -11223,6 +11223,129 @@ public static class SplitTransactionResponse {
     
 }
 
+/*
+    Model: RefundRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RefundRequest {
+    
+    
+    
+    
+    @JsonProperty("orderId")
+    private String orderId;
+    
+    
+    
+    
+    @JsonProperty("refundId")
+    private String refundId;
+    
+    
+    
+    
+    @JsonProperty("refundAmount")
+    private Double refundAmount;
+    
+    
+    
+    
+    @JsonProperty("refundItems")
+    private List<RefundItem> refundItems;
+    
+    
+    
+    
+}
+
+/*
+    Model: RefundItem
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RefundItem {
+    
+    
+    
+    
+    @JsonProperty("category")
+    private String category;
+    
+    
+    
+    
+    @JsonProperty("sku")
+    private String sku;
+    
+    
+    
+    
+    @JsonProperty("rate")
+    private Double rate;
+    
+    
+    
+    
+    @JsonProperty("quantity")
+    private Integer quantity;
+    
+    
+    
+    
+}
+
+/*
+    Model: RefundResponseData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RefundResponseData {
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("refundId")
+    private String refundId;
+    
+    
+    
+    
+    @JsonProperty("transactionId")
+    private String transactionId;
+    
+    
+    
+    
+}
+
 
 
 
@@ -12291,12 +12414,6 @@ public static class EntityDto {
     
     
     
-    @JsonProperty("address")
-    private String address;
-    
-    
-    
-    
     @JsonProperty("name")
     private String name;
     
@@ -12400,12 +12517,6 @@ public static class MerchantSchema {
     
     @JsonProperty("active")
     private Boolean active;
-    
-    
-    
-    
-    @JsonProperty("category")
-    private String category;
     
     
     
@@ -14647,8 +14758,8 @@ public static class CreateUserLenderAssociationRequest {
     
     
     
-    @JsonProperty("role")
-    private String role;
+    @JsonProperty("roleHierarchyLevel")
+    private Double roleHierarchyLevel;
     
     
     
@@ -18469,29 +18580,6 @@ public static class ManualKycResponse {
 }
 
 /*
-    Model: CustomerKycDetailsResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CustomerKycDetailsResponse {
-    
-    
-    
-    
-    @JsonProperty("data")
-    private UserKycLenderStepMap data;
-    
-    
-    
-    
-}
-
-/*
     Model: PlatformFees
 */
 @AllArgsConstructor
@@ -18537,6 +18625,474 @@ public static class CommercialResponse {
     
     @JsonProperty("data")
     private Commercial data;
+    
+    
+    
+    
+}
+
+/*
+    Model: ResponseMeta
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ResponseMeta {
+    
+    
+    
+    
+    @JsonProperty("timestamp")
+    private String timestamp;
+    
+    
+    
+    
+    @JsonProperty("version")
+    private String version;
+    
+    
+    
+    
+    @JsonProperty("product")
+    private String product;
+    
+    
+    
+    
+    @JsonProperty("requestId")
+    private String requestId;
+    
+    
+    
+    
+}
+
+/*
+    Model: BaseResponseV2
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BaseResponseV2 {
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private ResponseMeta meta;
+    
+    
+    
+    
+}
+
+/*
+    Model: ErrorDetail
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ErrorDetail {
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
+    
+    
+    
+    
+    @JsonProperty("exception")
+    private String exception;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+}
+
+/*
+    Model: ValidationErrorDetail
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ValidationErrorDetail {
+    
+    
+    
+    
+    @JsonProperty("field")
+    private String field;
+    
+    
+    
+    
+    @JsonProperty("location")
+    private String location;
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
+    
+    
+    
+    
+    @JsonProperty("exception")
+    private String exception;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+}
+
+/*
+    Model: ValidationErrorResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ValidationErrorResponse {
+    
+    
+    
+    
+    @JsonProperty("errors")
+    private List<ValidationErrorDetail> errors;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private ResponseMeta meta;
+    
+    
+    
+    
+}
+
+/*
+    Model: LenderThemeResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class LenderThemeResponse {
+    
+    
+    
+    
+    @JsonProperty("logoUrl")
+    private String logoUrl;
+    
+    
+    
+    
+    @JsonProperty("iconUrl")
+    private String iconUrl;
+    
+    
+    
+    
+    @JsonProperty("landscapeBgUrl")
+    private String landscapeBgUrl;
+    
+    
+    
+    
+    @JsonProperty("portraitBgUrl")
+    private String portraitBgUrl;
+    
+    
+    
+    
+    @JsonProperty("shortName")
+    private String shortName;
+    
+    
+    
+    
+    @JsonProperty("bannerBgColor")
+    private String bannerBgColor;
+    
+    
+    
+    
+}
+
+/*
+    Model: KycStepResponseData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class KycStepResponseData {
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("active")
+    private String active;
+    
+    
+    
+    
+    @JsonProperty("createdAt")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("updatedAt")
+    private String updatedAt;
+    
+    
+    
+    
+    @JsonProperty("remark")
+    private String remark;
+    
+    
+    
+    
+    @JsonProperty("attempts")
+    private Object attempts;
+    
+    
+    
+    
+}
+
+/*
+    Model: OnboardingSummaryData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OnboardingSummaryData {
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("theme")
+    private LenderThemeResponse theme;
+    
+    
+    
+    
+    @JsonProperty("onboardingStatus")
+    private String onboardingStatus;
+    
+    
+    
+    
+    @JsonProperty("steps")
+    private List<KycStepResponseData> steps;
+    
+    
+    
+    
+}
+
+/*
+    Model: UserKycDetailsResponseData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UserKycDetailsResponseData {
+    
+    
+    
+    
+    @JsonProperty("onboardingSummary")
+    private List<OnboardingSummaryData> onboardingSummary;
+    
+    
+    
+    
+}
+
+/*
+    Model: UserKycDetailsResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UserKycDetailsResponse {
+    
+    
+    
+    
+    @JsonProperty("data")
+    private UserKycDetailsResponseData data;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private ResponseMeta meta;
+    
+    
+    
+    
+}
+
+/*
+    Model: CustomerKycStepsResponseData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CustomerKycStepsResponseData {
+    
+    
+    
+    
+    @JsonProperty("onboardingSummary")
+    private List<OnboardingSummaryData> onboardingSummary;
+    
+    
+    
+    
+}
+
+/*
+    Model: CustomerKycStepsResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CustomerKycStepsResponse {
+    
+    
+    
+    
+    @JsonProperty("data")
+    private CustomerKycStepsResponseData data;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private ResponseMeta meta;
     
     
     
@@ -22345,29 +22901,6 @@ public static class RefundSuccess {
     
     @JsonProperty("refundId")
     private String refundId;
-    
-    
-    
-    
-}
-
-/*
-    Model: RefundItem
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RefundItem {
-    
-    
-    
-    
-    @JsonProperty("items")
-    private List<Object> items;
     
     
     
