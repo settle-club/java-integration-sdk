@@ -264,8 +264,8 @@ interface MultiKycApiList {
     
     
     
-    @GET ("/service/integration/kyc-onboarding/user/{userMobile}/organization/{organizationId}/kyc-details")
-    Call<PlatformModels.UserKycDetailsResponse> getUserKycDetails(@Path("userMobile") String  userMobile , @Path("organizationId") String  organizationId , @Query("lenderSlug") String  lenderSlug );
+    @GET ("/service/integration/kyc-onboarding/user/{mobile}/organization/{organizationId}/kyc-details")
+    Call<PlatformModels.UserKycDetailsResponse> getUserKycDetails(@Path("mobile") String  mobile , @Path("organizationId") String  organizationId , @Query("lenderSlug") String  lenderSlug );
     
 }
 

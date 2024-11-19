@@ -74,7 +74,7 @@ Get user kyc details
 
 
 ```java
-multikyc.getUserKycDetails( userMobile,  lenderSlug) {
+multikyc.getUserKycDetails( mobile,  lenderSlug) {
   //use response
 }
 ```
@@ -83,7 +83,7 @@ multikyc.getUserKycDetails( userMobile,  lenderSlug) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| userMobile | String | yes |  |   
+| mobile | String | yes |  |   
 | organizationId | String | yes |  |   
 | lenderSlug | String? | no |  |  
 

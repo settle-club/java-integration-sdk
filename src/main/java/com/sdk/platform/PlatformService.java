@@ -657,8 +657,8 @@ public static class MultiKycService {
     
     
     
-    public PlatformModels.UserKycDetailsResponse getUserKycDetails(String userMobile , String organizationId , String lenderSlug ) throws IOException {
-            Response<PlatformModels.UserKycDetailsResponse> response = multikycApiList.getUserKycDetails(userMobile  , organizationId  ,lenderSlug ).execute();
+    public PlatformModels.UserKycDetailsResponse getUserKycDetails(String mobile , String organizationId , String lenderSlug ) throws IOException {
+            Response<PlatformModels.UserKycDetailsResponse> response = multikycApiList.getUserKycDetails(mobile  , organizationId  ,lenderSlug ).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
