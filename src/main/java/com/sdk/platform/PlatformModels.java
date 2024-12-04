@@ -7398,6 +7398,8 @@ public static class SessionsLiveGetResponse {
         
         reportIssue("reportIssue"), 
         
+        activeSessions("activeSessions"), 
+        
         creditScore("creditScore"), 
         
         autoPay("autoPay"), 

@@ -3421,6 +3421,7 @@ Success. Returns a JSON object as shown below. Refer `AddVintageResponse` for mo
  | setupAutopay | setupAutopay | Symbolic link for AutoPay: /autopay |
  | updateEmail | updateEmail | Symbolic link for Update Email: /profile/email |
  | reportIssue | reportIssue | Symbolic link for Report Issue: /profile/report |
+ | activeSessions | activeSessions | Symbolic link for Active Logins: /profile/active-sessions |
  | creditScore | creditScore | Symbolic link for Credit Score: /credit-score |
  | autoPay | autoPay | Symbolic link for Setup Autopay: /autopay |
  | helpCenter | helpCenter | Symbolic link for Help Center: /profile/help-center |
