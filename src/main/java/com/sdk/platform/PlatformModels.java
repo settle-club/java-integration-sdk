@@ -3690,6 +3690,12 @@ public static class NavigationsMobileResponse {
     
     
     
+    @JsonProperty("footer")
+    private Object footer;
+    
+    
+    
+    
 }
 
 /*

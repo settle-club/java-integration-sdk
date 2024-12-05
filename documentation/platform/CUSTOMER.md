@@ -2107,6 +2107,7 @@ Success. Returns a JSON object as shown below. Refer `AddVintageResponse` for mo
  | ---------- | ---- | -------- | ----------- |
  | tabs | ArrayList<[TabsSchema](#TabsSchema)> |  no  |  |
  | profileSections | ArrayList<[ProfileSectionSchema](#ProfileSectionSchema)> |  no  |  |
+ | footer | HashMap<String,Object>? |  yes  |  |
 
 ---
 

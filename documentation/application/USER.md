@@ -3056,6 +3056,7 @@ Success. Check the example shown below or refer `ProfileEditSuccess` for more de
  | ---------- | ---- | -------- | ----------- |
  | tabs | ArrayList<[TabsSchema](#TabsSchema)> |  no  |  |
  | profileSections | ArrayList<[ProfileSectionSchema](#ProfileSectionSchema)> |  no  |  |
+ | footer | HashMap<String,Object>? |  yes  |  |
  | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
