@@ -9670,6 +9670,56 @@ API endpoint to create a signed URL for uploading documents to and downloading d
 
  
  
+ #### [ResponseMeta](#ResponseMeta)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | timestamp | String |  no  |  |
+ | version | String |  no  |  |
+ | product | String |  no  |  |
+ | requestId | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [BaseResponseV2](#BaseResponseV2)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | message | String |  no  |  |
+ | meta | [ResponseMeta](#ResponseMeta) |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [GetEntityMapsResponse](#GetEntityMapsResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | entityRelations | ArrayList<[EntityMapDto](#EntityMapDto)> |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [GetEntityMapsResponseV2](#GetEntityMapsResponseV2)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | data | [GetEntityMapsResponse](#GetEntityMapsResponse) |  no  |  |
+ | message | String |  no  |  |
+ | meta | [ResponseMeta](#ResponseMeta) |  no  |  |
+
+---
+
+
+ 
+ 
  #### [MerchantSchema](#MerchantSchema)
 
  | Properties | Type | Nullable | Description |
@@ -10767,6 +10817,7 @@ API endpoint to create a signed URL for uploading documents to and downloading d
  | lender | [Lender](#Lender)? |  yes  |  |
  | partnerId | String? |  yes  |  |
  | approvedLimit | Double? |  yes  |  |
+ | isRetryAvailable | Boolean? |  yes  |  |
 
 ---
 
@@ -11815,6 +11866,30 @@ API endpoint to create a signed URL for uploading documents to and downloading d
 
  
  
+ #### [BreOutputWithRetry](#BreOutputWithRetry)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | isRetryAvailable | Boolean? |  yes  |  |
+ | id | String |  no  |  |
+ | userId | String |  no  |  |
+ | entityId | String |  no  |  |
+ | lenderId | String? |  yes  |  |
+ | merchantId | String? |  yes  |  |
+ | policyName | String |  no  |  |
+ | category | String |  no  |  |
+ | type | String |  no  |  |
+ | output | Object |  no  |  |
+ | status | String |  no  |  |
+ | createdAt | String |  no  |  |
+ | updatedAt | String |  no  |  |
+ | deletedAt | String |  no  |  |
+
+---
+
+
+ 
+ 
  #### [ManualKycResponse](#ManualKycResponse)
 
  | Properties | Type | Nullable | Description |
@@ -11844,32 +11919,6 @@ API endpoint to create a signed URL for uploading documents to and downloading d
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | data | [Commercial](#Commercial) |  no  |  |
-
----
-
-
- 
- 
- #### [ResponseMeta](#ResponseMeta)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | timestamp | String |  no  |  |
- | version | String |  no  |  |
- | product | String |  no  |  |
- | requestId | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [BaseResponseV2](#BaseResponseV2)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | message | String |  no  |  |
- | meta | [ResponseMeta](#ResponseMeta) |  no  |  |
 
 ---
 

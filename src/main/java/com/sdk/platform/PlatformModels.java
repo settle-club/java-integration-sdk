@@ -12641,6 +12641,134 @@ public static class EntityDto {
 }
 
 /*
+    Model: ResponseMeta
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ResponseMeta {
+    
+    
+    
+    
+    @JsonProperty("timestamp")
+    private String timestamp;
+    
+    
+    
+    
+    @JsonProperty("version")
+    private String version;
+    
+    
+    
+    
+    @JsonProperty("product")
+    private String product;
+    
+    
+    
+    
+    @JsonProperty("requestId")
+    private String requestId;
+    
+    
+    
+    
+}
+
+/*
+    Model: BaseResponseV2
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BaseResponseV2 {
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private ResponseMeta meta;
+    
+    
+    
+    
+}
+
+/*
+    Model: GetEntityMapsResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GetEntityMapsResponse {
+    
+    
+    
+    
+    @JsonProperty("entityRelations")
+    private List<EntityMapDto> entityRelations;
+    
+    
+    
+    
+}
+
+/*
+    Model: GetEntityMapsResponseV2
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GetEntityMapsResponseV2 {
+    
+    
+    
+    
+    @JsonProperty("data")
+    private GetEntityMapsResponse data;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private ResponseMeta meta;
+    
+    
+    
+    
+}
+
+/*
     Model: MerchantSchema
 */
 @AllArgsConstructor
@@ -15835,6 +15963,12 @@ public static class GetAllUserLendersByEnityId {
     
     
     
+    @JsonProperty("isRetryAvailable")
+    private Boolean isRetryAvailable;
+    
+    
+    
+    
 }
 
 /*
@@ -18751,6 +18885,107 @@ public static class BreOutput {
 }
 
 /*
+    Model: BreOutputWithRetry
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BreOutputWithRetry {
+    
+    
+    
+    
+    @JsonProperty("isRetryAvailable")
+    private Boolean isRetryAvailable;
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("userId")
+    private String userId;
+    
+    
+    
+    
+    @JsonProperty("entityId")
+    private String entityId;
+    
+    
+    
+    
+    @JsonProperty("lenderId")
+    private String lenderId;
+    
+    
+    
+    
+    @JsonProperty("merchantId")
+    private String merchantId;
+    
+    
+    
+    
+    @JsonProperty("policyName")
+    private String policyName;
+    
+    
+    
+    
+    @JsonProperty("category")
+    private String category;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("output")
+    private Object output;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("createdAt")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("updatedAt")
+    private String updatedAt;
+    
+    
+    
+    
+    @JsonProperty("deletedAt")
+    private String deletedAt;
+    
+    
+    
+    
+}
+
+/*
     Model: ManualKycResponse
 */
 @AllArgsConstructor
@@ -18825,76 +19060,6 @@ public static class CommercialResponse {
     
     @JsonProperty("data")
     private Commercial data;
-    
-    
-    
-    
-}
-
-/*
-    Model: ResponseMeta
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ResponseMeta {
-    
-    
-    
-    
-    @JsonProperty("timestamp")
-    private String timestamp;
-    
-    
-    
-    
-    @JsonProperty("version")
-    private String version;
-    
-    
-    
-    
-    @JsonProperty("product")
-    private String product;
-    
-    
-    
-    
-    @JsonProperty("requestId")
-    private String requestId;
-    
-    
-    
-    
-}
-
-/*
-    Model: BaseResponseV2
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BaseResponseV2 {
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-    
-    @JsonProperty("meta")
-    private ResponseMeta meta;
     
     
     
