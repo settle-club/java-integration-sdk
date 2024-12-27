@@ -12316,7 +12316,7 @@ public static class UserKycLenderStepMap {
 }
 
 /*
-    Model: ProofOfIdentity
+    Model: UserAddressDto
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -12325,60 +12325,7 @@ public static class UserKycLenderStepMap {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProofOfIdentity {
-    
-    
-    
-    
-    @JsonProperty("dob")
-    private String dob;
-    
-    
-    
-    
-    @JsonProperty("hashedEmail")
-    private String hashedEmail;
-    
-    
-    
-    
-    @JsonProperty("gender")
-    private String gender;
-    
-    
-    
-    
-    @JsonProperty("hashedMobileNumber")
-    private String hashedMobileNumber;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-}
-
-/*
-    Model: ProofOfAddress
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProofOfAddress {
-    
-    
-    
-    
-    @JsonProperty("careOf")
-    private String careOf;
+public static class UserAddressDto {
     
     
     
@@ -12445,71 +12392,6 @@ public static class ProofOfAddress {
     
     @JsonProperty("vtc")
     private String vtc;
-    
-    
-    
-    
-}
-
-/*
-    Model: EAadhaarData
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EAadhaarData {
-    
-    
-    
-    
-    @JsonProperty("aadhaarReferenceNumber")
-    private String aadhaarReferenceNumber;
-    
-    
-    
-    
-    @JsonProperty("aadhaarUid")
-    private String aadhaarUid;
-    
-    
-    
-    
-    @JsonProperty("image")
-    private String image;
-    
-    
-    
-    
-    @JsonProperty("proofOfIdentity")
-    private ProofOfIdentity proofOfIdentity;
-    
-    
-    
-    
-    @JsonProperty("proofOfAddress")
-    private ProofOfAddress proofOfAddress;
-    
-    
-    
-    
-    @JsonProperty("xml")
-    private String xml;
-    
-    
-    
-    
-    @JsonProperty("pdf")
-    private String pdf;
-    
-    
-    
-    
-    @JsonProperty("address")
-    private String address;
     
     
     
@@ -13970,7 +13852,7 @@ public static class UpdateEntityRequest {
     
     
     @JsonProperty("address")
-    private ProofOfAddress address;
+    private UserAddressDto address;
     
     
     

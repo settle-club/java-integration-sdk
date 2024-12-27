@@ -9580,55 +9580,21 @@ API endpoint to create a signed URL for uploading documents to and downloading d
 
  
  
- #### [ProofOfIdentity](#ProofOfIdentity)
+ #### [UserAddressDto](#UserAddressDto)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | dob | String |  no  |  |
- | hashedEmail | String |  no  |  |
- | gender | String |  no  |  |
- | hashedMobileNumber | String |  no  |  |
- | name | String |  no  |  |
-
----
-
-
- 
- 
- #### [ProofOfAddress](#ProofOfAddress)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | careOf | String |  no  |  |
  | country | String |  no  |  |
- | district | String |  no  |  |
+ | district | String? |  yes  |  |
  | house | String |  no  |  |
- | landmark | String |  no  |  |
- | locality | String |  no  |  |
+ | landmark | String? |  yes  |  |
+ | locality | String? |  yes  |  |
  | pincode | String |  no  |  |
- | postOffice | String |  no  |  |
+ | postOffice | String? |  yes  |  |
  | state | String |  no  |  |
- | street | String |  no  |  |
- | subDistrict | String |  no  |  |
- | vtc | String |  no  |  |
-
----
-
-
- 
- 
- #### [EAadhaarData](#EAadhaarData)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | aadhaarReferenceNumber | String |  no  |  |
- | aadhaarUid | String |  no  |  |
- | image | String |  no  |  |
- | proofOfIdentity | [ProofOfIdentity](#ProofOfIdentity) |  no  |  |
- | proofOfAddress | [ProofOfAddress](#ProofOfAddress) |  no  |  |
- | xml | String? |  yes  |  |
- | pdf | String? |  yes  |  |
- | address | String? |  yes  |  |
+ | street | String? |  yes  |  |
+ | subDistrict | String? |  yes  |  |
+ | vtc | String? |  yes  |  |
 
 ---
 
@@ -10108,7 +10074,7 @@ API endpoint to create a signed URL for uploading documents to and downloading d
  | gender | String? |  yes  |  |
  | dob | String? |  yes  |  |
  | isDefault | Boolean? |  yes  |  |
- | address | [ProofOfAddress](#ProofOfAddress)? |  yes  |  |
+ | address | [UserAddressDto](#UserAddressDto)? |  yes  |  |
 
 ---
 
