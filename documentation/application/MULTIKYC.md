@@ -12042,6 +12042,18 @@ API endpoint to create a signed URL for uploading documents to and downloading d
 
  
  
+ #### [PanDeactivateResponse](#PanDeactivateResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | success | Boolean |  no  |  |
+ | message | String |  no  |  |
+
+---
+
+
+ 
+ 
  #### [Report](#Report)
 
  | Properties | Type | Nullable | Description |

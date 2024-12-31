@@ -2815,4 +2815,16 @@ A comprehensive list of all KYC steps based on available lenders for the user.
 ---
 
 
+ 
+ 
+ #### [PanDeactivateResponse](#PanDeactivateResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | success | Boolean |  no  |  |
+ | message | String |  no  |  |
+
+---
+
+
 

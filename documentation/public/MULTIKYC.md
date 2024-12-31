@@ -3097,6 +3097,18 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
 
  
  
+ #### [PanDeactivateResponse](#PanDeactivateResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | success | Boolean |  no  |  |
+ | message | String |  no  |  |
+
+---
+
+
+ 
+ 
  #### [LenderMerchantConf](#LenderMerchantConf)
 
  | Properties | Type | Nullable | Description |
