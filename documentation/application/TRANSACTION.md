@@ -415,7 +415,7 @@ Get List of transactions
 
 
 ```java
-transaction.listOfTransactions( page,  type,  lender,  loanType,  limit) {
+transaction.listOfTransactions( page,  type,  lender,  loanType,  limit,  status) {
   //use response
 }
 ```
@@ -428,7 +428,8 @@ transaction.listOfTransactions( page,  type,  lender,  loanType,  limit) {
 | type | List<String>? | no | This is transaction type |   
 | lender | String? | no | This is lenderSlug |   
 | loanType | String? | no | This is loanType EMI/BNPL |   
-| limit | Integer | yes | This is no of transaction |  
+| limit | Integer | yes | This is no of transaction |   
+| status | List<Object>? | no | This is transaction status |  
 
 
 

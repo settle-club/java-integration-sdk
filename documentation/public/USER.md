@@ -1389,6 +1389,7 @@ Success. Returns a JSON object as shown below. Refer `UserResponse` for more det
  | ---------- | ---- | -------- | ----------- |
  | tabs | ArrayList<[TabsSchema](#TabsSchema)> |  no  |  |
  | profileSections | ArrayList<[ProfileSectionSchema](#ProfileSectionSchema)> |  no  |  |
+ | footer | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -2605,6 +2606,81 @@ Success. Returns a JSON object as shown below. Refer `UserResponse` for more det
 ---
 
 
+ 
+ 
+ #### [SessionLiveDeleteRequest](#SessionLiveDeleteRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | deleteAll | Boolean? |  yes  | Indicates whether to delete all sessions. If true, `sessionIds` must be omitted. |
+ | sessionIds | ArrayList<String>? |  yes  | List of session IDs to be deleted. Must be omitted if `deleteAll` is true. |
+
+---
+
+
+ 
+ 
+ #### [SessionLiveDeleteResponse](#SessionLiveDeleteResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | success | Boolean |  no  | Indicates whether the delete operation was successful. |
+
+---
+
+
+ 
+ 
+ #### [DeviceSession](#DeviceSession)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String |  no  | The unique identifier for the device session. |
+ | deviceName | String |  no  | The name of the device. |
+ | logo | String |  no  | The URL for the device logo. |
+ | loginTime | String |  no  | The login time for the device session. |
+
+---
+
+
+ 
+ 
+ #### [MerchantSession](#MerchantSession)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String |  no  | The unique identifier for the merchant session. |
+ | name | String |  no  | The name of the merchant. |
+ | logo | String |  no  | The URL for the merchant logo. |
+ | loginTime | String |  no  | The login time for the merchant session. |
+ | merchantId | String |  no  | The unique identifier for the merchant. |
+
+---
+
+
+ 
+ 
+ #### [Sessions](#Sessions)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | devices | ArrayList<[DeviceSession](#DeviceSession)> |  no  |  |
+ | merchants | ArrayList<[MerchantSession](#MerchantSession)> |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [SessionsLiveGetResponse](#SessionsLiveGetResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | sessions | [Sessions](#Sessions) |  no  |  |
+
+---
+
+
 
 
 ### Enums
@@ -2629,6 +2705,7 @@ Success. Returns a JSON object as shown below. Refer `UserResponse` for more det
  | setupAutopay | setupAutopay | Symbolic link for AutoPay: /autopay |
  | updateEmail | updateEmail | Symbolic link for Update Email: /profile/email |
  | reportIssue | reportIssue | Symbolic link for Report Issue: /profile/report |
+ | activeSessions | activeSessions | Symbolic link for Active Logins: /profile/active-sessions |
  | creditScore | creditScore | Symbolic link for Credit Score: /credit-score |
  | autoPay | autoPay | Symbolic link for Setup Autopay: /autopay |
  | helpCenter | helpCenter | Symbolic link for Help Center: /profile/help-center |

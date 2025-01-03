@@ -186,7 +186,7 @@ Get all user lenders by enity id
 
 
 ```java
-multikyc.getAllUserLendersByEnityId( entityId) {
+multikyc.getAllUserLendersByEnityId( userId) {
   //use response
 }
 ```
@@ -196,7 +196,7 @@ multikyc.getAllUserLendersByEnityId( entityId) {
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
 | organizationId | Object | yes |  |   
-| entityId | String | yes |  |  
+| userId | String | yes |  |  
 
 
 
@@ -630,55 +630,21 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
 
  
  
- #### [ProofOfIdentity](#ProofOfIdentity)
+ #### [UserAddressDto](#UserAddressDto)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | dob | String |  no  |  |
- | hashedEmail | String |  no  |  |
- | gender | String |  no  |  |
- | hashedMobileNumber | String |  no  |  |
- | name | String |  no  |  |
-
----
-
-
- 
- 
- #### [ProofOfAddress](#ProofOfAddress)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | careOf | String |  no  |  |
  | country | String |  no  |  |
- | district | String |  no  |  |
+ | district | String? |  yes  |  |
  | house | String |  no  |  |
- | landmark | String |  no  |  |
- | locality | String |  no  |  |
+ | landmark | String? |  yes  |  |
+ | locality | String? |  yes  |  |
  | pincode | String |  no  |  |
- | postOffice | String |  no  |  |
+ | postOffice | String? |  yes  |  |
  | state | String |  no  |  |
- | street | String |  no  |  |
- | subDistrict | String |  no  |  |
- | vtc | String |  no  |  |
-
----
-
-
- 
- 
- #### [EAadhaarData](#EAadhaarData)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | aadhaarReferenceNumber | String |  no  |  |
- | aadhaarUid | String |  no  |  |
- | image | String |  no  |  |
- | proofOfIdentity | [ProofOfIdentity](#ProofOfIdentity) |  no  |  |
- | proofOfAddress | [ProofOfAddress](#ProofOfAddress) |  no  |  |
- | xml | String? |  yes  |  |
- | pdf | String? |  yes  |  |
- | address | String? |  yes  |  |
+ | street | String? |  yes  |  |
+ | subDistrict | String? |  yes  |  |
+ | vtc | String? |  yes  |  |
 
 ---
 
@@ -714,6 +680,56 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
  | gender | String? |  yes  |  |
  | dob | String? |  yes  |  |
  | userId | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [ResponseMeta](#ResponseMeta)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | timestamp | String |  no  |  |
+ | version | String |  no  |  |
+ | product | String |  no  |  |
+ | requestId | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [BaseResponseV2](#BaseResponseV2)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | message | String |  no  |  |
+ | meta | [ResponseMeta](#ResponseMeta) |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [GetEntityMapsResponse](#GetEntityMapsResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | entityRelations | ArrayList<[EntityMapDto](#EntityMapDto)> |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [GetEntityMapsResponseV2](#GetEntityMapsResponseV2)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | data | [GetEntityMapsResponse](#GetEntityMapsResponse) |  no  |  |
+ | message | String |  no  |  |
+ | meta | [ResponseMeta](#ResponseMeta) |  no  |  |
 
 ---
 
@@ -1108,7 +1124,7 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
  | gender | String? |  yes  |  |
  | dob | String? |  yes  |  |
  | isDefault | Boolean? |  yes  |  |
- | address | [ProofOfAddress](#ProofOfAddress)? |  yes  |  |
+ | address | [UserAddressDto](#UserAddressDto)? |  yes  |  |
 
 ---
 
@@ -1555,6 +1571,17 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
 
  
  
+ #### [DeactivatePanRequest](#DeactivatePanRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | reason | String |  no  |  |
+
+---
+
+
+ 
+ 
  #### [FindDocResponse](#FindDocResponse)
 
  | Properties | Type | Nullable | Description |
@@ -1816,6 +1843,7 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
  | lender | [Lender](#Lender)? |  yes  |  |
  | partnerId | String? |  yes  |  |
  | approvedLimit | Double? |  yes  |  |
+ | isRetryAvailable | Boolean? |  yes  |  |
 
 ---
 
@@ -2869,6 +2897,30 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
 
  
  
+ #### [BreOutputWithRetry](#BreOutputWithRetry)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | isRetryAvailable | Boolean? |  yes  |  |
+ | id | String |  no  |  |
+ | userId | String |  no  |  |
+ | entityId | String |  no  |  |
+ | lenderId | String? |  yes  |  |
+ | merchantId | String? |  yes  |  |
+ | policyName | String |  no  |  |
+ | category | String |  no  |  |
+ | type | String |  no  |  |
+ | output | Object |  no  |  |
+ | status | String |  no  |  |
+ | createdAt | String |  no  |  |
+ | updatedAt | String |  no  |  |
+ | deletedAt | String |  no  |  |
+
+---
+
+
+ 
+ 
  #### [ManualKycResponse](#ManualKycResponse)
 
  | Properties | Type | Nullable | Description |
@@ -2898,32 +2950,6 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | data | [Commercial](#Commercial) |  no  |  |
-
----
-
-
- 
- 
- #### [ResponseMeta](#ResponseMeta)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | timestamp | String |  no  |  |
- | version | String |  no  |  |
- | product | String |  no  |  |
- | requestId | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [BaseResponseV2](#BaseResponseV2)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | message | String |  no  |  |
- | meta | [ResponseMeta](#ResponseMeta) |  no  |  |
 
 ---
 
@@ -3076,6 +3102,31 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
  | message | String |  no  |  |
  | meta | [ResponseMeta](#ResponseMeta) |  no  |  |
  | headers | HashMap<String,Object>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [PanDeactivateResponse](#PanDeactivateResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | success | Boolean |  no  |  |
+ | message | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [GetAllDocumentsResponse](#GetAllDocumentsResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | documents | ArrayList<[FindDocResponse](#FindDocResponse)> |  no  |  |
+ | message | String |  no  |  |
+ | isDocumentAvaialble | Boolean |  no  |  |
 
 ---
 

@@ -3690,6 +3690,12 @@ public static class NavigationsMobileResponse {
     
     
     
+    @JsonProperty("footer")
+    private Object footer;
+    
+    
+    
+    
 }
 
 /*
@@ -7174,6 +7180,198 @@ public static class AddVintageResponse {
     
 }
 
+/*
+    Model: SessionLiveDeleteRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SessionLiveDeleteRequest {
+    
+    
+    
+    
+    @JsonProperty("deleteAll")
+    private Boolean deleteAll;
+    
+    
+    
+    
+    @JsonProperty("sessionIds")
+    private List<String> sessionIds;
+    
+    
+    
+    
+}
+
+/*
+    Model: SessionLiveDeleteResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SessionLiveDeleteResponse {
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+}
+
+/*
+    Model: DeviceSession
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DeviceSession {
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("deviceName")
+    private String deviceName;
+    
+    
+    
+    
+    @JsonProperty("logo")
+    private String logo;
+    
+    
+    
+    
+    @JsonProperty("loginTime")
+    private String loginTime;
+    
+    
+    
+    
+}
+
+/*
+    Model: MerchantSession
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class MerchantSession {
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("logo")
+    private String logo;
+    
+    
+    
+    
+    @JsonProperty("loginTime")
+    private String loginTime;
+    
+    
+    
+    
+    @JsonProperty("merchantId")
+    private String merchantId;
+    
+    
+    
+    
+}
+
+/*
+    Model: Sessions
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Sessions {
+    
+    
+    
+    
+    @JsonProperty("devices")
+    private List<DeviceSession> devices;
+    
+    
+    
+    
+    @JsonProperty("merchants")
+    private List<MerchantSession> merchants;
+    
+    
+    
+    
+}
+
+/*
+    Model: SessionsLiveGetResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SessionsLiveGetResponse {
+    
+    
+    
+    
+    @JsonProperty("sessions")
+    private Sessions sessions;
+    
+    
+    
+    
+}
+
 
     
     /*
@@ -7205,6 +7403,8 @@ public static class AddVintageResponse {
         updateEmail("updateEmail"), 
         
         reportIssue("reportIssue"), 
+        
+        activeSessions("activeSessions"), 
         
         creditScore("creditScore"), 
         
@@ -12116,7 +12316,7 @@ public static class UserKycLenderStepMap {
 }
 
 /*
-    Model: ProofOfIdentity
+    Model: UserAddressDto
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -12125,60 +12325,7 @@ public static class UserKycLenderStepMap {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProofOfIdentity {
-    
-    
-    
-    
-    @JsonProperty("dob")
-    private String dob;
-    
-    
-    
-    
-    @JsonProperty("hashedEmail")
-    private String hashedEmail;
-    
-    
-    
-    
-    @JsonProperty("gender")
-    private String gender;
-    
-    
-    
-    
-    @JsonProperty("hashedMobileNumber")
-    private String hashedMobileNumber;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-}
-
-/*
-    Model: ProofOfAddress
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProofOfAddress {
-    
-    
-    
-    
-    @JsonProperty("careOf")
-    private String careOf;
+public static class UserAddressDto {
     
     
     
@@ -12245,71 +12392,6 @@ public static class ProofOfAddress {
     
     @JsonProperty("vtc")
     private String vtc;
-    
-    
-    
-    
-}
-
-/*
-    Model: EAadhaarData
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EAadhaarData {
-    
-    
-    
-    
-    @JsonProperty("aadhaarReferenceNumber")
-    private String aadhaarReferenceNumber;
-    
-    
-    
-    
-    @JsonProperty("aadhaarUid")
-    private String aadhaarUid;
-    
-    
-    
-    
-    @JsonProperty("image")
-    private String image;
-    
-    
-    
-    
-    @JsonProperty("proofOfIdentity")
-    private ProofOfIdentity proofOfIdentity;
-    
-    
-    
-    
-    @JsonProperty("proofOfAddress")
-    private ProofOfAddress proofOfAddress;
-    
-    
-    
-    
-    @JsonProperty("xml")
-    private String xml;
-    
-    
-    
-    
-    @JsonProperty("pdf")
-    private String pdf;
-    
-    
-    
-    
-    @JsonProperty("address")
-    private String address;
     
     
     
@@ -12434,6 +12516,134 @@ public static class EntityDto {
     
     @JsonProperty("userId")
     private String userId;
+    
+    
+    
+    
+}
+
+/*
+    Model: ResponseMeta
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ResponseMeta {
+    
+    
+    
+    
+    @JsonProperty("timestamp")
+    private String timestamp;
+    
+    
+    
+    
+    @JsonProperty("version")
+    private String version;
+    
+    
+    
+    
+    @JsonProperty("product")
+    private String product;
+    
+    
+    
+    
+    @JsonProperty("requestId")
+    private String requestId;
+    
+    
+    
+    
+}
+
+/*
+    Model: BaseResponseV2
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BaseResponseV2 {
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private ResponseMeta meta;
+    
+    
+    
+    
+}
+
+/*
+    Model: GetEntityMapsResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GetEntityMapsResponse {
+    
+    
+    
+    
+    @JsonProperty("entityRelations")
+    private List<EntityMapDto> entityRelations;
+    
+    
+    
+    
+}
+
+/*
+    Model: GetEntityMapsResponseV2
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GetEntityMapsResponseV2 {
+    
+    
+    
+    
+    @JsonProperty("data")
+    private GetEntityMapsResponse data;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private ResponseMeta meta;
     
     
     
@@ -13642,7 +13852,7 @@ public static class UpdateEntityRequest {
     
     
     @JsonProperty("address")
-    private ProofOfAddress address;
+    private UserAddressDto address;
     
     
     
@@ -14767,6 +14977,29 @@ public static class CreateUserLenderAssociationRequest {
 }
 
 /*
+    Model: DeactivatePanRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DeactivatePanRequest {
+    
+    
+    
+    
+    @JsonProperty("reason")
+    private String reason;
+    
+    
+    
+    
+}
+
+/*
     Model: FindDocResponse
 */
 @AllArgsConstructor
@@ -15631,6 +15864,12 @@ public static class GetAllUserLendersByEnityId {
     
     @JsonProperty("approvedLimit")
     private Double approvedLimit;
+    
+    
+    
+    
+    @JsonProperty("isRetryAvailable")
+    private Boolean isRetryAvailable;
     
     
     
@@ -18551,6 +18790,107 @@ public static class BreOutput {
 }
 
 /*
+    Model: BreOutputWithRetry
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BreOutputWithRetry {
+    
+    
+    
+    
+    @JsonProperty("isRetryAvailable")
+    private Boolean isRetryAvailable;
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("userId")
+    private String userId;
+    
+    
+    
+    
+    @JsonProperty("entityId")
+    private String entityId;
+    
+    
+    
+    
+    @JsonProperty("lenderId")
+    private String lenderId;
+    
+    
+    
+    
+    @JsonProperty("merchantId")
+    private String merchantId;
+    
+    
+    
+    
+    @JsonProperty("policyName")
+    private String policyName;
+    
+    
+    
+    
+    @JsonProperty("category")
+    private String category;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("output")
+    private Object output;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("createdAt")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("updatedAt")
+    private String updatedAt;
+    
+    
+    
+    
+    @JsonProperty("deletedAt")
+    private String deletedAt;
+    
+    
+    
+    
+}
+
+/*
     Model: ManualKycResponse
 */
 @AllArgsConstructor
@@ -18625,76 +18965,6 @@ public static class CommercialResponse {
     
     @JsonProperty("data")
     private Commercial data;
-    
-    
-    
-    
-}
-
-/*
-    Model: ResponseMeta
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ResponseMeta {
-    
-    
-    
-    
-    @JsonProperty("timestamp")
-    private String timestamp;
-    
-    
-    
-    
-    @JsonProperty("version")
-    private String version;
-    
-    
-    
-    
-    @JsonProperty("product")
-    private String product;
-    
-    
-    
-    
-    @JsonProperty("requestId")
-    private String requestId;
-    
-    
-    
-    
-}
-
-/*
-    Model: BaseResponseV2
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BaseResponseV2 {
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-    
-    @JsonProperty("meta")
-    private ResponseMeta meta;
     
     
     
@@ -19093,6 +19363,70 @@ public static class CustomerKycStepsResponse {
     
     @JsonProperty("meta")
     private ResponseMeta meta;
+    
+    
+    
+    
+}
+
+/*
+    Model: PanDeactivateResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PanDeactivateResponse {
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+}
+
+/*
+    Model: GetAllDocumentsResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GetAllDocumentsResponse {
+    
+    
+    
+    
+    @JsonProperty("documents")
+    private List<FindDocResponse> documents;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("isDocumentAvaialble")
+    private Boolean isDocumentAvaialble;
     
     
     

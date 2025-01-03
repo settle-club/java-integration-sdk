@@ -12,6 +12,8 @@ Authentication Service
 * [logout](#logout)
 * [registerForPNS](#registerforpns)
 * [getLoggedInUser](#getloggedinuser)
+* [getLiveSessions](#getlivesessions)
+* [deleteLiveSessions](#deletelivesessions)
 * [raiseSupportTicket](#raisesupportticket)
 * [getSupportCategories](#getsupportcategories)
 * [initiateTransaction](#initiatetransaction)
@@ -395,6 +397,144 @@ Success. Returns a JSON object with user details. Refer `User` for more details.
 ```
 </details>
 
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getLiveSessions
+Get live sessions for the authenticated user
+
+
+
+
+```java
+user.getLiveSessions() {
+  //use response
+}
+```
+
+
+
+
+
+
+*Returned Response:*
+
+
+
+
+[SessionsLiveGetResponse](#SessionsLiveGetResponse)
+
+Successfully retrieved live sessions
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+[Object](#Object)
+
+Successfully retrieved live sessions
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### deleteLiveSessions
+Delete live sessions for the authenticated user
+
+
+
+
+```java
+user.deleteLiveSessions(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- |
+| body | [SessionLiveDeleteRequest](#SessionLiveDeleteRequest) | yes | Request body |
+
+
+
+
+*Returned Response:*
+
+
+
+
+[SessionLiveDeleteResponse](#SessionLiveDeleteResponse)
+
+Successfully deleted sessions
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+[Object](#Object)
+
+Successfully deleted sessions
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
 </details>
 
 
@@ -2916,6 +3056,7 @@ Success. Check the example shown below or refer `ProfileEditSuccess` for more de
  | ---------- | ---- | -------- | ----------- |
  | tabs | ArrayList<[TabsSchema](#TabsSchema)> |  no  |  |
  | profileSections | ArrayList<[ProfileSectionSchema](#ProfileSectionSchema)> |  no  |  |
+ | footer | HashMap<String,Object>? |  yes  |  |
  | headers | HashMap<String,Object>? |  yes  |  |
 
 ---
@@ -4141,6 +4282,83 @@ Success. Check the example shown below or refer `ProfileEditSuccess` for more de
 ---
 
 
+ 
+ 
+ #### [SessionLiveDeleteRequest](#SessionLiveDeleteRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | deleteAll | Boolean? |  yes  | Indicates whether to delete all sessions. If true, `sessionIds` must be omitted. |
+ | sessionIds | ArrayList<String>? |  yes  | List of session IDs to be deleted. Must be omitted if `deleteAll` is true. |
+
+---
+
+
+ 
+ 
+ #### [SessionLiveDeleteResponse](#SessionLiveDeleteResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | success | Boolean |  no  | Indicates whether the delete operation was successful. |
+ | headers | HashMap<String,Object>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [DeviceSession](#DeviceSession)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String |  no  | The unique identifier for the device session. |
+ | deviceName | String |  no  | The name of the device. |
+ | logo | String |  no  | The URL for the device logo. |
+ | loginTime | String |  no  | The login time for the device session. |
+
+---
+
+
+ 
+ 
+ #### [MerchantSession](#MerchantSession)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String |  no  | The unique identifier for the merchant session. |
+ | name | String |  no  | The name of the merchant. |
+ | logo | String |  no  | The URL for the merchant logo. |
+ | loginTime | String |  no  | The login time for the merchant session. |
+ | merchantId | String |  no  | The unique identifier for the merchant. |
+
+---
+
+
+ 
+ 
+ #### [Sessions](#Sessions)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | devices | ArrayList<[DeviceSession](#DeviceSession)> |  no  |  |
+ | merchants | ArrayList<[MerchantSession](#MerchantSession)> |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [SessionsLiveGetResponse](#SessionsLiveGetResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | sessions | [Sessions](#Sessions) |  no  |  |
+ | headers | HashMap<String,Object>? |  yes  |  |
+
+---
+
+
 
 
 ### Enums
@@ -4165,6 +4383,7 @@ Success. Check the example shown below or refer `ProfileEditSuccess` for more de
  | setupAutopay | setupAutopay | Symbolic link for AutoPay: /autopay |
  | updateEmail | updateEmail | Symbolic link for Update Email: /profile/email |
  | reportIssue | reportIssue | Symbolic link for Report Issue: /profile/report |
+ | activeSessions | activeSessions | Symbolic link for Active Logins: /profile/active-sessions |
  | creditScore | creditScore | Symbolic link for Credit Score: /credit-score |
  | autoPay | autoPay | Symbolic link for Setup Autopay: /autopay |
  | helpCenter | helpCenter | Symbolic link for Help Center: /profile/help-center |
