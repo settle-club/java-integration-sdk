@@ -1316,6 +1316,17 @@ A comprehensive list of all KYC steps based on available lenders for the user.
 
  
  
+ #### [DeactivatePanRequest](#DeactivatePanRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | reason | String |  no  |  |
+
+---
+
+
+ 
+ 
  #### [FindDocResponse](#FindDocResponse)
 
  | Properties | Type | Nullable | Description |
@@ -2823,6 +2834,19 @@ A comprehensive list of all KYC steps based on available lenders for the user.
  | ---------- | ---- | -------- | ----------- |
  | success | Boolean |  no  |  |
  | message | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [GetAllDocumentsResponse](#GetAllDocumentsResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | documents | ArrayList<[FindDocResponse](#FindDocResponse)> |  no  |  |
+ | message | String |  no  |  |
+ | isDocumentAvaialble | Boolean |  no  |  |
 
 ---
 

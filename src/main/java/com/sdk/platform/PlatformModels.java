@@ -14977,6 +14977,29 @@ public static class CreateUserLenderAssociationRequest {
 }
 
 /*
+    Model: DeactivatePanRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DeactivatePanRequest {
+    
+    
+    
+    
+    @JsonProperty("reason")
+    private String reason;
+    
+    
+    
+    
+}
+
+/*
     Model: FindDocResponse
 */
 @AllArgsConstructor
@@ -19369,6 +19392,41 @@ public static class PanDeactivateResponse {
     
     @JsonProperty("message")
     private String message;
+    
+    
+    
+    
+}
+
+/*
+    Model: GetAllDocumentsResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GetAllDocumentsResponse {
+    
+    
+    
+    
+    @JsonProperty("documents")
+    private List<FindDocResponse> documents;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("isDocumentAvaialble")
+    private Boolean isDocumentAvaialble;
     
     
     

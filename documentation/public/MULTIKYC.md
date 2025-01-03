@@ -1571,6 +1571,17 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
 
  
  
+ #### [DeactivatePanRequest](#DeactivatePanRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | reason | String |  no  |  |
+
+---
+
+
+ 
+ 
  #### [FindDocResponse](#FindDocResponse)
 
  | Properties | Type | Nullable | Description |
@@ -3103,6 +3114,19 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
  | ---------- | ---- | -------- | ----------- |
  | success | Boolean |  no  |  |
  | message | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [GetAllDocumentsResponse](#GetAllDocumentsResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | documents | ArrayList<[FindDocResponse](#FindDocResponse)> |  no  |  |
+ | message | String |  no  |  |
+ | isDocumentAvaialble | Boolean |  no  |  |
 
 ---
 
