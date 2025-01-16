@@ -15296,6 +15296,12 @@ public static class StepDetails {
     
     
     
+    @JsonProperty("isInteractive")
+    private Boolean isInteractive;
+    
+    
+    
+    
 }
 
 /*
