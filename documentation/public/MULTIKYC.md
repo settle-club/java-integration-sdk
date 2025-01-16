@@ -1676,6 +1676,7 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
  | status | String |  no  |  |
  | step | String |  no  |  |
  | order | Double |  no  |  |
+ | isInteractive | Boolean? |  yes  |  |
 
 ---
 

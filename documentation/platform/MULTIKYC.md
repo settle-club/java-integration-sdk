@@ -1421,6 +1421,7 @@ A comprehensive list of all KYC steps based on available lenders for the user.
  | status | String |  no  |  |
  | step | String |  no  |  |
  | order | Double |  no  |  |
+ | isInteractive | Boolean? |  yes  |  |
 
 ---
 

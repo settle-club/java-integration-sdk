@@ -10627,6 +10627,7 @@ API endpoint to create a signed URL for uploading documents to and downloading d
  | status | String |  no  |  |
  | step | String |  no  |  |
  | order | Double |  no  |  |
+ | isInteractive | Boolean? |  yes  |  |
 
 ---
 
