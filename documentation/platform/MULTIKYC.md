@@ -1450,6 +1450,7 @@ A comprehensive list of all KYC steps based on available lenders for the user.
  | merchantId | String? |  yes  |  |
  | actionName | String? |  yes  |  |
  | actionDescription | String? |  yes  |  |
+ | actionExpired | Boolean? |  yes  |  |
 
 ---
 

@@ -15427,6 +15427,12 @@ public static class OnboardStatusDto {
     
     
     
+    @JsonProperty("actionExpired")
+    private Boolean actionExpired;
+    
+    
+    
+    
 }
 
 /*
@@ -23803,6 +23809,116 @@ public static class OutstandingDetailsResponse {
     
     @JsonProperty("outstandingDetails")
     private List<OutstandingData> outstandingDetails;
+    
+    
+    
+    
+}
+
+/*
+    Model: MerchantLenderConfigDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class MerchantLenderConfigDetails {
+    
+    
+    
+    
+    @JsonProperty("mid")
+    private String mid;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private Object data;
+    
+    
+    
+    
+    @JsonProperty("allowed")
+    private Boolean allowed;
+    
+    
+    
+    
+}
+
+/*
+    Model: UpdateAllowedMerchants
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UpdateAllowedMerchants {
+    
+    
+    
+    
+    @JsonProperty("merchantLenderConfig")
+    private MerchantLenderConfigDetails merchantLenderConfig;
+    
+    
+    
+    
+}
+
+/*
+    Model: LendersDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class LendersDetails {
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+}
+
+/*
+    Model: Lenders
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Lenders {
+    
+    
+    
+    
+    @JsonProperty("lenders")
+    private List<LendersDetails> lenders;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
     
     
     

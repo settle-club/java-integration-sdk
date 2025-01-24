@@ -2704,6 +2704,53 @@ Success. Returns a JSON object as shown below. Refer `DeleteOrganizationIpRespon
 
  
  
+ #### [MerchantLenderConfigDetails](#MerchantLenderConfigDetails)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | mid | String? |  yes  |  |
+ | data | HashMap<String,Object>? |  yes  |  |
+ | allowed | Boolean |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [UpdateAllowedMerchants](#UpdateAllowedMerchants)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | merchantLenderConfig | [MerchantLenderConfigDetails](#MerchantLenderConfigDetails) |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [LendersDetails](#LendersDetails)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [Lenders](#Lenders)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | lenders | ArrayList<[LendersDetails](#LendersDetails)>? |  yes  |  |
+ | message | String? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [CreateUserRequestSchema](#CreateUserRequestSchema)
 
  | Properties | Type | Nullable | Description |

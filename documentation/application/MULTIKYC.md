@@ -10656,6 +10656,7 @@ API endpoint to create a signed URL for uploading documents to and downloading d
  | merchantId | String? |  yes  |  |
  | actionName | String? |  yes  |  |
  | actionDescription | String? |  yes  |  |
+ | actionExpired | Boolean? |  yes  |  |
 
 ---
 

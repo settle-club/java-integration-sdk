@@ -1705,6 +1705,7 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
  | merchantId | String? |  yes  |  |
  | actionName | String? |  yes  |  |
  | actionDescription | String? |  yes  |  |
+ | actionExpired | Boolean? |  yes  |  |
 
 ---
 
