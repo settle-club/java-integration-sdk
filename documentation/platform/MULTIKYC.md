@@ -584,7 +584,7 @@ A comprehensive list of all KYC steps based on available lenders for the user.
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | selfie | String |  no  |  |
- | video | String |  no  |  |
+ | video | String? |  yes  |  |
 
 ---
 
@@ -1442,6 +1442,7 @@ A comprehensive list of all KYC steps based on available lenders for the user.
  | approvedLimit | Double |  no  |  |
  | proposedLimit | Double |  no  |  |
  | actionData | Object? |  yes  |  |
+ | actionRequirements | Object? |  yes  |  |
  | steps | ArrayList<[StepDetails](#StepDetails)>? |  yes  |  |
  | entityId | String |  no  |  |
  | entityMapId | String |  no  |  |

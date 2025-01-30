@@ -15379,6 +15379,12 @@ public static class OnboardStatusDto {
     
     
     
+    @JsonProperty("actionRequirements")
+    private Object actionRequirements;
+    
+    
+    
+    
     @JsonProperty("steps")
     private List<StepDetails> steps;
     

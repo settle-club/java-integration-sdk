@@ -839,7 +839,7 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | selfie | String |  no  |  |
- | video | String |  no  |  |
+ | video | String? |  yes  |  |
 
 ---
 
@@ -1697,6 +1697,7 @@ multikyc.createPixelbinSignedUrl( documentName,  purpose,  extention) {
  | approvedLimit | Double |  no  |  |
  | proposedLimit | Double |  no  |  |
  | actionData | Object? |  yes  |  |
+ | actionRequirements | Object? |  yes  |  |
  | steps | ArrayList<[StepDetails](#StepDetails)>? |  yes  |  |
  | entityId | String |  no  |  |
  | entityMapId | String |  no  |  |
