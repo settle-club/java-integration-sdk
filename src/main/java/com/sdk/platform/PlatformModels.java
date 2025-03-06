@@ -15379,6 +15379,12 @@ public static class OnboardStatusDto {
     
     
     
+    @JsonProperty("actionRequirements")
+    private Object actionRequirements;
+    
+    
+    
+    
     @JsonProperty("steps")
     private List<StepDetails> steps;
     
@@ -15423,6 +15429,12 @@ public static class OnboardStatusDto {
     
     @JsonProperty("actionDescription")
     private String actionDescription;
+    
+    
+    
+    
+    @JsonProperty("actionExpired")
+    private Boolean actionExpired;
     
     
     
@@ -23810,6 +23822,116 @@ public static class OutstandingDetailsResponse {
 }
 
 /*
+    Model: MerchantLenderConfigDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class MerchantLenderConfigDetails {
+    
+    
+    
+    
+    @JsonProperty("mid")
+    private String mid;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private Object data;
+    
+    
+    
+    
+    @JsonProperty("allowed")
+    private Boolean allowed;
+    
+    
+    
+    
+}
+
+/*
+    Model: UpdateAllowedMerchants
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UpdateAllowedMerchants {
+    
+    
+    
+    
+    @JsonProperty("merchantLenderConfig")
+    private MerchantLenderConfigDetails merchantLenderConfig;
+    
+    
+    
+    
+}
+
+/*
+    Model: LendersDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class LendersDetails {
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+}
+
+/*
+    Model: Lenders
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Lenders {
+    
+    
+    
+    
+    @JsonProperty("lenders")
+    private List<LendersDetails> lenders;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+}
+
+/*
     Model: CreateUserRequestSchema
 */
 @AllArgsConstructor
@@ -24015,6 +24137,18 @@ public static class RepaymentUsingUPI {
     
     
     
+    @JsonProperty("channel")
+    private String channel;
+    
+    
+    
+    
+    @JsonProperty("provider")
+    private String provider;
+    
+    
+    
+    
 }
 
 /*
@@ -24070,6 +24204,18 @@ public static class RepaymentUsingUPIResponse {
     
     @JsonProperty("interval")
     private Double interval;
+    
+    
+    
+    
+    @JsonProperty("intentLink")
+    private String intentLink;
+    
+    
+    
+    
+    @JsonProperty("qrBase64")
+    private String qrBase64;
     
     
     

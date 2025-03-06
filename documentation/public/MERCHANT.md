@@ -39,6 +39,7 @@ Authentication Service
 * [getVintageData](#getvintagedata)
 * [addLenderMetaSchema](#addlendermetaschema)
 * [getLenderMetaSchema](#getlendermetaschema)
+* [getAllLenders](#getalllenders)
 * [updateLenderStatus](#updatelenderstatus)
 * [generatePaymentLink](#generatepaymentlink)
 * [updateProfile](#updateprofile)
@@ -2237,6 +2238,61 @@ Success. Returns a JSON object as shown below. Refer `AddMetaSchemaResponse` for
   "createdAt": "2023-08-24T10:15:07.067Z",
   "updatedAt": "2023-08-24T10:15:07.067Z",
   "deletedAt": null
+}
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getAllLenders
+Get All lenders listing according to mapping of merchants
+
+
+
+
+```java
+merchant.getAllLenders() {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| organizationId | String | yes | This is the organization ID |  
+
+
+
+Use this API to get lenders available for the merchant.
+
+*Returned Response:*
+
+
+
+
+[Lenders](#Lenders)
+
+Success. Returns a JSON object as shown below.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
+  "csv": "this is csv data"
 }
 ```
 </details>
@@ -4472,6 +4528,54 @@ Success. Returns a JSON object as shown below. Refer `PaymentLinkResponse` for m
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | outstandingDetails | ArrayList<[OutstandingData](#OutstandingData)>? |  yes  |  |
+ | headers | HashMap<String,Object>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [MerchantLenderConfigDetails](#MerchantLenderConfigDetails)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | mid | String? |  yes  |  |
+ | data | HashMap<String,Object>? |  yes  |  |
+ | allowed | Boolean |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [UpdateAllowedMerchants](#UpdateAllowedMerchants)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | merchantLenderConfig | [MerchantLenderConfigDetails](#MerchantLenderConfigDetails) |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [LendersDetails](#LendersDetails)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [Lenders](#Lenders)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | lenders | ArrayList<[LendersDetails](#LendersDetails)>? |  yes  |  |
+ | message | String? |  yes  |  |
  | headers | HashMap<String,Object>? |  yes  |  |
 
 ---

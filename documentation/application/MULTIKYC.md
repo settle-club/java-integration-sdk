@@ -9789,7 +9789,7 @@ API endpoint to create a signed URL for uploading documents to and downloading d
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | selfie | String |  no  |  |
- | video | String |  no  |  |
+ | video | String? |  yes  |  |
 
 ---
 
@@ -10648,6 +10648,7 @@ API endpoint to create a signed URL for uploading documents to and downloading d
  | approvedLimit | Double |  no  |  |
  | proposedLimit | Double |  no  |  |
  | actionData | Object? |  yes  |  |
+ | actionRequirements | Object? |  yes  |  |
  | steps | ArrayList<[StepDetails](#StepDetails)>? |  yes  |  |
  | entityId | String |  no  |  |
  | entityMapId | String |  no  |  |
@@ -10656,6 +10657,7 @@ API endpoint to create a signed URL for uploading documents to and downloading d
  | merchantId | String? |  yes  |  |
  | actionName | String? |  yes  |  |
  | actionDescription | String? |  yes  |  |
+ | actionExpired | Boolean? |  yes  |  |
 
 ---
 
