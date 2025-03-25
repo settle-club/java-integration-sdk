@@ -261,7 +261,7 @@ true
 
 
 ### refund
-Refund Order
+Refund Order (Deprecated)
 
 
 
@@ -2192,6 +2192,47 @@ Success. Returns a JSON object as shown below. Refer `AddVintageResponse` for mo
  | ---------- | ---- | -------- | ----------- |
  | status | Boolean? |  yes  |  |
  | message | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [InvoiceFormResponse](#InvoiceFormResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | message | String? |  yes  |  |
+ | data | [InvoiceDataSchema](#InvoiceDataSchema)? |  yes  |  |
+ | meta | [IntegrationResponseMeta](#IntegrationResponseMeta)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [InvoiceDataSchema](#InvoiceDataSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | globalForms | ArrayList<[InvoiceFormsSchema](#InvoiceFormsSchema)>? |  yes  |  |
+ | stepForms | ArrayList<[InvoiceFormsSchema](#InvoiceFormsSchema)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [InvoiceFormsSchema](#InvoiceFormsSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String |  no  |  |
+ | name | String |  no  |  |
+ | title | String |  no  |  |
+ | form | HashMap<String,Object> |  no  |  |
+ | uiSchema | HashMap<String,Object> |  no  |  |
+ | index | Integer |  no  |  |
 
 ---
 

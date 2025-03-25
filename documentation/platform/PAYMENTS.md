@@ -213,10 +213,12 @@ Success. Returns a JSON object as shown below. Refer `PaymentLinkResponse` for m
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | amount | Double |  no  |  |
- | vpa | String |  no  |  |
+ | vpa | String? |  yes  |  |
  | chargeToken | String? |  yes  |  |
  | transactionId | String? |  yes  |  |
  | entityMapId | String? |  yes  |  |
+ | channel | String? |  yes  |  |
+ | provider | String? |  yes  |  |
 
 ---
 
@@ -234,6 +236,8 @@ Success. Returns a JSON object as shown below. Refer `PaymentLinkResponse` for m
  | transactionId | String? |  yes  |  |
  | expiry | Double? |  yes  |  |
  | interval | Double? |  yes  |  |
+ | intentLink | String? |  yes  |  |
+ | qrBase64 | String? |  yes  |  |
 
 ---
 

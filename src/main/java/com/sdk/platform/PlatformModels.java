@@ -3945,6 +3945,123 @@ public static class PNSRegisterResponse {
 }
 
 /*
+    Model: InvoiceFormResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class InvoiceFormResponse {
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private InvoiceDataSchema data;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private IntegrationResponseMeta meta;
+    
+    
+    
+    
+}
+
+/*
+    Model: InvoiceDataSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class InvoiceDataSchema {
+    
+    
+    
+    
+    @JsonProperty("globalForms")
+    private List<InvoiceFormsSchema> globalForms;
+    
+    
+    
+    
+    @JsonProperty("stepForms")
+    private List<InvoiceFormsSchema> stepForms;
+    
+    
+    
+    
+}
+
+/*
+    Model: InvoiceFormsSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class InvoiceFormsSchema {
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("title")
+    private String title;
+    
+    
+    
+    
+    @JsonProperty("form")
+    private Object form;
+    
+    
+    
+    
+    @JsonProperty("uiSchema")
+    private Object uiSchema;
+    
+    
+    
+    
+    @JsonProperty("index")
+    private Integer index;
+    
+    
+    
+    
+}
+
+/*
     Model: FaqResponse
 */
 @AllArgsConstructor
@@ -24137,6 +24254,18 @@ public static class RepaymentUsingUPI {
     
     
     
+    @JsonProperty("channel")
+    private String channel;
+    
+    
+    
+    
+    @JsonProperty("provider")
+    private String provider;
+    
+    
+    
+    
 }
 
 /*
@@ -24192,6 +24321,18 @@ public static class RepaymentUsingUPIResponse {
     
     @JsonProperty("interval")
     private Double interval;
+    
+    
+    
+    
+    @JsonProperty("intentLink")
+    private String intentLink;
+    
+    
+    
+    
+    @JsonProperty("qrBase64")
+    private String qrBase64;
     
     
     

@@ -30,6 +30,7 @@ Authentication Service
 * [getPageBySlug](#getpagebyslug)
 * [getFaqs](#getfaqs)
 * [getFaqById](#getfaqbyid)
+* [getInvoiceForms](#getinvoiceforms)
 * [verifyMagicLink](#verifymagiclink)
 * [getMerchantDetails](#getmerchantdetails)
 * [getMobileNavigations](#getmobilenavigations)
@@ -1483,6 +1484,60 @@ Success. Check the example shown below or refer `CategorySchema` for more detail
 
 ```json
 "#/components/examples/FaqCategoryExample"
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getInvoiceForms
+Get All Step of Invoice Forms
+
+
+
+
+```java
+user.getInvoiceForms() {
+  //use response
+}
+```
+
+
+
+
+Use this API to get Steps of Invoice Form & Global Form.
+
+*Returned Response:*
+
+
+
+
+[InvoiceFormResponse](#InvoiceFormResponse)
+
+Success. Check the example shown below or refer `InvoiceFormResponse` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; $ref</i></summary>
+
+```json
+"#/components/examples/InvoiceFormResponseExample"
 ```
 </details>
 
@@ -3143,6 +3198,48 @@ Success. Check the example shown below or refer `ProfileEditSuccess` for more de
  | status | Boolean? |  yes  |  |
  | message | String? |  yes  |  |
  | headers | HashMap<String,Object>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [InvoiceFormResponse](#InvoiceFormResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | message | String? |  yes  |  |
+ | data | [InvoiceDataSchema](#InvoiceDataSchema)? |  yes  |  |
+ | meta | [IntegrationResponseMeta](#IntegrationResponseMeta)? |  yes  |  |
+ | headers | HashMap<String,Object>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [InvoiceDataSchema](#InvoiceDataSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | globalForms | ArrayList<[InvoiceFormsSchema](#InvoiceFormsSchema)>? |  yes  |  |
+ | stepForms | ArrayList<[InvoiceFormsSchema](#InvoiceFormsSchema)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [InvoiceFormsSchema](#InvoiceFormsSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String |  no  |  |
+ | name | String |  no  |  |
+ | title | String |  no  |  |
+ | form | HashMap<String,Object> |  no  |  |
+ | uiSchema | HashMap<String,Object> |  no  |  |
+ | index | Integer |  no  |  |
 
 ---
 

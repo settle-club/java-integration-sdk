@@ -1480,6 +1480,47 @@ Success. Returns a JSON object as shown below. Refer `UserResponse` for more det
 
  
  
+ #### [InvoiceFormResponse](#InvoiceFormResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | message | String? |  yes  |  |
+ | data | [InvoiceDataSchema](#InvoiceDataSchema)? |  yes  |  |
+ | meta | [IntegrationResponseMeta](#IntegrationResponseMeta)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [InvoiceDataSchema](#InvoiceDataSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | globalForms | ArrayList<[InvoiceFormsSchema](#InvoiceFormsSchema)>? |  yes  |  |
+ | stepForms | ArrayList<[InvoiceFormsSchema](#InvoiceFormsSchema)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [InvoiceFormsSchema](#InvoiceFormsSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String |  no  |  |
+ | name | String |  no  |  |
+ | title | String |  no  |  |
+ | form | HashMap<String,Object> |  no  |  |
+ | uiSchema | HashMap<String,Object> |  no  |  |
+ | index | Integer |  no  |  |
+
+---
+
+
+ 
+ 
  #### [FaqResponse](#FaqResponse)
 
  | Properties | Type | Nullable | Description |
